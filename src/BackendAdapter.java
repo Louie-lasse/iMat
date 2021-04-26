@@ -4,7 +4,7 @@ import se.chalmers.cse.dat216.project.*;
 import java.io.File;
 import java.util.List;
 
-public class BackendAdapter extends IMatDataHandler{
+public class BackendAdapter{
     private static BackendAdapter adapterInstance = null;
     private final IMatDataHandler db = IMatDataHandler.getInstance();
 
