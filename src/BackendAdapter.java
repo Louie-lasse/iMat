@@ -83,10 +83,10 @@ public class BackendAdapter{
         List<Product> products = getProducts(pc);
         Comparator<Product> comparator;
         switch(sp.ordinal()){
-            case(0) -> { return products; }
-            case(1) -> comparator = new PriceComparator();
-            case(2) -> comparator = new EcologicalComparator();
-            default -> comparator = new AlphabeticalComparator();
+            case(0): return products;
+            case(1): comparator = new PriceComparator();
+            case(2): comparator = new EcologicalComparator();
+            default: comparator = new AlphabeticalComparator();
         }
         products.sort(comparator);
         if (reverseOrder) Collections.reverse(products);
