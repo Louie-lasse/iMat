@@ -1,6 +1,7 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+iMat.iml
 # Datasource local storage ignored files
 /../../../../../../:\Users\lovel\IdeaProjects\iMat\.idea/dataSources/
 /dataSources.local.xml
@@ -8,4 +9,3 @@
 /httpRequests/
 
 /libraries/
-iMat.iml
