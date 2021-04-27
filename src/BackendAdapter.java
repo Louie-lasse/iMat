@@ -84,8 +84,12 @@ public class BackendAdapter{
         Comparator<Product> comparator;
         switch(sp.ordinal()){
             case(0): return products;
-            case(1): comparator = new PriceComparator();
-            case(2): comparator = new EcologicalComparator();
+            case(1):
+                comparator = new PriceComparator();
+                break;
+            case(2):
+                comparator = new EcologicalComparator();
+                break;
             default: comparator = new AlphabeticalComparator();
         }
         products.sort(comparator);
