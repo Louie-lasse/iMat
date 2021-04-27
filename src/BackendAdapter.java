@@ -2,6 +2,9 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class BackendAdapter{
@@ -57,11 +60,38 @@ public class BackendAdapter{
 
     public Product getProduct(int idNbr) { return db.getProduct(idNbr); }
 
+    /**
+     * Returns all the products in the store
+     * @return All products in the store
+     */
     public List<Product> getProducts() {
         return db.getProducts();
     }
 
+    /**
+     * Find all products in a certain category
+     * @param pc A product category
+     * @return All Products in the category pc
+     */
     public List<Product> getProducts(ProductCategory pc) { return db.getProducts(pc); }
+
+    public List<Product> getProducts(ProductCategory pc, SortingPriority sp){
+        return getProducts(pc, sp, false);
+    }
+
+    public List<Product> getProducts(ProductCategory pc, SortingPriority sp, boolean reverseOrder) {
+        List<Product> products = getProducts(pc);
+        Comparator<Product> comparator;
+        switch(sp.ordinal()){
+            case(0) -> { return products; }
+            case(1) -> comparator = new PriceComparator();
+            case(2) -> comparator = new EcologicalComparator();
+            default -> comparator = new AlphabeticalComparator();
+        }
+        products.sort(comparator);
+        if (reverseOrder) Collections.reverse(products);
+        return products;
+    }
 
     public List<Product> findProducts(String s) { return db.findProducts(s); }
 
@@ -108,5 +138,35 @@ public class BackendAdapter{
     }
 
 
+    private static class PriceComparator implements Comparator<Product> {
 
+        @Override
+        public int compare(Product o1, Product o2) {
+            double price1 = o1.getPrice();
+            double price2 = o2.getPrice();
+            return Double.compare(price1, price2);
+        }
+    }
+
+    private static class EcologicalComparator implements Comparator<Product>{
+
+        @Override
+        public int compare(Product o1, Product o2) {
+            if (o1.isEcological() == o2.isEcological()){
+                return 0;
+            }
+            return o1.isEcological()? -1: 1;
+        }
+
+    }
+
+    private static class AlphabeticalComparator implements Comparator<Product> {
+
+        @Override
+        public int compare(Product o1, Product o2) {
+            String name1 = o1.getName();
+            String name2 = o2.getName();
+            return name1.compareTo(name2);
+        }
+    }
 }
