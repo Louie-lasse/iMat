@@ -2,16 +2,20 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class BackendAdapter{
     private static BackendAdapter adapterInstance = null;
     private final IMatDataHandler db = IMatDataHandler.getInstance();
+    private final HashMap<Category, Tree> treeMap = new HashMap<>();
 
-    private BackendAdapter(){ }
+    private BackendAdapter(){
+        initiateTree();
+    }
+
+    private void initiateTree(){
+        //TODO add all branches (custom master category) and leaves (regular categories) to the tree to find them
+    }
 
     public static BackendAdapter getInstance(){
         if (adapterInstance == null) {
@@ -64,7 +68,7 @@ public class BackendAdapter{
      * Returns all the products in the store
      * @return All products in the store
      */
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return db.getProducts();
     }
 
@@ -73,13 +77,15 @@ public class BackendAdapter{
      * @param pc A product category
      * @return All Products in the category pc
      */
-    public List<Product> getProducts(ProductCategory pc) { return db.getProducts(pc); }
+    public List<Product> getProducts(Category pc) {
+        return treeMap.get(pc).getProducts();
+    }
 
-    public List<Product> getProducts(ProductCategory pc, SortingPriority sp){
+    public List<Product> getProducts(Category pc, SortingPriority sp){
         return getProducts(pc, sp, false);
     }
 
-    public List<Product> getProducts(ProductCategory pc, SortingPriority sp, boolean reverseOrder) {
+    public List<Product> getProducts(Category pc, SortingPriority sp, boolean reverseOrder) {
         List<Product> products = getProducts(pc);
         Comparator<Product> comparator;
         switch(sp.ordinal()){
