@@ -12,7 +12,8 @@ public class Branch extends Tree{
     }
 
     public void add(Tree tree){
-        children.add(tree);
+        tree.setParent(this);
+        this.children.add(tree);
     }
 
     @Override

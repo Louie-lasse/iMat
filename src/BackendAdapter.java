@@ -103,6 +103,10 @@ public class BackendAdapter{
         return products;
     }
 
+    public List<Category> getSearchPath(Category c){
+        return treeMap.get(c).getSearchPath();
+    }
+
     public List<Product> findProducts(String s) { return db.findProducts(s); }
 
     public void addProduct(Product p) {
@@ -146,7 +150,6 @@ public class BackendAdapter{
     public String imatDirectory() {
         return db.imatDirectory();
     }
-
 
     private static class PriceComparator implements Comparator<Product> {
 
