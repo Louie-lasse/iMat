@@ -7,13 +7,22 @@ import java.util.*;
 public class BackendAdapter{
     private static BackendAdapter adapterInstance = null;
     private final IMatDataHandler db = IMatDataHandler.getInstance();
-    private final HashMap<Category, Tree> treeMap = new HashMap<>();
 
     private BackendAdapter(){
         initiateTree();
     }
 
     private void initiateTree(){
+        Tree tree;
+        Branch head = new Branch(Category.ALL);
+        List<Category> categories = Arrays.asList(Category.values());
+        categories.remove(categories.size()-1);
+        for (Category category: categories){
+            tree = new Leaf(category);
+            head.add(tree);
+        }
+
+
         //TODO add all branches (custom master category) and leaves (regular categories) to the tree to find them
     }
 
@@ -74,19 +83,19 @@ public class BackendAdapter{
 
     /**
      * Find all products in a certain category
-     * @param pc A product category
+     * @param category A product category
      * @return All Products in the category pc
      */
-    public List<Product> getProducts(Category pc) {
-        return treeMap.get(pc).getProducts();
+    public List<Product> getProducts(Category category) {
+        return Tree.get(category).getProducts();
     }
 
-    public List<Product> getProducts(Category pc, SortingPriority sp){
-        return getProducts(pc, sp, false);
+    public List<Product> getProducts(Category category, SortingPriority sp){
+        return getProducts(category, sp, false);
     }
 
-    public List<Product> getProducts(Category pc, SortingPriority sp, boolean reverseOrder) {
-        List<Product> products = getProducts(pc);
+    public List<Product> getProducts(Category category, SortingPriority sp, boolean reverseOrder) {
+        List<Product> products = getProducts(category);
         Comparator<Product> comparator;
         switch(sp.ordinal()){
             case(0): return products;
@@ -104,7 +113,7 @@ public class BackendAdapter{
     }
 
     public List<Category> getSearchPath(Category c){
-        return treeMap.get(c).getSearchPath();
+        return Tree.get(c).getSearchPath();
     }
 
     public List<Product> findProducts(String s) { return db.findProducts(s); }

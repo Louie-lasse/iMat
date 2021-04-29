@@ -2,6 +2,7 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public abstract class Tree {
@@ -14,12 +15,14 @@ public abstract class Tree {
 
     protected final Category category;
 
+    private static final HashMap<Category, Tree> treeMap = new HashMap<>();
+
     private Tree parent = null;
-    //FIXME kan lösa så att varje kategori berättar vilka föräldrar den har, dock kan man bara lägga till
-    // en kategori på ett ställe
+    //The tree is mapped in the constructor
 
     protected Tree(Category category) {
         this.category = category;
+        treeMap.put(category, this);
     }
 
     public abstract List<Product> getProducts();
@@ -34,5 +37,8 @@ public abstract class Tree {
                 new ArrayList<>(): parent.getSearchPath();
         path.add(category);
         return path;
+    }
+    public static Tree get(Category c){
+        return treeMap.get(c);
     }
 }

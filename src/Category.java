@@ -21,7 +21,8 @@ public enum Category {
     ROOT_VEGETABLE("Rotfrukter", ProductCategory.ROOT_VEGETABLE),
     FRUIT("Frukt", ProductCategory.FRUIT),
     SWEET("Sötsaker", ProductCategory.SWEET),
-    HERB("Örter", ProductCategory.HERB);
+    HERB("Örter", ProductCategory.HERB),
+    ALL("Alla");
 
     private final String name;
 
