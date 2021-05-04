@@ -16,7 +16,7 @@ public class BackendAdapter{
         Tree tree;
         Branch head = new Branch(Category.ALL);
         List<Category> categories = Arrays.asList(Category.values());
-        categories.remove(categories.size()-1);
+        categories.remove(categories.size()-2);
         for (Category category: categories){
             tree = new Leaf(category);
             head.add(tree);
@@ -81,6 +81,15 @@ public class BackendAdapter{
         return db.getProducts();
     }
 
+    public List<Product> getAllProducts(SortingPriority sp) {
+        return getAllProducts(sp, false);
+    }
+
+    public List<Product> getAllProducts(SortingPriority sp, boolean reverseOrder){
+        List<Product> products = getAllProducts();
+        return sort(products, sp, reverseOrder);
+    }
+
     /**
      * Find all products in a certain category
      * @param category A product category
@@ -96,6 +105,10 @@ public class BackendAdapter{
 
     public List<Product> getProducts(Category category, SortingPriority sp, boolean reverseOrder) {
         List<Product> products = getProducts(category);
+        return sort(products, sp, reverseOrder);
+    }
+
+    private List<Product> sort(List<Product> products, SortingPriority sp, boolean reverseOrder){
         Comparator<Product> comparator;
         switch(sp.ordinal()){
             case(0): return products;
