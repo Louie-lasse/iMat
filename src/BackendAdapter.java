@@ -151,7 +151,7 @@ public class BackendAdapter{
         return db.isFavorite(p);
     }
 
-    public List<Product> favorites() {
+    public List<Product> getFavorites() {
         return db.favorites();
     }
 
