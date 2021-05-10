@@ -2,22 +2,39 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 
 public class BackendAdapter{
     private static BackendAdapter adapterInstance = null;
-    private final IMatDataHandler db = IMatDataHandler.getInstance();
+    private IMatDataHandler db;
 
     private BackendAdapter(){ }
+
+    private void initiateTree(){
+        Tree tree;
+        Branch head = new Branch(Category.ALL);
+        List<Category> categories = Arrays.asList(Category.values());
+        categories.remove(categories.size()-2);
+        for (Category category: categories){
+            tree = new Leaf(category);
+            head.add(tree);
+        }
+
+
+        //TODO add all branches (custom master category) and leaves (regular categories) to the tree to find them
+    }
 
     public static BackendAdapter getInstance(){
         if (adapterInstance == null) {
             adapterInstance = new BackendAdapter();
+            adapterInstance.init();
         }
         return adapterInstance;
+    }
+
+    private void init(){
+        initiateTree();
+        db = IMatDataHandler.getInstance();
     }
 
     public void shutDown() { db.shutDown(); }
@@ -64,33 +81,56 @@ public class BackendAdapter{
      * Returns all the products in the store
      * @return All products in the store
      */
-    public List<Product> getProducts() {
+    public List<Product> getAllProducts() {
         return db.getProducts();
+    }
+
+    public List<Product> getAllProducts(SortingPriority sp) {
+        return getAllProducts(sp, false);
+    }
+
+    public List<Product> getAllProducts(SortingPriority sp, boolean reverseOrder){
+        List<Product> products = getAllProducts();
+        return sort(products, sp, reverseOrder);
     }
 
     /**
      * Find all products in a certain category
-     * @param pc A product category
+     * @param category A product category
      * @return All Products in the category pc
      */
-    public List<Product> getProducts(ProductCategory pc) { return db.getProducts(pc); }
-
-    public List<Product> getProducts(ProductCategory pc, SortingPriority sp){
-        return getProducts(pc, sp, false);
+    public List<Product> getProducts(Category category) {
+        return Tree.get(category).getProducts();
     }
 
-    public List<Product> getProducts(ProductCategory pc, SortingPriority sp, boolean reverseOrder) {
-        List<Product> products = getProducts(pc);
+    public List<Product> getProducts(Category category, SortingPriority sp){
+        return getProducts(category, sp, false);
+    }
+
+    public List<Product> getProducts(Category category, SortingPriority sp, boolean reverseOrder) {
+        List<Product> products = getProducts(category);
+        return sort(products, sp, reverseOrder);
+    }
+
+    private List<Product> sort(List<Product> products, SortingPriority sp, boolean reverseOrder){
         Comparator<Product> comparator;
         switch(sp.ordinal()){
-            case(0) -> { return products; }
-            case(1) -> comparator = new PriceComparator();
-            case(2) -> comparator = new EcologicalComparator();
-            default -> comparator = new AlphabeticalComparator();
+            case(0): return products;
+            case(1):
+                comparator = new PriceComparator();
+                break;
+            case(2):
+                comparator = new EcologicalComparator();
+                break;
+            default: comparator = new AlphabeticalComparator();
         }
         products.sort(comparator);
         if (reverseOrder) Collections.reverse(products);
         return products;
+    }
+
+    public List<Category> getSearchPath(Category c){
+        return Tree.get(c).getSearchPath();
     }
 
     public List<Product> findProducts(String s) { return db.findProducts(s); }
@@ -115,8 +155,12 @@ public class BackendAdapter{
         return db.isFavorite(p);
     }
 
-    public List<Product> favorites() {
+    public List<Product> getFavorites() {
         return db.favorites();
+    }
+
+    public Unit getUnit(Product p){
+        return Unit.get(p);
     }
 
     public boolean hasImage(Product p) {
@@ -136,7 +180,6 @@ public class BackendAdapter{
     public String imatDirectory() {
         return db.imatDirectory();
     }
-
 
     private static class PriceComparator implements Comparator<Product> {
 
