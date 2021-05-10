@@ -6,11 +6,9 @@ import java.util.*;
 
 public class BackendAdapter{
     private static BackendAdapter adapterInstance = null;
-    private final IMatDataHandler db = IMatDataHandler.getInstance();
+    private IMatDataHandler db;
 
-    private BackendAdapter(){
-        initiateTree();
-    }
+    private BackendAdapter(){ }
 
     private void initiateTree(){
         Tree tree;
@@ -29,8 +27,14 @@ public class BackendAdapter{
     public static BackendAdapter getInstance(){
         if (adapterInstance == null) {
             adapterInstance = new BackendAdapter();
+            adapterInstance.init();
         }
         return adapterInstance;
+    }
+
+    private void init(){
+        initiateTree();
+        db = IMatDataHandler.getInstance();
     }
 
     public void shutDown() { db.shutDown(); }
@@ -153,6 +157,10 @@ public class BackendAdapter{
 
     public List<Product> getFavorites() {
         return db.favorites();
+    }
+
+    public Unit getUnit(Product p){
+        return Unit.get(p);
     }
 
     public boolean hasImage(Product p) {
