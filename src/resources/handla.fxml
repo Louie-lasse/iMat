@@ -1,11 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #09cdda;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="281.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Handla" AnchorPane.leftAnchor="281.0" AnchorPane.topAnchor="192.0" />
+      <ScrollPane layoutY="113.0" prefHeight="710.0" prefWidth="1220.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="113.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="806.0" prefWidth="1440.0">
+               <children>
+                  <VBox layoutX="62.0" layoutY="58.0" prefHeight="394.0" prefWidth="220.0">
+                     <children>
+                        <Accordion>
+                          <panes>
+                              <TitledPane animated="false" style="-fx-background-color: #ff0000;" text="Frukt &amp; Grönt">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="218.0">
+                                       <children>
+                                          <Label prefHeight="47.0" prefWidth="219.0" style="-fx-background-color: FFB881;" text="     Frukt" textFill="WHITE">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                          <Label layoutY="47.0" prefHeight="47.0" prefWidth="219.0" style="-fx-background-color: FFB881;" text="    Grönt" textFill="WHITE">
+                                             <font>
+                                                <Font size="16.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </AnchorPane>
+                                 </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TitledPane>
+                            <TitledPane animated="false" text="Kött &amp; Fisk">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                            </TitledPane>
+                            <TitledPane animated="false" text="Mejeri &amp; Ägg">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                            </TitledPane>
+                              <TitledPane animated="false" text="Bröd &amp; Bageri">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" text="Sött &amp; Snacks">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TitledPane>
+                              <TitledPane animated="false" text="Dryck">
+                                 <content>
+                                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                                 </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TitledPane>
+                            <TitledPane animated="false" text="Frukt &amp; Grönt">
+                              <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                              </content>
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                            </TitledPane>
+                          </panes>
+                        </Accordion>
+                     </children>
+                  </VBox>
+                  <Label layoutX="62.0" layoutY="21.0" text="Kategorier">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="380.0" layoutY="43.0" text="Frukt &amp; Grönt">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="419.0" layoutY="79.0" text="Frukt">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="394.0" layoutY="446.0" text="Kött &amp; Fisk">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1193.0" layoutY="73.0" text="Visa Alla -&gt;">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1192.0" layoutY="462.0" text="Visa Alla -&gt;">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
    </children>
 </AnchorPane>
