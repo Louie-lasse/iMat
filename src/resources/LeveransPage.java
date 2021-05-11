@@ -4,11 +4,10 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
-public class VarukorgPage extends Page{
+public class LeveransPage extends Page{
+    LeveransPage(){
 
-    public VarukorgPage(){
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("varukorg.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leverans.fxml"));
         fxmlLoader.setController(this);
 
         try {
@@ -22,12 +21,12 @@ public class VarukorgPage extends Page{
     }
 
     @Override
-    protected void initialize(){
+    public void update() {
 
     }
 
     @Override
-    public void update() {
+    protected void initialize() {
 
     }
 }
