@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.Menu">
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;">
          <children>
@@ -35,7 +35,7 @@
             </Label>
             <ImageView fx:id="serachLogo" fitHeight="48.0" fitWidth="48.0" layoutX="1043.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@search.png" />
+                  <Image url="@images/search.png" />
                </image>
             </ImageView>
             <Label fx:id="cartLabel" layoutX="1153.0" layoutY="4.0" text="Varukorg">
@@ -50,7 +50,7 @@
             </Label>
             <ImageView fx:id="profile" fitHeight="48.0" fitWidth="48.0" layoutX="1263.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="30.0">
                <image>
-                  <Image url="@profile.png" />
+                  <Image url="@images/profile.png" />
                </image>
             </ImageView>
             <ImageView fx:id="help" fitHeight="48.0" fitWidth="48.0" layoutX="1337.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
@@ -60,7 +60,7 @@
             </ImageView>
             <ImageView fx:id="cart" fitHeight="48.0" fitWidth="48.0" layoutX="1155.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0">
                <image>
-                  <Image url="@shoppingCart.png" />
+                  <Image url="@images/shoppingCart.png" />
                </image>
             </ImageView>
             <Label fx:id="helpLabel" layoutX="1347.0" layoutY="4.0" text="Hjälp">
