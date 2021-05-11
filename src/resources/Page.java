@@ -17,5 +17,5 @@ public abstract class Page extends AnchorPane {
     protected void nextButtonPressed(Event e){
         parent.showNextWindow();
     }
-
+    public abstract void update();
 }

@@ -18,11 +18,15 @@ public class HandlaPage extends Page{
         }
 
         initialize();
-        populateCardView();
+        update();
     }
 
     private void initialize(){
         //fix components
+    }
+
+    public void update(){
+        populateCardView();
     }
 
     private void populateCardView(){
