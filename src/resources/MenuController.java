@@ -22,6 +22,9 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
+        pages.add(new VarukorgPage());
+        pages.add(new LeveransPage());
+
     }
 
     public void showPreviousWindow(){
