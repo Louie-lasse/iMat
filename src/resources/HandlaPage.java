@@ -3,6 +3,7 @@ package resources;
 import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
+import java.util.Locale;
 
 public class HandlaPage extends Page{
     public HandlaPage() {
@@ -32,5 +33,9 @@ public class HandlaPage extends Page{
 
     private void populateCardView(){
 
+    }
+
+    public void categoryClicked(Locale.Category category) {
+        //TODO write
     }
 }
