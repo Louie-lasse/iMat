@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.Menu">
+   <children>
+      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;">
+         <children>
+            <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@iMatIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="home" fitHeight="48.0" fitWidth="48.0" layoutX="205.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@home.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="homeLabel" layoutX="212.0" layoutY="4.0" text="Hem">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <TextField fx:id="serach" layoutX="313.0" layoutY="26.0" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" />
+            <Label fx:id="serachLabel" layoutX="327.0" layoutY="41.0" text="Sök efter vara...">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="serachLogo" fitHeight="48.0" fitWidth="48.0" layoutX="1043.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@search.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="cartLabel" layoutX="1153.0" layoutY="4.0" text="Varukorg">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="profileLabel" layoutX="1242.0" layoutY="4.0" text="Min profil">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="profile" fitHeight="48.0" fitWidth="48.0" layoutX="1263.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="30.0">
+               <image>
+                  <Image url="@profile.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="help" fitHeight="48.0" fitWidth="48.0" layoutX="1337.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
+               <image>
+                  <Image url="@help.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="cart" fitHeight="48.0" fitWidth="48.0" layoutX="1155.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0">
+               <image>
+                  <Image url="@shoppingCart.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="helpLabel" layoutX="1347.0" layoutY="4.0" text="Hjälp">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
