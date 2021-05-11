@@ -6,13 +6,20 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
+      <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
+      <StackPane fx:id="PageView" prefHeight="772.0" prefWidth="1440.0" AnchorPane.bottomAnchor="144.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0" />
       <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
@@ -79,11 +86,6 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
       <AnchorPane layoutX="-1.0" layoutY="919.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="-0.599999999999909" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0">
          <children>
             <Circle fill="#c4c4c4" layoutX="829.0" layoutY="50.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="27.599999999999994" AnchorPane.rightAnchor="583.0" />
@@ -96,36 +98,36 @@
             <Label layoutX="805.0" layoutY="78.0" text="Leverans" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="805.0" />
             <Label layoutX="1027.0" layoutY="81.0" text="Kassa" AnchorPane.bottomAnchor="10.200000000000003" AnchorPane.rightAnchor="383.4" />
             <Rectangle fill="#c4c4c4" height="15.0" layoutX="420.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="170.0" AnchorPane.bottomAnchor="47.599999999999994" AnchorPane.leftAnchor="420.0" />
-            <Rectangle fill="#c4c4c4" height="15.0" layoutX="852.0" layoutY="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="174.0" AnchorPane.bottomAnchor="49.0" AnchorPane.rightAnchor="414.0" />
+            <Rectangle fill="#c4c4c4" height="15.0" layoutX="852.0" layoutY="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="174.0" AnchorPane.bottomAnchor="49.0" />
             <Rectangle fill="#c4c4c4" height="15.0" layoutX="637.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="170.0" AnchorPane.bottomAnchor="47.599999999999994" AnchorPane.leftAnchor="637.0" AnchorPane.rightAnchor="633.0" />
-            <Rectangle fx:id="progressBar21" fill="#32c671" height="11.0" layoutX="846.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="49.8" AnchorPane.leftAnchor="634.0" AnchorPane.rightAnchor="628.0" />
-            <Rectangle fx:id="progressBar1" fill="#32c671" height="11.0" layoutX="415.0" layoutY="45.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="49.599999999999994" AnchorPane.leftAnchor="415.0" />
-            <Rectangle fx:id="progressBar2" fill="#32c671" height="11.0" layoutX="852.0" layoutY="44.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="50.599999999999994" AnchorPane.rightAnchor="410.0" />
+            <Rectangle fx:id="progressBar21" fill="#32c671" height="11.0" layoutX="630.000000000001" layoutY="89.59999999999987" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="48.200000000000145" AnchorPane.rightAnchor="631.999999999999" />
+            <Rectangle fx:id="progressBar1" fill="#32c671" height="11.0" layoutX="429.0" layoutY="89.79999999999987" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="48.00000000000014" />
+            <Rectangle fx:id="progressBar2" fill="#32c671" height="11.0" layoutX="845.1999999999967" layoutY="88.79999999999987" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="178.0" AnchorPane.bottomAnchor="49.00000000000014" AnchorPane.rightAnchor="416.80000000000325" />
             <Circle fx:id="progress4" fill="#32c671" layoutX="1042.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.leftAnchor="1016.5999999999999" AnchorPane.rightAnchor="373.0" />
-            <Circle fx:id="progress3" fill="#32c671" layoutX="829.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.rightAnchor="586.0" />
-            <Circle fx:id="progress2" fill="#32c671" layoutX="612.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.leftAnchor="587.0" />
-            <Circle fx:id="progress1" fill="#32c671" layoutX="394.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.leftAnchor="369.0" />
-            <Label fx:id="progress1Label" alignment="CENTER" layoutX="376.0" layoutY="34.0" prefHeight="26.0" prefWidth="36.0" text="1" textFill="WHITE" AnchorPane.bottomAnchor="39.599999999999994" AnchorPane.leftAnchor="376.0">
+            <Circle fx:id="progress3" fill="#32c671" layoutX="829.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" />
+            <Circle fx:id="progress2" fill="#32c671" layoutX="612.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" />
+            <Circle fx:id="progress1" fill="#32c671" layoutX="394.0" layoutY="50.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.bottomAnchor="30.599999999999994" />
+            <Label fx:id="progress1Label" alignment="CENTER" layoutX="376.0" layoutY="34.0" prefHeight="26.0" prefWidth="36.0" text="1" textFill="WHITE" AnchorPane.bottomAnchor="39.599999999999994">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="progress2Label" alignment="CENTER" layoutX="595.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="2" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994" AnchorPane.leftAnchor="595.0">
+            <Label fx:id="progress2Label" alignment="CENTER" layoutX="595.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="2" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="progress3Label" alignment="CENTER" layoutX="811.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="3" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994" AnchorPane.rightAnchor="593.0">
+            <Label fx:id="progress3Label" alignment="CENTER" layoutX="811.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="3" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Label fx:id="progress4Label" alignment="CENTER" layoutX="1023.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="4" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994" AnchorPane.rightAnchor="381.0">
+            <Label fx:id="progress4Label" alignment="CENTER" layoutX="1023.0" layoutY="33.0" prefHeight="26.0" prefWidth="36.0" text="4" textFill="WHITE" AnchorPane.bottomAnchor="40.599999999999994">
                <font>
                   <Font size="22.0" />
                </font>
             </Label>
-            <Button fx:id="forward" layoutX="1186.0" layoutY="26.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="134.0" style="-fx-background-color: #FFA14A;" text="Gå vidare" textFill="WHITE" AnchorPane.bottomAnchor="18.799999999999997" AnchorPane.rightAnchor="119.59999999999991">
+            <Button fx:id="forward" layoutX="1186.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="64.0" prefWidth="134.0" style="-fx-background-color: #FFA14A;" text="Gå vidare" textFill="WHITE" AnchorPane.bottomAnchor="18.799999999999997" AnchorPane.rightAnchor="119.59999999999991">
                <font>
                   <Font size="16.0" />
                </font>
@@ -135,7 +137,7 @@
                   <Image url="@images/baseline_arrow_forward_ios_white_24dp.png" />
                </image>
             </ImageView>
-            <Button fx:id="back" layoutX="97.0" layoutY="25.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: d1d1d1;" text="Föregående" AnchorPane.bottomAnchor="24.599999999999994" AnchorPane.leftAnchor="97.0">
+            <Button fx:id="back" layoutX="97.0" layoutY="25.0" mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: d1d1d1;" text="Föregående" AnchorPane.bottomAnchor="24.599999999999994" AnchorPane.leftAnchor="97.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -145,27 +147,27 @@
                   <Image url="@images/baseline_arrow_back_ios_black_24dp.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="checkbox1" fitHeight="50.0" fitWidth="50.0" layoutX="369.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.leftAnchor="369.0">
+            <ImageView fx:id="checkbox1" fitHeight="50.0" fitWidth="50.0" layoutX="383.0" layoutY="59.39999999999976" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.40000000000026">
                <image>
                   <Image url="@images/checkmark.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="checkbox2" fitHeight="50.0" fitWidth="50.0" layoutX="804.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.rightAnchor="586.0">
+            <ImageView fx:id="checkbox2" fitHeight="50.0" fitWidth="50.0" layoutX="797.2000000000012" layoutY="59.39999999999976" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.40000000000026" AnchorPane.rightAnchor="592.7999999999988">
                <image>
                   <Image url="@images/checkmark.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="checkbox3" fitHeight="50.0" fitWidth="50.0" layoutX="588.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.leftAnchor="588.0">
+            <ImageView fx:id="checkbox3" fitHeight="50.0" fitWidth="50.0" layoutX="602.0" layoutY="59.39999999999976" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.40000000000026">
                <image>
                   <Image url="@images/checkmark.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="checkbox4" fitHeight="50.0" fitWidth="50.0" layoutX="1017.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="30.599999999999994" AnchorPane.rightAnchor="373.0">
+            <ImageView fx:id="checkbox4" fitHeight="50.0" fitWidth="50.0" layoutX="1010.1999999999954" layoutY="59.39999999999976" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="39.40000000000026" AnchorPane.rightAnchor="379.80000000000473">
                <image>
                   <Image url="@images/checkmark.png" />
                </image>
             </ImageView>
-            <Label layoutX="589.0" layoutY="83.0" text="Varukorg" />
+            <Label layoutX="587.0" layoutY="131.0" text="Varukorg" />
          </children>
       </AnchorPane>
    </children>
