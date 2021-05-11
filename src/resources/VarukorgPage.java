@@ -4,10 +4,11 @@ import javafx.fxml.FXMLLoader;
 
 import java.io.IOException;
 
-public class HandlaPage extends Page{
-    public HandlaPage() {
+public class VarukorgPage extends Page{
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("handla.fxml"));
+    public VarukorgPage(){
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("varukorg.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -23,15 +24,11 @@ public class HandlaPage extends Page{
 
     @Override
     protected void initialize(){
-        //fix components
+
     }
 
     @Override
-    public void update(){
-        populateCardView();
-    }
-
-    private void populateCardView(){
+    public void update() {
 
     }
 }
