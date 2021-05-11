@@ -1,7 +1,6 @@
 .background-pane{
     -fx-background-color: #FFFFFF;
-    -fx-border-radius: 5 5 5 5;
-    -fx-background-radius: 5 5 5 5;
+    -fx-background-radius: 30;
 }
 
 .item-name{
@@ -34,24 +33,32 @@
     -fx-alignment: center;
 }
 
-.round-button-gray{
-    -fx-background-color: #C4C4C4;
+.round-button{
     -fx-border-radius: 30 30 30 30;
     -fx-background-radius: 30 30 30 30;
+
+
+}
+
+.gray-button{
+    -fx-background-color: #C4C4C4;
     -fx-font-size: 20px;
     -fx-font-family: "Roboto";
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-text-fill: #FFFFFF;
-
 }
 
-.round-button-orange{
+.orange-button{
     -fx-background-color: #FFA14A;
-    -fx-border-radius: 30 30 30 30;
-    -fx-background-radius: 30 30 30 30;
-
+    -fx-font-size: 20px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-fill: #FFFFFF;
 }
+
+.root { -fx-background-color: transparent; }
 
 .button-text{
     -fx-font-size: 40px;
