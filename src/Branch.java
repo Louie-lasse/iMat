@@ -11,6 +11,10 @@ public class Branch extends Tree{
         super(category);
     }
 
+    public void add(List<Tree> trees){
+        for (Tree tree: trees) add(tree);
+    }
+
     public void add(Tree tree){
         tree.setParent(this);
         this.children.add(tree);

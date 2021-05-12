@@ -22,7 +22,14 @@ public enum Category {
     FRUIT("Frukt", ProductCategory.FRUIT),
     SWEET("Sötsaker", ProductCategory.SWEET),
     HERB("Örter", ProductCategory.HERB),
-    ALL("Alla");
+    FRUITS_ALL("Frukter"),
+    BERRIES_EXOTIC_FRUIT("Bär och exotiska frukter"),
+    VEGETABLES("Grönsaker"),
+    FRUITS_AND_GREEN("Frukt och grönt"),
+    DRINKS("Drycker"),
+    MEAT_AND_FISH("Kött och fisk"),
+    BREAD_AND_SWEETS("Bröd, fikabröd och sötsaket"),
+    PANTRY("Skafferi");
 
     private final String name;
 
