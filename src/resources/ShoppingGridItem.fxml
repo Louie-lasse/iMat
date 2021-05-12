@@ -1,14 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="resources.ShoppingGridItem"
-            prefHeight="203.5" prefWidth="203.5">
 
+<AnchorPane prefHeight="295.0" prefWidth="204.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.ShoppingGridItem">
+   <children>
+      <ImageView fx:id="ProductImage" fitHeight="119.0" fitWidth="145.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../OneDrive/Bilder/äpple.jpg" />
+         </image>
+         <viewport>
+            <Rectangle2D />
+         </viewport>
+      </ImageView>
+      <Label fx:id="NameLabel" layoutX="25.0" layoutY="140.0" styleClass="item-name" text="Something" />
+      <Label fx:id="PriceLabel" layoutX="26.0" layoutY="165.0" styleClass="item-price" text="50 kr/st" />
+      <Label layoutX="26.0" layoutY="190.0" styleClass="px20-text" text="Antal i varukorg:" />
+      <TextField fx:id="AmountText" layoutX="8.0" layoutY="224.0" prefHeight="52.0" prefWidth="188.0" styleClass="text-field-empty" text="0 st" />
+      <AnchorPane layoutX="143.0" layoutY="224.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
+               <styleClass>
+                  <String fx:value="orange-button" />
+                  <String fx:value="round-button" />
+               </styleClass>
+            </Button>
+            <Label layoutX="11.333333333" layoutY="-1.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="8.0" layoutY="224.0" prefHeight="52.0" prefWidth="54.0">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
+               <styleClass>
+                  <String fx:value="round-button" />
+                  <String fx:value="gray-button" />
+               </styleClass>
+            </Button>
+            <Label layoutX="17.0" layoutY="-3.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+         </children>
+      </AnchorPane>
+   </children>
+   <effect>
+      <DropShadow />
+   </effect>
 </AnchorPane>

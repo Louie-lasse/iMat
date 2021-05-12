@@ -1,6 +1,6 @@
 .background-pane{
     -fx-background-color: #FFFFFF;
-    -fx-background-radius: 30;
+    -fx-background-radius: 10;
 }
 
 .item-name{
@@ -25,17 +25,30 @@
     -fx-background-color: #FFFFFF;
     -fx-border-width: 3px;
     -fx-border-color: #EDEDED;
-    -fx-border-radius: 30 30 30 30;
-    -fx-background-radius: 30 30 30 30;
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
     -fx-font-size: 23px;
     -fx-font-family: "Roboto";
     -fx-font-weight: bold;
     -fx-alignment: center;
 }
 
+.orange-text-field{
+    -fx-background-color: #FFA14A;
+    -fx-border-width: 3px;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
+    -fx-font-size: 23px;
+    -fx-font-family: "Roboto";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
 .round-button{
-    -fx-border-radius: 30 30 30 30;
-    -fx-background-radius: 30 30 30 30;
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
 
 
 }
@@ -51,6 +64,9 @@
 
 .orange-button{
     -fx-background-color: #FFA14A;
+    border-spacing: 0;
+    -fx-border-width: 3px;
+    -fx-border-color: #FFFFFF;
     -fx-font-size: 20px;
     -fx-font-family: "Roboto";
     -fx-font-weight: bold;
@@ -58,7 +74,7 @@
     -fx-text-fill: #FFFFFF;
 }
 
-.root { -fx-background-color: transparent; }
+
 
 .button-text{
     -fx-font-size: 40px;
