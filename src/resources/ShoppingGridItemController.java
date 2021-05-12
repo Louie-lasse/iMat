@@ -36,8 +36,8 @@ public class ShoppingGridItemController {
         Parent root = FXMLLoader.load(getClass().getResource("Preview.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        scene.setFill(Color.TRANSPARENT);
-        stage.initStyle(StageStyle.TRANSPARENT);
+        scene.setFill(Color.TRANSPARENT); //Makes the back-background of the cards transparent
+        stage.initStyle(StageStyle.TRANSPARENT); //Makes the back-background of the cards transparent
         stage.show();
 
     }
