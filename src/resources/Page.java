@@ -3,6 +3,7 @@ package resources;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
+
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 
 public abstract class Page extends AnchorPane {
