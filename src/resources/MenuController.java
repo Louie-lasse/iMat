@@ -21,7 +21,6 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
@@ -29,12 +28,7 @@ public class MenuController implements Initializable {
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         pages.get(currentPageIndex).toFront();
-
-         */
         Page.setParent(this);
-        PageView.getChildren().clear();
-        PageView.getChildren().add(new HandlaPage());
-
     }
 
     @FXML

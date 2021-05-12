@@ -8,6 +8,7 @@ public class LeveransPage extends Page{
     LeveransPage(){
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leverans.fxml"));
+        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {

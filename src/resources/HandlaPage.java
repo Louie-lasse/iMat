@@ -9,6 +9,7 @@ public class HandlaPage extends Page{
     public HandlaPage() {
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("handla.fxml"));
+        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {
