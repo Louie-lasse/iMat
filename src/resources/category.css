@@ -1,0 +1,45 @@
+.headCategory{
+    -fx-background-color: #FFA14A;
+}
+.headCategory-hover {
+
+}
+
+.headCategory-click{
+
+}
+
+.subCategory{
+    -fx-background-color: #FFB881;
+}
+
+.subCategory-hover{
+
+}
+
+.subCategory-click{
+
+}
+
+.selected{
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 3pt;
+    -fx-border-color: #C47C39;
+}
+
+.selected-text{
+    -fx-text-fill: #C47C39;
+}
+
+.unSelected{
+    -fx-background-color: #505050;
+    -fx-border-width: 1pt;
+}
+
+.unSelected-text{
+    -fx-text-fill: #FFFFFF;
+}
+
+#text-font{
+    -fx-font-family: "Roboto Light";
+}
