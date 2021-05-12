@@ -83,3 +83,10 @@
     -fx-alignment: center;
     -fx-text-fill: #FFFFFF;
 }
+
+
+.px18-text{
+    -fx-font-size: 18px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}

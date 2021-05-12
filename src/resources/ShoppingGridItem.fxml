@@ -10,7 +10,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="295.0" prefWidth="204.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.ShoppingGridItem">
    <children>
       <ImageView fx:id="ProductImage" fitHeight="119.0" fitWidth="145.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
