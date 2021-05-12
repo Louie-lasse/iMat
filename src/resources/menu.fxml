@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -20,9 +20,15 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <StackPane fx:id="PageView" layoutX="7.0" layoutY="108.0" prefHeight="803.0" prefWidth="1440.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0" />
+      <StackPane fx:id="PageView" layoutY="107.0" prefHeight="803.0" prefWidth="1440.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
+         <children>
+            <AnchorPane prefHeight="162.0" prefWidth="290.0" />
+         </children></StackPane>
       <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <Rectangle fx:id="helpBackgorund" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1328.0" layoutY="-2.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="0.0" />
+            <Rectangle fx:id="profileBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1228.0" layoutY="1.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="0.0" />
+            <Rectangle fx:id="cartBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1133.0" layoutY="11.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0" />
             <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                <image>
                   <Image url="@images/iMatIcon.png" />
@@ -87,19 +93,19 @@
             </Label>
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="-1.0" layoutY="919.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="1.0">
+      <AnchorPane layoutX="-1.0" layoutY="919.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="-0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <Button fx:id="back" layoutX="105.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: d1d1d1;" text="Föregående" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="115.0">
+            <Button fx:id="backButton" layoutX="105.0" layoutY="22.0" mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: d1d1d1;" text="Föregående" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="60.0">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
-            <ImageView fitHeight="42.0" fitWidth="30.0" layoutX="117.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="117.0">
+            <ImageView fitHeight="42.0" fitWidth="30.0" layoutX="60.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="37.599999999999994" AnchorPane.leftAnchor="60.0">
                <image>
                   <Image url="@images/baseline_arrow_back_ios_black_24dp.png" />
                </image>
             </ImageView>
-            <Button fx:id="forward" layoutX="1242.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="64.0" prefWidth="134.0" style="-fx-background-color: #FFA14A;" text="Gå vidare" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="64.0">
+            <Button fx:id="forwardButton" layoutX="1242.0" layoutY="21.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="64.0" prefWidth="134.0" style="-fx-background-color: #FFA14A;" text="Gå vidare" textFill="WHITE" AnchorPane.bottomAnchor="25.0" AnchorPane.rightAnchor="64.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -109,7 +115,7 @@
                   <Image url="@images/baseline_arrow_forward_ios_white_24dp.png" />
                </image>
             </ImageView>
-            <Pane layoutX="344.0" layoutY="2.0" prefHeight="100.0" prefWidth="747.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="344.0" AnchorPane.rightAnchor="349.0">
+            <Pane layoutX="386.0" layoutY="3.0" prefHeight="100.0" prefWidth="747.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="307.0">
                <children>
                   <Circle fill="#c4c4c4" layoutX="36.0" layoutY="45.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Circle fill="#c4c4c4" layoutX="702.0" layoutY="45.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />

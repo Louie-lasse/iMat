@@ -11,17 +11,26 @@ public class BackendAdapter{
     private BackendAdapter(){ }
 
     private void initiateTree(){
-        Tree tree;
-        Branch head = new Branch(Category.ALL);
-        List<Category> categories = Arrays.asList(Category.values());
-        categories.remove(categories.size()-2);
-        for (Category category: categories){
-            tree = new Leaf(category);
-            head.add(tree);
-        }
-
-
-        //TODO add all branches (custom master category) and leaves (regular categories) to the tree to find them
+        Branch h1 = new Branch(Category.FRUITS_ALL);
+        h1.add(new Leaf(Category.FRUIT));
+        h1.add(new Leaf(Category.MELONS));
+        h1.add(new Leaf(Category.CITRUS_FRUIT));
+        Branch h2 = new Branch(Category.BERRIES_EXOTIC_FRUIT);
+        h2.add(new Leaf(Category.EXOTIC_FRUIT));
+        h2.add(new Leaf(Category.BERRY));
+        Branch h3 = new Branch(Category.VEGETABLES);
+        h3.add(new Leaf(Category.POD));
+        h3.add(new Leaf(Category.CABBAGE));
+        h3.add(new Leaf(Category.VEGETABLE_FRUIT));
+        Branch fruitsAndVeg = new Branch(Category.FRUITS_AND_GREEN);
+        fruitsAndVeg.add(h1);
+        fruitsAndVeg.add(h2);
+        fruitsAndVeg.add(h3);
+        fruitsAndVeg.add(new Leaf(Category.HERB));
+        fruitsAndVeg.add(new Leaf(Category.ROOT_VEGETABLE));
+        Branch drink = new Branch(Category.DRINKS);
+        drink.add(new Leaf(Category.HOT_DRINKS));
+        drink.add(new Leaf(Category.COLD_DRINKS));
     }
 
     public static BackendAdapter getInstance(){

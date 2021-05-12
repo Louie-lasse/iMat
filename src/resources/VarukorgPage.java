@@ -9,6 +9,7 @@ public class VarukorgPage extends Page{
     public VarukorgPage(){
 
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("varukorg.fxml"));
+        fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
         try {

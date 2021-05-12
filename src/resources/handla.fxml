@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
    <children>
       <ScrollPane layoutY="113.0" prefHeight="710.0" prefWidth="1220.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="113.0">
         <content>
@@ -122,9 +121,10 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
+                  <VBox layoutX="414.0" layoutY="124.0" prefHeight="200.0" prefWidth="100.0" />
                </children>
             </AnchorPane>
         </content>
       </ScrollPane>
    </children>
-</AnchorPane>
+</fx:root>
