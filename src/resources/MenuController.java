@@ -2,7 +2,7 @@ package resources;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
@@ -19,6 +19,12 @@ public class MenuController implements Initializable {
     @FXML
     StackPane PageView;
 
+    @FXML
+    private Button backButton;
+
+    @FXML
+    private Button forwardButton;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
@@ -29,17 +35,35 @@ public class MenuController implements Initializable {
         PageView.getChildren().addAll(pages);
         pages.get(currentPageIndex).toFront();
         Page.setParent(this);
+        updateWizardButtons();
     }
 
     @FXML
     public void showPreviousWindow(){
-        pages.get(currentPageIndex).toBack();
         currentPageIndex -= 1;
+        pages.get(currentPageIndex).toFront();
+        updateWizardButtons();
     }
 
     public void showNextWindow(){
-        pages.get(currentPageIndex).toFront();
         currentPageIndex += 1;
+        pages.get(currentPageIndex).toFront();
+        updateWizardButtons();
+    }
+
+    private void updateWizardButtons(){
+        if (currentPageIndex == 0) {
+            backButton.setVisible(false);
+            forwardButton.setVisible(true);
+        } else {
+            backButton.setVisible(true);
+            if (currentPageIndex==3){
+                forwardButton.setVisible(false);
+            } else{
+                forwardButton.setVisible(true);
+            }
+        }
+
     }
 
     public void updateCartPrice(){
