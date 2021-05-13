@@ -1,11 +1,134 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<fx:root fx:id="leveransPage" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #F0F0F0;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
+<fx:root fx:id="leveransPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #F0F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Text layoutX="276.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leverans" AnchorPane.leftAnchor="276.0" AnchorPane.topAnchor="191.0" />
+      <Pane layoutX="460.0" layoutY="31.0" prefHeight="757.0" prefWidth="520.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="24.0" AnchorPane.leftAnchor="460.0" AnchorPane.rightAnchor="460.0" AnchorPane.topAnchor="30.0">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="224.0" text="Leveransuppgifter">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="260.0" layoutY="50.0" text="Efternamn:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="50.0" text="Förnamn:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="10.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="260.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="130.0" text="Telefonnummer:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="10.0" layoutY="160.0" prefHeight="44.0" prefWidth="500.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="210.0" text="E-mailaddress:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="10.0" layoutY="240.0" prefHeight="44.0" prefWidth="500.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="290.0" text="Leveransaddress:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="10.0" layoutY="320.0" prefHeight="44.0" prefWidth="500.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="10.0" layoutY="370.0" text="Postnummer:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="260.0" layoutY="370.0" text="Postort:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField layoutX="10.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="260.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="10.0" layoutY="480.0" prefHeight="40.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <TextField layoutX="260.0" layoutY="480.0" prefHeight="44.0" prefWidth="240.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextField>
+            <Label layoutX="260.0" layoutY="450.0" text="Tid:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="450.0" text="Leveransdatum:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="530.0" text="Meddelande:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="10.0" layoutY="560.0" prefHeight="190.0" prefWidth="500.0" wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextArea>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="210.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/date.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="460.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/time.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </fx:root>
