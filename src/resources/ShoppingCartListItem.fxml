@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.ShppingCartListItem">
+<AnchorPane prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.CartItemController">
    <children>
       <ImageView fx:id="ItemImage" fitHeight="115.0" fitWidth="115.0" layoutX="31.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
