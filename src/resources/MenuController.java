@@ -14,6 +14,8 @@ public class MenuController implements Initializable {
 
     private final List<Page> pages = new ArrayList<>();
 
+    private final BackendAdapter db = BackendAdapter.getInstance();
+
     private int currentPageIndex = 0;
 
     @FXML

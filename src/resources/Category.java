@@ -1,3 +1,5 @@
+package resources;
+
 import se.chalmers.cse.dat216.project.ProductCategory;
 
 public enum Category {
@@ -27,9 +29,10 @@ public enum Category {
     VEGETABLES("Grönsaker"),
     FRUITS_AND_GREEN("Frukt och grönt"),
     DRINKS("Drycker"),
-    MEAT_AND_FISH("Kött och fisk"),
-    BREAD_AND_SWEETS("Bröd, fikabröd och sötsaket"),
-    PANTRY("Skafferi");
+    MEAT_FISH_DAIRIES("Kött, fisk, och mejeri"),
+    BREAD_AND_SWEETS("Bröd, fikabröd och sötsaker"),
+    PANTRY("Skafferi"),
+    HOME("Hem");
 
     private final String name;
 

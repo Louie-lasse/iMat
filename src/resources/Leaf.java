@@ -1,3 +1,5 @@
+package resources;
+
 import se.chalmers.cse.dat216.project.Product;
 
 import java.util.ArrayList;
@@ -17,6 +19,11 @@ public class Leaf extends Tree{
     @Override
     public boolean hasSubcategory() {
         return false;
+    }
+
+    @Override
+    public List<Tree> getChildren() {
+        return new ArrayList<>();
     }
 
     @Override

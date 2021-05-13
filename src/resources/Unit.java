@@ -1,3 +1,5 @@
+package resources;
+
 import se.chalmers.cse.dat216.project.Product;
 
 import java.util.HashMap;

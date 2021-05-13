@@ -1,3 +1,5 @@
+package resources;
+
 import se.chalmers.cse.dat216.project.IMatDataHandler;
 import se.chalmers.cse.dat216.project.Product;
 
@@ -7,7 +9,7 @@ import java.util.List;
 
 public abstract class Tree {
     /**
-     * Create a tree with categories and subcategories. Each part is attributed a Category (custom)
+     * Create a tree with categories and subcategories. Each part is attributed a resources.Category (custom)
      * If the category exists in IMatDataHandler it has an attributed ProductCategory (and should be a leaf),
      * Else, it should be a branch, with it's own leaves. A branch can be part of multiple categories
      */
@@ -30,6 +32,7 @@ public abstract class Tree {
     public Category getCategory(){
         return this.category;
     }
+    public abstract List<Tree> getChildren();
     public abstract List<Category> getSubcategory();
     protected void setParent(Tree tree){ parent = tree; }
     public List<Category> getSearchPath(){
@@ -41,4 +44,6 @@ public abstract class Tree {
     public static Tree get(Category c){
         return treeMap.get(c);
     }
+    @Override
+    public String toString() { return category.toString(); }
 }

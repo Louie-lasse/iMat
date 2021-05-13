@@ -1,3 +1,5 @@
+package resources;
+
 import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
@@ -31,6 +33,24 @@ public class BackendAdapter{
         Branch drink = new Branch(Category.DRINKS);
         drink.add(new Leaf(Category.HOT_DRINKS));
         drink.add(new Leaf(Category.COLD_DRINKS));
+        Branch pantry = new Branch(Category.PANTRY);
+        pantry.add(new Leaf(Category.FLOUR_SUGAR_SALT));
+        pantry.add(new Leaf(Category.PASTA));
+        pantry.add(new Leaf(Category.POTATO_RICE));
+        pantry.add(new Leaf(Category.NUTS_AND_SEEDS));
+        Branch breads = new Branch(Category.BREAD_AND_SWEETS);
+        breads.add(new Leaf(Category.BREAD));
+        breads.add(new Leaf(Category.SWEET));
+        Branch meats = new Branch(Category.MEAT_FISH_DAIRIES);
+        meats.add(new Leaf(Category.MEAT));
+        meats.add(new Leaf(Category.FISH));
+        meats.add(new Leaf(Category.DAIRIES));
+        Branch home = new Branch(Category.HOME);
+        home.add(fruitsAndVeg);
+        home.add(drink);
+        home.add(pantry);
+        home.add(breads);
+        home.add(meats);
     }
 
     public static BackendAdapter getInstance(){
