@@ -28,12 +28,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
+            <TextField fx:id="name" layoutX="10.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField layoutX="260.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
+            <TextField fx:id="surname" layoutX="260.0" layoutY="80.0" prefHeight="40.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="160.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="phoneNumber" layoutX="10.0" layoutY="160.0" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -53,7 +53,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="240.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="email" layoutX="10.0" layoutY="240.0" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -63,7 +63,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="320.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="address" layoutX="10.0" layoutY="320.0" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -78,22 +78,22 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField layoutX="10.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
+            <TextField fx:id="zipCode" layoutX="10.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField layoutX="260.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
+            <TextField fx:id="city" layoutX="260.0" layoutY="400.0" prefHeight="44.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField layoutX="10.0" layoutY="480.0" prefHeight="40.0" prefWidth="240.0">
+            <TextField fx:id="date" layoutX="10.0" layoutY="480.0" prefHeight="40.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField layoutX="260.0" layoutY="480.0" prefHeight="44.0" prefWidth="240.0">
+            <TextField fx:id="time" layoutX="260.0" layoutY="480.0" prefHeight="44.0" prefWidth="240.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -113,7 +113,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextArea layoutX="10.0" layoutY="560.0" prefHeight="190.0" prefWidth="500.0" wrapText="true">
+            <TextArea fx:id="message" layoutX="10.0" layoutY="560.0" prefHeight="190.0" prefWidth="500.0" wrapText="true">
                <font>
                   <Font size="20.0" />
                </font>
