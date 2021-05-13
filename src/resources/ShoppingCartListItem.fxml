@@ -8,7 +8,6 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.CartItemController">
    <children>
       <ImageView fx:id="ItemImage" fitHeight="115.0" fitWidth="115.0" layoutX="31.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
@@ -16,9 +15,9 @@
             <Image url="@images/checkmark.png" />
          </image>
       </ImageView>
-      <Label fx:id="ItemName" alignment="TOP_LEFT" layoutX="223.0" layoutY="63.0" prefHeight="53.0" prefWidth="200.0" styleClass="item-name" text="Label" />
-      <Label fx:id="PricePerPiece" layoutX="740.0" layoutY="78.0" styleClass="px18-text" text="Label" />
-      <Label fx:id="TotalPrice" layoutX="738.0" layoutY="51.0" styleClass="px20-text" text="Label" />
+      <Label fx:id="ItemNameLabel" alignment="TOP_LEFT" layoutX="223.0" layoutY="63.0" prefHeight="53.0" prefWidth="200.0" styleClass="item-name" text="Label" />
+      <Label fx:id="PricePerPieceLabel" layoutX="740.0" layoutY="78.0" styleClass="px18-text" text="Label" />
+      <Label fx:id="TotalPriceLabel" layoutX="738.0" layoutY="51.0" styleClass="px20-text" text="Label" />
       <Button layoutX="867.0" layoutY="51.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="px18-text" text="Ta bort" />
       <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="905.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
