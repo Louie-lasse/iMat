@@ -18,6 +18,7 @@ public class iMat extends Application {
 
         Scene scene = new Scene(root);
 
+
         stage.setFullScreen(true);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
