@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -29,28 +29,26 @@
             <Rectangle fx:id="helpBackgorund" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1328.0" layoutY="-2.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="0.0" />
             <Rectangle fx:id="profileBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1228.0" layoutY="1.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="0.0" />
             <Rectangle fx:id="cartBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1133.0" layoutY="11.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0" />
-            <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
+            <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                <image>
                   <Image url="@images/iMatIcon.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="home" fitHeight="48.0" fitWidth="48.0" layoutX="205.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="30.0">
+            <ImageView fx:id="home" fitHeight="48.0" fitWidth="48.0" layoutX="205.0" layoutY="30.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="30.0">
                <image>
                   <Image url="@images/home.png" />
                </image>
             </ImageView>
-            <Label fx:id="homeLabel" layoutX="212.0" layoutY="4.0" text="Hem" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="4.0">
+            <Label fx:id="homeLabel" layoutX="212.0" layoutY="4.0" onMouseClicked="#returnHome" text="Hem" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="4.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="serach" layoutX="313.0" layoutY="26.0" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="26.0" />
-            <Label fx:id="serachLabel" layoutX="327.0" layoutY="41.0" text="Sök efter vara..." AnchorPane.leftAnchor="327.0" AnchorPane.topAnchor="41.0">
+            <TextField fx:id="serach" layoutX="313.0" layoutY="26.0" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara...." AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="26.0">
                <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <ImageView fx:id="serachLogo" fitHeight="42.0" fitWidth="42.0" layoutX="1049.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="349.0" AnchorPane.topAnchor="33.0">
+                  <Font size="20.0" />
+               </font></TextField>
+            <ImageView fx:id="serachLogo" fitHeight="42.0" fitWidth="42.0" layoutX="1049.0" layoutY="33.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="349.0" AnchorPane.topAnchor="33.0">
                <image>
                   <Image url="@images/search.png" />
                </image>
@@ -65,17 +63,17 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <ImageView fx:id="profile" fitHeight="48.0" fitWidth="48.0" layoutX="1263.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="30.0">
+            <ImageView fx:id="profile" fitHeight="48.0" fitWidth="48.0" layoutX="1263.0" layoutY="30.0" onMouseClicked="#showProfile" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="30.0">
                <image>
                   <Image url="@images/profile.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="help" fitHeight="48.0" fitWidth="48.0" layoutX="1337.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
+            <ImageView fx:id="help" fitHeight="48.0" fitWidth="48.0" layoutX="1337.0" layoutY="30.0" onMouseClicked="#showHelp" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="30.0">
                <image>
                   <Image url="@images/help.png" />
                </image>
             </ImageView>
-            <ImageView fx:id="cart" fitHeight="48.0" fitWidth="48.0" layoutX="1155.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="30.0">
+            <ImageView fx:id="cart" fitHeight="48.0" fitWidth="48.0" layoutX="1155.0" layoutY="30.0" onMouseClicked="#showCart" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="30.0">
                <image>
                   <Image url="@images/shoppingCart.png" />
                </image>

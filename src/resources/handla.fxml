@@ -3,12 +3,14 @@
 <?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <FlowPane layoutX="-4.0" layoutY="108.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="105.0" AnchorPane.topAnchor="108.0">
          <children>
@@ -20,20 +22,30 @@
                            <children>
                               <Accordion fx:id="categoryMenu" prefHeight="703.0" prefWidth="220.0">
                                 <panes>
-                                    <TitledPane animated="false" style="-fx-background-color: #ff0000;" text="Frukt &amp; Grönt">
+                                    <TitledPane animated="false" text="Frukt &amp; Grönt">
                                        <content>
                                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="139.0" prefWidth="218.0">
                                              <children>
                                                 <Label prefHeight="47.0" prefWidth="219.0" style="-fx-background-color: FFB881;" text="     Frukt" textFill="WHITE">
                                                    <font>
-                                                      <Font size="16.0" />
+                                                      <Font size="20.0" />
                                                    </font>
                                                 </Label>
                                                 <Label layoutY="47.0" prefHeight="47.0" prefWidth="219.0" style="-fx-background-color: FFB881;" text="    Grönt" textFill="WHITE">
                                                    <font>
-                                                      <Font size="16.0" />
+                                                      <Font size="20.0" />
                                                    </font>
                                                 </Label>
+                                                <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="178.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/baseline_arrow_forward_ios_white_24dp.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <ImageView fitHeight="30.0" fitWidth="36.0" layoutX="178.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/baseline_arrow_forward_ios_white_24dp.png" />
+                                                   </image>
+                                                </ImageView>
                                              </children>
                                           </AnchorPane>
                                        </content>
@@ -41,7 +53,7 @@
                                           <Font size="18.0" />
                                        </font>
                                     </TitledPane>
-                                  <TitledPane animated="false" text="Kött &amp; Fisk">
+                                  <TitledPane animated="false" style="-fx-background-color: #000000;" text="Kött &amp; Fisk">
                                     <content>
                                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
                                     </content>
@@ -103,11 +115,6 @@
                   <Label fx:id="breadCrumbs" layoutX="356.0" layoutY="108.0" prefHeight="30.0" prefWidth="822.0" text="Breadcrumbs">
                      <font>
                         <Font name="System Bold" size="20.0" />
-                     </font>
-                  </Label>
-                  <Label text="Frukt">
-                     <font>
-                        <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                </children>

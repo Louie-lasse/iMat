@@ -3,6 +3,7 @@ package resources;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
@@ -71,8 +72,20 @@ public class MenuController implements Initializable {
     public void updateCartPrice(){
 
     }
+    public void search(){
 
+    }
     public void returnHome(){
+        currentPageIndex = 0;
+        pages.get(currentPageIndex).toFront();
+    }
+    public void showCart(){
+
+    }
+    public void showProfile(){
+
+    }
+    public void showHelp(){
 
     }
 }
