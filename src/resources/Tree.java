@@ -46,4 +46,8 @@ public abstract class Tree {
     }
     @Override
     public String toString() { return category.toString(); }
+
+    public Tree getParent() {
+        return parent;
+    }
 }

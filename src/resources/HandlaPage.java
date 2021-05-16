@@ -1,14 +1,9 @@
 package resources;
 
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -20,15 +15,9 @@ public class HandlaPage extends Page{
 
     private Category activeCategory = Category.HOME;
 
-    private final EventHandler<MouseEvent> eventHandler = new EventHandler<MouseEvent>() {
-        @Override
-        public void handle(MouseEvent mouseEvent) {
-            System.out.println("YESS!!!");
-            throw new IllegalArgumentException();
-        }
-    };
+    private final HashMap<Tree, TitledPane> treeTitledPaneHashMap = new HashMap<>();
 
-    private final HashMap<Category, TitledPane> hashMap = new HashMap<>();
+    private final HashMap<Control, Tree> controlTreeHashMap = new HashMap<>();
 
     @FXML
     private Accordion categoryMenu;
@@ -56,20 +45,12 @@ public class HandlaPage extends Page{
     protected void initialize(){
         List<TitledPane> panes = categoryMenu.getPanes();
         panes.clear();
-        List<Category> categories = Tree.get(Category.HOME).getSubcategory();
         List<Tree> subItems = Tree.get(Category.HOME).getChildren();
 
         for (Tree child: subItems){
             panes.add(getItem(child));
         }
 
-        /*
-        for (Category category: categories){
-            Node subItem = getItem(category);
-            subItem.setOnMouseClicked(ev -> openCategory(category));
-        }
-
-         */
     }
 
     private TitledPane getItem(Tree tree){
@@ -78,21 +59,26 @@ public class HandlaPage extends Page{
         for (Tree child: children){
             if (!child.hasSubcategory()){
                 AnchorPane pane = new AnchorPane();
-                pane.getChildren().add(new TextField(child.toString()));
+                TextField text = new TextField(child.toString());
+                text.setEditable(false);
+                text.setOnMouseClicked(this::handleCategoryItemClicked);
+                controlTreeHashMap.put(text, child);
+                pane.getChildren().add(text);
                 //todo add styling
                 //TODO add clickable
                 subItems.getChildren().add(pane);
             } else {
                 TitledPane pane = getItem(child);
-                pane.addEventFilter(MouseEvent.MOUSE_CLICKED, eventHandler);
-                //pane.setOnMouseClicked(this::handleTitlePaneClicked);
-                subItems.getChildren().add(getItem(child));
+                pane.setOnMouseClicked(this::handleCategoryItemClicked);
+                subItems.getChildren().add(pane);
             }
         }
         //TODO add clickable
+        //TODO add items to maps
         TitledPane item = new TitledPane(tree.toString(), subItems);
         item.setExpanded(false);
-        hashMap.put(tree.getCategory(), item);
+        controlTreeHashMap.put(item, tree);
+        treeTitledPaneHashMap.put(tree, item);
         return item;
     }
 
@@ -108,7 +94,23 @@ public class HandlaPage extends Page{
     }
 
     private void updateCategoryMenu(){
+        Tree selected = Tree.get(activeCategory);
 
+        if (selected.hasSubcategory()){
+            if (activeCategory != Category.HOME) {
+                List<Tree> siblings = selected.getParent().getChildren();
+                for (Tree sibling: siblings){
+                    if (sibling.hasSubcategory())
+                        treeTitledPaneHashMap.get(sibling).setExpanded(false);
+                }
+                treeTitledPaneHashMap.get(selected).setExpanded(true);
+            }
+            List<Tree> children = selected.getChildren();
+            for (Tree child: children){
+                if (child.hasSubcategory())
+                    treeTitledPaneHashMap.get(child).setExpanded(false);    //Removes expansion from all children
+            }
+        }
     }
 
     private void updateBreadcrumbs(){
@@ -122,15 +124,14 @@ public class HandlaPage extends Page{
         breadCrumbs.setText(sb.toString());
     }
 
-    private void handleTitlePaneClicked(Event event){
-        int x = 3;
-        int y = 1;
-    }
-
-
-
-    public void categoryClicked(Category category) {
-        activeCategory = category;
+    public void handleCategoryItemClicked(Event event){
+        Tree clicked = controlTreeHashMap.get(event.getSource());
+        //"suspicious" cuz getSource returns Object, but only Control (parent class of TitledPane and TextField)
+        //are connected to the method, so the map SHOULD never return null (or crash)
+        activeCategory = clicked.getCategory();
         update();
     }
+
+
+
 }

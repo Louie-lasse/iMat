@@ -36,7 +36,7 @@ public enum Category {
 
     private final String name;
 
-    private ProductCategory productCategory;
+    private ProductCategory productCategory = null;
 
     Category(String s){
         this.name = s;
@@ -54,5 +54,13 @@ public enum Category {
 
     public ProductCategory getProductCategory(){
         return productCategory;
+    }
+
+    public boolean hasSubcategory(){
+        return this.productCategory==null;
+    }
+
+    public static Category get(String categoryName){
+        return MEAT;
     }
 }
