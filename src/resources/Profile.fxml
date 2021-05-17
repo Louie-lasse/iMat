@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.Profile">
+<fx:root fx:id="ProfilePage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="backButton" layoutX="41.0" layoutY="58.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="226.0" text="Tillbaka">
          <font>
@@ -223,4 +223,4 @@
          </children>
       </Pane>
    </children>
-</AnchorPane>
+</fx:root>

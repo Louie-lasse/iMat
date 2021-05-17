@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
@@ -34,6 +35,8 @@ public class MenuController implements Initializable {
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
         pages.add(new KassaPage());
+        pages.add(new ProfilePage());
+
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         pages.get(currentPageIndex).toFront();
@@ -76,16 +79,19 @@ public class MenuController implements Initializable {
 
     }
     public void returnHome(){
-        currentPageIndex = 0;
-        pages.get(currentPageIndex).toFront();
+        setPageToFront(0);
     }
     public void showCart(){
 
     }
     public void showProfile(){
-
+        setPageToFront(4);
     }
     public void showHelp(){
 
+    }
+    private void setPageToFront(int num){
+        this.currentPageIndex = num;
+        pages.get(this.currentPageIndex).toFront();
     }
 }
