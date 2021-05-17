@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,6 +22,8 @@ public class HandlaPage extends Page{
     private final static HashMap<Tree, TitledPane> treeTitledPaneHashMap = new HashMap<>();
 
     private final static HashMap<Control, Tree> controlTreeHashMap = new HashMap<>();
+
+    private final static HashMap<Product, ShoppingGridItemController> cardMap = new HashMap<>();
 
     @FXML
     private Accordion categoryMenu;
@@ -50,9 +53,8 @@ public class HandlaPage extends Page{
         }
 
         List<Product> products = db.getAllProducts();
-        List<Node> productPaneChildren = productPane.getChildren();
         for (Product product: products){
-            productPaneChildren.add(new ShoppingGridItemController(product));
+            cardMap.put(product, new ShoppingGridItemController(product));
         }
     }
 
@@ -93,7 +95,19 @@ public class HandlaPage extends Page{
     }
 
     private void populateCardView(){
+        List<ShoppingGridItemController> activeCards = getSelectedProducts();
+        List<Node> cards = productPane.getChildren();
+        cards.clear();
+        cards.addAll(activeCards);
+    }
 
+    private List<ShoppingGridItemController> getSelectedProducts(){
+        List<Product> selectedProducts = db.getProducts(activeCategory);
+        List<ShoppingGridItemController> selectedCards = new ArrayList<>();
+        for (Product product: selectedProducts){
+            selectedCards.add(cardMap.get(product));
+        }
+        return selectedCards;
     }
 
     private void updateCategoryMenu(){
