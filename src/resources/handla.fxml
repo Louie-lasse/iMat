@@ -12,7 +12,7 @@
 
 <fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane layoutX="-4.0" layoutY="108.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="105.0" AnchorPane.topAnchor="108.0">
+      <FlowPane layoutX="-4.0" layoutY="108.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="806.0" prefWidth="1440.0">
                <children>

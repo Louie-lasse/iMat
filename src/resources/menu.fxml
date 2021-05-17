@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
@@ -20,10 +21,15 @@
             <Font size="16.0" />
          </font>
       </Label>
-      <StackPane fx:id="PageView" layoutY="107.0" prefHeight="803.0" prefWidth="1440.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
+      <FlowPane layoutY="108.0" AnchorPane.bottomAnchor="106.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
          <children>
-            <AnchorPane prefHeight="162.0" prefWidth="290.0" />
-         </children></StackPane>
+            <StackPane fx:id="PageView" prefHeight="803.0" prefWidth="1440.0">
+               <children>
+                  <AnchorPane prefHeight="162.0" prefWidth="290.0" />
+               </children>
+            </StackPane>
+         </children>
+      </FlowPane>
       <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Rectangle fx:id="helpBackgorund" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1328.0" layoutY="-2.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="0.0" />

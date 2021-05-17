@@ -13,11 +13,11 @@ import java.util.List;
 
 public class HandlaPage extends Page{
 
-    private Category activeCategory = Category.HOME;
+    private static Category activeCategory = Category.HOME;
 
-    private final HashMap<Tree, TitledPane> treeTitledPaneHashMap = new HashMap<>();
+    private final static HashMap<Tree, TitledPane> treeTitledPaneHashMap = new HashMap<>();
 
-    private final HashMap<Control, Tree> controlTreeHashMap = new HashMap<>();
+    private final static HashMap<Control, Tree> controlTreeHashMap = new HashMap<>();
 
     @FXML
     private Accordion categoryMenu;
@@ -25,20 +25,12 @@ public class HandlaPage extends Page{
     @FXML
     private Label breadCrumbs;
 
-    public HandlaPage() {
-
+    @Override
+    protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("handla.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        initialize();
-        update();
+        return fxmlLoader;
     }
 
     @Override
@@ -50,8 +42,9 @@ public class HandlaPage extends Page{
         for (Tree child: subItems){
             panes.add(getItem(child));
         }
-
     }
+
+
 
     private TitledPane getItem(Tree tree){
         VBox subItems = new VBox();
@@ -65,18 +58,16 @@ public class HandlaPage extends Page{
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
                 //todo add styling
-                //TODO add clickable
                 subItems.getChildren().add(pane);
             } else {
                 TitledPane pane = getItem(child);
-                pane.setOnMouseClicked(this::handleCategoryItemClicked);
                 subItems.getChildren().add(pane);
             }
         }
-        //TODO add clickable
         //TODO add items to maps
         TitledPane item = new TitledPane(tree.toString(), subItems);
         item.setExpanded(false);
+        item.setOnMouseClicked(this::handleCategoryItemClicked);
         controlTreeHashMap.put(item, tree);
         treeTitledPaneHashMap.put(tree, item);
         return item;
@@ -99,6 +90,7 @@ public class HandlaPage extends Page{
         if (selected.hasSubcategory()){
             if (activeCategory != Category.HOME) {
                 List<Tree> siblings = selected.getParent().getChildren();
+                //TODO stäng sysskon även om this är text
                 for (Tree sibling: siblings){
                     if (sibling.hasSubcategory())
                         treeTitledPaneHashMap.get(sibling).setExpanded(false);

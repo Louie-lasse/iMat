@@ -6,20 +6,12 @@ import java.io.IOException;
 
 public class KassaPage extends Page {
 
-    public KassaPage(){
-
+    @Override
+    protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("kassa.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        initialize();
-        update();
+        return fxmlLoader;
     }
 
     @Override

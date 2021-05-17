@@ -6,20 +6,12 @@ import java.io.IOException;
 
 public class VarukorgPage extends Page{
 
-    public VarukorgPage(){
-
+    @Override
+    protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("varukorg.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-
-        try {
-            fxmlLoader.load();
-        } catch (IOException exception) {
-            throw new RuntimeException(exception);
-        }
-
-        initialize();
-        update();
+        return fxmlLoader;
     }
 
     @Override
