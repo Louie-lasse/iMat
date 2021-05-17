@@ -26,13 +26,15 @@ public class MenuController implements Initializable {
     @FXML FlowPane normalView;
     @FXML AnchorPane progressBar;
     @FXML AnchorPane popup;
+    @FXML AnchorPane varukorgPopup;
+    @FXML AnchorPane helpPopup;
 
     @FXML
     private Button backButton;
 
     @FXML
     private Button forwardButton;
-
+    private int prevPage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
@@ -91,14 +93,19 @@ public class MenuController implements Initializable {
     }
     public void showCart(){
         popup.toFront();
+        varukorgPopup.toFront();
     }
     public void showProfile(){
-        int temp = currentPageIndex;
+        this.prevPage = currentPageIndex;
         setPageToFront(4);
-
+    }
+    public void getBack(){
+        setPageToFront(this.prevPage);
     }
     public void showHelp(){
-
+        normalView.toFront();
+        popup.toFront();
+        helpPopup.toFront();
     }
     private void setPageToFront(int num){
         this.currentPageIndex = num;
