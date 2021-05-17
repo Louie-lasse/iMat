@@ -5,6 +5,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 
 import java.net.URL;
@@ -20,8 +21,11 @@ public class MenuController implements Initializable {
 
     private int currentPageIndex = 0;
 
-    @FXML
-    StackPane PageView;
+    @FXML StackPane PageView;
+
+    @FXML FlowPane normalView;
+    @FXML AnchorPane progressBar;
+    @FXML AnchorPane popup;
 
     @FXML
     private Button backButton;
@@ -81,11 +85,17 @@ public class MenuController implements Initializable {
     public void returnHome(){
         setPageToFront(0);
     }
+    public void exitDetailed(){
+        progressBar.toFront();
+        normalView.toFront();
+    }
     public void showCart(){
-
+        popup.toFront();
     }
     public void showProfile(){
+        int temp = currentPageIndex;
         setPageToFront(4);
+
     }
     public void showHelp(){
 
