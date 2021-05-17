@@ -3,9 +3,12 @@ package resources;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,6 +28,9 @@ public class HandlaPage extends Page{
     @FXML
     private Label breadCrumbs;
 
+    @FXML
+    private TilePane productPane;
+
     @Override
     protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("handla.fxml"));
@@ -41,6 +47,12 @@ public class HandlaPage extends Page{
 
         for (Tree child: subItems){
             panes.add(getItem(child));
+        }
+
+        List<Product> products = db.getAllProducts();
+        List<Node> productPaneChildren = productPane.getChildren();
+        for (Product product: products){
+            productPaneChildren.add(new ShoppingGridItemController(product));
         }
     }
 

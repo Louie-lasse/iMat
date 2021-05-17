@@ -39,9 +39,10 @@ public enum Unit {
                 unit = PÅSE;        break;
             case("kr/förp"):
                 unit = FÖRPACKNING; break;
-            case("kg/burk"):
+            case("kr/burk"):
                 unit = BURK;        break;
             default:
+                System.out.println("Illegal product" + p + " with id " + p.getProductId());
                 throw new IllegalArgumentException();
         }
         map.put(productUnit, unit);

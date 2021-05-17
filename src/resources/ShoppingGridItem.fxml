@@ -10,44 +10,48 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="295.0" prefWidth="204.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.ShoppingGridItemController">
+<fx:root prefHeight="376.0" prefWidth="260.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="ProductImage" fitHeight="119.0" fitWidth="145.0" layoutX="25.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../OneDrive/Bilder/äpple.jpg" />
+            <Image url="@images/visa.png" />
          </image>
          <viewport>
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Label fx:id="NameLabel" layoutX="25.0" layoutY="140.0" styleClass="item-name" text="Something" />
-      <Label fx:id="PriceLabel" layoutX="26.0" layoutY="165.0" styleClass="item-price" text="50 kr/st" />
-      <Label layoutX="26.0" layoutY="190.0" styleClass="px20-text" text="Antal i varukorg:" />
-      <TextField fx:id="AmountText" layoutX="8.0" layoutY="224.0" prefHeight="52.0" prefWidth="188.0" styleClass="text-field-empty" text="0 st" />
-      <AnchorPane layoutX="143.0" layoutY="224.0">
+      <Label fx:id="NameLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="140.0" prefHeight="92.0" prefWidth="206.0" styleClass="item-name" text="Something" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="120.0" />
+      <Label fx:id="PriceLabel" layoutX="25.0" layoutY="236.0" styleClass="item-price" text="50 kr/st" />
+      <Label layoutX="25.0" layoutY="262.0" styleClass="px20-text" text="Antal i varukorg:" AnchorPane.bottomAnchor="83.6" />
+      <AnchorPane layoutX="26.0" layoutY="293.0" prefHeight="62.0" prefWidth="210.0" AnchorPane.bottomAnchor="22.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
-               <styleClass>
-                  <String fx:value="orange-button" />
-                  <String fx:value="round-button" />
-               </styleClass>
-            </Button>
-            <Label layoutX="11.333333333" layoutY="-1.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="8.0" layoutY="224.0" prefHeight="52.0" prefWidth="54.0">
-         <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
-               <styleClass>
-                  <String fx:value="round-button" />
-                  <String fx:value="gray-button" />
-               </styleClass>
-            </Button>
-            <Label layoutX="17.0" layoutY="-3.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+            <TextField fx:id="AmountText" layoutY="3.0" prefHeight="52.0" prefWidth="188.0" styleClass="text-field-empty" text="0 st" />
+            <AnchorPane layoutX="135.0" layoutY="3.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
+                     <styleClass>
+                        <String fx:value="orange-button" />
+                        <String fx:value="round-button" />
+                     </styleClass>
+                  </Button>
+                  <Label alignment="TOP_CENTER" layoutX="11.333333333" layoutY="-1.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="11.333333332999999" AnchorPane.rightAnchor="11.066666667" AnchorPane.topAnchor="-0.5" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="3.0" prefHeight="52.0" prefWidth="54.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
+                     <styleClass>
+                        <String fx:value="round-button" />
+                        <String fx:value="gray-button" />
+                     </styleClass>
+                  </Button>
+                  <Label layoutX="17.0" layoutY="-3.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+               </children>
+            </AnchorPane>
          </children>
       </AnchorPane>
    </children>
    <effect>
       <DropShadow />
    </effect>
-</AnchorPane>
+</fx:root>
