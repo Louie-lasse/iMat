@@ -28,7 +28,7 @@
             <TextField fx:id="AmountText" layoutY="4.0" prefHeight="52.0" prefWidth="188.0" styleClass="text-field-empty" text="0 st" />
             <AnchorPane layoutX="135.0" layoutY="3.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
+                  <Button mnemonicParsing="false" onAction="#add" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
                      <styleClass>
                         <String fx:value="orange-button" />
                         <String fx:value="round-button" />
@@ -39,7 +39,7 @@
             </AnchorPane>
             <AnchorPane layoutY="3.0" prefHeight="52.0" prefWidth="54.0">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
+                  <Button fx:id="subtract" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
                      <styleClass>
                         <String fx:value="round-button" />
                         <String fx:value="gray-button" />
