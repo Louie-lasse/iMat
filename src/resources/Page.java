@@ -10,6 +10,7 @@ import se.chalmers.cse.dat216.project.IMatDataHandler;
 import java.io.IOException;
 
 public abstract class Page extends AnchorPane {
+
     Page(){
         FXMLLoader fxmlLoader = getFxmlLoader();
         try {

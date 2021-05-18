@@ -1,7 +1,9 @@
 package resources;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -11,9 +13,11 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -60,8 +64,13 @@ public class MenuController implements Initializable {
     @FXML Rectangle helpBackgorund;
     @FXML Rectangle cartBackground;
     @FXML Rectangle profileBackground;
+    @FXML Label cartValue;
 
+    //VARUKORG POPUP
+    private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
+    @FXML
+    private Label totalPrice;
 
 
     @Override
@@ -77,6 +86,11 @@ public class MenuController implements Initializable {
         pages.get(currentPageIndex).toFront();
         Page.setParent(this);
         updateWizardButtons();
+
+        List<Product> products = db.getCartProducts();
+        for (Product p: products){
+            controllerHashMap.put(p, new CartItemController(p));
+        }
     }
 
     @FXML
@@ -150,6 +164,13 @@ public class MenuController implements Initializable {
     }
 
     public void updateCartPrice(){
+        List<Product> products = db.getCartProducts();
+        double sum = 0;
+        for(Product product : products){
+            sum += product.getPrice();
+        }
+        cartValue.setText("" + sum);
+        totalPrice.setText("Total: " + sum + " kr");
 
     }
     public void search(){
@@ -172,18 +193,11 @@ public class MenuController implements Initializable {
         popup.toFront();
         varukorgPopup.toFront();
         cartBackground.setStyle("-fx-fill: #FFFFFF");
-
     }
     public void showProfile(){
         setPageToFront(4);
         profileBackground.setStyle("-fx-fill: #FFFFFF");
     }
-    /*
-    public void getBack(){
-        setPageToFront(this.prevPage);
-    }
-
-     */
     public void showHelp(){
         popup.toFront();
         helpPopup.toFront();
@@ -193,4 +207,25 @@ public class MenuController implements Initializable {
         this.currentPageIndex = num;
         pages.get(this.currentPageIndex).toFront();
     }
+
+    /*
+    public void updateCartPopup() {
+        List<Product> products = db.getCartProducts();
+        CartItemController cartItemController;
+        List<CartItemController> controllers = new ArrayList<>();
+        for (Product p: products){
+            cartItemController = controllerHashMap.get(p);
+            if (cartItemController == null){
+                cartItemController = new CartItemController(p);
+                controllerHashMap.put(p, cartItemController);
+            }
+            controllers.add(cartItemController);
+        }
+        List<Node> flowPaneChildren = varorFlowPane.getChildren();
+        flowPaneChildren.clear();
+        flowPaneChildren.addAll(controllers);
+        totalPrice.setText("Totalt: " + db.getTotalPrice());
+    }
+     */
+
 }

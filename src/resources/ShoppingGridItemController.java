@@ -54,11 +54,12 @@ public class ShoppingGridItemController  extends AnchorPane {
     @FXML
     protected void add(){
         //TODO vart ska det va?
+        db.addProduct(this.product);
     }
 
     @FXML
     protected void subtract(){
-
+        db.removeProduct(this.product);
     }
 
     private void update(){
