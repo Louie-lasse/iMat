@@ -180,6 +180,7 @@ public class MenuController implements Initializable {
     }
     public void returnHome(){
         setPageToFront(0);
+        backButton.setVisible(false);
         popupUp = false;
         profileBackground.setStyle("-fx-fill: #FFA14A");
 
