@@ -10,6 +10,7 @@ import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import se.chalmers.cse.dat216.project.Customer;
 
@@ -32,6 +33,9 @@ public class KassaPage extends Page {
     @FXML RadioButton card;
     @FXML RadioButton klarna;
     @FXML RadioButton bill;
+    @FXML Pane cardPane;
+    @FXML Pane klarnaPane;
+    @FXML Pane billPane;
 
     @FXML ImageView paymentImg;
     @Override
@@ -55,6 +59,7 @@ public class KassaPage extends Page {
         klarna.setToggleGroup(toggleGroup);
         bill.setToggleGroup(toggleGroup);
         card.setSelected(true);
+        cardPane.toFront();
 
         toggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
 
@@ -73,20 +78,15 @@ public class KassaPage extends Page {
         switch (type){
             case "card":
                 System.out.println("Card");
-                paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                        "resources/images/visa.png")));
+                cardPane.toFront();
                 break;
             case "klarna":
                 System.out.println("Klarna");
-                paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                        "resources/images/klarna.png")));
-
+                klarnaPane.toFront();
                 break;
             case "bill":
                 System.out.println("Faktura");
-                paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                        "resources/images/faktura.png")));
-
+                billPane.toFront();
                 break;
             default:
                 System.out.println("Error Error Error");

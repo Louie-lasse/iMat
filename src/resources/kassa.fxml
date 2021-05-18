@@ -145,7 +145,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="cardPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="150.0" layoutY="25.0" text="Kortnummer:">
                      <font>
@@ -204,6 +204,34 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
+            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="Klarna faktura">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="397.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/klarna.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="billPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="FAKTURA">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="403.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/faktura.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
          </children>
       </Pane>
    </children>
