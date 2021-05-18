@@ -197,6 +197,7 @@ public class MenuController implements Initializable {
     public void showCart(){
         if(!popupUp){
             popupUp = true;
+            updateCartPopup();
             popup.toFront();
             varukorgPopup.toFront();
             cartBackground.setStyle("-fx-fill: #FFFFFF");

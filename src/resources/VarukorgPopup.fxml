@@ -36,7 +36,7 @@
       </Label>
       <Pane layoutX="32.0" layoutY="138.0" prefHeight="609.0" prefWidth="656.0">
          <children>
-            <FlowPane layoutY="18.0" prefHeight="573.0" prefWidth="656.0">
+            <FlowPane fx:id="cartFlowPane" layoutY="18.0" prefHeight="573.0" prefWidth="656.0">
                <children>
                   <AnchorPane prefHeight="100.0" prefWidth="600.0" stylesheets="@ShoppingGridItem.css">
                      <children>
