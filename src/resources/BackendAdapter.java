@@ -7,10 +7,13 @@ import java.io.File;
 import java.util.*;
 
 public class BackendAdapter{
-    private static BackendAdapter adapterInstance = null;
-    private IMatDataHandler db;
+    private static final BackendAdapter adapterInstance = new BackendAdapter();
+    private static final IMatDataHandler db = IMatDataHandler.getInstance();
+    private static final ShoppingCart cart = db.getShoppingCart();
 
-    private BackendAdapter(){ }
+    private BackendAdapter(){
+        init();
+    }
 
     private void initiateTree(){
         Branch h1 = new Branch(Category.FRUITS_ALL);
@@ -54,16 +57,11 @@ public class BackendAdapter{
     }
 
     public static BackendAdapter getInstance(){
-        if (adapterInstance == null) {
-            adapterInstance = new BackendAdapter();
-            adapterInstance.init();
-        }
         return adapterInstance;
     }
 
     private void init(){
         initiateTree();
-        db = IMatDataHandler.getInstance();
     }
 
     public void shutDown() { db.shutDown(); }
@@ -88,10 +86,6 @@ public class BackendAdapter{
 
     public CreditCard getCreditCard() {
         return db.getCreditCard();
-    }
-
-    public ShoppingCart getShoppingCart() {
-        return db.getShoppingCart();
     }
 
     public Order placeOrder() {
@@ -165,11 +159,76 @@ public class BackendAdapter{
     public List<Product> findProducts(String s) { return db.findProducts(s); }
 
     public void addProduct(Product p) {
-        db.addProduct(p);
+        try{
+            ShoppingItem item = getShoppingItem(p);
+            item.setAmount(item.getAmount()+1);
+        } catch (IllegalArgumentException ignored){
+            cart.addProduct(p, 1);
+        }
     }
 
     public void removeProduct(Product p) {
-        db.removeProduct(p);
+        try{
+            ShoppingItem item = getShoppingItem(p);
+            double amount = item.getAmount();
+            if (amount <= 1){
+                cart.removeItem(item);
+            } else {
+                item.setAmount(amount-1);
+            }
+        } catch (IllegalArgumentException ignored){
+
+        }
+    }
+
+    public double getAmount(Product p){
+        try{
+            return getShoppingItem(p).getAmount();
+        } catch (IllegalArgumentException exception){
+            return 0;
+        }
+    }
+
+    public double getTotalPrice(){
+        return cart.getTotal();
+    }
+
+    public double getShoppingItemTotal(Product product){
+        try{
+            return getShoppingItem(product).getTotal();
+        } catch (IllegalArgumentException exception){
+            return 0;
+        }
+    }
+
+    private ShoppingItem getShoppingItem(Product p) throws IllegalArgumentException{
+        List<ShoppingItem> cartItems = cart.getItems();
+        for (ShoppingItem item: cartItems){
+            if (item.getProduct().equals(p)){
+                return item;
+            }
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public void setProductAmount(Product p, Double amount){
+        if (amount < 0) throw new IllegalArgumentException();
+        if (amount == 0) return;
+        try{
+            ShoppingItem item = getShoppingItem(p);
+            item.setAmount(amount);
+        } catch (IllegalArgumentException exception){
+            cart.addProduct(p, amount);
+        }
+    }
+
+    public List<Product> getCartProducts(){
+        List<ShoppingItem> items = cart.getItems();
+        List<Product> products = new ArrayList<>();
+        for (ShoppingItem item: items){
+            products.add(item.getProduct());
+        }
+        return products;
     }
 
     public void addFavorite(Product p) { db.addFavorite(p); }

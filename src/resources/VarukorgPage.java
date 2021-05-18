@@ -1,10 +1,27 @@
 package resources;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.FlowPane;
+import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class VarukorgPage extends Page{
+
+    private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
+
+    @FXML
+    private FlowPane varorFlowPane;
+
+    @FXML
+    private Label totalPrice;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -16,11 +33,28 @@ public class VarukorgPage extends Page{
 
     @Override
     protected void initialize(){
-
+        List<Product> products = db.getCartProducts();
+        for (Product p: products){
+            controllerHashMap.put(p, new CartItemController(p));
+        }
     }
 
     @Override
     public void update() {
-
+        List<Product> products = db.getCartProducts();
+        CartItemController cartItemController;
+        List<CartItemController> controllers = new ArrayList<>();
+        for (Product p: products){
+            cartItemController = controllerHashMap.get(p);
+            if (cartItemController == null){
+                cartItemController = new CartItemController(p);
+                controllerHashMap.put(p, cartItemController);
+            }
+            controllers.add(cartItemController);
+        }
+        List<Node> flowPaneChildren = varorFlowPane.getChildren();
+        flowPaneChildren.clear();
+        flowPaneChildren.addAll(controllers);
+        totalPrice.setText("Totalt: " + db.getTotalPrice());
     }
 }
