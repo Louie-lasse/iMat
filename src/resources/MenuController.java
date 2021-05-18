@@ -83,6 +83,7 @@ public class MenuController implements Initializable {
 
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
+        PageView.toFront();
         pages.get(currentPageIndex).toFront();
         pages.get(currentPageIndex).open();
         Page.setParent(this);
@@ -98,12 +99,14 @@ public class MenuController implements Initializable {
     public void showPreviousWindow(){
         currentPageIndex -= 1;
         pages.get(currentPageIndex).toFront();
+        PageView.toFront();
         updateWizardButtons();
     }
 
     public void showNextWindow(){
         currentPageIndex += 1;
         pages.get(currentPageIndex).toFront();
+        PageView.toFront();
         updateWizardButtons();
     }
 
