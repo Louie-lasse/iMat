@@ -79,14 +79,17 @@ public class KassaPage extends Page {
         });
 
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
-            cvc.setText(maxInput(cvc.getText(), 3));
+            if(cvc.getText().length() > 3){
+                String max = cvc.getText().substring(0, 3);
+                cvc.setText(max);
+            }
         });
 
         month.textProperty().addListener((observable, oldValue, newValue) -> {
-            month.setText(maxInput(month.getText(), 2));
+            maxInput(month.getText(), 2, year);
         });
         year.textProperty().addListener((observableValue, oldValue, newValue) -> {
-            year.setText(maxInput(year.getText(), 2));
+            maxInput(year.getText(), 2, cardHolder);
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             if(cardNumber.getText().length() != 0) {
@@ -97,15 +100,16 @@ public class KassaPage extends Page {
                     paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                             "resources/images/visa.png")));
                 }
-                cardNumber.setText(maxInput(cardNumber.getText(), 16));
+                if(cardNumber.getText().length() == 16){
+                    maxInput(cardNumber.getText(), 16, month);
+                }
             }
         });
     }
-    public String maxInput(String input, int maxLength){
-        if(input.length() > maxLength){
-            return input.substring(0, maxLength);
+    public void maxInput(String input, int maxLength, TextField next){
+        if(input.length() == maxLength){
+            next.requestFocus();
         }
-        return input;
     }
     private void setPayment(String type){
         switch (type){

@@ -66,8 +66,11 @@ public class MenuController implements Initializable {
     @FXML Rectangle profileBackground;
     @FXML Label cartValue;
 
+    private boolean popupUp = false;
+
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
+    @FXML FlowPane cartFlowPane;
 
     @FXML
     private Label totalPrice;
@@ -172,26 +175,18 @@ public class MenuController implements Initializable {
         }
     }
 
-    public void updateCartPrice(){
-        List<Product> products = db.getCartProducts();
-        double sum = 0;
-        for(Product product : products){
-            sum += product.getPrice();
-        }
-        cartValue.setText("" + sum);
-        totalPrice.setText("Total: " + sum + " kr");
-
-    }
     public void search(){
 
     }
     public void returnHome(){
         setPageToFront(0);
+        popupUp = false;
         profileBackground.setStyle("-fx-fill: #FFA14A");
 
     }
     public void exitDetailed(){
         normalView.toFront();
+        popupUp = false;
         progressBar.toFront();
         cartBackground.setStyle("-fx-fill: #FFA14A");
         profileBackground.setStyle("-fx-fill: #FFA14A");
@@ -199,18 +194,24 @@ public class MenuController implements Initializable {
 
     }
     public void showCart(){
-        if(currentPageIndex != 5) {
+        if(!popupUp){
+            popupUp = true;
             popup.toFront();
             varukorgPopup.toFront();
             cartBackground.setStyle("-fx-fill: #FFFFFF");
         }
     }
     public void showProfile(){
-        setPageToFront(5);
-        profileBackground.setStyle("-fx-fill: #FFFFFF");
+        if(!popupUp){
+            popupUp = true;
+
+            setPageToFront(5);
+            profileBackground.setStyle("-fx-fill: #FFFFFF");
+        }
     }
     public void showHelp(){
-        if(currentPageIndex != 5){
+        if(!popupUp){
+            popupUp = true;
             popup.toFront();
             helpPopup.toFront();
             helpBackgorund.setStyle("-fx-fill: #FFFFFF");
@@ -221,24 +222,22 @@ public class MenuController implements Initializable {
         pages.get(this.currentPageIndex).toFront();
     }
 
-    /*
+
     public void updateCartPopup() {
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
-        for (Product p: products){
+        for (Product p : products) {
             cartItemController = controllerHashMap.get(p);
-            if (cartItemController == null){
+            if (cartItemController == null) {
                 cartItemController = new CartItemController(p);
                 controllerHashMap.put(p, cartItemController);
             }
             controllers.add(cartItemController);
         }
-        List<Node> flowPaneChildren = varorFlowPane.getChildren();
+        List<Node> flowPaneChildren = cartFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
         totalPrice.setText("Totalt: " + db.getTotalPrice());
     }
-     */
-
 }
