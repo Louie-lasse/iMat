@@ -99,16 +99,15 @@ public class MenuController implements Initializable {
                 progress2Label.toFront();
                 progress3Label.toFront();
                 progress4Label.toFront();
-                progress2Label.setStyle("-fx-text-fill: black");
-                progress3Label.setStyle("-fx-text-fill: black");
-                progress4Label.setStyle("-fx-text-fill: black");
+                progress2Label.setStyle("-fx-text-fill: #999999");
+                progress3Label.setStyle("-fx-text-fill: #999999");
+                progress4Label.setStyle("-fx-text-fill: #999999");
                 progressBar1.toBack();
                 progressBar2.toBack();
                 progressBar3.toBack();
                 unfinishedStep2.toFront();
                 progressBar1.toBack();
                 progress2Label.toFront();
-                progress2Label.setStyle("-fx-text-fill: black");
                 checkBox1.toBack();
                 break;
             case 1:
@@ -120,7 +119,7 @@ public class MenuController implements Initializable {
                 unfinishedStep3.toFront();
                 progressBar2.toBack();
                 progress3Label.toFront();
-                progress3Label.setStyle("-fx-text-fill: black");
+                progress3Label.setStyle("-fx-text-fill: #999999");
                 progress2Label.setStyle("-fx-text-fill: white");
                 break;
             case 2:
@@ -132,7 +131,7 @@ public class MenuController implements Initializable {
                 progress3Label.setStyle("-fx-text-fill: white");
                 unfinishedStep4.toFront();
                 progress4Label.toFront();
-                progress4Label.setStyle("-fx-text-fill: black");
+                progress4Label.setStyle("-fx-text-fill: #999999");
                 forwardButton.setVisible(true);
                 break;
             case 3:
