@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.String?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
@@ -16,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle fx:id="backgroundPrice" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -33,16 +34,25 @@
                <image>
                   <Image url="@images/iMatIcon.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ImageView fx:id="home" fitHeight="48.0" fitWidth="48.0" layoutX="205.0" layoutY="30.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="30.0">
                <image>
                   <Image url="@images/home.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <Label fx:id="homeLabel" layoutX="212.0" layoutY="4.0" onMouseClicked="#returnHome" text="Hem" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="4.0">
                <font>
                   <Font size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Label>
             <TextField fx:id="serach" layoutX="313.0" layoutY="26.0" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara...." AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="339.0" AnchorPane.topAnchor="26.0">
                <font>

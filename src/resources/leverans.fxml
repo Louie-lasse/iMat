@@ -38,36 +38,21 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <Label layoutX="138.0" layoutY="130.0" text="Telefonnummer:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
             <TextField fx:id="phoneNumber" layoutX="138.0" layoutY="164.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <Label layoutX="138.0" layoutY="211.0" text="E-mailaddress (frivilligt):">
+            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
-            </Label>
-            <Label layoutX="138.0" layoutY="288.0" text="Leveransaddress:">
+            </TextField>
+            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
-            </Label>
-            <Label layoutX="138.0" layoutY="370.0" text="Postnummer:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="370.0" layoutY="370.0" text="Postort:">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </Label>
+            </TextField>
             <TextField fx:id="zipCode" layoutX="138.0" layoutY="400.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0">
                <font>
                   <Font size="20.0" />
@@ -88,6 +73,36 @@
                   <Font size="20.0" />
                </font>
             </TextField>
+            <TextArea fx:id="message" layoutX="158.0" layoutY="562.0" prefHeight="190.0" prefWidth="500.0" promptText="Meddelande till bud (ex. portkod)..." wrapText="true">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </TextArea>
+            <Label layoutX="138.0" layoutY="211.0" text="E-mailaddress (frivilligt):">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="130.0" text="Telefonnummer:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="288.0" text="Leveransaddress:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="370.0" text="Postnummer:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label layoutX="370.0" layoutY="370.0" text="Postort:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
             <Label layoutX="410.0" layoutY="453.0" text="Tid:">
                <font>
                   <Font size="20.0" />
@@ -103,11 +118,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextArea fx:id="message" layoutX="158.0" layoutY="562.0" prefHeight="190.0" prefWidth="500.0" promptText="Meddelande till bud (ex. portkod)..." wrapText="true">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextArea>
             <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="210.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/date.png" />
@@ -160,11 +170,6 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
             <AnchorPane layoutX="657.0" layoutY="237.0" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <ImageView fx:id="emailCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -179,11 +184,6 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
             <AnchorPane layoutX="656.0" layoutY="323.0" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <ImageView fx:id="addressCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
