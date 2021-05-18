@@ -83,7 +83,7 @@ public class MenuController implements Initializable {
         pages.add(new KassaPage());
         pages.add(new ConfirmationPage());
         pages.add(new ProfilePage());
-
+        //test
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         PageView.toFront();
