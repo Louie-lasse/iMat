@@ -26,9 +26,9 @@
       </Label>
       <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Rectangle fx:id="helpBackgorund" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1328.0" layoutY="-2.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="0.0" />
-            <Rectangle fx:id="profileBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1228.0" layoutY="1.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="0.0" />
-            <Rectangle fx:id="cartBackground" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="106.0" layoutX="1133.0" layoutY="11.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0" />
+            <Rectangle fx:id="helpBackgorund" arcHeight="5.0" arcWidth="5.0" fill="#ffa14a" height="106.0" layoutX="1328.0" layoutY="-2.0" onMouseClicked="#showHelp" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="90.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="23.0" AnchorPane.topAnchor="0.0" />
+            <Rectangle fx:id="profileBackground" arcHeight="5.0" arcWidth="5.0" fill="#ffa14a" height="106.0" layoutX="1228.0" layoutY="1.0" onMouseClicked="#showProfile" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="113.0" AnchorPane.topAnchor="0.0" />
+            <Rectangle fx:id="cartBackground" arcHeight="5.0" arcWidth="5.0" fill="#ffa14a" height="106.0" layoutX="1133.0" layoutY="11.0" onMouseClicked="#showCart" stroke="#c47c39" strokeType="INSIDE" strokeWidth="2.0" width="99.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="210.0" AnchorPane.topAnchor="0.0" />
             <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                <image>
                   <Image url="@images/iMatIcon.png" />

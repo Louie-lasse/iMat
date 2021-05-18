@@ -57,6 +57,10 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox2;
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
+    @FXML Rectangle helpBackgorund;
+    @FXML Rectangle cartBackground;
+    @FXML Rectangle profileBackground;
+
 
 
 
@@ -153,19 +157,26 @@ public class MenuController implements Initializable {
     }
     public void returnHome(){
         setPageToFront(0);
+        profileBackground.setStyle("-fx-fill: #FFA14A");
+
     }
     public void exitDetailed(){
         normalView.toFront();
         progressBar.toFront();
+        cartBackground.setStyle("-fx-fill: #FFA14A");
+        profileBackground.setStyle("-fx-fill: #FFA14A");
+        helpBackgorund.setStyle("-fx-fill: #FFA14A");
 
     }
     public void showCart(){
         popup.toFront();
         varukorgPopup.toFront();
+        cartBackground.setStyle("-fx-fill: #FFFFFF");
 
     }
     public void showProfile(){
         setPageToFront(4);
+        profileBackground.setStyle("-fx-fill: #FFFFFF");
     }
     /*
     public void getBack(){
@@ -176,6 +187,7 @@ public class MenuController implements Initializable {
     public void showHelp(){
         popup.toFront();
         helpPopup.toFront();
+        helpBackgorund.setStyle("-fx-fill: #FFFFFF");
     }
     private void setPageToFront(int num){
         this.currentPageIndex = num;
