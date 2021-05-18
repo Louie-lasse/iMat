@@ -19,8 +19,8 @@ public class iMat extends Application {
         Scene scene = new Scene(root);
 
 
-        stage.setFullScreen(true);
-        //stage.setMaximized(true);
+        //stage.setFullScreen(true);
+        stage.setMaximized(true);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.getIcons().add(new Image("/resources/images/iMat_square_icon.png"));
@@ -29,5 +29,10 @@ public class iMat extends Application {
 
     public static void main(String[] args) {
         launch(args);
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+            public void run() {
+                BackendAdapter.getInstance().shutDown();
+            }
+        }));
     }
 }

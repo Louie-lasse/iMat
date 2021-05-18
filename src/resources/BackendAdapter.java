@@ -110,16 +110,18 @@ public class BackendAdapter{
         char[] chars = s.toCharArray();
         for (char c: chars){
             if (!Character.isLetter(c)){
-                if (!(c=='.')){
-                    if (!(c=='@')){
-                        if (!(c=='-')){
-                            return false;
+                if(!Character.isDigit(c)) {
+                    if (!(c == '.')) {
+                        if (!(c == '@')) {
+                            if (!(c == '-')) {
+                                return true;
+                            }
                         }
                     }
                 }
             }
         }
-        return true;
+        return false;
     }
 
     public boolean isValidAddress(String s){

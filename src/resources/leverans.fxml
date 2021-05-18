@@ -33,7 +33,7 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="surname" layoutX="430.0" layoutY="80.0" prefHeight="44.0" prefWidth="296.0">
+            <TextField fx:id="surname" layoutX="430.0" layoutY="80.0" onAction="#surnameEnter" prefHeight="44.0" prefWidth="296.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -43,7 +43,7 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="phoneNumber" layoutX="138.0" layoutY="164.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="phoneNumber" layoutX="138.0" layoutY="164.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -68,12 +68,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="zipCode" layoutX="138.0" layoutY="400.0" prefHeight="44.0" prefWidth="149.0">
+            <TextField fx:id="zipCode" layoutX="138.0" layoutY="400.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0">
                <font>
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" layoutX="370.0" layoutY="400.0" prefHeight="44.0" prefWidth="260.0">
+            <TextField fx:id="city" layoutX="370.0" layoutY="400.0" onAction="#cityEnter" prefHeight="44.0" prefWidth="260.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -160,7 +160,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -179,7 +179,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0">
                <font>
                   <Font size="20.0" />
                </font>
