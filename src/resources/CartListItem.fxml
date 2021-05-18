@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.CartItemController">
+<fx:root prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" type="javafx.scene.layout.AnchorPane">
    <children>
       <ImageView fx:id="ItemImage" fitHeight="115.0" fitWidth="115.0" layoutX="31.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -48,4 +48,4 @@
          </children>
       </AnchorPane>
    </children>
-</AnchorPane>
+</fx:root>
