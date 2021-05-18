@@ -15,12 +15,17 @@ public class KassaPage extends Page {
     }
 
     @Override
+    protected void initialize() {
+
+    }
+
+    @Override
     public void update() {
 
     }
 
     @Override
-    protected void initialize() {
-
+    public void open(){
+        update();
     }
 }

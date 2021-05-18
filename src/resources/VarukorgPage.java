@@ -57,4 +57,9 @@ public class VarukorgPage extends Page{
         flowPaneChildren.addAll(controllers);
         totalPrice.setText("Totalt: " + db.getTotalPrice());
     }
+
+    @Override
+    public void open(){
+        update();
+    }
 }

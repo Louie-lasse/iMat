@@ -21,5 +21,10 @@ public class ProfilePage extends Page{
 
     }
 
+    @Override
+    public void open(){
+        update();
+    }
+
 
 }

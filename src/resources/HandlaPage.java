@@ -94,6 +94,11 @@ public class HandlaPage extends Page{
         updateBreadcrumbs();
     }
 
+    @Override
+    public void open(){
+        update();
+    }
+
     private void populateCardView(){
         List<ShoppingGridItemController> activeCards = getSelectedProducts();
         List<Node> cards = productPane.getChildren();

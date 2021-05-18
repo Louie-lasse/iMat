@@ -27,4 +27,5 @@ public abstract class Page extends AnchorPane {
     public static void setParent(MenuController menuController){ parent = menuController; }
     public abstract void update();
     protected abstract void initialize();
+    public abstract void open();
 }

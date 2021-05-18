@@ -84,6 +84,7 @@ public class MenuController implements Initializable {
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         pages.get(currentPageIndex).toFront();
+        pages.get(currentPageIndex).open();
         Page.setParent(this);
         updateWizardButtons();
 

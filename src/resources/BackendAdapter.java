@@ -74,6 +74,83 @@ public class BackendAdapter{
 
     public boolean isCustomerComplete() { return db.isCustomerComplete(); }
 
+    public boolean isValidName(String s){
+        if (s.length()==0) return false;
+        char[] chars = s.toCharArray();
+        for (char c: chars){
+            if (Character.isDigit(c)) return false;
+        }
+        return true;
+    }
+
+    public boolean isValidNumber(String s){
+        s = removeRedundantCharsNumber(s);
+        if (!(s.length()==10) && !(s.length()==12)) return false;
+        return s.length() != 12 || s.charAt(0) == '+';
+    }
+
+    private String removeRedundantCharsNumber(String s){
+        final List<Character> removableChars = new ArrayList<>();
+        removableChars.add(' '); removableChars.add('.'); removableChars.add('-');
+        char[] chars = s.toCharArray();
+        StringBuilder builder = new StringBuilder();
+        for (char c: chars){
+            if (!removableChars.contains(c)) builder.append(c);
+        }
+        return builder.toString();
+    }
+
+    public boolean isValidEmail(String s){
+        if (containsIllegalEmailChars(s)) return false;
+        if (s.indexOf('@')<1) return false;
+        return s.indexOf('.', s.indexOf('@')) >= 1 && s.indexOf('.', s.indexOf('@')) != s.length() - 1;
+    }
+
+    private boolean containsIllegalEmailChars(String s){
+        char[] chars = s.toCharArray();
+        for (char c: chars){
+            if (!Character.isLetter(c)){
+                if (!(c=='.')){
+                    if (!(c=='@')){
+                        if (!(c=='-')){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidAddress(String s){
+        boolean containsNumber = false;
+        for (int i = 0; i < 10; i++){
+            if (s.contains(Integer.toString(i))){
+                containsNumber = true;
+                if (s.indexOf(i) < 2){
+                    return false;
+                }
+            }
+        }
+        return containsNumber;
+    }
+
+    public boolean isValidZip(String s){
+        s = removeRedundantCharsNumber(s);
+        if (s.length() != 5) return false;
+        char[] chars = s.toCharArray();
+        for(char c: chars){
+            if (!Character.isDigit(c)){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isValidCity(String s){
+        return isValidName(s);
+    }
+
     public void reset() { db.reset(); }
 
     public Customer getCustomer() {
