@@ -92,6 +92,37 @@ public class LeveransPage extends Page{
         checkName(name.getText());
     }
 
+    @FXML
+    protected void surnameEnter(ActionEvent actionEvent){
+        checkSurname(surname.getText());
+    }
+
+    @FXML
+    protected void phoneNumberEnter(ActionEvent actionEvent){
+        checkPhoneNumber(phoneNumber.getText());
+    }
+
+    @FXML
+    protected void emailEnter(ActionEvent actionEvent){
+        checkEmail(email.getText());
+    }
+
+    @FXML
+    protected void addressEnter(ActionEvent actionEvent){
+        checkAddress(address.getText());
+    }
+
+    @FXML
+    protected void zipCodeEnter(ActionEvent actionEvent){
+        checkZipCode(zipCode.getText());
+    }
+
+    @FXML
+    protected void cityEnter(ActionEvent actionEvent){
+        checkCity(city.getText());
+    }
+
+
     @Override
     protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("leverans.fxml"));
