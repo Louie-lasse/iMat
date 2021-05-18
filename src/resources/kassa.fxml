@@ -145,60 +145,6 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="cardPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
-               <children>
-                  <Label layoutX="150.0" layoutY="25.0" text="Kortnummer:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="400.0" layoutY="25.0" text="Utgångsdatum:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="150.0" layoutY="109.0" text="Namn på korthållare:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="400.0" layoutY="109.0" text="CVC:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="cardNumber" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fx:id="paymentImg" fitHeight="23.0" fitWidth="40.0" layoutX="300.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/visa.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="month" layoutX="400.0" layoutY="50.0" prefHeight="37.0" prefWidth="48.0" promptText="mm">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="cardHolder" layoutX="150.0" layoutY="134.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="cvc" layoutX="400.0" layoutY="134.0" prefHeight="37.0" prefWidth="51.0" promptText=" ***">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="year" layoutX="460.0" layoutY="50.0" prefHeight="37.0" prefWidth="48.0" promptText="yy">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-               </children>
-            </Pane>
             <Button layoutX="563.0" layoutY="879.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #32C671; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Betala" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
@@ -230,6 +176,60 @@
                         <Image url="@images/faktura.png" />
                      </image>
                   </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="cardPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="150.0" layoutY="25.0" text="Kortnummer:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="400.0" layoutY="25.0" text="Utgångsdatum:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="150.0" layoutY="109.0" text="Namn på korthållare:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="400.0" layoutY="109.0" text="CVC:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="cardNumber" layoutX="150.0" layoutY="50.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fx:id="paymentImg" fitHeight="23.0" fitWidth="40.0" layoutX="106.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/visa.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="month" layoutX="400.0" layoutY="50.0" prefHeight="37.0" prefWidth="48.0" promptText="mm">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardHolder" layoutX="150.0" layoutY="134.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cvc" layoutX="400.0" layoutY="134.0" prefHeight="37.0" prefWidth="51.0" promptText=" ***">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="year" layoutX="460.0" layoutY="50.0" prefHeight="37.0" prefWidth="48.0" promptText="yy">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
                </children>
             </Pane>
          </children>

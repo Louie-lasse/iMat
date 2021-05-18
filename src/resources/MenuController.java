@@ -72,13 +72,13 @@ public class MenuController implements Initializable {
     @FXML
     private Label totalPrice;
 
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
         pages.add(new KassaPage());
+        pages.add(new ConfirmationPage());
         pages.add(new ProfilePage());
 
         PageView.getChildren().clear();
@@ -93,6 +93,7 @@ public class MenuController implements Initializable {
         for (Product p: products){
             controllerHashMap.put(p, new CartItemController(p));
         }
+
     }
 
     @FXML
@@ -134,7 +135,7 @@ public class MenuController implements Initializable {
                 break;
             case 1:
                 backButton.setVisible(true);
-                progressBar1.toFront();
+                    progressBar1.toFront();
                 progress2.toFront();
                 progress2Label.toFront();
                 checkBox1.toFront();
@@ -162,8 +163,12 @@ public class MenuController implements Initializable {
                 checkBox3.toFront();
                 progress4Label.toFront();
                 progress4Label.setStyle("-fx-text-fill: white");
-                forwardButton.setVisible(false);
+                //forwardButton.setVisible(false);
                 break;
+            case 4:
+                checkBox4.toFront();
+                forwardButton.setVisible(false);
+                backButton.setVisible(false);
         }
     }
 
@@ -194,18 +199,22 @@ public class MenuController implements Initializable {
 
     }
     public void showCart(){
-        popup.toFront();
-        varukorgPopup.toFront();
-        cartBackground.setStyle("-fx-fill: #FFFFFF");
+        if(currentPageIndex != 5) {
+            popup.toFront();
+            varukorgPopup.toFront();
+            cartBackground.setStyle("-fx-fill: #FFFFFF");
+        }
     }
     public void showProfile(){
-        setPageToFront(4);
+        setPageToFront(5);
         profileBackground.setStyle("-fx-fill: #FFFFFF");
     }
     public void showHelp(){
-        popup.toFront();
-        helpPopup.toFront();
-        helpBackgorund.setStyle("-fx-fill: #FFFFFF");
+        if(currentPageIndex != 5){
+            popup.toFront();
+            helpPopup.toFront();
+            helpBackgorund.setStyle("-fx-fill: #FFFFFF");
+        }
     }
     private void setPageToFront(int num){
         this.currentPageIndex = num;
