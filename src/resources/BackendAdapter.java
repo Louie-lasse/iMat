@@ -78,7 +78,7 @@ public class BackendAdapter{
         if (s.length()==0) return false;
         char[] chars = s.toCharArray();
         for (char c: chars){
-            if (Character.isDigit(c)) return false;
+            if (!(Character.isLetter(c) || c==' ' || c=='.' || c=='-')) return false;
         }
         return true;
     }
@@ -125,11 +125,17 @@ public class BackendAdapter{
     }
 
     public boolean isValidAddress(String s){
+        char[] chars = s.toCharArray();
+        if (!s.equals("")){
+            int x = 5;
+            x++;
+        }
         boolean containsNumber = false;
-        for (int i = 0; i < 10; i++){
-            if (s.contains(Integer.toString(i))){
-                containsNumber = true;
-                if (s.indexOf(i) < 2){
+        for (char c: chars){
+            if (!Character.isLetter(c)){
+                if (Character.isDigit(c)){
+                    containsNumber = true;
+                } else if (!(c==' ' || c=='.' || c==',' || (c=='-'))){
                     return false;
                 }
             }
@@ -254,15 +260,15 @@ public class BackendAdapter{
         }
     }
 
-    public void removeProduct(Product p) {
+    public void subtractProduct(Product p) {
         if (Unit.isStyckPris(p)){
-            removeProduct(p, 1);
+            subtractProduct(p, 1);
         } else{
-            removeProduct(p, 0.1);
+            subtractProduct(p, 0.1);
         }
     }
 
-    private void removeProduct(Product p, double amount){
+    private void subtractProduct(Product p, double amount){
         try{
             ShoppingItem item = getShoppingItem(p);
             double oldAmount = item.getAmount();
@@ -271,6 +277,14 @@ public class BackendAdapter{
             } else {
                 item.setAmount(oldAmount-amount);
             }
+        } catch (IllegalArgumentException ignored){
+
+        }
+    }
+
+    public void removeProduct(Product p){
+        try{
+            cart.removeItem(getShoppingItem(p));
         } catch (IllegalArgumentException ignored){
 
         }
