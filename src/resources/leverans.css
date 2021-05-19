@@ -1,0 +1,9 @@
+.field-valid{
+    -fx-border-color: #00FF00;
+    -fx-background-color: #DBFFDB;
+}
+
+.field-invalid{
+    -fx-border-color: #FF0000;
+    -fx-background-color:  #FFDBDB;
+}

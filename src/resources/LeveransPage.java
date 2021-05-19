@@ -2,6 +2,7 @@ package resources;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -179,57 +180,87 @@ public class LeveransPage extends Page{
     }
 
     private void checkName(String s){
+        ObservableList<String> styles = name.getStyleClass();
+        styles.clear();
         boolean validName = db.isValidName(s);
         nameCheck.setVisible(validName);
         nameX.setVisible(!validName);
         if (validName){
             customer.setFirstName(s);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkSurname(String s){
+        ObservableList<String> styles = surname.getStyleClass();
+        styles.clear();
         boolean validName = db.isValidName(s);
         surnameCheck.setVisible(validName);
         surnameX.setVisible(!validName);
         if (validName){
             customer.setLastName(s);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkPhoneNumber(String s){
+        ObservableList<String> styles = phoneNumber.getStyleClass();
+        styles.clear();
         boolean validNumber = db.isValidNumber(s);
         phoneNumberCheck.setVisible(validNumber);
         phoneNumberX.setVisible(!validNumber);
         if (validNumber){
             customer.setPhoneNumber(s);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkEmail(String s){
+        ObservableList<String> styles = email.getStyleClass();
+        styles.clear();
         boolean validEmail = db.isValidEmail(s);
         emailCheck.setVisible(validEmail);
         emailX.setVisible(!validEmail);
         if (validEmail){
             customer.setEmail(s);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkAddress(String s){
+        ObservableList<String> styles = address.getStyleClass();
+        styles.clear();
         boolean validAddress = db.isValidAddress(s);
         addressCheck.setVisible(validAddress);
         addressX.setVisible(!validAddress);
         if (validAddress){
             customer.setAddress(s);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkZipCode(String s){
+        ObservableList<String> styles = zipCode.getStyleClass();
+        styles.clear();
         boolean validZip = db.isValidZip(s);
         zipCheck.setVisible(validZip);
         zipX.setVisible(!validZip);
         if (validZip){
             String city = splitPostCode(customer.getPostCode())[1];
             customer.setPostCode(zipCode.getText()+city);
+            styles.add("field-valid");
+        } else {
+            styles.add("field-invalid");
         }
     }
 
@@ -240,6 +271,9 @@ public class LeveransPage extends Page{
         if (validCity){
             String zip = splitPostCode(customer.getPostCode())[0];
             customer.setPostCode(zip+city.getText());
+            city.getStyleClass().add("field-valid");
+        } else {
+            city.getStyleClass().add("field-invalid");
         }
     }
 
@@ -290,6 +324,17 @@ public class LeveransPage extends Page{
         return new String[]{zip.toString(), city.append(code.substring(i)).toString()};
     }
 
-
+    @Override
+    public boolean isDone(){
+        boolean everythingIsValid;
+        everythingIsValid = db.isValidName(name.getText());
+        everythingIsValid &= db.isValidName(surname.getText());
+        everythingIsValid &= db.isValidNumber(phoneNumber.getText());
+        everythingIsValid &= db.isValidEmail(email.getText());
+        everythingIsValid &= db.isValidAddress(address.getText());
+        everythingIsValid &= db.isValidCity(city.getText());
+        everythingIsValid &= db.isValidZip(zipCode.getText());
+        return everythingIsValid;
+    }
 
 }
