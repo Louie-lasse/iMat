@@ -122,27 +122,29 @@ public class MenuController implements Initializable {
     }
 
     private void hidePopup(){
-        helpPopup.setVisible(false);
-        helpOpenIndicator.setVisible(false);
-        varukorgPopup.setVisible(false);
-        varukorgOpenIndicator.setVisible(false);
+        helpOpenIndicator.toBack();
+        varukorgOpenIndicator.toBack();
         popup.toBack();
     }
 
     @FXML
     void openHelpPopup(MouseEvent event) {
-        hidePopup();
         popup.toFront();
+        helpPopup.toFront();
         helpPopup.setVisible(true);
-        helpOpenIndicator.setVisible(true);
+        varukorgPopup.setVisible(false);
+        helpOpenIndicator.toFront();
+        varukorgOpenIndicator.toBack();
     }
 
     @FXML
     void openVarukorgPopup(MouseEvent event) {
-        hidePopup();
         popup.toFront();
+        varukorgPopup.toFront();
         varukorgPopup.setVisible(true);
-        varukorgOpenIndicator.setVisible(true);
+        helpPopup.setVisible(false);
+        varukorgOpenIndicator.toFront();
+        helpOpenIndicator.toBack();
     }
 
     private void updateWizardButtons(){

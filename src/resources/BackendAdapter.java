@@ -238,11 +238,19 @@ public class BackendAdapter{
     public List<Product> findProducts(String s) { return db.findProducts(s); }
 
     public void addProduct(Product p) {
+        if (Unit.isStyckPris(p)){
+            addProduct(p, 1);
+        } else{
+            addProduct(p, 0.1);
+        }
+    }
+
+    private void addProduct(Product p, double amount){
         try{
             ShoppingItem item = getShoppingItem(p);
-            item.setAmount(item.getAmount()+1);
+            item.setAmount(item.getAmount()+amount);
         } catch (IllegalArgumentException ignored){
-            cart.addProduct(p, 1);
+            cart.addProduct(p, amount);
         }
     }
 
@@ -265,6 +273,16 @@ public class BackendAdapter{
             return getShoppingItem(p).getAmount();
         } catch (IllegalArgumentException exception){
             return 0;
+        }
+    }
+
+    public String getFormattedAmount(Product p){
+        double amount = getAmount(p);
+        Unit unit = Unit.get(p);
+        if (unit.isStyckPris()){
+            return (int) amount +" "+ unit.type();
+        } else {
+            return  (double)Math.round(amount*10)/10 +" "+ unit.type();
         }
     }
 

@@ -5,12 +5,12 @@ import se.chalmers.cse.dat216.project.Product;
 import java.util.HashMap;
 
 public enum Unit {
-    KILO("kr/kg", false),
-    STYCK("kr/st", true),
-    LITER("kr/l", false),
-    PÅSE("kr/påse", true),
-    FÖRPACKNING("kr/förp", true),
-    BURK("kr/burk", true);
+    KILO("kg", false),
+    STYCK("st", true),
+    LITER("l", false),
+    PÅSE("påse", true),
+    FÖRPACKNING("förp", true),
+    BURK("burk", true);
 
     private static HashMap<String, Unit> map = new HashMap<>();
 
@@ -50,7 +50,13 @@ public enum Unit {
     }
     
     @Override
-    public String toString(){ return name; }
+    public String toString(){
+        return "kr/"+name;
+    }
+
+    public String type(){
+        return name;
+    }
     
     public boolean isStyckPris(){ return styckPris; }
     

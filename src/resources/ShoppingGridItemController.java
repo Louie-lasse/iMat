@@ -3,6 +3,7 @@ package resources;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
@@ -16,6 +17,8 @@ public class ShoppingGridItemController  extends AnchorPane {
     @FXML private Label priceLabel;
 
     @FXML private ImageView productImage;
+
+    @FXML private TextField amount;
 
     private Product product;
 
@@ -53,17 +56,18 @@ public class ShoppingGridItemController  extends AnchorPane {
 
     @FXML
     protected void add(){
-        //TODO vart ska det va?
         db.addProduct(this.product);
+        update();
     }
 
     @FXML
     protected void subtract(){
         db.removeProduct(this.product);
+        update();
     }
 
     private void update(){
-
+        amount.setText(db.getFormattedAmount(product));
     }
 
 }

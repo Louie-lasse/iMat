@@ -5,7 +5,6 @@ import se.chalmers.cse.dat216.project.Product;
 
 public class tst{
     public static void main(String[] args) {
-        BackendAdapter.getInstance().isValidEmail("love.lindqvist@live.com");
-        //magnus kommentar
+        BackendAdapter.getInstance().getFormattedAmount(BackendAdapter.getInstance().getProduct(130));
     }
 }

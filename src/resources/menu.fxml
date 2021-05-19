@@ -119,34 +119,6 @@
             </Pane>
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="helpOpenIndicator" layoutX="1334.0" onMouseClicked="#closePopup" prefHeight="130.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #C47C39; -fx-border-radius: 5; -fx-border-width: 3;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="29.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
-               <image>
-                  <Image url="@images/help.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="helpLabel1" alignment="CENTER" layoutX="13.0" layoutY="10.0" prefHeight="26.0" prefWidth="51.0" text="Hjälp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="varukorgOpenIndicator" layoutX="1121.0" onMouseClicked="#closePopup" prefHeight="130.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #C47C39; -fx-border-width: 3; -fx-border-radius: 5;" AnchorPane.rightAnchor="212.6" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label fx:id="cartLabel3" alignment="CENTER" layoutY="10.0" text="Varukorg" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="40.0">
-               <image>
-                  <Image url="@images/shoppingCart.png" />
-               </image>
-            </ImageView>
-         </children>
-      </AnchorPane>
       <AnchorPane fx:id="popup" layoutY="59.0" prefHeight="860.0" prefWidth="1440.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
          <children>
             <AnchorPane opacity="0.33" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
@@ -218,7 +190,7 @@
                      <children>
                         <AnchorPane onMouseClicked="#closePopup" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
                            <children>
-                              <Button fx:id="close" alignment="CENTER" mnemonicParsing="false" prefHeight="51.0" prefWidth="162.0" text="  Stäng">
+                              <Button fx:id="close" alignment="CENTER" mnemonicParsing="false" onAction="#closePopup" prefHeight="51.0" prefWidth="162.0" text="  Stäng">
                                  <font>
                                     <Font name="System Bold" size="21.0" />
                                  </font>
@@ -269,8 +241,37 @@
             </FlowPane>
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <AnchorPane fx:id="helpOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="29.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
+                     <image>
+                        <Image url="@images/help.png" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="helpLabel1" alignment="CENTER" layoutX="13.0" layoutY="10.0" prefHeight="26.0" prefWidth="51.0" text="Hjälp" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="varukorgOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" AnchorPane.rightAnchor="212.6" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Label fx:id="cartLabel3" alignment="CENTER" layoutY="10.0" text="Varukorg" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="48.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="40.0">
+                     <image>
+                        <Image url="@images/shoppingCart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFA14A;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
                <image>
                   <Image url="@images/iMatIcon.png" />
