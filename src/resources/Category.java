@@ -19,7 +19,7 @@ public enum Category {
     FLOUR_SUGAR_SALT("Mjöl, socker, salt", ProductCategory.FLOUR_SUGAR_SALT),
     NUTS_AND_SEEDS("Nötter och frön", ProductCategory.NUTS_AND_SEEDS),
     PASTA("Pasta", ProductCategory.PASTA),
-    POTATO_RICE("Potatis, ris", ProductCategory.POTATO_RICE),
+    RICE("Ris", ProductCategory.POTATO_RICE),
     ROOT_VEGETABLE("Rotfrukter", ProductCategory.ROOT_VEGETABLE),
     FRUIT("Frukt", ProductCategory.FRUIT),
     SWEET("Sötsaker", ProductCategory.SWEET),

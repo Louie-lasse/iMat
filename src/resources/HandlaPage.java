@@ -96,6 +96,7 @@ public class HandlaPage extends Page{
 
     @Override
     public void open(){
+        activeCategory = Category.HOME;
         update();
     }
 
