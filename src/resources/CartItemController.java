@@ -30,19 +30,18 @@ public class CartItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
         this.product = product;
-        initialize();
         update();
     }
 
     public void initialize(){
+
+    }
+
+    public void update(){
         ItemImage.setImage(db.getFXImage(product));
         ItemNameLabel.setText(product.getName());
         TotalPriceLabel.setText(Double.toString(product.getPrice()));
         PricePerPieceLabel.setText(Unit.get(product).toString());
-    }
-
-    public void update(){
-
     }
 
 }

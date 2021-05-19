@@ -15,7 +15,7 @@ import java.util.List;
 
 public class VarukorgPage extends Page{
 
-    private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
+    private static final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
     @FXML
     private FlowPane varorFlowPane;
