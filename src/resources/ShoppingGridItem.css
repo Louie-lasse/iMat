@@ -1,0 +1,111 @@
+.background-pane{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 10;
+}
+
+.item-name{
+    -fx-font-size: 25px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+.item-price{
+    -fx-font-size: 16px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: lighter;
+}
+
+.px20-text{
+    -fx-font-size: 20px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+.text-field-empty{
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-border-color: #EDEDED;
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
+    -fx-font-size: 23px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.orange-text-field{
+    -fx-background-color: #FFA14A;
+    -fx-border-width: 3px;
+    -fx-border-color: #FFFFFF;
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
+    -fx-font-size: 23px;
+    -fx-font-family: "Roboto";
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+}
+
+.round-button{
+    -fx-border-radius: 26 26 26 26;
+    -fx-background-radius: 26 26 26 26;
+}
+
+.small-round-button{
+    -fx-border-radius:19;
+    -fx-background-radius:19;
+}
+
+.gray-button{
+    -fx-background-color: #C4C4C4;
+    -fx-font-size: 20px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-fill: #FFFFFF;
+}
+
+.orange-button{
+    -fx-background-color: #FFA14A;
+    border-spacing: 0;
+    -fx-border-width: 3px;
+    -fx-border-color: #FFFFFF;
+    -fx-font-size: 20px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+
+.button-text{
+    -fx-font-size: 40px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+.px18-text{
+    -fx-font-size: 18px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+.px10-text{
+    -fx-font-size: 10px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+.px16-text{
+    -fx-font-size: 16px;
+    -fx-font-family: "Roboto";
+    -fx-font-weight: bold;
+}
+
+.white-text{
+    -fx-text-fill: #FFFFFF;
+}

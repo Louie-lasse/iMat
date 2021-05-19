@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="100.0" prefWidth="493.0" stylesheets="@ShoppingGridItem.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.CartItemController">
+   <children>
+      <ImageView fx:id="ItemImage" fitHeight="76.0" fitWidth="76.0" layoutX="1.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" x="13.0">
+         <image>
+            <Image url="@images/checkmark.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="ItemNameLabel" layoutX="107.0" layoutY="39.0" prefHeight="23.0" prefWidth="104.0" styleClass="px18-text" text="Label" />
+      <Label fx:id="PricePerPieceLabel" layoutX="227.0" layoutY="60.0" text="Label" textFill="TRANSPARENT" />
+      <Label fx:id="TotalPriceLabel" layoutX="216.0" layoutY="40.0" prefHeight="20.0" prefWidth="61.0" styleClass="px16-text" text="Label" />
+      <AnchorPane layoutX="289.0" layoutY="32.0" prefHeight="38.0" prefWidth="128.0">
+         <children>
+            <TextField fx:id="AmountText" prefHeight="34.0" prefWidth="124.0" text="0 st">
+               <font>
+                  <Font size="10.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="px16-text" />
+                  <String fx:value="orange-text-field" />
+               </styleClass>
+            </TextField>
+            <AnchorPane layoutX="90.0" prefHeight="17.0" prefWidth="28.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" style="-fx-border-insets: 0;">
+                     <styleClass>
+                        <String fx:value="px10-text" />
+                        <String fx:value="orange-button" />
+                        <String fx:value="small-round-button" />
+                     </styleClass>
+                  </Button>
+                  <Label layoutX="4.0" layoutY="-12.0" prefHeight="38.0" prefWidth="22.0" text="+">
+                     <styleClass>
+                        <String fx:value="button-text" />
+                        <String fx:value="white-text" />
+                     </styleClass>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane prefHeight="38.0" prefWidth="38.0">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0">
+                     <styleClass>
+                        <String fx:value="px10-text" />
+                        <String fx:value="orange-button" />
+                        <String fx:value="small-round-button" />
+                     </styleClass>
+                  </Button>
+                  <Label layoutX="11.0" layoutY="-13.0" prefHeight="3.0" prefWidth="17.0" styleClass="button-text" text="-" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <Button layoutX="424.0" layoutY="34.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="28.0">
+         <graphic>
+            <ImageView fitHeight="24.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/trash.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
