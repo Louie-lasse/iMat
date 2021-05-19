@@ -8,6 +8,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.FlowPane;
 import se.chalmers.cse.dat216.project.Product;
 
+import javax.lang.model.element.VariableElement;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,6 +34,7 @@ public class VarukorgPage extends Page{
 
     @Override
     protected void initialize(){
+        CartItemController.setParent(this);
         List<Product> products = db.getCartProducts();
         for (Product p: products){
             controllerHashMap.put(p, new CartItemController(p));
@@ -41,6 +43,11 @@ public class VarukorgPage extends Page{
 
     @Override
     public void update() {
+        totalPrice.setText("Totalt: " + db.getTotalPrice());
+    }
+
+    @Override
+    public void open(){
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
@@ -50,16 +57,12 @@ public class VarukorgPage extends Page{
                 cartItemController = new CartItemController(p);
                 controllerHashMap.put(p, cartItemController);
             }
+            cartItemController.update();
             controllers.add(cartItemController);
         }
         List<Node> flowPaneChildren = varorFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
-        totalPrice.setText("Totalt: " + db.getTotalPrice());
-    }
-
-    @Override
-    public void open(){
         update();
     }
 }

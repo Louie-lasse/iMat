@@ -103,16 +103,18 @@ public class MenuController implements Initializable {
     @FXML
     public void showPreviousWindow(){
         currentPageIndex -= 1;
-        pages.get(currentPageIndex).toFront();
         PageView.toFront();
+        pages.get(currentPageIndex).toFront();
+        pages.get(currentPageIndex).open();
         updateWizardButtons();
     }
 
     @FXML
     public void showNextWindow(){
         currentPageIndex += 1;
-        pages.get(currentPageIndex).toFront();
         PageView.toFront();
+        pages.get(currentPageIndex).toFront();
+        pages.get(currentPageIndex).open();
         updateWizardButtons();
     }
 

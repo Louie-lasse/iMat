@@ -255,13 +255,21 @@ public class BackendAdapter{
     }
 
     public void removeProduct(Product p) {
+        if (Unit.isStyckPris(p)){
+            removeProduct(p, 1);
+        } else{
+            removeProduct(p, 0.1);
+        }
+    }
+
+    private void removeProduct(Product p, double amount){
         try{
             ShoppingItem item = getShoppingItem(p);
-            double amount = item.getAmount();
-            if (amount <= 1){
+            double oldAmount = item.getAmount();
+            if (oldAmount <= amount){
                 cart.removeItem(item);
             } else {
-                item.setAmount(amount-1);
+                item.setAmount(oldAmount-amount);
             }
         } catch (IllegalArgumentException ignored){
 
