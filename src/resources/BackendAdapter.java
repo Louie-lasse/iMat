@@ -39,7 +39,7 @@ public class BackendAdapter{
         Branch pantry = new Branch(Category.PANTRY);
         pantry.add(new Leaf(Category.FLOUR_SUGAR_SALT));
         pantry.add(new Leaf(Category.PASTA));
-        pantry.add(new Leaf(Category.POTATO_RICE));
+        pantry.add(new Leaf(Category.RICE));
         pantry.add(new Leaf(Category.NUTS_AND_SEEDS));
         Branch breads = new Branch(Category.BREAD_AND_SWEETS);
         breads.add(new Leaf(Category.BREAD));

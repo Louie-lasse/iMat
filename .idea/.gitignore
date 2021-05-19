@@ -10,3 +10,5 @@
 /httpRequests/
 
 /libraries/
+# Project exclude paths
+/.
