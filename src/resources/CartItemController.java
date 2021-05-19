@@ -1,6 +1,7 @@
 package resources;
 
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -52,6 +53,12 @@ public class CartItemController extends AnchorPane {
 
     @FXML
     void subtract(MouseEvent event) {
+        db.subtractProduct(product);
+        update();
+    }
+
+    @FXML
+    void remove(ActionEvent event) {
         db.removeProduct(product);
         update();
     }

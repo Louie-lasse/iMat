@@ -18,7 +18,7 @@
       <Label fx:id="ItemNameLabel" alignment="TOP_LEFT" layoutX="223.0" layoutY="63.0" prefHeight="53.0" prefWidth="200.0" styleClass="item-name" text="Label" />
       <Label fx:id="PricePerPieceLabel" layoutX="740.0" layoutY="78.0" styleClass="px18-text" text="Label" />
       <Label fx:id="TotalPriceLabel" layoutX="738.0" layoutY="51.0" styleClass="px20-text" text="Label" />
-      <Button layoutX="867.0" layoutY="51.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="200.0" styleClass="px18-text" text="Ta bort" />
+      <Button layoutX="867.0" layoutY="51.0" mnemonicParsing="false" onAction="#remove" prefHeight="49.0" prefWidth="200.0" styleClass="px18-text" text="Ta bort" />
       <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="905.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/trash.png" />

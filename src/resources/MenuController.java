@@ -111,11 +111,16 @@ public class MenuController implements Initializable {
 
     @FXML
     public void showNextWindow(){
-        currentPageIndex += 1;
-        PageView.toFront();
-        pages.get(currentPageIndex).toFront();
-        pages.get(currentPageIndex).open();
-        updateWizardButtons();
+        Page currentPage = pages.get(currentPageIndex);
+        if (currentPage.isDone()) {
+            currentPageIndex += 1;
+            PageView.toFront();
+            pages.get(currentPageIndex).toFront();
+            pages.get(currentPageIndex).open();
+            updateWizardButtons();
+        } else {
+            currentPage.displayErrors();
+        }
     }
 
     @FXML
@@ -215,10 +220,9 @@ public class MenuController implements Initializable {
     }
     public void returnHome(){
         setPageToFront(0);
-        backButton.setVisible(false);
         popupUp = false;
         hidePopup();
-
+        updateWizardButtons();
     }
 
     private void setPageToFront(int num){

@@ -1,5 +1,6 @@
 package resources;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -62,6 +63,13 @@ public class ShoppingGridItemController  extends AnchorPane {
 
     @FXML
     protected void subtract(){
+        db.subtractProduct(this.product);
+        update();
+    }
+
+
+    @FXML
+    void remove(ActionEvent event) {
         db.removeProduct(this.product);
         update();
     }
