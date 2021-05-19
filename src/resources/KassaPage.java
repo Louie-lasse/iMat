@@ -36,11 +36,11 @@ public class KassaPage extends Page {
     @FXML Pane billPane;
 
     @FXML ImageView paymentImg;
-    @FXML TextField cardNumber;
     @FXML TextField month;
     @FXML TextField year;
     @FXML TextField cardHolder;
     @FXML TextField cvc;
+    @FXML TextField cardNumber;
 
 
     @Override
@@ -77,22 +77,40 @@ public class KassaPage extends Page {
                 }
             }
         });
-
+        cardHolder.textProperty().addListener((observable, oldValue, newValue) -> {
+            cardHolder.setText(lettersOnly(cardHolder.getText()));
+        });
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
             if(cvc.getText().length() > 3){
                 String max = cvc.getText().substring(0, 3);
                 cvc.setText(max);
             }
+            cvc.setText(onlyNumbers(cvc.getText()));
+
         });
 
         month.textProperty().addListener((observable, oldValue, newValue) -> {
-            maxInput(month.getText(), 2, year);
+            month.setText(maxLength(month.getText(), 2));
+            month.setText(onlyNumbers(month.getText()));
+
+            if(month.getText().length() == 2){
+                changeField(month.getText(), 2, year);
+            }
+
         });
         year.textProperty().addListener((observableValue, oldValue, newValue) -> {
-            maxInput(year.getText(), 2, cardHolder);
+            year.setText(maxLength(year.getText(), 2));
+            year.setText(onlyNumbers(year.getText()));
+
+            if(year.getText().length() == 2){
+                changeField(year.getText(), 2, cardHolder);
+            }
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             if(cardNumber.getText().length() != 0) {
+                if (!cardNumber.getText().matches("\\d *")) {
+                    cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));
+                }
                 if(cardNumber.getText().charAt(0) == '4'){
                     paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                             "resources/images/mastercard.png")));
@@ -100,16 +118,44 @@ public class KassaPage extends Page {
                     paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                             "resources/images/visa.png")));
                 }
-                if(cardNumber.getText().length() == 16){
-                    maxInput(cardNumber.getText(), 16, month);
+                cardNumber.setText(maxLength(cardNumber.getText(), 20));
+                if(cardNumber.getText().length() == 20){
+                    changeField(cardNumber.getText(), 20, month);
+                }
+                if(cardNumber.getText().length() == 4){
+                    cardNumber.setText(cardNumber.getText() + " ");
+                }else if(cardNumber.getText().length() > 4 && cardNumber.getText().length()%5 == 0
+                        && cardNumber.getText().length() < 20){
+                    cardNumber.setText(cardNumber.getText() + " ");
                 }
             }
         });
     }
-    public void maxInput(String input, int maxLength, TextField next){
+    private String maxLength(String input, int maxLength){
+        if(input.length() > maxLength){
+            String temp = input.substring(0, maxLength);
+            return temp;
+        }
+        return input;
+    }
+    private void changeField(String input, int maxLength, TextField next){
         if(input.length() == maxLength){
             next.requestFocus();
         }
+    }
+
+    private String lettersOnly(String input){
+        if (!input.matches("\\sa-öA-Ö *")) {
+            return (input.replaceAll("[^\\sa-öA-Ö ]", ""));
+        }
+        return input;
+    }
+
+    private String onlyNumbers(String input){
+        if (!input.matches("\\d*")) {
+            return (input.replaceAll("[^\\d]", ""));
+        }
+        return input;
     }
     private void setPayment(String type){
         switch (type){
