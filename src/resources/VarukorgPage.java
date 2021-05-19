@@ -43,7 +43,7 @@ public class VarukorgPage extends Page{
 
     @Override
     public void update() {
-        totalPrice.setText("Totalt: " + db.getTotalPrice());
+        totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 
     @Override
@@ -64,5 +64,15 @@ public class VarukorgPage extends Page{
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
         update();
+    }
+
+    @Override
+    public boolean isDone(){
+        return db.getCartProducts().size() != 0;
+    }
+
+    @Override
+    public void displayErrors(){
+        totalPrice.setText("För att fortsätta måste du lägga till produkter i varukorgen");
     }
 }
