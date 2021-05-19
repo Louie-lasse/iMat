@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.StackPane;
@@ -36,13 +37,15 @@ public class MenuController implements Initializable {
     @FXML AnchorPane progressBar;
     @FXML AnchorPane popup;
     @FXML AnchorPane varukorgPopup;
+    @FXML AnchorPane varukorgOpenIndicator;
     @FXML AnchorPane helpPopup;
+    @FXML AnchorPane helpOpenIndicator;
 
     @FXML
-    private Button backButton;
+    private AnchorPane backButton;
 
     @FXML
-    private Button forwardButton;
+    private AnchorPane forwardButton;
 
     //Progressbar indication
     @FXML Rectangle progressBar1;
@@ -61,10 +64,8 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox2;
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
-    @FXML Rectangle helpBackgorund;
-    @FXML Rectangle cartBackground;
-    @FXML Rectangle profileBackground;
     @FXML Label cartValue;
+
 
     private boolean popupUp = false;
 
@@ -107,11 +108,41 @@ public class MenuController implements Initializable {
         updateWizardButtons();
     }
 
+    @FXML
     public void showNextWindow(){
         currentPageIndex += 1;
         pages.get(currentPageIndex).toFront();
         PageView.toFront();
         updateWizardButtons();
+    }
+
+    @FXML
+    void closePopup(MouseEvent event) {
+        hidePopup();
+    }
+
+    private void hidePopup(){
+        helpPopup.setVisible(false);
+        helpOpenIndicator.setVisible(false);
+        varukorgPopup.setVisible(false);
+        varukorgOpenIndicator.setVisible(false);
+        popup.toBack();
+    }
+
+    @FXML
+    void openHelpPopup(MouseEvent event) {
+        hidePopup();
+        popup.toFront();
+        helpPopup.setVisible(true);
+        helpOpenIndicator.setVisible(true);
+    }
+
+    @FXML
+    void openVarukorgPopup(MouseEvent event) {
+        hidePopup();
+        popup.toFront();
+        varukorgPopup.setVisible(true);
+        varukorgOpenIndicator.setVisible(true);
     }
 
     private void updateWizardButtons(){
@@ -182,46 +213,14 @@ public class MenuController implements Initializable {
         setPageToFront(0);
         backButton.setVisible(false);
         popupUp = false;
-        profileBackground.setStyle("-fx-fill: #FFA14A");
+        hidePopup();
 
     }
-    public void exitDetailed(){
-        normalView.toFront();
-        popupUp = false;
-        progressBar.toFront();
-        cartBackground.setStyle("-fx-fill: #FFA14A");
-        profileBackground.setStyle("-fx-fill: #FFA14A");
-        helpBackgorund.setStyle("-fx-fill: #FFA14A");
 
-    }
-    public void showCart(){
-        if(!popupUp){
-            popupUp = true;
-            updateCartPopup();
-            popup.toFront();
-            varukorgPopup.toFront();
-            cartBackground.setStyle("-fx-fill: #FFFFFF");
-        }
-    }
-    public void showProfile(){
-        if(!popupUp){
-            popupUp = true;
-
-            setPageToFront(5);
-            profileBackground.setStyle("-fx-fill: #FFFFFF");
-        }
-    }
-    public void showHelp(){
-        if(!popupUp){
-            popupUp = true;
-            popup.toFront();
-            helpPopup.toFront();
-            helpBackgorund.setStyle("-fx-fill: #FFFFFF");
-        }
-    }
     private void setPageToFront(int num){
         this.currentPageIndex = num;
         pages.get(this.currentPageIndex).toFront();
+        pages.get(this.currentPageIndex).open();
     }
 
 
