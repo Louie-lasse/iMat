@@ -14,6 +14,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Customer;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.Date;
+import java.util.logging.SimpleFormatter;
+
 public class LeveransPage extends Page{
 
     private static final Customer customer = db.getCustomer();
@@ -95,6 +101,8 @@ public class LeveransPage extends Page{
     @FXML ImageView dateX;
     @FXML ImageView timeCheck;
     @FXML ImageView timeX;
+    @FXML TextField hour;
+    @FXML TextField min;
 
     @FXML
     protected void nameEnter(ActionEvent actionEvent){
@@ -196,10 +204,79 @@ public class LeveransPage extends Page{
                 checkCity(city.getText());
             }
         });
+        datePicker.valueProperty().addListener((ov, oldValue, newValue) -> {
+            try {
+                checkDate();
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        });
+        hour.textProperty().addListener((observable, oldValue, newValue) -> {
+            hour.setText(maxLength(hour.getText(), 2));
+            hour.setText(onlyNumbers(hour.getText()));
+
+            if(hour.getText().length() == 2){
+                changeField(hour.getText(), 2, min);
+                checkTime();
+            }
+        });
+        min.textProperty().addListener((observable, oldValue, newValue) -> {
+            min.setText(maxLength(min.getText(), 2));
+            min.setText(onlyNumbers(min.getText()));
+
+            if(min.getText().length() == 2){
+                checkTime();
+            }
+        });
         checkFields();
-
     }
-
+    public void checkDate() throws ParseException {
+        if(!datePicker.getEditor().getText().isEmpty()){
+            SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
+            Date date1 = sdf.parse(datePicker.getEditor().getText());
+            LocalDateTime now = LocalDateTime.now();
+            String timeNow = now.toString().substring(0, 10);
+            System.out.println(timeNow);
+            Date date2 = sdf.parse(timeNow);
+            if(date1.after(date2)){
+                dateCheck.setVisible(true);
+                dateX.setVisible(false);
+            }else{
+                dateX.setVisible(true);
+                dateCheck.setVisible(false);
+            }
+        }
+    }
+    public void checkTime() {
+        if(!hour.getText().isEmpty() && !min.getText().isEmpty()) {
+            if (Integer.parseInt(hour.getText()) > 0 && Integer.parseInt(hour.getText()) < 24 &&
+                    Integer.parseInt(min.getText()) > 0 && Integer.parseInt(min.getText()) < 61) {
+                timeCheck.setVisible(true);
+                timeX.setVisible(false);
+            } else {
+                timeCheck.setVisible(false);
+                timeX.setVisible(true);
+            }
+        }
+    }
+    private String onlyNumbers(String input){
+        if (!input.matches("\\d*")) {
+            return (input.replaceAll("[^\\d]", ""));
+        }
+        return input;
+    }
+    private void changeField(String input, int maxLength, TextField next){
+        if(input.length() == maxLength){
+            next.requestFocus();
+        }
+    }
+    private String maxLength(String input, int maxLength){
+        if(input.length() > maxLength){
+            String temp = input.substring(0, maxLength);
+            return temp;
+        }
+        return input;
+    }
     private void checkName(String s){
         ObservableList<String> styles = name.getStyleClass();
         styles.clear();
