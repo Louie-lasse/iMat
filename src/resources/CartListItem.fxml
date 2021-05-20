@@ -19,24 +19,24 @@
       <Label fx:id="PricePerPieceLabel" layoutX="740.0" layoutY="78.0" styleClass="px18-text" text="Label" />
       <Label fx:id="TotalPriceLabel" layoutX="738.0" layoutY="51.0" styleClass="px20-text" text="Label" />
       <Button layoutX="867.0" layoutY="51.0" mnemonicParsing="false" onAction="#remove" prefHeight="49.0" prefWidth="200.0" styleClass="px18-text" text="Ta bort" />
-      <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="905.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="905.0" layoutY="61.0" onMouseClicked="#remove" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/trash.png" />
          </image>
       </ImageView>
       <TextField fx:id="amount" layoutX="425.0" layoutY="52.0" prefHeight="52.0" prefWidth="188.0" styleClass="orange-text-field" text="0 st" />
-      <AnchorPane layoutX="560.0" layoutY="52.0" onMouseClicked="#add">
+      <AnchorPane layoutX="563.0" layoutY="53.0" onMouseClicked="#add" prefHeight="52.0" prefWidth="52.0">
          <children>
-            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <styleClass>
                   <String fx:value="orange-button" />
                   <String fx:value="round-button" />
                </styleClass>
             </Button>
-            <Label layoutX="11.333333333" layoutY="-7.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
+            <Label alignment="CENTER" layoutX="11.333333333" layoutY="-7.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
          </children>
       </AnchorPane>
-      <AnchorPane layoutX="425.0" layoutY="52.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
+      <AnchorPane layoutX="424.0" layoutY="54.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
          <children>
             <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
                <styleClass>
