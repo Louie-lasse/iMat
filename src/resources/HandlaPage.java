@@ -1,5 +1,8 @@
 package resources;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +28,10 @@ public class HandlaPage extends Page{
 
     private final static HashMap<Product, ShoppingGridItemController> cardMap = new HashMap<>();
 
+    private static SortingPriority sortingPriority = SortingPriority.NONE;
+
+    private static SortingOrder sortingOrder = SortingOrder.REGULAR;
+
     @FXML
     private Accordion categoryMenu;
 
@@ -33,6 +40,15 @@ public class HandlaPage extends Page{
 
     @FXML
     private TilePane productPane;
+
+    @FXML
+    private ComboBox<SortingPriority> sortingPriorityComboBox;
+
+    @FXML
+    private Label inOrder;
+
+    @FXML
+    private ComboBox<SortingOrder> orderComboBox;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -44,6 +60,32 @@ public class HandlaPage extends Page{
 
     @Override
     protected void initialize(){
+        ObservableList<SortingPriority> items = sortingPriorityComboBox.getItems();
+        items.add(SortingPriority.NONE);
+        items.add(SortingPriority.PRICE);
+        items.add(SortingPriority.ALPHABETICAL);
+        items.add(SortingPriority.ECOLOGICAL);
+        sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
+        sortingPriorityComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<SortingPriority>() {
+            @Override
+            public void changed(ObservableValue<? extends SortingPriority> observableValue, SortingPriority oldPriority, SortingPriority t1) {
+                sortingPriority = sortingPriorityComboBox.getSelectionModel().getSelectedItem();
+                updateSortingOptions();
+                update();
+            }
+        });
+        inOrder.setVisible(false);
+        orderComboBox.setVisible(false);
+        orderComboBox.getItems().add(SortingOrder.REGULAR);
+        orderComboBox.getItems().add(SortingOrder.REVERSE);
+        orderComboBox.getSelectionModel().select(SortingOrder.REGULAR);
+        orderComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<SortingOrder>() {
+            @Override
+            public void changed(ObservableValue<? extends SortingOrder> observableValue, SortingOrder newOrder, SortingOrder t1) {
+                sortingOrder = orderComboBox.getSelectionModel().getSelectedItem();
+                update();
+            }
+        });
         List<TitledPane> panes = categoryMenu.getPanes();
         panes.clear();
         List<Tree> subItems = Tree.get(Category.HOME).getChildren();
@@ -71,14 +113,12 @@ public class HandlaPage extends Page{
                 text.setOnMouseClicked(this::handleCategoryItemClicked);
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
-                //todo add styling
                 subItems.getChildren().add(pane);
             } else {
                 TitledPane pane = getItem(child);
                 subItems.getChildren().add(pane);
             }
         }
-        //TODO add items to maps
         TitledPane item = new TitledPane(tree.toString(), subItems);
         item.setExpanded(false);
         item.setOnMouseClicked(this::handleCategoryItemClicked);
@@ -100,15 +140,28 @@ public class HandlaPage extends Page{
         update();
     }
 
+    private void updateSortingOptions(){
+        boolean noPriority = sortingPriority == SortingPriority.NONE;
+        inOrder.setVisible(!noPriority);
+        orderComboBox.setVisible(!noPriority);
+        if (!noPriority){
+            orderComboBox.getSelectionModel().select(SortingOrder.REGULAR);
+            sortingOrder = SortingOrder.REGULAR;
+        }
+    }
+
     private void populateCardView(){
         List<ShoppingGridItemController> activeCards = getSelectedProducts();
         List<Node> cards = productPane.getChildren();
         cards.clear();
-        cards.addAll(activeCards);
+        for (ShoppingGridItemController controller: activeCards){
+            controller.update();
+            cards.add(controller);
+        }
     }
 
     private List<ShoppingGridItemController> getSelectedProducts(){
-        List<Product> selectedProducts = db.getProducts(activeCategory);
+        List<Product> selectedProducts = db.getProducts(activeCategory, sortingPriority, sortingOrder);
         List<ShoppingGridItemController> selectedCards = new ArrayList<>();
         for (Product product: selectedProducts){
             selectedCards.add(cardMap.get(product));
@@ -149,10 +202,11 @@ public class HandlaPage extends Page{
     }
 
     public void handleCategoryItemClicked(Event event){
-        Tree clicked = controlTreeHashMap.get(event.getSource());
+        Tree clicked = controlTreeHashMap.get((Control)event.getSource());
         //"suspicious" cuz getSource returns Object, but only Control (parent class of TitledPane and TextField)
         //are connected to the method, so the map SHOULD never return null (or crash)
         activeCategory = clicked.getCategory();
+        sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
         update();
     }
 

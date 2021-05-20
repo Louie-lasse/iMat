@@ -6,6 +6,9 @@ import se.chalmers.cse.dat216.project.*;
 import java.io.File;
 import java.util.*;
 
+import static resources.SortingOrder.REGULAR;
+import static resources.SortingOrder.REVERSE;
+
 public class BackendAdapter{
     private static final BackendAdapter adapterInstance = new BackendAdapter();
     private static final IMatDataHandler db = IMatDataHandler.getInstance();
@@ -126,10 +129,6 @@ public class BackendAdapter{
 
     public boolean isValidAddress(String s){
         char[] chars = s.toCharArray();
-        if (!s.equals("")){
-            int x = 5;
-            x++;
-        }
         boolean containsNumber = false;
         for (char c: chars){
             if (!Character.isLetter(c)){
@@ -194,12 +193,12 @@ public class BackendAdapter{
     }
 
     public List<Product> getAllProducts(SortingPriority sp) {
-        return getAllProducts(sp, false);
+        return getAllProducts(sp, REGULAR);
     }
 
-    public List<Product> getAllProducts(SortingPriority sp, boolean reverseOrder){
+    public List<Product> getAllProducts(SortingPriority sp, SortingOrder order){
         List<Product> products = getAllProducts();
-        return sort(products, sp, reverseOrder);
+        return sort(products, sp, order);
     }
 
     /**
@@ -212,15 +211,15 @@ public class BackendAdapter{
     }
 
     public List<Product> getProducts(Category category, SortingPriority sp){
-        return getProducts(category, sp, false);
+        return getProducts(category, sp, REGULAR);
     }
 
-    public List<Product> getProducts(Category category, SortingPriority sp, boolean reverseOrder) {
+    public List<Product> getProducts(Category category, SortingPriority sp, SortingOrder order) {
         List<Product> products = getProducts(category);
-        return sort(products, sp, reverseOrder);
+        return sort(products, sp, order);
     }
 
-    private List<Product> sort(List<Product> products, SortingPriority sp, boolean reverseOrder){
+    private List<Product> sort(List<Product> products, SortingPriority sp, SortingOrder order){
         Comparator<Product> comparator;
         switch(sp.ordinal()){
             case(0): return products;
@@ -233,7 +232,7 @@ public class BackendAdapter{
             default: comparator = new AlphabeticalComparator();
         }
         products.sort(comparator);
-        if (reverseOrder) Collections.reverse(products);
+        if (order == REVERSE) Collections.reverse(products);
         return products;
     }
 

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
@@ -13,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <FlowPane layoutX="39.0" layoutY="88.0" prefHeight="674.0" prefWidth="224.0" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="40.0">
          <children>
@@ -116,7 +117,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="40.0">
+      <ScrollPane layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
          <content>
             <FlowPane prefHeight="937.0" prefWidth="863.0">
                <children>
@@ -129,5 +130,17 @@
             </FlowPane>
          </content>
       </ScrollPane>
+      <ComboBox fx:id="orderComboBox" layoutX="1265.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="13.0" />
+      <Label fx:id="inOrder" alignment="CENTER" layoutX="1239.6" layoutY="7.0" prefHeight="39.0" prefWidth="26.0" text="i" AnchorPane.rightAnchor="174.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="sortingPriorityComboBox" layoutX="1083.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="206.6" AnchorPane.topAnchor="13.0" />
+      <Label alignment="CENTER" layoutX="1010.0" layoutY="7.0" prefHeight="39.0" prefWidth="72.0" text="Sortera">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </fx:root>

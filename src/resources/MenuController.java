@@ -187,7 +187,7 @@ public class MenuController implements Initializable {
         varukorgPopup.setVisible(true);
         helpPopup.setVisible(false);
         varukorgOpenIndicator.toFront();
-        varukorgPopup.requestFocus();
+        helpOpenIndicator.toBack();
     }
 
     private void updateWizardButtons(){
