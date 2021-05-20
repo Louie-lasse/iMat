@@ -74,7 +74,7 @@ public class ShoppingGridItemController  extends AnchorPane {
         update();
     }
 
-    private void update(){
+    public void update(){
         amount.setText(db.getFormattedAmount(product));
     }
 

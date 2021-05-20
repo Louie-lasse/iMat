@@ -104,7 +104,10 @@ public class HandlaPage extends Page{
         List<ShoppingGridItemController> activeCards = getSelectedProducts();
         List<Node> cards = productPane.getChildren();
         cards.clear();
-        cards.addAll(activeCards);
+        for (ShoppingGridItemController controller: activeCards){
+            controller.update();
+            cards.add(controller);
+        }
     }
 
     private List<ShoppingGridItemController> getSelectedProducts(){
