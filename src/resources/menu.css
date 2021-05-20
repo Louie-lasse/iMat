@@ -1,0 +1,7 @@
+.open-item{
+    -fx-background-color: #ededed;
+    -fx-background-radius: 3;
+    -fx-border-color:  #C47C39;
+    -fx-border-radius: 3;
+    -fx-border-width: 3px 3px 0px 3px;
+}

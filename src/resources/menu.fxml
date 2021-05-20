@@ -134,9 +134,9 @@
 
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" stylesheets="@menu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane fx:id="helpOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="helpOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" styleClass="open-item" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ImageView fitHeight="48.0" fitWidth="48.0" layoutX="29.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0">
                      <image>
@@ -150,7 +150,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="varukorgOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" style="-fx-background-color: #FFFFFF;" AnchorPane.rightAnchor="212.6" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="varukorgOpenIndicator" onMouseClicked="#closePopup" prefHeight="108.0" prefWidth="100.0" styleClass="open-item" AnchorPane.rightAnchor="212.6" AnchorPane.topAnchor="0.0">
                <children>
                   <Label fx:id="cartLabel3" alignment="CENTER" layoutY="10.0" text="Varukorg" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <font>

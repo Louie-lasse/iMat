@@ -68,7 +68,7 @@ public class HandlaPage extends Page{
         sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
         sortingPriorityComboBox.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<SortingPriority>() {
             @Override
-            public void changed(ObservableValue<? extends SortingPriority> observableValue, SortingPriority newPriority, SortingPriority t1) {
+            public void changed(ObservableValue<? extends SortingPriority> observableValue, SortingPriority oldPriority, SortingPriority t1) {
                 sortingPriority = sortingPriorityComboBox.getSelectionModel().getSelectedItem();
                 updateSortingOptions();
                 update();
@@ -113,7 +113,6 @@ public class HandlaPage extends Page{
                 text.setOnMouseClicked(this::handleCategoryItemClicked);
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
-                //todo add styling
                 subItems.getChildren().add(pane);
             } else {
                 TitledPane pane = getItem(child);
