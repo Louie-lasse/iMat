@@ -10,7 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="376.0" prefWidth="260.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="376.0" prefWidth="260.0" styleClass="background-pane" stylesheets="@ShoppingGridItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="productImage" fitHeight="136.0" fitWidth="173.0" layoutX="44.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -39,13 +39,19 @@
             </AnchorPane>
             <AnchorPane layoutY="3.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
                <children>
-                  <Button fx:id="subtract" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
+                  <Button fx:id="subtract" mnemonicParsing="false" onAction="#remove" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;">
+                     <styleClass>
+                        <String fx:value="orange-button" />
+                        <String fx:value="round-button" />
+                     </styleClass>
+                  </Button>
+                  <Button fx:id="invalidSub" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
                      <styleClass>
                         <String fx:value="round-button" />
                         <String fx:value="gray-button" />
                      </styleClass>
                   </Button>
-                  <Label layoutX="17.0" layoutY="-5.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+                  <Label fx:id="subLabel" layoutX="17.0" layoutY="-5.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
                </children>
             </AnchorPane>
          </children>

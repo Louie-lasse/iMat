@@ -30,7 +30,7 @@
       </Button>
       <Pane layoutX="25.0" layoutY="111.0" prefHeight="431.0" prefWidth="538.0" AnchorPane.leftAnchor="36.0">
          <children>
-            <Label layoutX="10.0" layoutY="20.0" text="Förnamn">
+            <Label layoutX="10.0" layoutY="20.0" text="Namn">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
