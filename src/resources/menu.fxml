@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle fx:id="backgroundPrice" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -244,7 +244,7 @@
       </AnchorPane>
       <AnchorPane fx:id="progressBar" layoutX="-1.0" layoutY="919.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane fx:id="backButton" layoutX="60.0" layoutY="24.600000381469727" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="70.0">
+            <AnchorPane fx:id="backButton" layoutX="60.0" layoutY="24.600000381469727" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0">
                <children>
                   <Button mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: d1d1d1; -fx-background-radius: 10px;" text="  Föregående">
                      <font>
@@ -258,7 +258,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="forwardButton" layoutX="1241.5999755859375" layoutY="16.600000381469727" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="70.0">
+            <AnchorPane fx:id="forwardButton" layoutX="1241.5999755859375" layoutY="16.600000381469727" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <children>
                   <Button layoutY="9.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #FFA14A; -fx-background-radius: 10px;" text="Gå vidare" textFill="WHITE" AnchorPane.rightAnchor="3.200000000000017">
                      <font>
@@ -272,7 +272,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Pane layoutX="386.0" layoutY="3.0" prefHeight="100.0" prefWidth="747.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="386.0" AnchorPane.rightAnchor="307.0">
+            <Pane layoutX="422.0" layoutY="3.0" prefHeight="100.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="351.0" AnchorPane.rightAnchor="351.0">
                <children>
                   <Circle fill="#c4c4c4" layoutX="36.0" layoutY="45.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
                   <Circle fx:id="unfinishedStep4" fill="#c4c4c4" layoutX="702.0" layoutY="45.0" radius="28.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
@@ -334,17 +334,18 @@
                   </ImageView>
                </children>
             </Pane>
+            <Label fx:id="pageNotComplete" alignment="CENTER" contentDisplay="CENTER" layoutX="1093.0" layoutY="11.0" prefHeight="106.0" prefWidth="153.0" text="Du måste göra klart sidan först" underline="true" wrapText="true" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="normalView" hbarPolicy="NEVER" layoutY="108.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
+      <ScrollPane fx:id="normalView" hbarPolicy="NEVER" layoutY="108.0" style="-fx-background-color: #ededed;" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
          <content>
             <FlowPane>
                <children>
-                  <StackPane fx:id="PageView" prefHeight="803.0" prefWidth="1440.0">
-                     <children>
-                        <AnchorPane prefHeight="812.0" prefWidth="1101.0" />
-                     </children>
-                  </StackPane>
+                  <StackPane fx:id="PageView" prefHeight="803.0" prefWidth="1440.0" />
                </children>
             </FlowPane>
          </content>

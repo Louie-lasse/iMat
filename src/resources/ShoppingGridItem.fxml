@@ -20,7 +20,7 @@
             <Rectangle2D />
          </viewport>
       </ImageView>
-      <Label fx:id="nameLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="150.0" prefHeight="78.0" prefWidth="210.0" styleClass="item-name" text="Something" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0" />
+      <Label fx:id="nameLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="150.0" prefHeight="78.0" prefWidth="210.0" styleClass="item-name" text="Something" wrapText="true" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="150.0" />
       <Label fx:id="priceLabel" layoutX="25.0" layoutY="236.0" styleClass="item-price" text="50 kr/st" />
       <Label layoutX="25.0" layoutY="262.0" styleClass="px20-text" text="Antal i varukorg:" AnchorPane.bottomAnchor="83.6" />
       <AnchorPane layoutX="26.0" layoutY="293.0" prefHeight="62.0" prefWidth="186.0" AnchorPane.bottomAnchor="22.0">

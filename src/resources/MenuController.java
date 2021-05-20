@@ -47,6 +47,8 @@ public class MenuController implements Initializable {
     @FXML
     private AnchorPane forwardButton;
 
+    @FXML private Label pageNotComplete;
+
     //Progressbar indication
     @FXML Rectangle progressBar1;
     @FXML Rectangle progressBar2;
@@ -118,6 +120,7 @@ public class MenuController implements Initializable {
             updateWizardButtons();
         } else {
             currentPage.displayErrors();
+            pageNotComplete.setVisible(true);
         }
     }
 
@@ -155,6 +158,7 @@ public class MenuController implements Initializable {
     }
 
     private void updateWizardButtons(){
+        pageNotComplete.setVisible(false);
         switch (currentPageIndex) {
             case 0:
                 backButton.setVisible(false);
