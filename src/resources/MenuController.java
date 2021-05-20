@@ -67,8 +67,6 @@ public class MenuController implements Initializable {
     @FXML Label cartValue;
 
 
-    private boolean popupUp = false;
-
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
     @FXML FlowPane cartFlowPane;
@@ -132,6 +130,8 @@ public class MenuController implements Initializable {
         helpOpenIndicator.toBack();
         varukorgOpenIndicator.toBack();
         popup.toBack();
+        helpPopup.toBack();
+        varukorgPopup.toBack();
     }
 
     @FXML
@@ -151,7 +151,7 @@ public class MenuController implements Initializable {
         varukorgPopup.setVisible(true);
         helpPopup.setVisible(false);
         varukorgOpenIndicator.toFront();
-        helpOpenIndicator.toBack();
+        varukorgPopup.requestFocus();
     }
 
     private void updateWizardButtons(){
@@ -220,7 +220,6 @@ public class MenuController implements Initializable {
     }
     public void returnHome(){
         setPageToFront(0);
-        popupUp = false;
         hidePopup();
         updateWizardButtons();
     }

@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle fx:id="backgroundPrice" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -28,6 +28,47 @@
       <AnchorPane fx:id="popup" layoutY="59.0" prefHeight="860.0" prefWidth="1440.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
          <children>
             <AnchorPane opacity="0.33" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #000000;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+            <AnchorPane fx:id="varukorgPopup" prefHeight="906.0" prefWidth="658.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane layoutX="2.0" layoutY="108.0" prefHeight="756.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <AnchorPane onMouseClicked="#closePopup" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+                           <children>
+                              <Button alignment="CENTER" mnemonicParsing="false" onMouseClicked="#closePopup" prefHeight="51.0" prefWidth="162.0" text="  Stäng">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Button>
+                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/exit.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </AnchorPane>
+                        <Label layoutX="18.0" layoutY="92.0" text="Varukorg" AnchorPane.leftAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="244.0" layoutY="694.0" text="Totalt: 4214 kr">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Pane prefHeight="610.0" prefWidth="607.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                           <children>
+                              <FlowPane fx:id="cartFlowPane" layoutY="120.0" prefHeight="573.0" prefWidth="656.0">
+                                 <padding>
+                                    <Insets left="20.0" />
+                                 </padding>
+                              </FlowPane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <AnchorPane fx:id="helpPopup" layoutX="720.0" prefHeight="916.0" prefWidth="720.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="720.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <ScrollPane prefHeight="665.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -90,47 +131,6 @@
                </children>
 
                   </AnchorPane>
-            <AnchorPane fx:id="varukorgPopup" prefHeight="906.0" prefWidth="658.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <AnchorPane layoutX="2.0" layoutY="108.0" prefHeight="756.0" prefWidth="658.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <children>
-                        <AnchorPane onMouseClicked="#closePopup" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
-                           <children>
-                              <Button fx:id="close" alignment="CENTER" mnemonicParsing="false" onAction="#closePopup" prefHeight="51.0" prefWidth="162.0" text="  Stäng">
-                                 <font>
-                                    <Font name="System Bold" size="21.0" />
-                                 </font>
-                              </Button>
-                              <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@images/exit.png" />
-                                 </image>
-                              </ImageView>
-                           </children>
-                        </AnchorPane>
-                        <Label layoutX="18.0" layoutY="92.0" text="Varukorg" AnchorPane.leftAnchor="30.0">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Label layoutX="244.0" layoutY="694.0" text="Totalt: 4214 kr">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Pane prefHeight="610.0" prefWidth="607.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                           <children>
-                              <FlowPane fx:id="cartFlowPane" layoutY="120.0" prefHeight="573.0" prefWidth="656.0">
-                                 <padding>
-                                    <Insets left="20.0" />
-                                 </padding>
-                              </FlowPane>
-                           </children>
-                        </Pane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
 
          </children>
       </AnchorPane>
@@ -244,28 +244,28 @@
       </AnchorPane>
       <AnchorPane fx:id="progressBar" layoutX="-1.0" layoutY="919.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <AnchorPane fx:id="backButton" layoutX="60.0" layoutY="24.600000381469727" AnchorPane.leftAnchor="60.0">
+            <AnchorPane fx:id="backButton" layoutX="60.0" layoutY="24.600000381469727" AnchorPane.bottomAnchor="27.0" AnchorPane.leftAnchor="70.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="56.0" prefWidth="142.0" style="-fx-background-color: d1d1d1;" text="Föregående">
+                  <Button mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: d1d1d1; -fx-background-radius: 10px;" text="  Föregående">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <ImageView fx:id="backArrow" fitHeight="42.0" fitWidth="30.0" layoutY="12.999998092651367" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="backArrow" fitHeight="42.0" fitWidth="30.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/baseline_arrow_back_ios_black_24dp.png" />
                      </image>
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="forwardButton" layoutX="1241.5999755859375" layoutY="16.600000381469727" AnchorPane.rightAnchor="60.0">
+            <AnchorPane fx:id="forwardButton" layoutX="1241.5999755859375" layoutY="16.600000381469727" AnchorPane.bottomAnchor="27.0" AnchorPane.rightAnchor="70.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="64.0" prefWidth="134.0" style="-fx-background-color: #FFA14A;" text="Gå vidare" textFill="WHITE">
+                  <Button layoutY="9.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #FFA14A; -fx-background-radius: 10px;" text="Gå vidare" textFill="WHITE" AnchorPane.rightAnchor="3.200000000000017">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="105.0" layoutY="17.600000381469727" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="34.0" fitWidth="42.0" layoutX="118.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/baseline_arrow_forward_ios_white_24dp.png" />
                      </image>
@@ -336,7 +336,7 @@
             </Pane>
          </children>
       </AnchorPane>
-      <ScrollPane fx:id="normalView" layoutY="108.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
+      <ScrollPane fx:id="normalView" hbarPolicy="NEVER" layoutY="108.0" AnchorPane.bottomAnchor="105.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="108.0">
          <content>
             <FlowPane>
                <children>
