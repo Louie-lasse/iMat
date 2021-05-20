@@ -1,5 +1,7 @@
 package resources;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -68,22 +70,25 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox4;
     @FXML Label cartValue;
 
-
+    private int prevPageIndex = 0;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
     @FXML FlowPane cartFlowPane;
 
     @FXML
     private Label totalPrice;
-
+    private ConfirmationPage confirmationPage;
+    private ProfilePage profilePage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
         pages.add(new KassaPage());
-        pages.add(new ConfirmationPage());
-        pages.add(new ProfilePage());
+        confirmationPage = new ConfirmationPage();
+        pages.add(confirmationPage);
+        profilePage = new ProfilePage();
+        pages.add(profilePage);
         //test
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
@@ -98,6 +103,24 @@ public class MenuController implements Initializable {
             controllerHashMap.put(p, new CartItemController(p));
         }
 
+        confirmationPage.homeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                returnHome();
+            }
+        });
+
+        profilePage.backButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                closeProfilePopup();
+            }
+        });
+
+        confirmationPage.receiptButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                openProfilePopup();
+            }
+        });
     }
 
     @FXML
@@ -128,7 +151,18 @@ public class MenuController implements Initializable {
     void closePopup(MouseEvent event) {
         hidePopup();
     }
-
+    @FXML
+    void closeProfilePopup(){
+        PageView.toFront();
+        this.currentPageIndex = prevPageIndex;
+        pages.get(this.currentPageIndex).toFront();
+        pages.get(this.currentPageIndex).open();
+    }
+    @FXML
+    void openProfilePopup(){
+        prevPageIndex = this.currentPageIndex;
+        setPageToFront(5);
+    }
     private void hidePopup(){
         helpOpenIndicator.toBack();
         varukorgOpenIndicator.toBack();
@@ -136,7 +170,6 @@ public class MenuController implements Initializable {
         helpPopup.toBack();
         varukorgPopup.toBack();
     }
-
     @FXML
     void openHelpPopup(MouseEvent event) {
         popup.toFront();

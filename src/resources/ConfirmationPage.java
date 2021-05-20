@@ -1,9 +1,13 @@
 package resources;
 
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 
 public class ConfirmationPage extends Page{
 
+    @FXML Button homeButton;
+    @FXML Button receiptButton;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -18,6 +22,14 @@ public class ConfirmationPage extends Page{
     @Override
     public void update() {
 
+    }
+
+    public Button getReceiptButton() {
+        return receiptButton;
+    }
+
+    public Button getHomeButton() {
+        return homeButton;
     }
 
     @Override

@@ -34,7 +34,7 @@ public class KassaPage extends Page {
     @FXML Pane cardPane;
     @FXML Pane klarnaPane;
     @FXML Pane billPane;
-
+    @FXML Button payButton;
     @FXML ImageView paymentImg;
     @FXML TextField month;
     @FXML TextField year;
@@ -57,6 +57,10 @@ public class KassaPage extends Page {
         fxmlLoader.setController(this);
 
         return fxmlLoader;
+    }
+
+    public Button getPayButton() {
+        return payButton;
     }
 
     @Override

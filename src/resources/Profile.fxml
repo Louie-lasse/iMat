@@ -11,7 +11,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <fx:root fx:id="ProfilePage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Button fx:id="backButton" layoutX="41.0" layoutY="58.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="226.0" text="Tillbaka">
@@ -34,11 +33,6 @@
             <Label layoutX="10.0" layoutY="20.0" text="Förnamn">
                <font>
                   <Font name="System Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label layoutX="230.0" layoutY="21.0" text="Efternamn">
-               <font>
-                  <Font name="System Bold" size="18.0" />
                </font>
             </Label>
             <Label layoutX="10.0" layoutY="100.0" text="Telefonnummer">
@@ -66,7 +60,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hjördis">
+            <Label fx:id="name" layoutX="10.0" layoutY="50.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hjördis">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -74,7 +68,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label layoutX="230.0" layoutY="50.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Jonsson">
+            <Label fx:id="phoneNumber" layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="0702245489">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -82,7 +76,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label layoutX="10.0" layoutY="130.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="0702245489">
+            <Label fx:id="email" layoutX="10.0" layoutY="210.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hjördis.gdasdg@gmail.com">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -90,7 +84,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label layoutX="10.0" layoutY="210.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hjördis.gdasdg@gmail.com">
+            <Label fx:id="address" layoutX="10.0" layoutY="290.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hemvägen 13">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -98,7 +92,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label layoutX="10.0" layoutY="290.0" prefHeight="40.0" prefWidth="420.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Hemvägen 13">
+            <Label fx:id="zip" layoutX="10.0" layoutY="370.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="412 32">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
@@ -106,15 +100,7 @@
                   <Insets left="20.0" />
                </padding>
             </Label>
-            <Label layoutX="10.0" layoutY="370.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="412 32">
-               <font>
-                  <Font name="System Bold" size="22.0" />
-               </font>
-               <padding>
-                  <Insets left="20.0" />
-               </padding>
-            </Label>
-            <Label layoutX="230.0" layoutY="370.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Göteborg">
+            <Label fx:id="city" layoutX="230.0" layoutY="370.0" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #ededed; -fx-background-radius: 10px;" text="Göteborg">
                <font>
                   <Font name="System Bold" size="22.0" />
                </font>
