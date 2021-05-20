@@ -137,7 +137,7 @@
       </Pane>
       <Pane layoutX="36.0" layoutY="581.0" prefHeight="200.0" prefWidth="460.0" style="-fx-background-color: #ffffff; -fx-border-radius: 10px; -fx-border-color: #000000;" AnchorPane.leftAnchor="36.0">
          <children>
-            <Label layoutX="36.0" layoutY="21.0" text="Kortnummer:">
+            <Label layoutX="57.0" layoutY="21.0" text="Kortnummer:">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -147,7 +147,7 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <Label layoutX="36.0" layoutY="105.0" text="Namn på korthållare:">
+            <Label layoutX="57.0" layoutY="105.0" text="Namn på korthållare:">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -157,12 +157,12 @@
                   <Font name="System Bold" size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="cardNumber" layoutX="39.0" layoutY="49.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****">
+            <TextField fx:id="cardNumber" layoutX="57.0" layoutY="49.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****">
                <font>
                   <Font size="16.0" />
                </font>
             </TextField>
-            <ImageView fitHeight="23.0" fitWidth="40.0" layoutX="186.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="paymentImg" fitHeight="23.0" fitWidth="40.0" layoutX="14.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@images/visa.png" />
                </image>
@@ -172,7 +172,7 @@
                   <Font size="16.0" />
                </font>
             </TextField>
-            <TextField fx:id="cardHolder" layoutX="39.0" layoutY="134.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson">
+            <TextField fx:id="cardHolder" layoutX="57.0" layoutY="134.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson">
                <font>
                   <Font size="16.0" />
                </font>

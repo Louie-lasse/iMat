@@ -13,9 +13,14 @@ public class BackendAdapter{
     private static final BackendAdapter adapterInstance = new BackendAdapter();
     private static final IMatDataHandler db = IMatDataHandler.getInstance();
     private static final ShoppingCart cart = db.getShoppingCart();
+    private static final CreditCard card = db.getCreditCard();
 
     private BackendAdapter(){
         init();
+    }
+
+    public static CreditCard getCard() {
+        return card;
     }
 
     private void initiateTree(){

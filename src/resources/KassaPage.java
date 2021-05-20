@@ -2,6 +2,8 @@ package resources;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -90,7 +92,6 @@ public class KassaPage extends Page {
         cardHolder.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolder.setText(lettersOnly(cardHolder.getText()));
         });
-
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolderDone.setVisible(true);
             cardHolderError.setVisible(false);
@@ -156,6 +157,25 @@ public class KassaPage extends Page {
                 }
             }
         });
+        payButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                if(checkInfo()){
+                    saveCardInfo();
+                }
+            }
+        });
+    }
+    public void saveCardInfo(){
+        BackendAdapter.getCard().setCardNumber(cardNumber.getText());
+        if(cardNumber.getText().charAt(0) == '4'){
+            BackendAdapter.getCard().setCardType("Mastercard");
+        }else{
+            BackendAdapter.getCard().setCardType("Visa");
+        }
+        BackendAdapter.getCard().setHoldersName(cardHolder.getText());
+        BackendAdapter.getCard().setValidYear(Integer.parseInt(year.getText()));
+        BackendAdapter.getCard().setValidMonth(Integer.parseInt(month.getText()));
+        BackendAdapter.getCard().setVerificationCode(Integer.parseInt(cvc.getText()));
     }
     public void checkMonthDate() {
         if(!year.getText().isEmpty() && !month.getText().isEmpty()){
@@ -218,30 +238,19 @@ public class KassaPage extends Page {
                 break;
         }
     }
-    private String[] splitPostCode(String code){
-        StringBuilder zip = new StringBuilder();
-        StringBuilder city = new StringBuilder();
-        int i;
-        for (i = 0; i < code.length(); i++){
-            if (i == 5){
-                break;
-            }
-            if (Character.isDigit(code.charAt(i))){
-                zip.append(code.charAt(i));
-            } else {
-                break;
-            }
+    public boolean checkInfo(){
+        if(cardNumberDone.isVisible() && cardDateDone.isVisible() &&
+                cardHolderDone.isVisible() && cvcDone.isVisible()){
+            return true;
         }
-        return new String[]{zip.toString(), city.append(code.substring(i)).toString()};
+        return false;
     }
     @Override
     public void update() {
         name.setText(customer.getFirstName() + " " + customer.getLastName());
         phoneNumber.setText(customer.getPhoneNumber());
         email.setText(customer.getEmail());
-        String[] postCode = splitPostCode(customer.getPostCode());
-        address.setText(customer.getAddress() + ", " + postCode[0] + ", " + postCode[1]);
-
+        address.setText(customer.getAddress());
     }
 
     @Override
