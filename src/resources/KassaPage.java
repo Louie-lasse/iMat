@@ -41,7 +41,14 @@ public class KassaPage extends Page {
     @FXML TextField cardHolder;
     @FXML TextField cvc;
     @FXML TextField cardNumber;
-
+    @FXML ImageView cardNumberDone;
+    @FXML ImageView cardDateDone;
+    @FXML ImageView cardHolderDone;
+    @FXML ImageView cvcDone;
+    @FXML ImageView cardNumberError;
+    @FXML ImageView cardDateError;
+    @FXML ImageView cardHolderError;
+    @FXML ImageView cvcError;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -66,8 +73,12 @@ public class KassaPage extends Page {
         card.setSelected(true);
         cardPane.toFront();
 
-        toggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+        cardNumberDone.setVisible(false);
+        cardDateDone.setVisible(false);
+        cvcDone.setVisible(false);
+        cardHolderDone.setVisible(false);
 
+        toggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
 
@@ -80,13 +91,23 @@ public class KassaPage extends Page {
         cardHolder.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolder.setText(lettersOnly(cardHolder.getText()));
         });
+
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
+            cardHolderDone.setVisible(true);
+            cardHolderError.setVisible(false);
             if(cvc.getText().length() > 3){
                 String max = cvc.getText().substring(0, 3);
                 cvc.setText(max);
             }
-            cvc.setText(onlyNumbers(cvc.getText()));
+            if(cvc.getText().length() > 2){
+                cvcDone.setVisible(true);
+                cvcError.setVisible(false);
+            }else{
+                cvcDone.setVisible(false);
+                cvcError.setVisible(true);
 
+            }
+            cvc.setText(onlyNumbers(cvc.getText()));
         });
 
         month.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -95,8 +116,8 @@ public class KassaPage extends Page {
 
             if(month.getText().length() == 2){
                 changeField(month.getText(), 2, year);
+                checkMonthDate();
             }
-
         });
         year.textProperty().addListener((observableValue, oldValue, newValue) -> {
             year.setText(maxLength(year.getText(), 2));
@@ -105,6 +126,7 @@ public class KassaPage extends Page {
             if(year.getText().length() == 2){
                 changeField(year.getText(), 2, cardHolder);
             }
+            checkMonthDate();
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
             if(cardNumber.getText().length() != 0) {
@@ -121,6 +143,11 @@ public class KassaPage extends Page {
                 cardNumber.setText(maxLength(cardNumber.getText(), 20));
                 if(cardNumber.getText().length() == 20){
                     changeField(cardNumber.getText(), 20, month);
+                    cardNumberDone.setVisible(true);
+                    cardNumberError.setVisible(false);
+                }else{
+                    cardNumberDone.setVisible(false);
+                    cardNumberError.setVisible(true);
                 }
                 if(cardNumber.getText().length() == 4){
                     cardNumber.setText(cardNumber.getText() + " ");
@@ -130,6 +157,22 @@ public class KassaPage extends Page {
                 }
             }
         });
+    }
+    public void checkMonthDate() {
+        if(!year.getText().isEmpty() && !month.getText().isEmpty()){
+            if (Integer.parseInt(year.getText()) == 21 && Integer.parseInt(month.getText()) > 5
+                    && Integer.parseInt(month.getText()) < 13) {
+                cardDateDone.setVisible(true);
+                cardDateError.setVisible(false);
+            } else if (Integer.parseInt(month.getText()) > 0 && Integer.parseInt(month.getText()) < 13 &&
+                    Integer.parseInt(year.getText()) > 21){
+                cardDateDone.setVisible(true);
+                cardDateError.setVisible(false);
+            }else{
+                cardDateDone.setVisible(false);
+                cardDateError.setVisible(true);
+            }
+        }
     }
     private String maxLength(String input, int maxLength){
         if(input.length() > maxLength){
