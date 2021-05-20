@@ -246,6 +246,13 @@ public class KassaPage extends Page {
         phoneNumber.setText(customer.getPhoneNumber());
         email.setText(customer.getEmail());
         address.setText(customer.getAddress());
+
+        cardNumber.setText(BackendAdapter.getCard().getCardNumber());
+        cardHolder.setText(BackendAdapter.getCard().getHoldersName());
+        month.setText(Integer.toString(BackendAdapter.getCard().getValidMonth()));
+        year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
+        cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
+
     }
 
     @Override

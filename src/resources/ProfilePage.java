@@ -46,31 +46,15 @@ public class ProfilePage extends Page{
         fxmlLoader.setController(this);
         return fxmlLoader;
     }
-    private String[] splitPostCode(String code){
-        StringBuilder zip = new StringBuilder();
-        StringBuilder city = new StringBuilder();
-        int i;
-        for (i = 0; i < code.length(); i++){
-            if (i == 5){
-                break;
-            }
-            if (Character.isDigit(code.charAt(i))){
-                zip.append(code.charAt(i));
-            } else {
-                break;
-            }
-        }
-        return new String[]{zip.toString(), city.append(code.substring(i)).toString()};
-    }
+
     @Override
     public void update() {
         name.setText(customer.getFirstName() + " " + customer.getLastName());
         phoneNumber.setText(customer.getPhoneNumber());
         email.setText(customer.getEmail());
-        String[] postCode = splitPostCode(customer.getPostCode());
         address.setText(customer.getAddress());
-        zip.setText(postCode[0]);
-        city.setText(postCode[1]);
+        zip.setText(customer.getPostCode());
+        city.setText(customer.getPostAddress());
 
         if(BackendAdapter.getCard().getCardType().equals("Mastercard")){
             paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(

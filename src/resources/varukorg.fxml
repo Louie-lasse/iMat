@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="varukorgPage" prefHeight="704.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="varukorgPage" prefHeight="704.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Label layoutX="186.0" layoutY="32.0" text="Varukorg" AnchorPane.leftAnchor="175.0">
          <font>
@@ -36,7 +36,7 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <ScrollPane layoutY="85.0" prefHeight="482.0" prefWidth="1089.0">
+            <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="482.0" prefWidth="1089.0">
                <content>
                   <FlowPane fx:id="varorFlowPane" prefHeight="483.0" prefWidth="1087.0">
                      <children>

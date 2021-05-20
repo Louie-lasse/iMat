@@ -158,7 +158,9 @@ public class BackendAdapter{
         }
         return true;
     }
-
+    public void clearCart(){
+        cart.clear();
+    }
     public boolean isValidCity(String s){
         return isValidName(s);
     }
@@ -353,6 +355,7 @@ public class BackendAdapter{
         }
         return products;
     }
+
 
     public void addFavorite(Product p) { db.addFavorite(p); }
 

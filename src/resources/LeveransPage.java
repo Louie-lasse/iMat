@@ -277,8 +277,9 @@ public class LeveransPage extends Page{
         zipCheck.setVisible(validZip);
         zipX.setVisible(!validZip);
         if (validZip){
-            String city = splitPostCode(customer.getPostCode())[1];
-            customer.setPostCode(zipCode.getText()+city);
+            //String city = splitPostCode(customer.getPostCode())[1];
+            //customer.setPostCode(zipCode.getText()+city);
+            customer.setPostCode(s);
             styles.add("field-valid");
         } else {
             styles.add("field-invalid");
@@ -292,8 +293,9 @@ public class LeveransPage extends Page{
         cityCheck.setVisible(validCity);
         cityX.setVisible(!validCity);
         if (validCity){
-            String zip = splitPostCode(customer.getPostCode())[0];
-            customer.setPostCode(zip+city.getText());
+            //String zip = splitPostCode(customer.getPostCode())[0];
+            //customer.setPostCode(zip+city.getText());
+            customer.setPostAddress(s);
             styles.add("field-valid");
         } else {
             styles.add("field-invalid");
@@ -308,9 +310,15 @@ public class LeveransPage extends Page{
         phoneNumber.setText(customer.getPhoneNumber());
         email.setText(customer.getEmail());
         address.setText(customer.getAddress());
+        zipCode.setText(customer.getPostCode());
+        city.setText(customer.getPostAddress());
+
+        /*
         String[] postCode = splitPostCode(customer.getPostCode());
         zipCode.setText(postCode[0]);
         city.setText(postCode[1]);
+
+         */
         checkFields();
     }
 
@@ -320,16 +328,33 @@ public class LeveransPage extends Page{
         checkPhoneNumber(customer.getPhoneNumber());
         checkEmail(customer.getEmail());
         checkAddress(customer.getAddress());
+        /*
         String[] postCode = splitPostCode(customer.getPostCode());
         checkZipCode(postCode[0]);
         checkCity(postCode[1]);
+         */
+        checkZipCode(customer.getPostCode());
+        checkCity(customer.getPostAddress());
     }
 
     @Override
     public void open(){
         update();
     }
+    @Override
+    public boolean isDone(){
+        boolean everythingIsValid;
+        everythingIsValid = db.isValidName(name.getText());
+        everythingIsValid &= db.isValidName(surname.getText());
+        everythingIsValid &= db.isValidNumber(phoneNumber.getText());
+        everythingIsValid &= db.isValidEmail(email.getText());
+        everythingIsValid &= db.isValidAddress(address.getText());
+        everythingIsValid &= db.isValidCity(city.getText());
+        everythingIsValid &= db.isValidZip(zipCode.getText());
+        return everythingIsValid;
+    }
 
+/*
     private String[] splitPostCode(String code){
         StringBuilder zip = new StringBuilder();
         StringBuilder city = new StringBuilder();
@@ -347,17 +372,7 @@ public class LeveransPage extends Page{
         return new String[]{zip.toString(), city.append(code.substring(i)).toString()};
     }
 
-    @Override
-    public boolean isDone(){
-        boolean everythingIsValid;
-        everythingIsValid = db.isValidName(name.getText());
-        everythingIsValid &= db.isValidName(surname.getText());
-        everythingIsValid &= db.isValidNumber(phoneNumber.getText());
-        everythingIsValid &= db.isValidEmail(email.getText());
-        everythingIsValid &= db.isValidAddress(address.getText());
-        everythingIsValid &= db.isValidCity(city.getText());
-        everythingIsValid &= db.isValidZip(zipCode.getText());
-        return everythingIsValid;
-    }
+
+ */
 
 }

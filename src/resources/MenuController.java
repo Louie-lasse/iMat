@@ -124,6 +124,9 @@ public class MenuController implements Initializable {
                 if (kassaPage.checkInfo()) {
                     kassaPage.saveCardInfo();
                     showNextWindow();
+                    db.clearCart();
+                }else{
+                    pageNotComplete.setVisible(true);
                 }
             }
         });
