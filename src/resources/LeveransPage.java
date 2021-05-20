@@ -265,15 +265,17 @@ public class LeveransPage extends Page{
     }
 
     private void checkCity(String s){
+        ObservableList<String> styles = city.getStyleClass();
+        styles.clear();
         boolean validCity = db.isValidCity(s);
         cityCheck.setVisible(validCity);
         cityX.setVisible(!validCity);
         if (validCity){
             String zip = splitPostCode(customer.getPostCode())[0];
             customer.setPostCode(zip+city.getText());
-            city.getStyleClass().add("field-valid");
+            styles.add("field-valid");
         } else {
-            city.getStyleClass().add("field-invalid");
+            styles.add("field-invalid");
         }
     }
 

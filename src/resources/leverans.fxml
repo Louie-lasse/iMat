@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -28,40 +29,61 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="name" layoutX="32.0" layoutY="80.0" onAction="#nameEnter" prefHeight="44.0" prefWidth="317.0">
+            <TextField fx:id="name" layoutX="32.0" layoutY="80.0" onAction="#nameEnter" prefHeight="44.0" prefWidth="317.0" promptText="Förnamn">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="surname" layoutX="430.0" layoutY="80.0" onAction="#surnameEnter" prefHeight="44.0" prefWidth="296.0">
+            <TextField fx:id="surname" layoutX="430.0" layoutY="80.0" onAction="#surnameEnter" prefHeight="44.0" prefWidth="296.0" promptText="Efternamn">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="phoneNumber" layoutX="138.0" layoutY="164.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="phoneNumber" layoutX="138.0" layoutY="164.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0" promptText="ex 07XX XXX XX XX">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="email" layoutX="138.0" layoutY="237.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0" promptText="exempel.epost@adress.se">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0">
+            <TextField fx:id="address" layoutX="138.0" layoutY="321.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0" promptText="Gatunamn 7c">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="zipCode" layoutX="138.0" layoutY="400.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0">
+            <TextField fx:id="zipCode" layoutX="138.0" layoutY="400.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0" promptText="XXX XX">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
-            <TextField fx:id="city" layoutX="370.0" layoutY="400.0" onAction="#cityEnter" prefHeight="44.0" prefWidth="260.0">
+            <TextField fx:id="city" layoutX="370.0" layoutY="400.0" onAction="#cityEnter" prefHeight="44.0" prefWidth="260.0" promptText="ex Göteborg">
                <font>
                   <Font size="20.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
             </TextField>
             <TextField fx:id="date" layoutX="160.0" layoutY="483.0" prefHeight="40.0" prefWidth="240.0">
                <font>
