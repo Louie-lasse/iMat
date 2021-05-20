@@ -7,9 +7,11 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Customer;
 
 public class LeveransPage extends Page{
@@ -88,6 +90,12 @@ public class LeveransPage extends Page{
     @FXML
     private ImageView cityX;
 
+    @FXML DatePicker datePicker;
+    @FXML ImageView dateCheck;
+    @FXML ImageView dateX;
+    @FXML ImageView timeCheck;
+    @FXML ImageView timeX;
+
     @FXML
     protected void nameEnter(ActionEvent actionEvent){
         checkName(name.getText());
@@ -134,6 +142,18 @@ public class LeveransPage extends Page{
 
     @Override
     protected void initialize() {
+        timeCheck.setVisible(false);
+        timeX.setVisible(false);
+        dateCheck.setVisible(false);
+        dateX.setVisible(false);
+        datePicker.setStyle("-fx-font: 17px \"Arial\"");
+
+        datePicker.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
+
+            }
+        });
         name.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
@@ -177,6 +197,7 @@ public class LeveransPage extends Page{
             }
         });
         checkFields();
+
     }
 
     private void checkName(String s){

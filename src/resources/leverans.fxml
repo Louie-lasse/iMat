@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="leveransPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #F0F0F0;" stylesheets="@leverans.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="leveransPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #F0F0F0;" stylesheets="@leverans.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="377.0" layoutY="31.0" prefHeight="757.0" prefWidth="816.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="31.0">
          <children>
@@ -85,16 +86,6 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="date" layoutX="160.0" layoutY="483.0" prefHeight="40.0" prefWidth="240.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
-            <TextField fx:id="time" layoutX="410.0" layoutY="483.0" prefHeight="44.0" prefWidth="240.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </TextField>
             <TextArea fx:id="message" layoutX="158.0" layoutY="562.0" prefHeight="190.0" prefWidth="500.0" promptText="Meddelande till bud (ex. portkod)..." wrapText="true">
                <font>
                   <Font size="20.0" />
@@ -125,12 +116,12 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="410.0" layoutY="453.0" text="Tid:">
+            <Label layoutX="374.0" layoutY="453.0" text="Tid:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="160.0" layoutY="453.0" text="Leveransdatum:">
+            <Label layoutX="141.0" layoutY="453.0" text="Leveransdatum:">
                <font>
                   <Font size="20.0" />
                </font>
@@ -140,16 +131,6 @@
                   <Font size="20.0" />
                </font>
             </Label>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="210.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/date.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="460.0" layoutY="487.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@images/time.png" />
-               </image>
-            </ImageView>
             <AnchorPane layoutX="364.0" layoutY="80.0" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <ImageView fx:id="nameCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
@@ -248,6 +229,56 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <DatePicker fx:id="datePicker" layoutX="138.0" layoutY="483.0" prefHeight="44.0" prefWidth="173.0" showWeekNumbers="true" />
+            <TextField fx:id="hour" layoutX="374.0" layoutY="483.0" prefHeight="44.0" prefWidth="55.0" promptText="hh">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <TextField fx:id="min" layoutX="442.0" layoutY="483.0" prefHeight="44.0" prefWidth="68.0" promptText="mm">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
+            </TextField>
+            <AnchorPane layoutX="316.0" layoutY="485.0" prefHeight="40.0" prefWidth="40.0">
+               <children>
+                  <ImageView fx:id="dateCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="dateX" fitHeight="40.0" fitWidth="40.0" layoutX="4.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="554.0" layoutY="485.0" prefHeight="40.0" prefWidth="40.0">
+               <children>
+                  <ImageView fx:id="timeCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="timeX" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="432.0" layoutY="480.0" prefHeight="51.0" prefWidth="28.0" text=":">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
    </children>
