@@ -157,13 +157,7 @@ public class KassaPage extends Page {
                 }
             }
         });
-        payButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                if(checkInfo()){
-                    saveCardInfo();
-                }
-            }
-        });
+
     }
     public void saveCardInfo(){
         BackendAdapter.getCard().setCardNumber(cardNumber.getText());
@@ -238,6 +232,7 @@ public class KassaPage extends Page {
                 break;
         }
     }
+
     public boolean checkInfo(){
         if(cardNumberDone.isVisible() && cardDateDone.isVisible() &&
                 cardHolderDone.isVisible() && cvcDone.isVisible()){

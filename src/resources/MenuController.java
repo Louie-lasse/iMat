@@ -79,12 +79,14 @@ public class MenuController implements Initializable {
     private Label totalPrice;
     private ConfirmationPage confirmationPage;
     private ProfilePage profilePage;
+    private KassaPage kassaPage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
-        pages.add(new KassaPage());
+        kassaPage = new KassaPage();
+        pages.add(kassaPage);
         confirmationPage = new ConfirmationPage();
         pages.add(confirmationPage);
         profilePage = new ProfilePage();
@@ -113,6 +115,16 @@ public class MenuController implements Initializable {
             @Override
             public void handle(ActionEvent actionEvent) {
                 closeProfilePopup();
+            }
+        });
+
+        kassaPage.payButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (kassaPage.checkInfo()) {
+                    kassaPage.saveCardInfo();
+                    showNextWindow();
+                }
             }
         });
 
@@ -158,6 +170,7 @@ public class MenuController implements Initializable {
         pages.get(this.currentPageIndex).toFront();
         pages.get(this.currentPageIndex).open();
     }
+
     @FXML
     void openProfilePopup(){
         prevPageIndex = this.currentPageIndex;
@@ -243,11 +256,11 @@ public class MenuController implements Initializable {
                 checkBox3.toFront();
                 progress4Label.toFront();
                 progress4Label.setStyle("-fx-text-fill: white");
+                forwardButton.setVisible(false);
                 //forwardButton.setVisible(false);
                 break;
             case 4:
                 checkBox4.toFront();
-                forwardButton.setVisible(false);
                 backButton.setVisible(false);
         }
     }
