@@ -231,7 +231,7 @@ public class MenuController implements Initializable {
                 break;
             case 1:
                 backButton.setVisible(true);
-                    progressBar1.toFront();
+                progressBar1.toFront();
                 progress2.toFront();
                 progress2Label.toFront();
                 checkBox1.toFront();
