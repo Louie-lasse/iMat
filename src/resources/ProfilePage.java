@@ -1,5 +1,6 @@
 package resources;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -7,7 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import se.chalmers.cse.dat216.project.Customer;
+
 
 public class ProfilePage extends Page{
     private static final Customer customer = db.getCustomer();
@@ -33,10 +36,6 @@ public class ProfilePage extends Page{
     @Override
     protected void initialize() {
 
-    }
-
-    public Button getBackButton() {
-        return backButton;
     }
 
     @Override
@@ -76,5 +75,9 @@ public class ProfilePage extends Page{
         update();
     }
 
+    @FXML
+    protected void close(ActionEvent event){
+        parent.hidePopup();
+    }
 
 }

@@ -4,10 +4,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 
+import java.awt.event.MouseEvent;
+
 public class ConfirmationPage extends Page{
 
     @FXML Button homeButton;
     @FXML Button receiptButton;
+
 
     @Override
     protected FXMLLoader getFxmlLoader(){

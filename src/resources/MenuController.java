@@ -32,6 +32,12 @@ public class MenuController implements Initializable {
 
     private int currentPageIndex = 0;
 
+    private PopupTuple varukorgPopupTuple;
+
+    private PopupTuple profilePopupTuple;
+
+    private PopupTuple helpPopupTuple;
+
     @FXML StackPane PageView;
 
     @FXML
@@ -39,9 +45,10 @@ public class MenuController implements Initializable {
     @FXML AnchorPane progressBar;
     @FXML AnchorPane popup;
     @FXML AnchorPane varukorgPopup;
-    @FXML AnchorPane varukorgOpenIndicator;
+    @FXML AnchorPane varukorgPopupIcon;
     @FXML AnchorPane helpPopup;
-    @FXML AnchorPane helpOpenIndicator;
+    @FXML AnchorPane helpPopupIcon;
+    @FXML AnchorPane profilePopupIcon;
 
     @FXML
     private AnchorPane backButton;
@@ -50,6 +57,10 @@ public class MenuController implements Initializable {
     private AnchorPane forwardButton;
 
     @FXML private Label pageNotComplete;
+
+    @FXML Label cartValue;
+
+    @FXML FlowPane cartFlowPane;
 
     //Progressbar indication
     @FXML Rectangle progressBar1;
@@ -68,35 +79,40 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox2;
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
-    @FXML Label cartValue;
 
     private int prevPageIndex = 0;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
-    @FXML FlowPane cartFlowPane;
+
 
     @FXML
     private Label totalPrice;
     private ConfirmationPage confirmationPage;
-    private ProfilePage profilePage;
     private KassaPage kassaPage;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
+        //TODO move init methods to respective page, removing need for page as attribute variable
         kassaPage = new KassaPage();
         pages.add(kassaPage);
         confirmationPage = new ConfirmationPage();
         pages.add(confirmationPage);
-        profilePage = new ProfilePage();
-        pages.add(profilePage);
-        //test
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         PageView.toFront();
         pages.get(currentPageIndex).toFront();
         pages.get(currentPageIndex).open();
+
+        varukorgPopupTuple = new PopupTuple(varukorgPopup, varukorgPopupIcon);
+
+        ProfilePage profilePagePopup = new ProfilePage();
+        profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
+        popup.getChildren().add(profilePagePopup);
+
+        helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
+
         Page.setParent(this);
         updateWizardButtons();
 
@@ -108,13 +124,6 @@ public class MenuController implements Initializable {
         confirmationPage.homeButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 returnHome();
-            }
-        });
-
-        profilePage.backButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                closeProfilePopup();
             }
         });
 
@@ -166,44 +175,37 @@ public class MenuController implements Initializable {
     void closePopup(MouseEvent event) {
         hidePopup();
     }
-    @FXML
-    void closeProfilePopup(){
-        PageView.toFront();
-        this.currentPageIndex = prevPageIndex;
-        pages.get(this.currentPageIndex).toFront();
-        pages.get(this.currentPageIndex).open();
-    }
 
-    @FXML
-    void openProfilePopup(){
-        prevPageIndex = this.currentPageIndex;
-        setPageToFront(5);
-    }
-    private void hidePopup(){
-        helpOpenIndicator.toBack();
-        varukorgOpenIndicator.toBack();
+    public void hidePopup(){
+        varukorgPopupTuple.closeIcon();
+        profilePopupTuple.closeIcon();
+        helpPopupTuple.closeIcon();
         popup.toBack();
-        helpPopup.toBack();
-        varukorgPopup.toBack();
-    }
-    @FXML
-    void openHelpPopup(MouseEvent event) {
-        popup.toFront();
-        helpPopup.toFront();
-        helpPopup.setVisible(true);
-        varukorgPopup.setVisible(false);
-        helpOpenIndicator.toFront();
-        varukorgOpenIndicator.toBack();
     }
 
     @FXML
     void openVarukorgPopup(MouseEvent event) {
+        varukorgPopupTuple.open();
+        profilePopupTuple.close();
+        helpPopupTuple.close();
         popup.toFront();
-        varukorgPopup.toFront();
-        varukorgPopup.setVisible(true);
-        helpPopup.setVisible(false);
-        varukorgOpenIndicator.toFront();
-        helpOpenIndicator.toBack();
+    }
+
+    @FXML
+    void openProfilePopup(){
+        varukorgPopupTuple.close();
+        profilePopupTuple.open();
+        helpPopupTuple.close();
+        popup.toFront();
+    }
+
+
+    @FXML
+    void openHelpPopup(MouseEvent event) {
+        varukorgPopupTuple.close();
+        profilePopupTuple.close();
+        helpPopupTuple.open();
+        popup.toFront();
     }
 
     private void updateWizardButtons(){
