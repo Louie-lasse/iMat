@@ -198,6 +198,19 @@ public class LeveransPage extends Page{
                 checkZipCode(zipCode.getText());
             }
         });
+        zipCode.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue.length() < oldValue.length()){
+                zipCode.setText(newValue);
+            }else {
+                if (zipCode.getText().length() == 3) {
+                    zipCode.appendText(" ");
+                }
+                if(zipCode.getText().length() >= 6){
+                    String temp = zipCode.getText().substring(0, 6);
+                    zipCode.setText(temp);
+                }
+            }
+        });
         city.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
@@ -238,6 +251,7 @@ public class LeveransPage extends Page{
             String timeNow = now.toString().substring(0, 10);
             System.out.println(timeNow);
             Date date2 = sdf.parse(timeNow);
+            //Lite taggit
             if(date1.after(date2)){
                 dateCheck.setVisible(true);
                 dateX.setVisible(false);

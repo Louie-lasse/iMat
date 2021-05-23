@@ -189,6 +189,7 @@ public class MenuController implements Initializable {
         profilePopupTuple.close();
         helpPopupTuple.close();
         popup.toFront();
+        updateCartPopup();
     }
 
     @FXML

@@ -260,7 +260,7 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <AnchorPane layoutX="554.0" layoutY="485.0" prefHeight="40.0" prefWidth="40.0">
+            <AnchorPane layoutX="524.0" layoutY="486.0" prefHeight="40.0" prefWidth="40.0">
                <children>
                   <ImageView fx:id="timeCheck" fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
                      <image>

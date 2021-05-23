@@ -129,35 +129,38 @@ public class KassaPage extends Page {
             checkMonthDate();
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-            if(cardNumber.getText().length() != 0) {
-                if (!cardNumber.getText().matches("\\d *")) {
-                    cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));
-                }
-                if(cardNumber.getText().charAt(0) == '4'){
-                    paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                            "resources/images/mastercard.png")));
-                }else{
-                    paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
-                            "resources/images/visa.png")));
-                }
-                cardNumber.setText(maxLength(cardNumber.getText(), 20));
-                if(cardNumber.getText().length() == 20){
-                    changeField(cardNumber.getText(), 20, month);
-                    cardNumberDone.setVisible(true);
-                    cardNumberError.setVisible(false);
-                }else{
-                    cardNumberDone.setVisible(false);
-                    cardNumberError.setVisible(true);
-                }
-                if(cardNumber.getText().length() == 4){
-                    cardNumber.setText(cardNumber.getText() + " ");
-                }else if(cardNumber.getText().length() > 4 && cardNumber.getText().length()%5 == 0
-                        && cardNumber.getText().length() < 20){
-                    cardNumber.setText(cardNumber.getText() + " ");
+            if(newValue.length() < oldValue.length()){
+                cardNumber.setText(newValue);
+            }else {
+                if (cardNumber.getText().length() != 0) {
+                    if (!cardNumber.getText().matches("\\d *")) {
+                        cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));
+                    }
+                    if (cardNumber.getText().charAt(0) == '4') {
+                        paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                                "resources/images/mastercard.png")));
+                    } else {
+                        paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
+                                "resources/images/visa.png")));
+                    }
+                    cardNumber.setText(maxLength(cardNumber.getText(), 20));
+                    if (cardNumber.getText().length() == 20) {
+                        changeField(cardNumber.getText(), 20, month);
+                        cardNumberDone.setVisible(true);
+                        cardNumberError.setVisible(false);
+                    } else {
+                        cardNumberDone.setVisible(false);
+                        cardNumberError.setVisible(true);
+                    }
+                    if (cardNumber.getText().length() == 4) {
+                        cardNumber.setText(cardNumber.getText() + " ");
+                    } else if (cardNumber.getText().length() > 4 && cardNumber.getText().length() % 5 == 0
+                            && cardNumber.getText().length() < 20) {
+                        cardNumber.setText(cardNumber.getText() + " ");
+                    }
                 }
             }
         });
-
     }
     public void saveCardInfo(){
         BackendAdapter.getCard().setCardNumber(cardNumber.getText());
