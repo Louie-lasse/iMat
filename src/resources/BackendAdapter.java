@@ -93,8 +93,20 @@ public class BackendAdapter{
 
     public boolean isValidNumber(String s){
         s = removeRedundantCharsNumber(s);
-        if (!(s.length()==10) && !(s.length()==12)) return false;
-        return s.length() != 12 || s.charAt(0) == '+';
+        if (s.charAt(0) == '+'){
+            if (s.length()<10 || s.length() >12) return false;
+            char[] chars = s.toCharArray();
+            for (int i = 1; i < chars.length; i++){
+                if (!Character.isDigit(chars[i])) return false;
+            }
+        } else {
+            if (s.length()<8 || s.length() >10) return false;
+            char[] chars = s.toCharArray();
+            for (char c: chars){
+                if (!Character.isDigit(c)) return false;
+            }
+        }
+        return true;
     }
 
     private String removeRedundantCharsNumber(String s){

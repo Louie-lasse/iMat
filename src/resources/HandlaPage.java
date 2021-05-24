@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
@@ -111,6 +112,7 @@ public class HandlaPage extends Page{
                 TextField text = new TextField(child.toString());
                 text.setEditable(false);
                 text.setOnMouseClicked(this::handleCategoryItemClicked);
+                text.setCursor(Cursor.HAND);
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
                 subItems.getChildren().add(pane);
