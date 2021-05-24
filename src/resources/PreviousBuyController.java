@@ -40,11 +40,6 @@ public class PreviousBuyController extends AnchorPane {
         }
         priceLabel.setText(Double.toString(total));
     }
-    /*
-    public static void setParent(Page page){
-        parent = page;
-    }
-     */
     public void update(){
         //parent.update();
     }

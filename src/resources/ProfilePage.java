@@ -44,7 +44,6 @@ public class ProfilePage extends Page{
     @FXML TextField year;
     @FXML TextField cvc;
     @FXML Label orderNumber;
-    @FXML FlowPane previousBuysPane;
     @FXML Accordion prevBuyAcc;
 
     private static final HashMap<Order, PreviousBuyController> controllerHashMap = new HashMap<>();
@@ -61,8 +60,11 @@ public class ProfilePage extends Page{
         for(Order order : BackendAdapter.getInstance().getOrders()){
             VBox contents = getItems(order); //går ej returnerna flowpane?
             String datum = order.getDate().toString().substring(0, 10);
-
-            String name = datum + "   " + 20 + "    " + " Visa köpdetaljer";
+            int total = 0;
+            for(ShoppingItem items : order.getItems()){
+                total += items.getTotal();
+            }
+            String name = datum + "        " + total + " kr       " + " Visa köpdetaljer";
 
             TitledPane previousOrder = new TitledPane(name, contents);
             prevBuyAcc.getPanes().add(previousOrder);
@@ -112,7 +114,7 @@ public class ProfilePage extends Page{
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
 
-        prevBuys();
+    //    prevBuys();
     }
     public void prevBuys(){
         List<Order> orders = BackendAdapter.getInstance().getOrders();
