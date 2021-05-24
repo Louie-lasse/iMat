@@ -113,6 +113,7 @@ public class HandlaPage extends Page{
                 text.setEditable(false);
                 text.setOnMouseClicked(this::handleCategoryItemClicked);
                 text.setCursor(Cursor.HAND);
+                text.getStyleClass().add("textrules");
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
                 subItems.getChildren().add(pane);

@@ -16,9 +16,9 @@
 
 <fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane layoutX="39.0" layoutY="88.0" prefHeight="674.0" prefWidth="224.0" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="40.0">
+      <FlowPane layoutX="27.0" layoutY="40.0" prefHeight="674.0" prefWidth="224.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="40.0">
          <children>
-            <VBox prefHeight="394.0" prefWidth="220.0">
+            <VBox prefHeight="394.0" prefWidth="220.0" stylesheets="@Category.css">
                <children>
                   <Accordion fx:id="categoryMenu" prefHeight="703.0" prefWidth="220.0">
                     <panes>

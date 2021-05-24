@@ -101,7 +101,7 @@ public class MenuController implements Initializable {
         pages.add(confirmationPage);
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
-        PageView.toFront();
+        normalView.toFront();
         pages.get(currentPageIndex).toFront();
         pages.get(currentPageIndex).open();
 
