@@ -28,6 +28,7 @@ public class ShoppingGridItemController  extends AnchorPane {
     @FXML Button subtract;
     @FXML Button invalidSub;
     @FXML Label subLabel;
+    @FXML ImageView ecoIcon;
 
     private static final BackendAdapter db = BackendAdapter.getInstance();
 
@@ -70,6 +71,7 @@ public class ShoppingGridItemController  extends AnchorPane {
     private void initialize(){
         // Kan behövas för att synliggöra rundade hörn// scene.setFill(Color.TRANSPARENT); //Makes the back-background of the cards transparent
         // Kan behövas för att synliggöra rundade hörn// stage.initStyle(StageStyle.TRANSPARENT); //Makes the back-background of the cards transparent
+        ecoIcon.setVisible(product.isEcological());
         nameLabel.setText(product.getName());
         unit = Unit.get(product);
         priceLabel.setText(Double.toString(product.getPrice())+" "+unit);
