@@ -203,7 +203,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Pane layoutX="804.0" layoutY="185.0" prefHeight="292.0" prefWidth="435.0" style="-fx-background-color: #ededed;">
+      <Pane layoutX="685.0" layoutY="481.0" prefHeight="292.0" prefWidth="435.0" style="-fx-background-color: #ededed;">
          <children>
             <ScrollPane prefHeight="292.0" prefWidth="435.0">
               <content>
@@ -216,7 +216,7 @@
             </ScrollPane>
          </children>
       </Pane>
-      <FlowPane layoutX="761.0" layoutY="495.0" prefHeight="306.0" prefWidth="443.0">
+      <FlowPane layoutX="796.0" layoutY="171.0" prefHeight="310.0" prefWidth="386.0">
          <children>
             <VBox prefHeight="309.0" prefWidth="438.0">
                <children>

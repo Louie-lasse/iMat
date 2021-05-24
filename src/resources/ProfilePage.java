@@ -59,7 +59,7 @@ public class ProfilePage extends Page{
         }
         prevBuyAcc.getPanes().clear();
         for(Order order : BackendAdapter.getInstance().getOrders()){
-            VBox contents = getItems(order);
+            VBox contents = getItems(order); //går ej returnerna flowpane?
             String datum = order.getDate().toString().substring(0, 10);
 
             String name = datum + "   " + 20 + "    " + " Visa köpdetaljer";
@@ -70,7 +70,12 @@ public class ProfilePage extends Page{
     }
     public VBox getItems(Order order){
         FlowPane flowPane = new FlowPane();
-        flowPane.getChildren().add(new Button("Test"));
+        /*
+        for(ShoppingItem items : order.getItems()){
+            flowPane.getChildren().add(items); //Går ej adda ShoppingListItem?
+        }
+         */
+        flowPane.getChildren().add(new Button("TEST"));
         VBox box = new VBox();
         box.getChildren().add(flowPane);
         return box;
