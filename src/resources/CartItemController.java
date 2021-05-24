@@ -58,7 +58,7 @@ public class CartItemController extends AnchorPane {
     }
 
     @FXML
-    void remove(ActionEvent event) {
+    void remove() {
         db.removeProduct(product);
         update();
     }
