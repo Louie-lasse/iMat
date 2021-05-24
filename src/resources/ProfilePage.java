@@ -126,7 +126,9 @@ public class ProfilePage extends Page{
         List<TitledPane> panes = prevBuyAcc.getPanes();
         panes.clear();
         for (Order order: orders){
-            panes.add(getTitledPane(order));
+            if(order.getItems().size() >= 1){
+                panes.add(getTitledPane(order));
+            }
         }
     }
 
@@ -147,7 +149,7 @@ public class ProfilePage extends Page{
             price += shoppingItem.getTotal();
             items.add(new OrderedItemController(shoppingItem));
         }
-        String title = order.getDate().toString() + Math.round(price*100) / 100;
+        String title = order.getDate().toString().substring(0, 10) + "      " +  Math.round(price*100) / 100;
 
         return new TitledPane(title, box);
     }

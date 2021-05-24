@@ -132,6 +132,7 @@ public class MenuController implements Initializable {
             public void handle(ActionEvent actionEvent) {
                 if (kassaPage.checkInfo()) {
                     kassaPage.saveCardInfo();
+                    db.placeOrder();
                     showNextWindow();
                     db.clearCart();
                 }else{
