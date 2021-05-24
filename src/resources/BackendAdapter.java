@@ -99,15 +99,14 @@ public class BackendAdapter{
             for (int i = 1; i < chars.length; i++){
                 if (!Character.isDigit(chars[i])) return false;
             }
-            return true;
         } else {
             if (s.length()<8 || s.length() >10) return false;
             char[] chars = s.toCharArray();
             for (char c: chars){
                 if (!Character.isDigit(c)) return false;
             }
-            return true;
         }
+        return true;
     }
 
     private String removeRedundantCharsNumber(String s){
