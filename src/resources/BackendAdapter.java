@@ -318,6 +318,15 @@ public class BackendAdapter{
         return cart.getTotal();
     }
 
+    public double getPriceOrder(Order order){
+        int i = getOrders().indexOf(order);
+        double price = 0;
+        for(ShoppingItem items : getOrders().get(i).getItems()){
+            price += items.getTotal();
+        }
+        return price;
+    }
+
     public double getShoppingItemTotal(Product product){
         try{
             return getShoppingItem(product).getTotal();

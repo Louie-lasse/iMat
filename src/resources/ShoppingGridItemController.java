@@ -12,7 +12,7 @@ import se.chalmers.cse.dat216.project.Product;
 
 import java.io.IOException;
 
-public class ShoppingGridItemController  extends AnchorPane {
+public class ShoppingGridItemController extends AnchorPane {
 
     @FXML private Label nameLabel;
 

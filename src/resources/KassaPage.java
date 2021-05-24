@@ -256,6 +256,10 @@ public class KassaPage extends Page {
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
 
+        placeOrder();
+    }
+    public void placeOrder(){
+        BackendAdapter.getInstance().placeOrder(true);
     }
 
     @Override
