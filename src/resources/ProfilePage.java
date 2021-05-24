@@ -18,10 +18,7 @@ import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 import se.chalmers.cse.dat216.project.ShoppingItem;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 
 public class ProfilePage extends Page{
@@ -46,10 +43,13 @@ public class ProfilePage extends Page{
     @FXML Label orderNumber;
     @FXML Accordion prevBuyAcc;
 
+    private static final HashMap<Order, TitledPane> orderTitledPaneHashMap = new HashMap<>();
+
     private static final HashMap<Order, PreviousBuyController> controllerHashMap = new HashMap<>();
 
     @Override
     protected void initialize() {
+        /*
         List<Order> orders = BackendAdapter.getInstance().getOrders();
         for (Order order : orders){
             if(order.getItems().size() > 0){
@@ -69,19 +69,22 @@ public class ProfilePage extends Page{
             TitledPane previousOrder = new TitledPane(name, contents);
             prevBuyAcc.getPanes().add(previousOrder);
         }
+        updatePreviousPurchases();
+
+         */
     }
+    /*
     public VBox getItems(Order order){
         FlowPane flowPane = new FlowPane();
-        /*
         for(ShoppingItem items : order.getItems()){
             flowPane.getChildren().add(items); //Går ej adda ShoppingListItem?
         }
-         */
         flowPane.getChildren().add(new Button("TEST"));
         VBox box = new VBox();
         box.getChildren().add(flowPane);
         return box;
     }
+    */
     @Override
     protected FXMLLoader getFxmlLoader() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
@@ -114,8 +117,41 @@ public class ProfilePage extends Page{
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
 
+        updatePreviousPurchases();
     //    prevBuys();
     }
+
+    private void updatePreviousPurchases(){
+        List<Order> orders = db.getOrders();
+        List<TitledPane> panes = prevBuyAcc.getPanes();
+        panes.clear();
+        for (Order order: orders){
+            panes.add(getTitledPane(order));
+        }
+    }
+
+    private TitledPane getTitledPane(Order order){
+        TitledPane pane = orderTitledPaneHashMap.get(order);
+        if (pane==null){
+            pane = createPane(order);
+            orderTitledPaneHashMap.put(order, pane);
+        }
+        return pane;
+    }
+
+    private TitledPane createPane(Order order){
+        VBox box = new VBox();
+        List<Node> items = box.getChildren();
+        double price = 0;
+        for (ShoppingItem shoppingItem : order.getItems()) {
+            price += shoppingItem.getTotal();
+            items.add(new OrderedItemController(shoppingItem));
+        }
+        String title = order.getDate().toString() + Math.round(price*100) / 100;
+
+        return new TitledPane(title, box);
+    }
+    /*
     public void prevBuys(){
         List<Order> orders = BackendAdapter.getInstance().getOrders();
         PreviousBuyController previousBuyController;
@@ -129,10 +165,12 @@ public class ProfilePage extends Page{
             }
             controllers.add(previousBuyController);
         }
-        List<Node> flowPaneChildren = previousBuysPane.getChildren();
+        List<TitledPane> flowPaneChildren = prevBuyAcc.getPanes();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
     }
+
+     */
 
 
     @Override
@@ -143,6 +181,12 @@ public class ProfilePage extends Page{
     @FXML
     protected void close(ActionEvent event){
         parent.hidePopup();
+    }
+
+    @Override
+    public void toFront(){
+        super.toFront();
+        open();
     }
 
 }
