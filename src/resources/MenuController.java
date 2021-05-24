@@ -263,7 +263,6 @@ public class MenuController implements Initializable {
                 progress4Label.toFront();
                 progress4Label.setStyle("-fx-text-fill: white");
                 forwardButton.setVisible(false);
-                //forwardButton.setVisible(false);
                 break;
             case 4:
                 checkBox4.toFront();
@@ -274,6 +273,7 @@ public class MenuController implements Initializable {
     public void search(){
 
     }
+
     public void returnHome(){
         setPageToFront(0);
         hidePopup();
@@ -302,6 +302,6 @@ public class MenuController implements Initializable {
         List<Node> flowPaneChildren = cartFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
-        totalPrice.setText("Totalt: " + db.getTotalPrice());
+        totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 }

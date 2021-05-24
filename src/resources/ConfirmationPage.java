@@ -3,6 +3,8 @@ package resources;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import resources.TextFiles.Name;
 
 import java.awt.event.MouseEvent;
 
@@ -10,6 +12,7 @@ public class ConfirmationPage extends Page{
 
     @FXML Button homeButton;
     @FXML Button receiptButton;
+    @FXML Label deliveryName;
 
 
     @Override
@@ -37,7 +40,7 @@ public class ConfirmationPage extends Page{
 
     @Override
     protected void initialize() {
-
+        deliveryName.setText("Leverans sker av " + Name.get());
     }
 
     @Override
