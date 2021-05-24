@@ -27,6 +27,7 @@ public class KassaPage extends Page {
     @FXML Text address;
     @FXML Text date;
     @FXML Text time;
+
     @FXML TextArea message;
 
     ToggleGroup toggleGroup;
@@ -95,14 +96,14 @@ public class KassaPage extends Page {
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolderDone.setVisible(true);
             cardHolderError.setVisible(false);
-            if(cvc.getText().length() > 3){
+            if (cvc.getText().length() > 3) {
                 String max = cvc.getText().substring(0, 3);
                 cvc.setText(max);
             }
-            if(cvc.getText().length() > 2){
+            if (cvc.getText().length() > 2) {
                 cvcDone.setVisible(true);
                 cvcError.setVisible(false);
-            }else{
+            } else {
                 cvcDone.setVisible(false);
                 cvcError.setVisible(true);
 
@@ -114,7 +115,7 @@ public class KassaPage extends Page {
             month.setText(maxLength(month.getText(), 2));
             month.setText(onlyNumbers(month.getText()));
 
-            if(month.getText().length() == 2){
+            if (month.getText().length() == 2) {
                 changeField(month.getText(), 2, year);
                 checkMonthDate();
             }
@@ -123,15 +124,15 @@ public class KassaPage extends Page {
             year.setText(maxLength(year.getText(), 2));
             year.setText(onlyNumbers(year.getText()));
 
-            if(year.getText().length() == 2){
+            if (year.getText().length() == 2) {
                 changeField(year.getText(), 2, cardHolder);
             }
             checkMonthDate();
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue.length() < oldValue.length()){
+            if (newValue.length() < oldValue.length()) {
                 cardNumber.setText(newValue);
-            }else {
+            } else {
                 if (cardNumber.getText().length() != 0) {
                     if (!cardNumber.getText().matches("\\d *")) {
                         cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));

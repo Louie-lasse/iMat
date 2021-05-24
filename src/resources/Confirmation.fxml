@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="330.0" layoutY="66.0" prefHeight="657.0" prefWidth="811.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFA14A; -fx-border-width: 2;" AnchorPane.leftAnchor="330.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="66.0">
          <children>
@@ -29,12 +29,12 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="arriveDate" layoutX="47.0" layoutY="95.0" text="2021-05-21 (idag)">
+                  <Label fx:id="arriveDate" alignment="CENTER" layoutX="77.0" layoutY="91.0" text="2021-05-21">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="arriveTime" layoutX="93.0" layoutY="46.0" text="13:37">
+                  <Label fx:id="arriveTime" alignment="CENTER" layoutX="93.0" layoutY="46.0" text="13:37">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -53,12 +53,12 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="arrivePost" layoutX="53.0" layoutY="95.0" text="413 32, Göteborg">
+                  <Label fx:id="arrivePost" alignment="CENTER" layoutX="53.0" layoutY="95.0" text="413 32, Göteborg">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="arriveAddress" layoutX="42.0" layoutY="44.0" text="Hemvägen 13">
+                  <Label fx:id="arriveAddress" alignment="CENTER" layoutX="42.0" layoutY="44.0" text="Hemvägen 13">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>

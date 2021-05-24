@@ -14,6 +14,12 @@ public class ConfirmationPage extends Page{
     @FXML Button receiptButton;
     @FXML Label deliveryName;
 
+    @FXML Label arriveTime;
+    @FXML Label arriveDate;
+    @FXML Label arriveAddress;
+    @FXML Label arrivePost;
+
+    private KassaPage kassaPage;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -27,7 +33,11 @@ public class ConfirmationPage extends Page{
 
     @Override
     public void update() {
-
+        arriveAddress.setText(kassaPage.address.getText());
+        arriveTime.setText(kassaPage.time.getText());
+        arriveDate.setText(kassaPage.date.getText());
+        arrivePost.setText(BackendAdapter.getInstance().getCustomer().getPostCode() + ", " +
+                BackendAdapter.getInstance().getCustomer().getPostAddress());
     }
 
     public Button getReceiptButton() {
@@ -41,10 +51,11 @@ public class ConfirmationPage extends Page{
     @Override
     protected void initialize() {
         deliveryName.setText("Leverans sker av " + Name.get());
+        kassaPage = new KassaPage();
     }
 
     @Override
     public void open() {
-
+        update();
     }
 }
