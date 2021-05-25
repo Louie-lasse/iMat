@@ -176,16 +176,17 @@ public class HandlaPage extends Page{
     private void updateCategoryMenu(){
         Tree selected = Tree.get(activeCategory);
 
-        if (selected.hasSubcategory()){
-            if (activeCategory != Category.HOME) {
-                List<Tree> siblings = selected.getParent().getChildren();
-                //TODO stäng sysskon även om this är text
-                for (Tree sibling: siblings){
-                    if (sibling.hasSubcategory())
-                        treeTitledPaneHashMap.get(sibling).setExpanded(false);
-                }
-                treeTitledPaneHashMap.get(selected).setExpanded(true);
+        if (activeCategory != Category.HOME) {
+            List<Tree> siblings = selected.getParent().getChildren();
+            for (Tree sibling: siblings){
+                if (sibling.hasSubcategory())
+                    treeTitledPaneHashMap.get(sibling).setExpanded(false);
             }
+             if (selected.hasSubcategory()){
+                 treeTitledPaneHashMap.get(selected).setExpanded(true);
+            }
+        }
+        if (selected.hasSubcategory()){
             List<Tree> children = selected.getChildren();
             for (Tree child: children){
                 if (child.hasSubcategory())
@@ -207,8 +208,6 @@ public class HandlaPage extends Page{
 
     public void handleCategoryItemClicked(Event event){
         Tree clicked = controlTreeHashMap.get((Control)event.getSource());
-        //"suspicious" cuz getSource returns Object, but only Control (parent class of TitledPane and TextField)
-        //are connected to the method, so the map SHOULD never return null (or crash)
         activeCategory = clicked.getCategory();
         sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
         update();
