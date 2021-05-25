@@ -226,7 +226,7 @@ public class LeveransPage extends Page{
                 checkTime();
             }
         });
-        datePicker.setValue(LocalDate.now());
+        datePicker.setValue(LocalDate.now().plusDays(1));
         hour.setText(LocalTime.now().toString().substring(0,2));
         min.setText(LocalTime.now().toString().substring(3,5));
 

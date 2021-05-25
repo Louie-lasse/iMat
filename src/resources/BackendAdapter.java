@@ -87,7 +87,8 @@ public class BackendAdapter{
     public boolean isCustomerComplete() { return db.isCustomerComplete(); }
 
     public boolean isValidTime(String hour, String min){
-        LocalTime localTime = LocalTime.now();
+        //LocalTime localTime = LocalTime.now();
+        /*
         int hourNow = Integer.parseInt(localTime.toString().substring(0,2));
         int minNow = Integer.parseInt(localTime.toString().substring(3,5));
 
@@ -99,10 +100,13 @@ public class BackendAdapter{
             return true;
         }
         return false;
+
+         */
+        return true;
     }
     public boolean isValidDate(LocalDate date){
         LocalDateTime now = LocalDateTime.now();
-        if(date.isAfter(ChronoLocalDate.from(now)) || date.isEqual(ChronoLocalDate.from(now))){
+        if(date.isAfter(ChronoLocalDate.from(now))){
             return true;
         }else{
             return false;
