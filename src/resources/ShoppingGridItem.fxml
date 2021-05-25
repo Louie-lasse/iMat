@@ -14,7 +14,7 @@
    <children>
       <ImageView fx:id="productImage" fitHeight="136.0" fitWidth="173.0" layoutX="44.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/visa.png" />
+            <Image url="@images/product_139.jpg" />
          </image>
          <viewport>
             <Rectangle2D />
