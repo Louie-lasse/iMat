@@ -16,7 +16,10 @@ import se.chalmers.cse.dat216.project.Customer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.Date;
 import java.util.logging.SimpleFormatter;
 
@@ -156,12 +159,6 @@ public class LeveransPage extends Page{
         dateX.setVisible(false);
         datePicker.setStyle("-fx-font: 17px \"Arial\"");
 
-        datePicker.focusedProperty().addListener(new ChangeListener<Boolean>() {
-            @Override
-            public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
-
-            }
-        });
         name.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
@@ -218,11 +215,7 @@ public class LeveransPage extends Page{
             }
         });
         datePicker.valueProperty().addListener((ov, oldValue, newValue) -> {
-            try {
-                checkDate();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
+            checkDate();
         });
         hour.textProperty().addListener((observable, oldValue, newValue) -> {
             hour.setText(maxLength(hour.getText(), 2));
@@ -243,33 +236,40 @@ public class LeveransPage extends Page{
         });
         checkFields();
     }
-    public void checkDate() throws ParseException {
-        if(!datePicker.getEditor().getText().isEmpty()){
-            SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
-            Date date1 = sdf.parse(datePicker.getEditor().getText());
-            LocalDateTime now = LocalDateTime.now();
-            String timeNow = now.toString().substring(0, 10);
-            System.out.println(timeNow);
-            Date date2 = sdf.parse(timeNow);
-            //Lite taggit
-            if(date1.after(date2)){
+    public void checkDate() {
+        ObservableList<String> styles = city.getStyleClass();
+        styles.clear();
+
+        if(datePicker.getValue() != null){
+            if(db.isValidDate(datePicker.getValue())){
                 dateCheck.setVisible(true);
                 dateX.setVisible(false);
-            }else{
-                dateX.setVisible(true);
-                dateCheck.setVisible(false);
+                styles.add("field-valid");
+
+            }else {
+            dateX.setVisible(true);
+            dateCheck.setVisible(false);
+            styles.add("field-invalid");
+
             }
         }
     }
     public void checkTime() {
+        ObservableList<String> styles = name.getStyleClass();
+        styles.clear();
         if(!hour.getText().isEmpty() && !min.getText().isEmpty()) {
-            if (Integer.parseInt(hour.getText()) > 0 && Integer.parseInt(hour.getText()) < 24 &&
-                    Integer.parseInt(min.getText()) > 0 && Integer.parseInt(min.getText()) < 61) {
-                timeCheck.setVisible(true);
-                timeX.setVisible(false);
-            } else {
-                timeCheck.setVisible(false);
-                timeX.setVisible(true);
+            if (Integer.parseInt(hour.getText()) >= 0 && Integer.parseInt(hour.getText()) < 24 &&
+                    Integer.parseInt(min.getText()) >= 0 && Integer.parseInt(min.getText()) < 60) {
+                if(db.isValidTime(hour.getText(), min.getText())){
+                    timeCheck.setVisible(true);
+                    timeX.setVisible(false);
+                    styles.add("field-valid");
+                } else {
+                    timeCheck.setVisible(false);
+                    timeX.setVisible(true);
+                    styles.add("field-invalid");
+
+                }
             }
         }
     }
@@ -368,8 +368,6 @@ public class LeveransPage extends Page{
         zipCheck.setVisible(validZip);
         zipX.setVisible(!validZip);
         if (validZip){
-            //String city = splitPostCode(customer.getPostCode())[1];
-            //customer.setPostCode(zipCode.getText()+city);
             customer.setPostCode(s);
             styles.add("field-valid");
         } else {
@@ -384,8 +382,6 @@ public class LeveransPage extends Page{
         cityCheck.setVisible(validCity);
         cityX.setVisible(!validCity);
         if (validCity){
-            //String zip = splitPostCode(customer.getPostCode())[0];
-            //customer.setPostCode(zip+city.getText());
             customer.setPostAddress(s);
             styles.add("field-valid");
         } else {
@@ -403,13 +399,10 @@ public class LeveransPage extends Page{
         address.setText(customer.getAddress());
         zipCode.setText(customer.getPostCode());
         city.setText(customer.getPostAddress());
+        datePicker.setValue(LocalDate.now());
+        hour.setText(LocalTime.now().toString().substring(0,2));
+        min.setText(LocalTime.now().toString().substring(3,5));
 
-        /*
-        String[] postCode = splitPostCode(customer.getPostCode());
-        zipCode.setText(postCode[0]);
-        city.setText(postCode[1]);
-
-         */
         checkFields();
     }
 
@@ -419,13 +412,11 @@ public class LeveransPage extends Page{
         checkPhoneNumber(customer.getPhoneNumber());
         checkEmail(customer.getEmail());
         checkAddress(customer.getAddress());
-        /*
-        String[] postCode = splitPostCode(customer.getPostCode());
-        checkZipCode(postCode[0]);
-        checkCity(postCode[1]);
-         */
+
         checkZipCode(customer.getPostCode());
         checkCity(customer.getPostAddress());
+        checkTime();
+        checkDate();
     }
 
     @Override
@@ -442,6 +433,15 @@ public class LeveransPage extends Page{
         everythingIsValid &= db.isValidAddress(address.getText());
         everythingIsValid &= db.isValidCity(city.getText());
         everythingIsValid &= db.isValidZip(zipCode.getText());
+        everythingIsValid &= db.isValidDate(datePicker.getValue());
+        everythingIsValid &= db.isValidTime(hour.getText(), min.getText());
+
+        if(datePicker.getValue() != null && hour.getText().length() > 0 && min.getText().length() > 0){
+            db.setDate(datePicker.getValue().toString().substring(0,10));
+            db.setTime(hour.getText() + ":" + min.getText());
+        }else{
+            return false;
+        }
         return everythingIsValid;
     }
 

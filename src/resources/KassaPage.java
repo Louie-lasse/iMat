@@ -256,7 +256,8 @@ public class KassaPage extends Page {
         month.setText(Integer.toString(BackendAdapter.getCard().getValidMonth()));
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
-
+        time.setText(db.getTime());
+        date.setText(db.getDate());
         placeOrder();
     }
     public void placeOrder(){

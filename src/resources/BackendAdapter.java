@@ -4,6 +4,10 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.*;
 
 import static resources.SortingOrder.REGULAR;
@@ -82,6 +86,28 @@ public class BackendAdapter{
 
     public boolean isCustomerComplete() { return db.isCustomerComplete(); }
 
+    public boolean isValidTime(String hour, String min){
+        LocalTime localTime = LocalTime.now();
+        int hourNow = Integer.parseInt(localTime.toString().substring(0,2));
+        int minNow = Integer.parseInt(localTime.toString().substring(3,5));
+
+        int hourEntred = Integer.parseInt(hour);
+        int minEntred = Integer.parseInt(min);
+        if(hourEntred > hourNow){
+            return true;
+        }else if(hourEntred == hourNow && minEntred-minNow >= 30){
+            return true;
+        }
+        return false;
+    }
+    public boolean isValidDate(LocalDate date){
+        LocalDateTime now = LocalDateTime.now();
+        if(date.isAfter(ChronoLocalDate.from(now))){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public boolean isValidName(String s){
         if (s.length()==0) return false;
         char[] chars = s.toCharArray();
@@ -170,6 +196,25 @@ public class BackendAdapter{
         }
         return true;
     }
+    private String date;
+    private String time;
+
+    public void setDate(String s){
+        this.date = s;
+    }
+
+    public void setTime(String s){
+        this.time = s;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
     public void clearCart(){
         cart.clear();
     }

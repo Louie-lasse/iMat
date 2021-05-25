@@ -58,7 +58,7 @@
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Label>
-                  <Label fx:id="arriveAddress" alignment="CENTER" layoutX="42.0" layoutY="44.0" text="Hemvägen 13">
+                  <Label fx:id="arriveAddress" alignment="CENTER" layoutX="52.0" layoutY="45.0" text="Hemvägen ">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
