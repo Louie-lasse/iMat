@@ -58,7 +58,7 @@
       </AnchorPane>
       <ImageView fx:id="ecoIcon" fitHeight="80.0" fitWidth="80.0" layoutX="166.0" layoutY="79.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/eco.jpg" />
+            <Image url="@images/eco.png" />
          </image>
       </ImageView>
    </children>

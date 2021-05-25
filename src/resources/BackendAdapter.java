@@ -286,7 +286,9 @@ public class BackendAdapter{
     private List<Product> sort(List<Product> products, SortingPriority sp, SortingOrder order){
         Comparator<Product> comparator;
         switch(sp.ordinal()){
-            case(0): return products;
+            case(0):
+                comparator = new DefaultComparator();
+                break;
             case(1):
                 comparator = new PriceComparator();
                 break;
@@ -459,6 +461,16 @@ public class BackendAdapter{
 
     public String imatDirectory() {
         return db.imatDirectory();
+    }
+
+    private static class DefaultComparator implements Comparator<Product>{
+
+        @Override
+        public int compare(Product o1, Product o2) {
+            int id1 = o1.getProductId()%15;
+            int id2 = o2.getProductId()%15;
+            return Integer.compare(id1, id2);
+        }
     }
 
     private static class PriceComparator implements Comparator<Product> {
