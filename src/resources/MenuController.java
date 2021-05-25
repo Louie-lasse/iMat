@@ -89,6 +89,8 @@ public class MenuController implements Initializable {
     private Label totalPrice;
     private ConfirmationPage confirmationPage;
     private KassaPage kassaPage;
+    private ProfilePage profilePagePopup;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         pages.add(new HandlaPage());
@@ -107,10 +109,9 @@ public class MenuController implements Initializable {
 
         varukorgPopupTuple = new PopupTuple(varukorgPopup, varukorgPopupIcon);
 
-        ProfilePage profilePagePopup = new ProfilePage();
+        profilePagePopup = new ProfilePage();
         profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
         popup.getChildren().add(profilePagePopup);
-
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
 
         Page.setParent(this);
@@ -195,6 +196,7 @@ public class MenuController implements Initializable {
 
     @FXML
     void openProfilePopup(){
+        profilePagePopup.update();
         varukorgPopupTuple.close();
         profilePopupTuple.open();
         helpPopupTuple.close();
