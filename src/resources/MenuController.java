@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +40,8 @@ public class MenuController implements Initializable {
     private PopupTuple helpPopupTuple;
 
     @FXML StackPane PageView;
+
+    @FXML private TextField searchBar;
 
     @FXML
     ScrollPane normalView;
@@ -88,6 +91,7 @@ public class MenuController implements Initializable {
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
+    private HandlaPage handlaPage;
 
     @FXML
     private Label totalPrice;
@@ -96,7 +100,8 @@ public class MenuController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Page.setParent(this);
-        pages.add(new HandlaPage());
+        handlaPage = new HandlaPage();
+        pages.add(handlaPage);
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
         //TODO move init methods to respective page, removing need for page as attribute variable
@@ -121,6 +126,18 @@ public class MenuController implements Initializable {
         for (Product p: products){
             controllerHashMap.put(p, new CartItemController(p));
         }
+    }
+
+    public String getSearchString(){
+        return searchBar.getText();
+    }
+
+    public boolean searchBarIsEmpty(){
+        return searchBar.getText().equals("");
+    }
+
+    public void resetSearchBar(){
+        searchBar.setText("");
     }
 
     @FXML
@@ -264,7 +281,7 @@ public class MenuController implements Initializable {
     }
 
     public void search(){
-
+        handlaPage.search();
     }
 
     public void returnHome(){

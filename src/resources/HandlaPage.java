@@ -51,6 +51,7 @@ public class HandlaPage extends Page{
     @FXML
     private ComboBox<SortingOrder> orderComboBox;
 
+
     @Override
     protected FXMLLoader getFxmlLoader(){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("handla.fxml"));
@@ -141,6 +142,12 @@ public class HandlaPage extends Page{
     @Override
     public void open(){
         activeCategory = Category.HOME;
+        parent.resetSearchBar();
+        update();
+    }
+
+    public void search(){
+        activeCategory = Category.HOME;
         update();
     }
 
@@ -165,7 +172,12 @@ public class HandlaPage extends Page{
     }
 
     private List<ShoppingGridItemController> getSelectedProducts(){
-        List<Product> selectedProducts = db.getProducts(activeCategory, sortingPriority, sortingOrder);
+        List<Product> selectedProducts;
+        if (parent.searchBarIsEmpty()) {
+            selectedProducts = db.getProducts(activeCategory, sortingPriority, sortingOrder);
+        } else {
+            selectedProducts = db.findProducts(parent.getSearchString());
+        }
         List<ShoppingGridItemController> selectedCards = new ArrayList<>();
         for (Product product: selectedProducts){
             selectedCards.add(cardMap.get(product));
@@ -207,6 +219,7 @@ public class HandlaPage extends Page{
     }
 
     public void handleCategoryItemClicked(Event event){
+        parent.resetSearchBar();
         Tree clicked = controlTreeHashMap.get((Control)event.getSource());
         activeCategory = clicked.getCategory();
         sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
