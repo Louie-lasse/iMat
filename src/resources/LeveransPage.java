@@ -227,8 +227,8 @@ public class LeveransPage extends Page{
             }
         });
         datePicker.setValue(LocalDate.now().plusDays(1));
-        hour.setText(LocalTime.now().toString().substring(0,2));
-        min.setText(LocalTime.now().toString().substring(3,5));
+        hour.setText("12");
+        min.setText("00");
 
         checkFields();
     }
