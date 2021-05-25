@@ -145,22 +145,6 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fx:id="home" fitHeight="48.0" fitWidth="48.0" layoutX="205.0" layoutY="30.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="205.0" AnchorPane.topAnchor="30.0">
-               <image>
-                  <Image url="@images/home.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <Label fx:id="homeLabel" layoutX="212.0" layoutY="4.0" onMouseClicked="#returnHome" text="Hem" AnchorPane.leftAnchor="212.0" AnchorPane.topAnchor="4.0">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Label>
             <AnchorPane fx:id="searchPane" layoutX="313.0" layoutY="26.0">
                <children>
                   <TextField fx:id="serach" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara....">
@@ -229,6 +213,27 @@
                         <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/help_orange.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="varukorgPopupOption1" layoutX="200.0" prefHeight="108.0" prefWidth="82.0">
+               <children>
+                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hem" wrappingWidth="42.0" AnchorPane.topAnchor="0.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Text>
+                  <AnchorPane fx:id="varukorgPopupIcon1" layoutY="31.0" onMouseClicked="#returnHome" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                     <children>
+                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/home_button_orange.png" />
                            </image>
                         </ImageView>
                      </children>
