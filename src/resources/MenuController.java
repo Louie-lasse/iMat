@@ -125,6 +125,7 @@ public class MenuController implements Initializable {
 
     @FXML
     public void showPreviousWindow(){
+        closePopup();
         currentPageIndex -= 1;
         PageView.toFront();
         pages.get(currentPageIndex).toFront();
@@ -134,6 +135,7 @@ public class MenuController implements Initializable {
 
     @FXML
     public void showNextWindow(){
+        closePopup();
         Page currentPage = pages.get(currentPageIndex);
         if (currentPage.isDone()) {
             currentPageIndex += 1;
@@ -148,7 +150,7 @@ public class MenuController implements Initializable {
     }
 
     @FXML
-    void closePopup(MouseEvent event) {
+    void closePopup() {
         hidePopup();
     }
 
