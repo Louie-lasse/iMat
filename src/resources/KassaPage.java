@@ -170,13 +170,13 @@ public class KassaPage extends Page {
         payButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                if (checkInfo()) {
+                if (isDone()) {
                     saveCardInfo();
                     db.placeOrder();
                     parent.showNextWindow();
-                    db.clearCart();
+                    db.placeOrder();
                 }else{
-                    parent.getPageNotComplete().setVisible(true);
+                    parent.update();
                 }
             }
         });
@@ -200,8 +200,10 @@ public class KassaPage extends Page {
                     && Integer.parseInt(month.getText()) < 13) {
                 cardDateDone.setVisible(true);
                 cardDateError.setVisible(false);
+                parent.update();
             } else if (Integer.parseInt(month.getText()) > 0 && Integer.parseInt(month.getText()) < 13 &&
                     Integer.parseInt(year.getText()) > 21){
+                parent.update();
                 cardDateDone.setVisible(true);
                 cardDateError.setVisible(false);
             }else{
@@ -256,7 +258,8 @@ public class KassaPage extends Page {
         }
     }
 
-    public boolean checkInfo(){
+    @Override
+    public boolean isDone(){
         if(cardNumberDone.isVisible() && cardDateDone.isVisible() &&
                 cardHolderDone.isVisible() && cvcDone.isVisible()){
             return true;
@@ -277,10 +280,6 @@ public class KassaPage extends Page {
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
         time.setText(db.getTime());
         date.setText(db.getDate());
-        placeOrder();
-    }
-    public void placeOrder(){
-        BackendAdapter.getInstance().placeOrder(true);
     }
 
     @Override

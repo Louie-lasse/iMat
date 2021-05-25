@@ -62,6 +62,10 @@ public class MenuController implements Initializable {
 
     @FXML FlowPane cartFlowPane;
 
+    @FXML AnchorPane searchPane;
+    @FXML AnchorPane varukorgPopupOption;
+    @FXML AnchorPane profilPopupOption;
+
     //Progressbar indication
     @FXML Rectangle progressBar1;
     @FXML Rectangle progressBar2;
@@ -193,6 +197,9 @@ public class MenuController implements Initializable {
         pageNotComplete.setVisible(false);
         switch (currentPageIndex) {
             case 0:
+                searchPane.setVisible(true);
+                varukorgPopupOption.setVisible(true);
+                profilPopupOption.setVisible(true);
                 backButton.setVisible(false);
                 forwardButton.setVisible(true);
                 unfinishedStep2.toFront();
@@ -214,6 +221,9 @@ public class MenuController implements Initializable {
                 break;
             case 1:
                 backButton.setVisible(true);
+                searchPane.setVisible(false);
+                profilPopupOption.setVisible(true);
+                varukorgPopupOption.setVisible(false);
                 progressBar1.toFront();
                 progress2.toFront();
                 progress2Label.toFront();
@@ -225,6 +235,7 @@ public class MenuController implements Initializable {
                 progress2Label.setStyle("-fx-text-fill: white");
                 break;
             case 2:
+                profilPopupOption.setVisible(false);
                 progressBar2.toFront();
                 progress3.toFront();
                 checkBox2.toFront();
@@ -288,6 +299,8 @@ public class MenuController implements Initializable {
     public void update(){
         if (pages.get(currentPageIndex).isDone()){
             pageNotComplete.setVisible(false);
+        } else {
+            pageNotComplete.setVisible(true);
         }
     }
 }
