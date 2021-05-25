@@ -147,7 +147,7 @@
             </ImageView>
             <AnchorPane fx:id="searchPane" layoutX="313.0" layoutY="26.0">
                <children>
-                  <TextField fx:id="serach" minWidth="0.0" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara....">
+                  <TextField fx:id="serachBar" minWidth="0.0" onAction="#search" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara....">
                      <font>
                         <Font size="20.0" />
                      </font>
