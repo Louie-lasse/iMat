@@ -105,6 +105,7 @@ public class HandlaPage extends Page{
 
     private TitledPane getItem(Tree tree){
         VBox subItems = new VBox();
+        subItems.getStyleClass().add("box-rules");
         List<Tree> children = tree.getChildren();
         for (Tree child: children){
             if (!child.hasSubcategory()){
