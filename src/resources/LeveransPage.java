@@ -4,24 +4,16 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.Pane;
 import se.chalmers.cse.dat216.project.Customer;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.chrono.ChronoLocalDate;
-import java.util.Date;
-import java.util.logging.SimpleFormatter;
 
 public class LeveransPage extends Page{
 
@@ -218,7 +210,7 @@ public class LeveransPage extends Page{
             checkDate();
         });
         hour.textProperty().addListener((observable, oldValue, newValue) -> {
-            hour.setText(maxLength(hour.getText(), 2));
+            hour.setText(maxLength(hour.getText()));
             hour.setText(onlyNumbers(hour.getText()));
 
             if(hour.getText().length() == 2){
@@ -227,7 +219,7 @@ public class LeveransPage extends Page{
             }
         });
         min.textProperty().addListener((observable, oldValue, newValue) -> {
-            min.setText(maxLength(min.getText(), 2));
+            min.setText(maxLength(min.getText()));
             min.setText(onlyNumbers(min.getText()));
 
             if(min.getText().length() == 2){
@@ -294,10 +286,9 @@ public class LeveransPage extends Page{
             next.requestFocus();
         }
     }
-    private String maxLength(String input, int maxLength){
-        if(input.length() > maxLength){
-            String temp = input.substring(0, maxLength);
-            return temp;
+    private String maxLength(String input){
+        if(input.length() > 2){
+            return input.substring(0, 2);
         }
         return input;
     }
