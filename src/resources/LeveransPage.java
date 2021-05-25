@@ -234,40 +234,50 @@ public class LeveransPage extends Page{
                 checkTime();
             }
         });
+        datePicker.setValue(LocalDate.now());
+        hour.setText(LocalTime.now().toString().substring(0,2));
+        min.setText(LocalTime.now().toString().substring(3,5));
+
         checkFields();
     }
     public void checkDate() {
-        ObservableList<String> styles = city.getStyleClass();
-        styles.clear();
+        ObservableList<String> styles = datePicker.getStyleClass();
 
         if(datePicker.getValue() != null){
             if(db.isValidDate(datePicker.getValue())){
                 dateCheck.setVisible(true);
                 dateX.setVisible(false);
+                styles.remove("field-invalid");
                 styles.add("field-valid");
-
             }else {
-            dateX.setVisible(true);
-            dateCheck.setVisible(false);
-            styles.add("field-invalid");
+                dateX.setVisible(true);
+                dateCheck.setVisible(false);
+                styles.remove("field-valid");
+                styles.add("field-invalid");
 
             }
         }
     }
     public void checkTime() {
-        ObservableList<String> styles = name.getStyleClass();
-        styles.clear();
+        ObservableList<String> stylesMin = min.getStyleClass();
+        ObservableList<String> stylesHour = hour.getStyleClass();
+        stylesHour.clear();
+        stylesMin.clear();
         if(!hour.getText().isEmpty() && !min.getText().isEmpty()) {
             if (Integer.parseInt(hour.getText()) >= 0 && Integer.parseInt(hour.getText()) < 24 &&
                     Integer.parseInt(min.getText()) >= 0 && Integer.parseInt(min.getText()) < 60) {
                 if(db.isValidTime(hour.getText(), min.getText())){
                     timeCheck.setVisible(true);
                     timeX.setVisible(false);
-                    styles.add("field-valid");
+                    stylesMin.add("field-valid");
+                    stylesHour.add("field-valid");
+
                 } else {
                     timeCheck.setVisible(false);
                     timeX.setVisible(true);
-                    styles.add("field-invalid");
+                    stylesMin.add("field-invalid");
+                    stylesHour.add("field-invalid");
+
 
                 }
             }
@@ -399,9 +409,6 @@ public class LeveransPage extends Page{
         address.setText(customer.getAddress());
         zipCode.setText(customer.getPostCode());
         city.setText(customer.getPostAddress());
-        datePicker.setValue(LocalDate.now());
-        hour.setText(LocalTime.now().toString().substring(0,2));
-        min.setText(LocalTime.now().toString().substring(3,5));
 
         checkFields();
     }

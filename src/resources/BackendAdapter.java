@@ -95,14 +95,14 @@ public class BackendAdapter{
         int minEntred = Integer.parseInt(min);
         if(hourEntred > hourNow){
             return true;
-        }else if(hourEntred == hourNow && minEntred-minNow >= 30){
+        }else if(hourEntred == hourNow && minEntred-minNow >= 0){
             return true;
         }
         return false;
     }
     public boolean isValidDate(LocalDate date){
         LocalDateTime now = LocalDateTime.now();
-        if(date.isAfter(ChronoLocalDate.from(now))){
+        if(date.isAfter(ChronoLocalDate.from(now)) || date.isEqual(ChronoLocalDate.from(now))){
             return true;
         }else{
             return false;
