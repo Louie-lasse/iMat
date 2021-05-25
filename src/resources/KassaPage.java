@@ -29,7 +29,7 @@ public class KassaPage extends Page {
     @FXML Text time;
 
     @FXML TextArea message;
-
+    @FXML Button changeInfo;
     ToggleGroup toggleGroup;
     @FXML RadioButton card;
     @FXML RadioButton klarna;
@@ -162,6 +162,25 @@ public class KassaPage extends Page {
                 }
             }
         });
+        changeInfo.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                parent.changeInfo();
+            }
+        });
+        payButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (checkInfo()) {
+                    saveCardInfo();
+                    db.placeOrder();
+                    parent.showNextWindow();
+                    db.clearCart();
+                }else{
+                    parent.getPageNotComplete().setVisible(true);
+                }
+            }
+        });
+
     }
     public void saveCardInfo(){
         BackendAdapter.getCard().setCardNumber(cardNumber.getText());

@@ -1,5 +1,7 @@
 package resources;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
@@ -39,17 +41,21 @@ public class ConfirmationPage extends Page{
 
     }
 
-    public Button getReceiptButton() {
-        return receiptButton;
-    }
-
-    public Button getHomeButton() {
-        return homeButton;
-    }
-
     @Override
     protected void initialize() {
         deliveryName.setText("Leverans sker av " + Name.get());
+        homeButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                parent.returnHome();
+            }
+        });
+
+
+        receiptButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override public void handle(ActionEvent e) {
+                parent.openProfilePopup();
+            }
+        });
     }
 
     @Override

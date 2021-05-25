@@ -87,8 +87,6 @@ public class MenuController implements Initializable {
 
     @FXML
     private Label totalPrice;
-    private ConfirmationPage confirmationPage;
-    private KassaPage kassaPage;
     private ProfilePage profilePagePopup;
 
     @Override
@@ -97,10 +95,8 @@ public class MenuController implements Initializable {
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
         //TODO move init methods to respective page, removing need for page as attribute variable
-        kassaPage = new KassaPage();
-        pages.add(kassaPage);
-        confirmationPage = new ConfirmationPage();
-        pages.add(confirmationPage);
+        pages.add(new KassaPage());
+        pages.add(new ConfirmationPage());
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
         normalView.toFront();
@@ -121,32 +117,6 @@ public class MenuController implements Initializable {
         for (Product p: products){
             controllerHashMap.put(p, new CartItemController(p));
         }
-
-        confirmationPage.homeButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                returnHome();
-            }
-        });
-
-        kassaPage.payButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                if (kassaPage.checkInfo()) {
-                    kassaPage.saveCardInfo();
-                    db.placeOrder();
-                    showNextWindow();
-                    db.clearCart();
-                }else{
-                    pageNotComplete.setVisible(true);
-                }
-            }
-        });
-
-        confirmationPage.receiptButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                openProfilePopup();
-            }
-        });
     }
 
     @FXML
@@ -210,6 +180,13 @@ public class MenuController implements Initializable {
         profilePopupTuple.close();
         helpPopupTuple.open();
         popup.toFront();
+    }
+    @FXML public void changeInfo(){
+        setPageToFront(2);
+    }
+
+    public Label getPageNotComplete() {
+        return pageNotComplete;
     }
 
     private void updateWizardButtons(){
@@ -280,13 +257,13 @@ public class MenuController implements Initializable {
     public void returnHome(){
         setPageToFront(0);
         hidePopup();
-        updateWizardButtons();
     }
 
     private void setPageToFront(int num){
         this.currentPageIndex = num;
         pages.get(this.currentPageIndex).toFront();
         pages.get(this.currentPageIndex).open();
+        updateWizardButtons();
     }
 
 
