@@ -91,6 +91,7 @@ public class MenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Page.setParent(this);
         pages.add(new HandlaPage());
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
@@ -110,7 +111,6 @@ public class MenuController implements Initializable {
         popup.getChildren().add(profilePagePopup);
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
 
-        Page.setParent(this);
         updateWizardButtons();
 
         List<Product> products = db.getCartProducts();
@@ -283,5 +283,11 @@ public class MenuController implements Initializable {
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
         totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+    }
+
+    public void update(){
+        if (pages.get(currentPageIndex).isDone()){
+            pageNotComplete.setVisible(false);
+        }
     }
 }

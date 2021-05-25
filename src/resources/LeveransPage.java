@@ -310,6 +310,7 @@ public class LeveransPage extends Page{
         if (validName){
             customer.setFirstName(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -324,6 +325,7 @@ public class LeveransPage extends Page{
         if (validName){
             customer.setLastName(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -338,6 +340,7 @@ public class LeveransPage extends Page{
         if (validNumber){
             customer.setPhoneNumber(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -352,6 +355,7 @@ public class LeveransPage extends Page{
         if (validEmail){
             customer.setEmail(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -366,6 +370,7 @@ public class LeveransPage extends Page{
         if (validAddress){
             customer.setAddress(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -380,6 +385,7 @@ public class LeveransPage extends Page{
         if (validZip){
             customer.setPostCode(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
@@ -394,6 +400,7 @@ public class LeveransPage extends Page{
         if (validCity){
             customer.setPostAddress(s);
             styles.add("field-valid");
+            parent.update();
         } else {
             styles.add("field-invalid");
         }
