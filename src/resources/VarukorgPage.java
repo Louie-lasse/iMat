@@ -51,12 +51,19 @@ public class VarukorgPage extends Page{
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
+        int temp = 0;
         for (Product p: products){
             cartItemController = controllerHashMap.get(p);
             if (cartItemController == null){
                 cartItemController = new CartItemController(p);
                 controllerHashMap.put(p, cartItemController);
             }
+            if(temp % 2 == 0){
+                cartItemController.setStyle("-fx-background-color: #ededed");
+            }else{
+                cartItemController.setStyle("-fx-background-color: white");
+            }
+            temp++;
             cartItemController.update();
             controllers.add(cartItemController);
         }

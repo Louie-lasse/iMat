@@ -216,6 +216,9 @@ public class MenuController implements Initializable {
         pageNotComplete.setVisible(false);
         switch (currentPageIndex) {
             case 0:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+                normalView.setVmax(1);
+                normalView.setVvalue(0);
                 searchPane.setVisible(true);
                 varukorgPopupOption.setVisible(true);
                 profilPopupOption.setVisible(true);
@@ -311,12 +314,19 @@ public class MenuController implements Initializable {
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
+        int temp = 0;
         for (Product p : products) {
             cartItemController = controllerHashMap.get(p);
             if (cartItemController == null) {
                 cartItemController = new CartItemController(p);
                 controllerHashMap.put(p, cartItemController);
             }
+            if(temp % 2 == 0){
+                cartItemController.setStyle("-fx-background-color: #ededed");
+            }else{
+                cartItemController.setStyle("-fx-background-color: white");
+            }
+            temp++;
             controllers.add(cartItemController);
         }
         List<Node> flowPaneChildren = cartFlowPane.getChildren();
