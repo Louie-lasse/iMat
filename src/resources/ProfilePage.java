@@ -26,12 +26,12 @@ public class ProfilePage extends Page{
 
     @FXML
     Button backButton;
-    @FXML Label name;
-    @FXML Label phoneNumber;
-    @FXML Label email;
-    @FXML Label address;
-    @FXML Label zip;
-    @FXML Label city;
+    @FXML TextField name;
+    @FXML TextField phoneNumber;
+    @FXML TextField email;
+    @FXML TextField address;
+    @FXML TextField zip;
+    @FXML TextField city;
 
     @FXML
     ImageView paymentImg;
@@ -40,7 +40,6 @@ public class ProfilePage extends Page{
     @FXML TextField month;
     @FXML TextField year;
     @FXML TextField cvc;
-    @FXML Label orderNumber;
     @FXML Accordion prevBuyAcc;
 
     private static final HashMap<Order, TitledPane> orderTitledPaneHashMap = new HashMap<>();
@@ -49,42 +48,10 @@ public class ProfilePage extends Page{
 
     @Override
     protected void initialize() {
-        /*
-        List<Order> orders = BackendAdapter.getInstance().getOrders();
-        for (Order order : orders){
-            if(order.getItems().size() > 0){
-                controllerHashMap.put(order, new PreviousBuyController(order));
-            }
-        }
-        prevBuyAcc.getPanes().clear();
-        for(Order order : BackendAdapter.getInstance().getOrders()){
-            VBox contents = getItems(order); //går ej returnerna flowpane?
-            String datum = order.getDate().toString().substring(0, 10);
-            int total = 0;
-            for(ShoppingItem items : order.getItems()){
-                total += items.getTotal();
-            }
-            String name = datum + "        " + total + " kr       " + " Visa köpdetaljer";
 
-            TitledPane previousOrder = new TitledPane(name, contents);
-            prevBuyAcc.getPanes().add(previousOrder);
-        }
-        updatePreviousPurchases();
 
-         */
     }
-    /*
-    public VBox getItems(Order order){
-        FlowPane flowPane = new FlowPane();
-        for(ShoppingItem items : order.getItems()){
-            flowPane.getChildren().add(items); //Går ej adda ShoppingListItem?
-        }
-        flowPane.getChildren().add(new Button("TEST"));
-        VBox box = new VBox();
-        box.getChildren().add(flowPane);
-        return box;
-    }
-    */
+
     @Override
     protected FXMLLoader getFxmlLoader() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
@@ -110,7 +77,6 @@ public class ProfilePage extends Page{
                     "resources/images/visa.png")));
         }
 
-
         cardHolder.setText(BackendAdapter.getCard().getHoldersName());
         cardNumber.setText(BackendAdapter.getCard().getCardNumber());
         month.setText(Integer.toString(BackendAdapter.getCard().getValidMonth()));
@@ -118,7 +84,6 @@ public class ProfilePage extends Page{
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
 
         updatePreviousPurchases();
-    //    prevBuys();
     }
 
     private void updatePreviousPurchases(){
@@ -153,27 +118,6 @@ public class ProfilePage extends Page{
 
         return new TitledPane(title, box);
     }
-    /*
-    public void prevBuys(){
-        List<Order> orders = BackendAdapter.getInstance().getOrders();
-        PreviousBuyController previousBuyController;
-        List<PreviousBuyController> controllers = new ArrayList<>();
-
-        for(Order order : orders){
-            previousBuyController = controllerHashMap.get(order);
-            if(previousBuyController == null){
-                previousBuyController = new PreviousBuyController(order);
-                controllerHashMap.put(order, previousBuyController);
-            }
-            controllers.add(previousBuyController);
-        }
-        List<TitledPane> flowPaneChildren = prevBuyAcc.getPanes();
-        flowPaneChildren.clear();
-        flowPaneChildren.addAll(controllers);
-    }
-
-     */
-
 
     @Override
     public void open(){
