@@ -16,41 +16,49 @@
    <children>
       <Pane layoutX="262.0" layoutY="32.0" prefHeight="756.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="70.0">
          <children>
-            <AnchorPane layoutX="10.0" prefHeight="261.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;">
+            <AnchorPane layoutX="10.0" prefHeight="210.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;">
                <children>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!" AnchorPane.topAnchor="5.0">
+                  <Text fill="#807b7b" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
+                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                   <AnchorPane layoutX="36.0" layoutY="-4.84765625" opacity="0.33" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.topAnchor="30.0">
+                        <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="84.84765625" prefHeight="25.0" prefWidth="135.0" text="Telefonnummer:" AnchorPane.topAnchor="60.0">
+                        <Label layoutX="2.0" layoutY="84.84765625" prefHeight="25.0" prefWidth="135.0" text="Telefonnummer:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="60.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="114.84765625" prefHeight="25.0" prefWidth="57.0" text="Email:" AnchorPane.topAnchor="90.0">
+                        <Label layoutX="2.0" layoutY="114.84765625" prefHeight="25.0" prefWidth="57.0" text="Email:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="90.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="144.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransaddress:" AnchorPane.topAnchor="120.0">
+                        <Label layoutX="2.0" layoutY="144.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransaddress:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="120.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="174.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransdatum:" AnchorPane.topAnchor="150.0">
+                        <Label layoutX="2.0" layoutY="174.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransdatum:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="204.84765625" prefHeight="25.0" prefWidth="38.0" text="Tid:" AnchorPane.topAnchor="180.0">
+                        <Label layoutX="2.0" layoutY="204.84765625" prefHeight="25.0" prefWidth="38.0" text="Tid:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="180.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
@@ -87,71 +95,63 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <Button layoutX="616.0" layoutY="206.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                </children>
             </AnchorPane>
-            <Pane layoutX="10.0" layoutY="279.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane layoutX="10.0" layoutY="220.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
-                  <Label layoutX="279.0" layoutY="14.0" text="Totalt belopp: 245 kr">
+                  <Label alignment="CENTER" layoutX="266.0" layoutY="14.0" text="Totalt belopp: 245 kr">
+                     <font>
+                        <Font name="System Bold" size="22.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="302.0" layoutY="52.0" text="Välj betalsätt:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="50.0" text="Välj betalsätt:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <RadioButton fx:id="card" layoutX="150.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" text="Visa, Mastercard">
+                  <RadioButton fx:id="card" layoutX="229.0" layoutY="84.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" text="Visa, Mastercard">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="klarna" layoutX="150.0" layoutY="105.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="274.0" style="-fx-background-color: #D3D3D3;" text="Klarna">
+                  <RadioButton fx:id="klarna" layoutX="229.0" layoutY="114.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="274.0" style="-fx-background-color: #D3D3D3;" text="Klarna">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </RadioButton>
-                  <RadioButton fx:id="bill" layoutX="150.0" layoutY="135.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" text="Faktura">
+                  <RadioButton fx:id="bill" layoutX="229.0" layoutY="144.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" text="Faktura">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </RadioButton>
-                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="323.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="402.0" layoutY="84.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/visa.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="374.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="453.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/mastercard.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="328.0" layoutY="103.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="407.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/klarna.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="328.0" layoutY="133.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="407.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/faktura.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="payButton" layoutX="563.0" layoutY="698.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #32C671; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Betala" textFill="WHITE">
+            <Button fx:id="payButton" layoutX="563.0" layoutY="650.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #32C671; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Betala" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="430.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="Klarna faktura">
                      <font>
@@ -165,7 +165,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="billPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="billPane" layoutX="10.0" layoutY="430.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="FAKTURA">
                      <font>
@@ -179,7 +179,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="cardPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="cardPane" layoutX="10.0" layoutY="430.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="150.0" layoutY="25.0" text="Kortnummer:">
                      <font>
