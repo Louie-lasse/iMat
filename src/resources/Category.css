@@ -1,6 +1,7 @@
 .titled-pane > .title{
     -fx-color: #C47C39
 }
+
 .titled-pane:collapsed > .title {
     > .arrow-button .arrow     -fx-rotate: -90;
     -fx-color: #FFA14A;

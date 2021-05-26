@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -12,23 +11,22 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="kassaPage" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="kassaPage" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="262.0" layoutY="32.0" prefHeight="961.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0">
+      <Pane layoutX="262.0" layoutY="32.0" prefHeight="756.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="20.0">
          <children>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="400.0" prefWidth="724.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane layoutX="10.0" layoutY="10.0" prefHeight="261.0" prefWidth="724.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Text layoutX="30.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="changeInfo" layoutX="604.0" layoutY="209.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra">
+                  <Button fx:id="changeInfo" layoutX="603.0" layoutY="198.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Button>
-                  <TextArea fx:id="message" editable="false" layoutX="30.0" layoutY="255.0" prefHeight="111.0" prefWidth="659.0" />
                   <Label layoutX="32.0" layoutY="48.0" prefHeight="25.0" prefWidth="57.0" text="Namn:">
                      <font>
                         <Font name="System Bold" size="16.0" />
@@ -55,11 +53,6 @@
                      </font>
                   </Label>
                   <Label layoutX="32.0" layoutY="198.0" prefHeight="25.0" prefWidth="38.0" text="Tid:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="228.0" prefHeight="25.0" prefWidth="112.0" text="Meddelande:">
                      <font>
                         <Font name="System Bold" size="16.0" />
                      </font>
@@ -96,7 +89,7 @@
                   </Text>
                </children>
             </Pane>
-            <Pane layoutX="10.0" layoutY="430.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane layoutX="10.0" layoutY="279.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="279.0" layoutY="14.0" text="Totalt belopp: 245 kr">
                      <font>
@@ -145,12 +138,12 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button fx:id="payButton" layoutX="563.0" layoutY="879.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #32C671; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Betala" textFill="WHITE">
+            <Button fx:id="payButton" layoutX="563.0" layoutY="698.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #32C671; -fx-border-color: #ffffff; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Betala" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
             </Button>
-            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="Klarna faktura">
                      <font>
@@ -164,7 +157,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="billPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="billPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="FAKTURA">
                      <font>
@@ -178,7 +171,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="cardPane" layoutX="10.0" layoutY="650.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane fx:id="cardPane" layoutX="10.0" layoutY="483.0" prefHeight="200.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="150.0" layoutY="25.0" text="Kortnummer:">
                      <font>

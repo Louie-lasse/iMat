@@ -28,7 +28,7 @@ public class KassaPage extends Page {
     @FXML Text date;
     @FXML Text time;
 
-    @FXML TextArea message;
+    //@FXML TextArea message; %Removed message
     @FXML Button changeInfo;
     ToggleGroup toggleGroup;
     @FXML RadioButton card;
