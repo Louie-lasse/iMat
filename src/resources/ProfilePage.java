@@ -135,4 +135,9 @@ public class ProfilePage extends Page{
         open();
     }
 
+    @FXML public void clear(){
+        db.reset();
+        parent.returnHome();
+    }
+
 }

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -123,6 +124,7 @@ public class BackendAdapter{
 
     public boolean isValidNumber(String s){
         s = removeRedundantCharsNumber(s);
+        if (s.length() < 8) return false;
         if (s.charAt(0) == '+'){
             if (s.length()<10 || s.length() >12) return false;
             char[] chars = s.toCharArray();
@@ -130,7 +132,7 @@ public class BackendAdapter{
                 if (!Character.isDigit(chars[i])) return false;
             }
         } else {
-            if (s.length()<8 || s.length() >10) return false;
+            if (s.length() >10) return false;
             char[] chars = s.toCharArray();
             for (char c: chars){
                 if (!Character.isDigit(c)) return false;
@@ -226,7 +228,26 @@ public class BackendAdapter{
         return isValidName(s);
     }
 
-    public void reset() { db.reset(); }
+    public void reset() {
+        db.reset();
+        clearOrders();
+        db.getCreditCard().setValidYear(22);
+    }
+
+    private void clearOrders(){
+        File folder = new File(db.imatDirectory() + File.separatorChar + "orders");
+        File[] fList = folder.listFiles();
+// Searchs .lck
+        for (int i = 0; i < fList.length; i++) {
+            File pes = fList[i];
+            if (pes.getName().endsWith(".txt")) {
+                // and deletes
+                if (!pes.delete()){
+                    throw new IllegalArgumentException();
+                }
+            }
+        }
+    }
 
     public Customer getCustomer() {
         return db.getCustomer();
