@@ -15,7 +15,7 @@
 
 <fx:root fx:id="varukorgPage" prefHeight="704.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="175.0" layoutY="51.0" prefHeight="481.0" prefWidth="1090.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="51.0">
+      <Pane layoutX="175.0" layoutY="51.0" prefHeight="481.0" prefWidth="1090.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="50.0">
          <children>
             <Label layoutX="225.0" layoutY="31.0" text="Vara:">
                <font>
@@ -34,7 +34,7 @@
             </Label>
             <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="399.0" prefWidth="1089.0">
                <content>
-                  <FlowPane fx:id="varorFlowPane" prefHeight="511.0" prefWidth="1087.0">
+                  <FlowPane fx:id="varorFlowPane" prefHeight="471.0" prefWidth="1087.0">
                      <children>
                         <AnchorPane prefHeight="155.0" prefWidth="1087.0" stylesheets="@ShoppingGridItem.css">
                            <children>
