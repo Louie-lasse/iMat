@@ -28,8 +28,7 @@ public class KassaPage extends Page {
     @FXML Text date;
     @FXML Text time;
 
-    //@FXML TextArea message; %Removed message
-    @FXML Button changeInfo;
+    //@FXML TextArea message; //Removed message
     ToggleGroup toggleGroup;
     @FXML RadioButton card;
     @FXML RadioButton klarna;
@@ -162,11 +161,6 @@ public class KassaPage extends Page {
                 }
             }
         });
-        changeInfo.setOnAction(new EventHandler<ActionEvent>() {
-            @Override public void handle(ActionEvent e) {
-                parent.changeInfo();
-            }
-        });
         payButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -230,6 +224,11 @@ public class KassaPage extends Page {
             return (input.replaceAll("[^\\sa-öA-Ö ]", ""));
         }
         return input;
+    }
+
+    @FXML
+    protected void changeInfo(){
+        parent.changeInfo();
     }
 
     private String onlyNumbers(String input){
