@@ -63,6 +63,8 @@
     -fx-font-weight: bold;
     -fx-alignment: center;
     -fx-text-fill: #FFFFFF;
+    -fx-border-width: 3px;
+    -fx-border-color: #FFFFFF;
 }
 
 .orange-button{
