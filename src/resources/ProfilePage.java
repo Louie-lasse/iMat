@@ -149,7 +149,7 @@ public class ProfilePage extends Page{
             price += shoppingItem.getTotal();
             items.add(new OrderedItemController(shoppingItem));
         }
-        String title = order.getDate().toString().substring(0, 10) + "      " +  Math.round(price*100) / 100;
+        String title = order.getDate().toString().substring(0, 10) + "      Totalt: " +  Math.round(price*100) / 100 + " kr";
 
         return new TitledPane(title, box);
     }

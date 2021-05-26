@@ -41,7 +41,7 @@ public class OrderedItemController extends AnchorPane {
 
     private void init(ShoppingItem item){
         image.setImage(db.getFXImage(item.getProduct()));
-        name.setText(Double.toString(item.getProduct().getPrice()) +Unit.get(item.getProduct()));
-        price.setText(Double.toString(item.getTotal()));
+        name.setText(item.getProduct().getName() +": " + item.getProduct().getPrice() +Unit.get(item.getProduct()));
+        price.setText((double)Math.round(item.getTotal()*100)/100 + " kr");
     }
 }
