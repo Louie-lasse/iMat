@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
@@ -15,81 +16,87 @@
    <children>
       <Pane layoutX="262.0" layoutY="32.0" prefHeight="756.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="70.0">
          <children>
-            <Pane layoutX="10.0" layoutY="10.0" prefHeight="261.0" prefWidth="724.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <AnchorPane layoutX="10.0" prefHeight="261.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;">
                <children>
-                  <Text layoutX="30.0" layoutY="32.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Button fx:id="changeInfo" layoutX="603.0" layoutY="198.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra">
+                  <AnchorPane layoutX="36.0" layoutY="-4.84765625" opacity="0.33" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="84.84765625" prefHeight="25.0" prefWidth="135.0" text="Telefonnummer:" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="114.84765625" prefHeight="25.0" prefWidth="57.0" text="Email:" AnchorPane.topAnchor="90.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="144.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransaddress:" AnchorPane.topAnchor="120.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="174.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransdatum:" AnchorPane.topAnchor="150.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="2.0" layoutY="204.84765625" prefHeight="25.0" prefWidth="38.0" text="Tid:" AnchorPane.topAnchor="180.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Text fx:id="name" layoutX="168.0" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjärdis jonsson" y="50.0" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="30.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="phoneNumber" layoutX="170.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0722212342" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="email" layoutX="170.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hjärdis.gagd@gmail.com" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="90.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="address" layoutX="136.0" layoutY="128.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemvägen 13, 412 53, Göteborg" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="120.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="date" layoutX="127.0" layoutY="159.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-05-22" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="150.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                        <Text fx:id="time" layoutX="36.0" layoutY="188.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="13:37" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="180.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="616.0" layoutY="206.0" mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra">
                      <font>
                         <Font size="16.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Label layoutX="32.0" layoutY="48.0" prefHeight="25.0" prefWidth="57.0" text="Namn:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="78.0" prefHeight="25.0" prefWidth="135.0" text="Telefonnummer:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="108.0" prefHeight="25.0" prefWidth="57.0" text="Email:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="138.0" prefHeight="25.0" prefWidth="129.0" text="Leveransaddress:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="168.0" prefHeight="25.0" prefWidth="129.0" text="Leveransdatum:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="32.0" layoutY="198.0" prefHeight="25.0" prefWidth="38.0" text="Tid:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Text fx:id="name" layoutX="88.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjärdis jonsson">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="phoneNumber" layoutX="164.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0722212342">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="email" layoutX="84.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hjärdis.gagd@gmail.com">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="address" layoutX="166.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemvägen 13, 412 53, Göteborg">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="date" layoutX="157.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-05-22">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Text fx:id="time" layoutX="66.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13:37">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </Text>
-                  <Pane layoutX="-6.0" layoutY="-2.0" prefHeight="268.0" prefWidth="731.0" />
                </children>
-            </Pane>
+            </AnchorPane>
             <Pane layoutX="10.0" layoutY="279.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
                   <Label layoutX="279.0" layoutY="14.0" text="Totalt belopp: 245 kr">
