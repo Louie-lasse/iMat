@@ -239,6 +239,8 @@ public class MenuController implements Initializable {
                 checkBox1.toBack();
                 break;
             case 1:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                normalView.setVmax(0.1);
                 backButton.setVisible(true);
                 searchPane.setVisible(false);
                 profilPopupOption.setVisible(true);
