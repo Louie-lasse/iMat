@@ -231,7 +231,7 @@ public class BackendAdapter{
     public void reset() {
         db.reset();
         clearOrders();
-        db.getCreditCard().setValidYear(22);
+        db.getCreditCard().setValidYear(0);
     }
 
     private void clearOrders(){
