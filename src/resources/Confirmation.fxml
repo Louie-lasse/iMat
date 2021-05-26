@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="368.0" layoutY="39.0" prefHeight="561.0" prefWidth="793.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFA14A; -fx-border-width: 2;" AnchorPane.leftAnchor="323.5" AnchorPane.rightAnchor="323.5" AnchorPane.topAnchor="39.0">
+      <Pane layoutX="323.5" layoutY="19.0" prefHeight="561.0" prefWidth="793.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFA14A; -fx-border-width: 2;" AnchorPane.leftAnchor="323.5" AnchorPane.rightAnchor="323.5" AnchorPane.topAnchor="19.0">
          <children>
             <AnchorPane layoutX="254.0" layoutY="18.0" prefHeight="535.0" prefWidth="317.0">
                <children>
-                  <Label text="Tack för din beställning!" AnchorPane.leftAnchor="9.0" AnchorPane.rightAnchor="9.0" AnchorPane.topAnchor="5.0">
+                  <Label layoutX="-18.0" layoutY="1.0" prefHeight="46.0" prefWidth="370.0" text="Tack för din beställning!" AnchorPane.leftAnchor="-18.0" AnchorPane.rightAnchor="-35.0" AnchorPane.topAnchor="1.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -60,7 +60,7 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveAddress" alignment="CENTER" layoutX="52.0" layoutY="45.0" text="Hemvägen ">
+                        <Label fx:id="arriveAddress" alignment="CENTER" layoutX="22.0" layoutY="45.0" prefHeight="45.0" prefWidth="232.0" text="Hemvägen ">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>

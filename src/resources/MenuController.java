@@ -239,6 +239,9 @@ public class MenuController implements Initializable {
                 checkBox1.toBack();
                 break;
             case 1:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                normalView.setVvalue(0);
+                normalView.setVmax(0.2);
                 backButton.setVisible(true);
                 searchPane.setVisible(false);
                 profilPopupOption.setVisible(true);
@@ -254,6 +257,7 @@ public class MenuController implements Initializable {
                 progress2Label.setStyle("-fx-text-fill: white");
                 break;
             case 2:
+                normalView.setVvalue(0);
                 profilPopupOption.setVisible(false);
                 progressBar2.toFront();
                 progress3.toFront();
@@ -267,6 +271,9 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(true);
                 break;
             case 3:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+                normalView.setVmax(1);
+                normalView.setVvalue(0);
                 progressBar3.toFront();
                 progress4.toFront();
                 checkBox3.toFront();
@@ -275,6 +282,9 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(false);
                 break;
             case 4:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                normalView.setVmax(0.1);
+                normalView.setVvalue(0);
                 checkBox4.toFront();
                 backButton.setVisible(false);
         }
