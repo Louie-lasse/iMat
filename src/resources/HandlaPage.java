@@ -39,6 +39,8 @@ public class HandlaPage extends Page{
     @FXML
     private Label breadCrumbs;
 
+    @FXML ScrollPane cardsScroll;
+
     @FXML
     private TilePane productPane;
 
@@ -162,6 +164,7 @@ public class HandlaPage extends Page{
     }
 
     private void populateCardView(){
+        cardsScroll.setVvalue(0);
         List<ShoppingGridItemController> activeCards = getSelectedProducts();
         List<Node> cards = productPane.getChildren();
         cards.clear();

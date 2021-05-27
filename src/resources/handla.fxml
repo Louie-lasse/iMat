@@ -117,7 +117,7 @@
             <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="50.0">
+      <ScrollPane fx:id="cardsScroll" layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="50.0">
          <content>
             <FlowPane prefHeight="937.0" prefWidth="863.0">
                <children>

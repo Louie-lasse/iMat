@@ -32,4 +32,9 @@ public abstract class Page extends AnchorPane {
         return true;
     }
     public void displayErrors(){}
+    @Override
+    public void toFront(){
+        super.toFront();
+        open();
+    }
 }

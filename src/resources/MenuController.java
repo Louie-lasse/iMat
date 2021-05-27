@@ -305,7 +305,7 @@ public class MenuController implements Initializable {
     private void setPageToFront(int num){
         this.currentPageIndex = num;
         pages.get(this.currentPageIndex).toFront();
-        pages.get(this.currentPageIndex).open();
+        normalView.setVvalue(0);
         updateWizardButtons();
     }
 
