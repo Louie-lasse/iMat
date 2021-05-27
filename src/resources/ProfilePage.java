@@ -96,7 +96,7 @@ public class ProfilePage extends Page{
                     if (!cardNumber.getText().matches("\\d *")) {
                         cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));
                     }
-                    if (cardNumber.getText().charAt(0) == '4') {
+                    if (cardNumber.getText().charAt(0) == '5') {
                         paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                                 "resources/images/mastercard.png")));
                     } else {
@@ -181,7 +181,7 @@ public class ProfilePage extends Page{
     }
     public void saveUserInfo(){
         BackendAdapter.getCard().setCardNumber(cardNumber.getText());
-        if(cardNumber.getText().charAt(0) == '4'){
+        if(cardNumber.getText().charAt(0) == '5'){
             BackendAdapter.getCard().setCardType("Mastercard");
         }else{
             BackendAdapter.getCard().setCardType("Visa");
