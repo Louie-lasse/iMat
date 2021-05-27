@@ -47,6 +47,7 @@ public class ProfilePage extends Page{
     @FXML Button saveButton;
 
     @FXML AnchorPane clearPopUp;
+    @FXML ScrollPane profilePage;
 
     private static final HashMap<Order, TitledPane> orderTitledPaneHashMap = new HashMap<>();
 
@@ -235,7 +236,7 @@ public class ProfilePage extends Page{
     @Override
     public void open(){
         update();
-        clearPopUp.toBack();
+        profilePage.toFront();
     }
 
     @FXML
@@ -243,11 +244,6 @@ public class ProfilePage extends Page{
         parent.hidePopup();
     }
 
-    @Override
-    public void toFront(){
-        super.toFront();
-        open();
-    }
 
     @FXML public void clear(){
         clearPopUp.toFront();
@@ -261,7 +257,7 @@ public class ProfilePage extends Page{
     }
 
     @FXML public  void cancel(){
-        toBack();
+        profilePage.toFront();
     }
 
 
