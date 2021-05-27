@@ -183,7 +183,7 @@ public class MenuController implements Initializable {
 
     @FXML
     void openProfilePopup(){
-        profilePagePopup.update();
+        profilePagePopup.open();
         varukorgPopupTuple.close();
         profilePopupTuple.open();
         helpPopupTuple.close();
