@@ -195,7 +195,7 @@
                   </Label>
                </children>
             </Pane>
-            <Button fx:id="payButton" layoutX="571.0" layoutY="451.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" style=": 10px;" text="Betala" textFill="WHITE">
+            <Button fx:id="payButton" layoutX="571.0" layoutY="451.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" text="Betala" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
