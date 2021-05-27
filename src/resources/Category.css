@@ -7,6 +7,11 @@
     -fx-color: #FFA14A;
 }
 
+.titled-pane > .title{
+    -fx-font-size: 20;
+}
+
+
 .box-rules{
     -fx-background-color: #FFA14A;
 }
@@ -15,6 +20,7 @@
     -fx-background-color: #FFA14A;
     -fx-border-color: C47C39;
     -fx-border-width: 2;
+    -fx-font-size: 20;
 }
 .textrules:focused{
     -fx-background-color: C47C39;
