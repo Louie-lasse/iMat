@@ -16,7 +16,7 @@
 
 <fx:root fx:id="handlaPage" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #FFFFFF;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <FlowPane layoutX="27.0" layoutY="40.0" prefHeight="674.0" prefWidth="224.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="40.0">
+      <FlowPane layoutX="27.0" layoutY="40.0" prefHeight="674.0" prefWidth="224.0" AnchorPane.leftAnchor="27.0" AnchorPane.topAnchor="50.0">
          <children>
             <VBox prefHeight="394.0" prefWidth="220.0" stylesheets="@Category.css">
                <children>
@@ -107,17 +107,17 @@
             </VBox>
          </children>
       </FlowPane>
-      <Label layoutX="51.0" layoutY="47.0" text="Kategorier" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="10.0">
+      <Label layoutX="37.0" layoutY="15.0" text="Kategorier" AnchorPane.leftAnchor="37.0" AnchorPane.topAnchor="15.0">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="breadCrumbs" alignment="TOP_LEFT" layoutX="313.0" layoutY="75.0" prefHeight="30.0" prefWidth="822.0" text="Breadcrumbs" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="10.0">
+      <Label fx:id="breadCrumbs" alignment="TOP_LEFT" layoutX="313.0" layoutY="75.0" prefHeight="30.0" prefWidth="822.0" text="Breadcrumbs" textFill="#7c7676" AnchorPane.leftAnchor="313.0" AnchorPane.topAnchor="15.0">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="16.0" />
          </font>
       </Label>
-      <ScrollPane layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="40.0">
+      <ScrollPane layoutX="313.0" layoutY="43.0" prefHeight="981.0" prefWidth="1102.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="313.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="50.0">
          <content>
             <FlowPane prefHeight="937.0" prefWidth="863.0">
                <children>
@@ -130,16 +130,16 @@
             </FlowPane>
          </content>
       </ScrollPane>
-      <ComboBox fx:id="orderComboBox" layoutX="1265.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="13.0" />
-      <Label fx:id="inOrder" alignment="CENTER" layoutX="1239.6" layoutY="7.0" prefHeight="39.0" prefWidth="26.0" text="i" AnchorPane.rightAnchor="174.0">
+      <ComboBox fx:id="orderComboBox" layoutX="1265.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="10.0" />
+      <Label fx:id="inOrder" alignment="CENTER" layoutX="1239.6" layoutY="7.0" prefHeight="39.0" prefWidth="26.0" text="i" AnchorPane.rightAnchor="174.0" AnchorPane.topAnchor="5.0">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font>
       </Label>
-      <ComboBox fx:id="sortingPriorityComboBox" layoutX="1083.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="206.6" AnchorPane.topAnchor="13.0" />
-      <Label alignment="CENTER" layoutX="1010.0" layoutY="7.0" prefHeight="39.0" prefWidth="72.0" text="Sortera">
+      <ComboBox fx:id="sortingPriorityComboBox" layoutX="1083.0" layoutY="13.0" prefWidth="150.0" AnchorPane.rightAnchor="206.6" AnchorPane.topAnchor="10.0" />
+      <Label alignment="CENTER" layoutX="1010.0" layoutY="7.0" prefHeight="39.0" prefWidth="72.0" text="Sortera" AnchorPane.topAnchor="5.0">
          <font>
-            <Font size="20.0" />
+            <Font size="16.0" />
          </font>
       </Label>
    </children>
