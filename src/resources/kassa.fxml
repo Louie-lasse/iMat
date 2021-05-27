@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="kassaPage" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="kassaPage" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="350.0" layoutY="50.0" prefHeight="756.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="50.0">
          <children>
@@ -23,14 +23,6 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                     <cursor>
-                        <Cursor fx:constant="HAND" />
-                     </cursor>
-                  </Button>
                   <AnchorPane layoutX="36.0" layoutY="-4.84765625" opacity="0.61" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
@@ -95,6 +87,14 @@
                         </Text>
                      </children>
                   </AnchorPane>
+                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </AnchorPane>
             <Pane layoutX="10.0" layoutY="220.0" prefHeight="200.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
