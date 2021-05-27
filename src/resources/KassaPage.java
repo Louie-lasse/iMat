@@ -68,40 +68,28 @@ public class KassaPage extends Page {
 
     @Override
     protected void initialize() {
-        /*
-        toggleGroup = new ToggleGroup();
-        card.setToggleGroup(toggleGroup);
-        klarna.setToggleGroup(toggleGroup);
-        bill.setToggleGroup(toggleGroup);
-        card.setSelected(true);
-         */
-
         cardPane.toFront();
 
         cardNumberDone.setVisible(false);
         cardDateDone.setVisible(false);
         cvcDone.setVisible(false);
         cardHolderDone.setVisible(false);
-    /*
-        toggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-
-                if (toggleGroup.getSelectedToggle() != null) {
-                    RadioButton selected = (RadioButton) toggleGroup.getSelectedToggle();
-                    setPayment(((RadioButton) toggleGroup.getSelectedToggle()).getId());
-                }
-            }
-        });
-
-     */
 
         cardHolder.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolder.setText(lettersOnly(cardHolder.getText()));
+            if(cardHolder.getText().length() == 0){
+                cardHolderError.setVisible(true);
+                cardHolderDone.setVisible(false);
+            }else{
+                cardHolderDone.setVisible(true);
+                cardHolderError.setVisible(false);
+            }
         });
         cvc.textProperty().addListener((observable, oldValue, newValue) -> {
-            cardHolderDone.setVisible(true);
-            cardHolderError.setVisible(false);
+            if(cardHolder.getText().length() > 2){
+                cardHolderDone.setVisible(true);
+                cardHolderError.setVisible(false);
+            }
             if (cvc.getText().length() > 3) {
                 String max = cvc.getText().substring(0, 3);
                 cvc.setText(max);
@@ -136,6 +124,14 @@ public class KassaPage extends Page {
             checkMonthDate();
         });
         cardNumber.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (cardNumber.getText().length() == 20) {
+                changeField(cardNumber.getText(), 20, month);
+                cardNumberDone.setVisible(true);
+                cardNumberError.setVisible(false);
+            } else {
+                cardNumberDone.setVisible(false);
+                cardNumberError.setVisible(true);
+            }
             if (newValue.length() < oldValue.length()) {
                 cardNumber.setText(newValue);
             } else {
@@ -151,14 +147,6 @@ public class KassaPage extends Page {
                                 "resources/images/visa.png")));
                     }
                     cardNumber.setText(maxLength(cardNumber.getText(), 20));
-                    if (cardNumber.getText().length() == 20) {
-                        changeField(cardNumber.getText(), 20, month);
-                        cardNumberDone.setVisible(true);
-                        cardNumberError.setVisible(false);
-                    } else {
-                        cardNumberDone.setVisible(false);
-                        cardNumberError.setVisible(true);
-                    }
                     if (cardNumber.getText().length() == 4) {
                         cardNumber.setText(cardNumber.getText() + " ");
                     } else if (cardNumber.getText().length() > 4 && cardNumber.getText().length() % 5 == 0
@@ -185,7 +173,7 @@ public class KassaPage extends Page {
     }
     public void saveCardInfo(){
         BackendAdapter.getCard().setCardNumber(cardNumber.getText());
-        if(cardNumber.getText().charAt(0) == '4'){
+        if(cardNumber.getText().charAt(0) == '5'){
             BackendAdapter.getCard().setCardType("Mastercard");
         }else{
             BackendAdapter.getCard().setCardType("Visa");
@@ -244,23 +232,6 @@ public class KassaPage extends Page {
         }
         return input;
     }
-    private void setPayment(String type){
-        switch (type){
-            case "card":
-                cardPane.toFront();
-                break;
-            case "klarna":
-                klarnaPane.toFront();
-                break;
-            case "bill":
-                billPane.toFront();
-                break;
-            default:
-                System.out.println("Error Error Error");
-                break;
-        }
-    }
-
     @Override
     public boolean isDone(){
         if(cardNumberDone.isVisible() && cardDateDone.isVisible() &&
