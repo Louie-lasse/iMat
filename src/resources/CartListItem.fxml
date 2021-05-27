@@ -8,7 +8,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="155.0" prefWidth="1094.0" stylesheets="@ShoppingGridItem.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fx:id="ItemImage" fitHeight="115.0" fitWidth="115.0" layoutX="31.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -33,7 +33,7 @@
                   <String fx:value="round-button" />
                </styleClass>
             </Button>
-            <Label alignment="CENTER" layoutX="11.333333333" layoutY="-7.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
+            <Label alignment="CENTER" layoutX="11.333333333" layoutY="-5.0" prefHeight="52.0" prefWidth="29.0" styleClass="button-text" text="+" />
          </children>
       </AnchorPane>
       <AnchorPane layoutX="424.0" layoutY="54.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
@@ -44,7 +44,7 @@
                   <String fx:value="orange-button" />
                </styleClass>
             </Button>
-            <Label layoutX="17.0" layoutY="-5.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+            <Label layoutX="17.0" layoutY="-6.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
          </children>
       </AnchorPane>
    </children>

@@ -135,9 +135,9 @@
             </FlowPane>
          </content>
       </ScrollPane>
-      <AnchorPane fx:id="navBar" prefHeight="108.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" stylesheets="@menu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane fx:id="navBar" layoutY="3.0" prefHeight="105.0" prefWidth="1440.0" style="-fx-background-color: #FFA14A;" stylesheets="@menu.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fx:id="logo" fitHeight="82.0" fitWidth="185.0" layoutX="14.0" layoutY="13.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="13.0">
+            <ImageView fx:id="logo" fitHeight="95.0" fitWidth="197.0" layoutX="7.0" layoutY="14.0" onMouseClicked="#returnHome" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0" AnchorPane.topAnchor="14.0">
                <image>
                   <Image url="@images/iMatIcon.png" />
                </image>
@@ -147,12 +147,12 @@
             </ImageView>
             <AnchorPane fx:id="searchPane" layoutX="313.0" layoutY="26.0">
                <children>
-                  <TextField fx:id="searchBar" minWidth="0.0" onAction="#search" prefHeight="55.0" prefWidth="788.0" promptText="Sök efter en vara....">
+                  <TextField fx:id="searchBar" layoutX="-5.0" layoutY="9.0" minWidth="0.0" onAction="#search" prefHeight="51.0" prefWidth="788.0" promptText="Sök efter en vara....">
                      <font>
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <ImageView fx:id="serachLogo" fitHeight="42.0" fitWidth="42.0" layoutX="735.5999755859375" layoutY="7.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="serachLogo" fitHeight="40.0" fitWidth="43.0" layoutX="730.0" layoutY="13.0" onMouseClicked="#search" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/search.png" />
                      </image>
@@ -161,18 +161,18 @@
             </AnchorPane>
             <AnchorPane fx:id="varukorgPopupOption" layoutX="1157.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <Text layoutX="5.0" layoutY="21.423828125" strokeType="OUTSIDE" strokeWidth="0.0" text="Varukorg" wrappingWidth="75.19992675781259" AnchorPane.topAnchor="2.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
                   <AnchorPane fx:id="varukorgPopupIcon" layoutY="31.0" onMouseClicked="#openVarukorgPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="38.0" fitWidth="45.0" layoutX="21.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/varukorg_orange.png" />
                            </image>
                         </ImageView>
+                        <Text fill="#ffa14a" layoutX="8.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Varukorg" wrappingWidth="67.59936106788518">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -182,18 +182,18 @@
             </AnchorPane>
             <AnchorPane fx:id="profilPopupOption" layoutX="1250.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.rightAnchor="112.0">
                <children>
-                  <Text layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profil" wrappingWidth="42.0" AnchorPane.topAnchor="1.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
                   <AnchorPane fx:id="profilePopupIcon" layoutY="31.0" onMouseClicked="#openProfilePopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="38.0" layoutX="23.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/profile_icon_orange.png" />
                            </image>
                         </ImageView>
+                        <Text fill="#ffa14a" layoutX="23.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Profil" wrappingWidth="42.0" AnchorPane.topAnchor="6.53125">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -203,18 +203,18 @@
             </AnchorPane>
             <AnchorPane layoutX="1343.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.rightAnchor="15.0">
                <children>
-                  <Text layoutX="20.0" layoutY="21.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjälp" wrappingWidth="42.0" AnchorPane.topAnchor="1.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
                   <AnchorPane fx:id="helpPopupIcon" layoutY="31.0" onMouseClicked="#openHelpPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="45.0" fitWidth="38.0" layoutX="22.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/help_orange.png" />
                            </image>
                         </ImageView>
+                        <Text fill="#ffa14a" layoutX="21.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjälp" wrappingWidth="42.0" AnchorPane.topAnchor="9.53125">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -224,18 +224,18 @@
             </AnchorPane>
             <AnchorPane fx:id="varukorgPopupOption1" layoutX="200.0" prefHeight="108.0" prefWidth="82.0">
                <children>
-                  <Text layoutX="20.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hem" wrappingWidth="42.0" AnchorPane.topAnchor="0.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Text>
                   <AnchorPane fx:id="varukorgPopupIcon1" layoutY="31.0" onMouseClicked="#returnHome" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                      <children>
-                        <ImageView fitHeight="56.0" fitWidth="56.0" layoutX="13.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="38.0" fitWidth="45.0" layoutX="22.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@images/home_button_orange.png" />
                            </image>
                         </ImageView>
+                        <Text fill="#ffa14a" layoutX="23.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hem" wrappingWidth="42.0">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Text>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -249,7 +249,7 @@
          <children>
             <AnchorPane fx:id="backButton" layoutX="60.0" layoutY="24.600000381469727" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0">
                <children>
-                  <Button mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: d1d1d1; -fx-background-radius: 10px;" text="  Föregående">
+                  <Button mnemonicParsing="false" onMouseClicked="#showPreviousWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: d1d1d1; -fx-background-radius: 10px; -fx-border-color: #000000; -fx-border-radius: 10px; -fx-border-width: 2;" text="  Föregående">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -263,7 +263,7 @@
             </AnchorPane>
             <AnchorPane fx:id="forwardButton" layoutX="1241.5999755859375" layoutY="16.600000381469727" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <children>
-                  <Button layoutY="9.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #FFA14A; -fx-background-radius: 10px;" text="Gå vidare" textFill="WHITE" AnchorPane.rightAnchor="3.200000000000017">
+                  <Button layoutY="9.0" mnemonicParsing="false" onMouseClicked="#showNextWindow" prefHeight="49.0" prefWidth="149.0" style="-fx-background-color: #FFA14A; -fx-background-radius: 10px; -fx-border-color: #000000; -fx-border-width: 2; -fx-border-radius: 10px;" text="Gå vidare" textFill="WHITE" AnchorPane.rightAnchor="3.200000000000017">
                      <font>
                         <Font size="20.0" />
                      </font>
