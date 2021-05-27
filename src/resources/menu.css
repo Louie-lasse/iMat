@@ -24,3 +24,25 @@
     -fx-border-radius: 30px;
     -fx-border-width: 3;
 }
+#forwardBtn{
+    -fx-background-color:  #FFA14A;
+    -fx-background-radius: 10px;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 2;
+}
+#backBtn{
+    -fx-background-color: #d1d1d1;
+    -fx-background-radius: 10px;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 2;
+    -fx-border-width: 2;
+}
+#forwardBtn:hover{
+    -fx-background-color: #f8d568;
+}
+#backBtn:hover{
+    -fx-background-color: #dedede;
+}

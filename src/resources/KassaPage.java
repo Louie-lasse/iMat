@@ -111,8 +111,9 @@ public class KassaPage extends Page {
 
             if (month.getText().length() == 2) {
                 changeField(month.getText(), 2, year);
-                checkMonthDate();
             }
+            checkMonthDate();
+
         });
         year.textProperty().addListener((observableValue, oldValue, newValue) -> {
             year.setText(maxLength(year.getText(), 2));
@@ -199,6 +200,9 @@ public class KassaPage extends Page {
                 cardDateDone.setVisible(false);
                 cardDateError.setVisible(true);
             }
+        }if(year.getText().length() < 2 || month.getText().length() < 2){
+            cardDateDone.setVisible(false);
+            cardDateError.setVisible(true);
         }
     }
     private String maxLength(String input, int maxLength){

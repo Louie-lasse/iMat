@@ -20,6 +20,39 @@
    <children>
       <StackPane prefHeight="150.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <AnchorPane fx:id="clearPopUp">
+               <children>
+                  <AnchorPane opacity="0.33" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <AnchorPane layoutX="493.5" layoutY="265.5" prefHeight="274.0" prefWidth="453.0" style="-fx-background-color: #ffffff; -fx-border-color: #FFA14A; -fx-border-width: 4; -fx-border-radius: 4; -fx-border-insets: 4;" stylesheets="@Buttons.css" AnchorPane.topAnchor="200.0">
+                     <children>
+                        <Label alignment="TOP_CENTER" layoutX="91.0" layoutY="48.0" prefHeight="70.0" prefWidth="260.0" text="Är du säker på att du vill återställa applikationen?" wrapText="true">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="TOP_LEFT" layoutX="98.0" layoutY="130.0" prefHeight="56.0" prefWidth="260.0" text="Samtlig information om dig och dina tidigare köp kommer att raderas!" wrapText="true">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </Label>
+                        <AnchorPane layoutX="67.0" layoutY="202.0" prefHeight="56.0" prefWidth="309.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#cancel" prefWidth="124.0" styleClass="standard-button" text="Avbryt" AnchorPane.leftAnchor="0.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                              <Button layoutX="124.0" mnemonicParsing="false" onAction="#confirm" styleClass="standard-button" text="Ja, jag är säker!" AnchorPane.rightAnchor="0.0">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
             <ScrollPane fx:id="profilePage" hbarPolicy="NEVER" prefHeight="814.0" prefWidth="1446.0" style="-fx-background-color: #ffffff;">
                <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="992.0" prefWidth="1438.0" stylesheets="@Buttons.css">
@@ -170,12 +203,12 @@
                               </Pane>
                            </children>
                         </Pane>
-                        <Label layoutX="660.0" layoutY="81.0" text="Tidigare köp" AnchorPane.rightAnchor="671.2">
+                        <Label layoutX="660.0" layoutY="63.0" text="Tidigare köp" AnchorPane.rightAnchor="671.2">
                            <font>
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <FlowPane layoutX="659.0" layoutY="132.0" prefHeight="506.0" prefWidth="720.0" AnchorPane.rightAnchor="59.40000000000009" AnchorPane.topAnchor="110.0">
+                        <FlowPane layoutX="655.9999999999999" layoutY="95.0" prefHeight="506.0" prefWidth="720.0" AnchorPane.rightAnchor="56.80000000000018" AnchorPane.topAnchor="95.0">
                            <children>
                               <ScrollPane prefHeight="506.0" prefWidth="725.0" stylesheets="@Category.css">
                                  <content>
@@ -218,39 +251,6 @@
                   </AnchorPane>
                </content>
             </ScrollPane>
-            <AnchorPane fx:id="clearPopUp">
-               <children>
-                  <AnchorPane opacity="0.33" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: black;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-                  <AnchorPane layoutX="493.5" layoutY="265.5" prefHeight="274.0" prefWidth="453.0" style="-fx-background-color: #ffffff; -fx-border-color: #FFA14A; -fx-border-width: 4; -fx-border-radius: 4; -fx-border-insets: 4;" stylesheets="@Buttons.css" AnchorPane.topAnchor="200.0">
-                     <children>
-                        <Label alignment="TOP_CENTER" layoutX="91.0" layoutY="48.0" prefHeight="70.0" prefWidth="260.0" text="Är du säker på att du vill återställa applikationen?" wrapText="true">
-                           <font>
-                              <Font name="System Bold" size="22.0" />
-                           </font>
-                        </Label>
-                        <Label alignment="TOP_LEFT" layoutX="98.0" layoutY="130.0" prefHeight="56.0" prefWidth="260.0" text="Samtlig information om dig och dina tidigare köp kommer att raderas!" wrapText="true">
-                           <font>
-                              <Font size="16.0" />
-                           </font>
-                        </Label>
-                        <AnchorPane layoutX="67.0" layoutY="202.0" prefHeight="56.0" prefWidth="309.0">
-                           <children>
-                              <Button mnemonicParsing="false" onAction="#cancel" prefWidth="124.0" styleClass="standard-button" text="Avbryt" AnchorPane.leftAnchor="0.0">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Button>
-                              <Button layoutX="124.0" mnemonicParsing="false" onAction="#confirm" styleClass="standard-button" text="Ja, jag är säker!" AnchorPane.rightAnchor="0.0">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </AnchorPane>
-               </children>
-            </AnchorPane>
          </children>
       </StackPane>
    </children>

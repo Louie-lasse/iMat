@@ -34,7 +34,7 @@
                         <String fx:value="round-button" />
                      </styleClass>
                   </Button>
-                  <Label alignment="TOP_CENTER" layoutX="10.0" layoutY="-5.5" prefHeight="52.0" prefWidth="35.0" styleClass="button-text" text="+" AnchorPane.bottomAnchor="4.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="-5.5" />
+                  <Label alignment="TOP_CENTER" layoutX="5.0" layoutY="-6.0" prefHeight="60.0" prefWidth="43.0" styleClass="button-text" text="+" AnchorPane.bottomAnchor="3.9999999999999787" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="7.0" AnchorPane.topAnchor="-6.0" />
                </children>
             </AnchorPane>
             <AnchorPane layoutY="3.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
@@ -51,7 +51,7 @@
                         <String fx:value="gray-button" />
                      </styleClass>
                   </Button>
-                  <Label fx:id="subLabel" layoutX="17.0" layoutY="-5.0" prefHeight="53.0" prefWidth="17.0" styleClass="button-text" text="-" />
+                  <Label fx:id="subLabel" layoutX="4.0" layoutY="-6.0" prefHeight="58.0" prefWidth="43.0" styleClass="button-text" text="-" />
                </children>
             </AnchorPane>
          </children>
