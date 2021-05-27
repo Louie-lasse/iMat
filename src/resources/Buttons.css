@@ -1,0 +1,26 @@
+.standard-button{
+    -fx-border-color: #FFA14A;
+    -fx-border-width: 3;
+    -fx-border-insets: 3;
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+}
+
+.standard-button-hovered{
+    -fx-border-color: #FFA14A;
+    -fx-border-width: 3;
+    -fx-border-insets: 3;
+    -fx-background-color: E0E0E0;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+}
+
+.standard-button-clicked{
+    -fx-border-color: #C47C39;
+    -fx-border-width: 3;
+    -fx-border-insets: 3;
+    -fx-background-color: E0E0E0;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+}
