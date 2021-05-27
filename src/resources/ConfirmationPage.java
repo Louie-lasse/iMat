@@ -50,7 +50,6 @@ public class ConfirmationPage extends Page{
             }
         });
 
-
         receiptButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override public void handle(ActionEvent e) {
                 parent.openProfilePopup();

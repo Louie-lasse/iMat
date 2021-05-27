@@ -60,6 +60,7 @@ public class CartItemController extends AnchorPane {
     @FXML
     void remove() {
         db.removeProduct(product);
+
         update();
     }
 

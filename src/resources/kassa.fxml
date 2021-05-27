@@ -31,7 +31,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <AnchorPane layoutX="36.0" layoutY="-4.84765625" opacity="0.33" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane layoutX="36.0" layoutY="-4.84765625" opacity="0.61" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
                            <font>
