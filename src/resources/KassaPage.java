@@ -137,7 +137,7 @@ public class KassaPage extends Page {
                     if (!cardNumber.getText().matches("\\d *")) {
                         cardNumber.setText(cardNumber.getText().replaceAll("[^\\d ]", ""));
                     }
-                    if (cardNumber.getText().charAt(0) == '4') {
+                    if (cardNumber.getText().charAt(0) == '5') {
                         paymentImg.setImage(new Image(getClass().getClassLoader().getResourceAsStream(
                                 "resources/images/mastercard.png")));
                     } else {
