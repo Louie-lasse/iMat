@@ -188,6 +188,13 @@ public class HandlaPage extends Page{
         return selectedCards;
     }
 
+    void varukorgUpdated(){
+        List<ShoppingGridItemController> selectedProducts = getSelectedProducts();
+        for (ShoppingGridItemController controller: selectedProducts){
+            controller.update();
+        }
+    }
+
     private void updateCategoryMenu(){
         Tree selected = Tree.get(activeCategory);
 

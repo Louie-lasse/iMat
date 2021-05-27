@@ -44,6 +44,7 @@ public class VarukorgPage extends Page{
     @Override
     public void update() {
         totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+        parent.varukorgUpdated();
     }
 
     @Override

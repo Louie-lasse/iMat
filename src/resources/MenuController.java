@@ -338,4 +338,8 @@ public class MenuController implements Initializable {
             pageNotComplete.setVisible(true);
         }
     }
+
+    void varukorgUpdated(){
+        handlaPage.varukorgUpdated();
+    }
 }
