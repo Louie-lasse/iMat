@@ -270,7 +270,9 @@ public class BackendAdapter{
     public Order placeOrder(boolean clearShoppingCart) { return db.placeOrder(clearShoppingCart); }
 
     public List<Order> getOrders() {
-        return db.getOrders();
+        List<Order> orders = db.getOrders();
+        orders.sort(new TimeComparator());
+        return orders;
     }
 
     public Product getProduct(int idNbr) { return db.getProduct(idNbr); }
@@ -405,10 +407,9 @@ public class BackendAdapter{
     }
 
     public double getPriceOrder(Order order){
-        int i = getOrders().indexOf(order);
         double price = 0;
-        for(ShoppingItem items : getOrders().get(i).getItems()){
-            price += items.getTotal();
+        for (ShoppingItem item: order.getItems()){
+            price += item.getTotal();
         }
         return price;
     }
@@ -529,6 +530,16 @@ public class BackendAdapter{
             String name1 = o1.getName();
             String name2 = o2.getName();
             return name1.compareTo(name2);
+        }
+    }
+
+    private static class TimeComparator implements Comparator<Order>{
+
+        @Override
+        public int compare(Order o1, Order o2) {
+            Date d1 = o1.getDate();
+            Date d2 = o2.getDate();
+            return d2.compareTo(d1);
         }
     }
 }
