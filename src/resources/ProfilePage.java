@@ -142,6 +142,8 @@ public class ProfilePage extends Page{
         if (!input.matches("\\sa-öA-Ö *")) {
             return (input.replaceAll("[^\\sa-öA-Ö ]", ""));
         }
+        //TODO if we run through the string with "if (!input.matches[...])", we might as well just do
+        // return (input.replaceAll("[^\\sa-öA-Ö ]", ""));
         return input;
     }
 
