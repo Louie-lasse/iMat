@@ -30,9 +30,9 @@ public class KassaPage extends Page {
 
     //@FXML TextArea message; //Removed message
     ToggleGroup toggleGroup;
-    @FXML RadioButton card;
-    @FXML RadioButton klarna;
-    @FXML RadioButton bill;
+    //@FXML RadioButton card;
+    //@FXML RadioButton klarna;
+    //@FXML RadioButton bill;
     @FXML Pane cardPane;
     @FXML Pane klarnaPane;
     @FXML Pane billPane;
@@ -51,7 +51,7 @@ public class KassaPage extends Page {
     @FXML ImageView cardDateError;
     @FXML ImageView cardHolderError;
     @FXML ImageView cvcError;
-    //@FXML Label totaltCash;
+    @FXML Label totaltCash;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -68,18 +68,21 @@ public class KassaPage extends Page {
 
     @Override
     protected void initialize() {
+        /*
         toggleGroup = new ToggleGroup();
         card.setToggleGroup(toggleGroup);
         klarna.setToggleGroup(toggleGroup);
         bill.setToggleGroup(toggleGroup);
         card.setSelected(true);
+         */
+
         cardPane.toFront();
 
         cardNumberDone.setVisible(false);
         cardDateDone.setVisible(false);
         cvcDone.setVisible(false);
         cardHolderDone.setVisible(false);
-
+    /*
         toggleGroup.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
             @Override
             public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
@@ -90,6 +93,9 @@ public class KassaPage extends Page {
                 }
             }
         });
+
+     */
+
         cardHolder.textProperty().addListener((observable, oldValue, newValue) -> {
             cardHolder.setText(lettersOnly(cardHolder.getText()));
         });
@@ -241,15 +247,12 @@ public class KassaPage extends Page {
     private void setPayment(String type){
         switch (type){
             case "card":
-                System.out.println("Card");
                 cardPane.toFront();
                 break;
             case "klarna":
-                System.out.println("Klarna");
                 klarnaPane.toFront();
                 break;
             case "bill":
-                System.out.println("Faktura");
                 billPane.toFront();
                 break;
             default:
@@ -280,7 +283,7 @@ public class KassaPage extends Page {
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
         time.setText(db.getTime());
         date.setText(db.getDate());
-        //totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+        totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 
     @Override

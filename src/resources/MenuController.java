@@ -261,6 +261,7 @@ public class MenuController implements Initializable {
                 break;
             case 2:
                 normalView.setVvalue(0);
+                normalView.setVmax(0.2);
                 profilPopupOption.setVisible(false);
                 progressBar2.toFront();
                 progress3.toFront();
@@ -274,7 +275,7 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(true);
                 break;
             case 3:
-                normalView.setVmax(1);
+                normalView.setVmax(0.2);
                 normalView.setVvalue(0);
                 progressBar3.toFront();
                 progress4.toFront();
