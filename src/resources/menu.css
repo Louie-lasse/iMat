@@ -6,7 +6,9 @@
     -fx-border-width: 3px 3px 0px 3px;
 }
 
-
+.icon-closed:hover{
+    -fx-background-color: #ededed;
+}
 .icon-open{
     -fx-background-color: #FFFFFF;
     -fx-background-radius: 32px 32px 0px 0px;

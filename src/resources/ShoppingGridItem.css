@@ -78,8 +78,9 @@
     -fx-alignment: center;
     -fx-text-fill: #FFFFFF;
 }
-
-
+.orange-button:hover{
+    -fx-background-color: #f8d568;
+}
 
 .button-text{
     -fx-font-size: 40px;
@@ -88,7 +89,6 @@
     -fx-alignment: center;
     -fx-text-fill: #FFFFFF;
 }
-
 
 .px18-text{
     -fx-font-size: 18px;

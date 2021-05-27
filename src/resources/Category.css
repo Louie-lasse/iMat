@@ -5,6 +5,9 @@
     > .arrow-button .arrow     -fx-rotate: -90;
     -fx-color: #FFA14A;
 }
+.titled-pane:collapsed > .title:hover {
+    -fx-color: #C47C39;
+}
 
 .titled-pane > .title{
     -fx-font-size: 20;
