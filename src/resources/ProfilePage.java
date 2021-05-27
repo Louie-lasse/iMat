@@ -45,6 +45,9 @@ public class ProfilePage extends Page{
     @FXML TextField cvc;
     @FXML Accordion prevBuyAcc;
     @FXML Button saveButton;
+
+    @FXML AnchorPane clearPopUp;
+
     private static final HashMap<Order, TitledPane> orderTitledPaneHashMap = new HashMap<>();
 
     private static final HashMap<Order, PreviousBuyController> controllerHashMap = new HashMap<>();
@@ -232,6 +235,7 @@ public class ProfilePage extends Page{
     @Override
     public void open(){
         update();
+        clearPopUp.toBack();
     }
 
     @FXML
@@ -246,8 +250,20 @@ public class ProfilePage extends Page{
     }
 
     @FXML public void clear(){
+        clearPopUp.toFront();
+
+    }
+
+
+    @FXML public void confirm(){
         db.reset();
         parent.returnHome();
     }
+
+    @FXML public  void cancel(){
+        toBack();
+    }
+
+
 
 }
