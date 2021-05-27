@@ -16,8 +16,6 @@ import java.util.List;
 
 public class VarukorgPage extends Page{
 
-    private static final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
-
     @FXML
     private FlowPane varorFlowPane;
 
@@ -35,10 +33,6 @@ public class VarukorgPage extends Page{
     @Override
     protected void initialize(){
         CartItemController.setParent(this);
-        List<Product> products = db.getCartProducts();
-        for (Product p: products){
-            controllerHashMap.put(p, new CartItemController(p));
-        }
     }
 
     @Override
@@ -52,19 +46,15 @@ public class VarukorgPage extends Page{
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
-        int temp = 0;
+        boolean color = false;
         for (Product p: products){
-            cartItemController = controllerHashMap.get(p);
-            if (cartItemController == null){
-                cartItemController = new CartItemController(p);
-                controllerHashMap.put(p, cartItemController);
-            }
-            if(temp % 2 == 0){
+            cartItemController = parent.getCartItemController(p);
+            if(color){
                 cartItemController.setStyle("-fx-background-color: #ededed");
             }else{
                 cartItemController.setStyle("-fx-background-color: white");
             }
-            temp++;
+            color = !color;
             cartItemController.update();
             controllers.add(cartItemController);
         }

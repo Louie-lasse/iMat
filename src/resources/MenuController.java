@@ -87,7 +87,6 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
 
-    private int prevPageIndex = 0;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
@@ -121,11 +120,6 @@ public class MenuController implements Initializable {
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
 
         updateWizardButtons();
-
-        List<Product> products = db.getCartProducts();
-        for (Product p: products){
-            controllerHashMap.put(p, new CartItemController(p));
-        }
     }
 
     public String getSearchString(){
@@ -311,25 +305,32 @@ public class MenuController implements Initializable {
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
-        int temp = 0;
+        boolean color = false;
         for (Product p : products) {
-            cartItemController = controllerHashMap.get(p);
-            if (cartItemController == null) {
-                cartItemController = new CartItemController(p);
-                controllerHashMap.put(p, cartItemController);
-            }
-            if(temp % 2 == 0){
+            cartItemController = getCartItemController(p);
+            if(color){
                 cartItemController.setStyle("-fx-background-color: #ededed");
             }else{
                 cartItemController.setStyle("-fx-background-color: white");
             }
-            temp++;
+            color = !color;
             controllers.add(cartItemController);
         }
         List<Node> flowPaneChildren = cartFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
         totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+    }
+
+    CartItemController getCartItemController(Product p){
+        CartItemController controller = controllerHashMap.get(p);
+        if (controller==null){
+            controller = new CartItemController(p);
+            controllerHashMap.put(p, controller);
+        } else {
+            controller.update();
+        }
+        return controller;
     }
 
     public void update(){
