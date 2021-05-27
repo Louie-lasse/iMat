@@ -274,7 +274,6 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(true);
                 break;
             case 3:
-                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
                 normalView.setVmax(1);
                 normalView.setVvalue(0);
                 progressBar3.toFront();
@@ -285,9 +284,6 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(false);
                 break;
             case 4:
-                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-                normalView.setVmax(0.1);
-                normalView.setVvalue(0);
                 checkBox4.toFront();
                 backButton.setVisible(false);
         }

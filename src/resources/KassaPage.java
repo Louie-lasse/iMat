@@ -51,7 +51,7 @@ public class KassaPage extends Page {
     @FXML ImageView cardDateError;
     @FXML ImageView cardHolderError;
     @FXML ImageView cvcError;
-    @FXML Label totaltCash;
+    //@FXML Label totaltCash;
 
     @Override
     protected FXMLLoader getFxmlLoader(){
@@ -280,7 +280,7 @@ public class KassaPage extends Page {
         cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
         time.setText(db.getTime());
         date.setText(db.getDate());
-        totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+        //totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 
     @Override
