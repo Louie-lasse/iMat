@@ -305,7 +305,7 @@ public class MenuController implements Initializable {
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
-        boolean color = false;
+        boolean color = true;
         for (Product p : products) {
             cartItemController = getCartItemController(p);
             if(color){

@@ -46,7 +46,7 @@ public class VarukorgPage extends Page{
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
-        boolean color = false;
+        boolean color = true;
         for (Product p: products){
             cartItemController = parent.getCartItemController(p);
             if(color){

@@ -1,5 +1,6 @@
 package resources;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -99,6 +100,15 @@ public class ShoppingGridItemController extends AnchorPane {
 
     public void update(){
         amount.setText(db.getFormattedAmount(product));
+        format();
     }
-
+    private void format(){
+        ObservableList<String> textStyle = amount.getStyleClass();
+        textStyle.clear();
+        if (db.getAmount(product) > 0){
+            textStyle.add("orange-text-field");
+        } else {
+            textStyle.add("text-field-empty");
+        }
+    }
 }
