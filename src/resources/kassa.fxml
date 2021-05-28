@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,82 +13,82 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="kassaPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" stylesheets="@kassaStyle.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="kassaPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" styleClass="font" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutX="350.0" layoutY="62.0" prefHeight="518.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="62.0">
+      <Pane layoutX="350.0" layoutY="50.0" prefHeight="553.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="50.0">
          <children>
-            <AnchorPane layoutX="10.0" prefHeight="210.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;">
+            <AnchorPane layoutX="11.0" layoutY="-8.0" prefHeight="210.0" prefWidth="726.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 5;">
                <children>
-                  <Text fill="#807b7b" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontrollera att dina leverans uppgifter stämmer!" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5.0">
+                  <Text fill="#807b7b" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Kontrollera att dina leverans uppgifter stämmer!" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="5.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Text>
-                  <AnchorPane opacity="0.61" prefHeight="210.0" prefWidth="726.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane opacity="0.61" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" text="Namn:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
+                        <Label layoutX="2.0" layoutY="50.0" prefHeight="25.0" prefWidth="57.0" styleClass="font" text="Namn:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="30.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="84.84765625" prefHeight="25.0" prefWidth="135.0" text="Telefonnummer:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="60.0">
+                        <Label layoutX="2.0" layoutY="84.84765625" prefHeight="25.0" prefWidth="135.0" styleClass="font" text="Telefonnummer:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="60.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="114.84765625" prefHeight="25.0" prefWidth="57.0" text="Email:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="90.0">
+                        <Label layoutX="2.0" layoutY="114.84765625" prefHeight="25.0" prefWidth="57.0" styleClass="font" text="Email:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="90.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="144.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransaddress:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="120.0">
+                        <Label layoutX="2.0" layoutY="144.84765625" prefHeight="25.0" prefWidth="129.0" styleClass="font" text="Leveransaddress:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="120.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="174.84765625" prefHeight="25.0" prefWidth="129.0" text="Leveransdatum:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0">
+                        <Label layoutX="2.0" layoutY="174.84765625" prefHeight="25.0" prefWidth="129.0" styleClass="font" text="Leveransdatum:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="150.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Label layoutX="2.0" layoutY="204.84765625" prefHeight="25.0" prefWidth="38.0" text="Tid:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="180.0">
+                        <Label layoutX="2.0" layoutY="204.84765625" prefHeight="25.0" prefWidth="38.0" styleClass="font" text="Tid:" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="180.0">
                            <font>
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
-                        <Text fx:id="name" layoutX="168.0" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hjärdis jonsson" y="50.0" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="30.0">
+                        <Text fx:id="name" layoutX="168.0" layoutY="-2.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Hjärdis jonsson" y="50.0" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="30.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="phoneNumber" layoutX="170.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0722212342" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0">
+                        <Text fx:id="phoneNumber" layoutX="170.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="0722212342" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="60.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="email" layoutX="170.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hjärdis.gagd@gmail.com" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="90.0">
+                        <Text fx:id="email" layoutX="170.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="hjärdis.gagd@gmail.com" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="90.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="address" layoutX="136.0" layoutY="128.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="Hemvägen 13, 412 53, Göteborg" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="120.0">
+                        <Text fx:id="address" layoutX="136.0" layoutY="128.31640625" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Hemvägen 13, 412 53, Göteborg" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="120.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="date" layoutX="127.0" layoutY="159.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="2021-05-22" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="150.0">
+                        <Text fx:id="date" layoutX="127.0" layoutY="159.31640625" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="2021-05-22" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="150.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
-                        <Text fx:id="time" layoutX="36.0" layoutY="188.31640625" strokeType="OUTSIDE" strokeWidth="0.0" text="13:37" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="180.0">
+                        <Text fx:id="time" layoutX="36.0" layoutY="188.31640625" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="13:37" AnchorPane.leftAnchor="170.0" AnchorPane.topAnchor="180.0">
                            <font>
                               <Font size="16.0" />
                            </font>
                         </Text>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" styleClass="font" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
                      <font>
                         <Font size="16.0" />
                      </font>
@@ -96,116 +98,187 @@
                   </Button>
                </children>
             </AnchorPane>
-            <Pane fx:id="cardPane" layoutX="10.0" layoutY="227.0" prefHeight="210.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+            <Pane layoutX="10.0" layoutY="211.0" prefHeight="134.0" prefWidth="726.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
                <children>
-                  <Label layoutX="152.0" layoutY="45.0" text="Kortnummer:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="402.0" layoutY="45.0" text="Utgångsdatum:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="152.0" layoutY="117.0" text="Namn på korthållare:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="402.0" layoutY="117.0" text="CVC:">
-                     <font>
-                        <Font name="System Bold" size="16.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="cardNumber" layoutX="152.0" layoutY="70.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fx:id="paymentImg" fitHeight="23.0" fitWidth="40.0" layoutX="108.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/visa.png" />
-                     </image>
-                  </ImageView>
-                  <TextField fx:id="month" layoutX="402.0" layoutY="70.0" prefHeight="37.0" prefWidth="48.0" promptText="mm">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="cardHolder" layoutX="152.0" layoutY="142.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="cvc" layoutX="402.0" layoutY="142.0" prefHeight="37.0" prefWidth="51.0" promptText=" ***">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="year" layoutX="462.0" layoutY="70.0" prefHeight="37.0" prefWidth="48.0" promptText="yy">
-                     <font>
-                        <Font size="16.0" />
-                     </font>
-                  </TextField>
-                  <ImageView fx:id="cardNumberDone" fitHeight="35.0" fitWidth="36.0" layoutX="349.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/checkmark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cardHolderDone" fitHeight="35.0" fitWidth="36.0" layoutX="350.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/checkmark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cvcDone" fitHeight="35.0" fitWidth="36.0" layoutX="458.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/checkmark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cardDateDone" fitHeight="35.0" fitWidth="36.0" layoutX="514.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/checkmark.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cardNumberError" fitHeight="35.0" fitWidth="36.0" layoutX="350.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/redX.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cardDateError" fitHeight="35.0" fitWidth="36.0" layoutX="514.0" layoutY="70.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/redX.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cvcError" fitHeight="35.0" fitWidth="36.0" layoutX="458.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/redX.png" />
-                     </image>
-                  </ImageView>
-                  <ImageView fx:id="cardHolderError" fitHeight="35.0" fitWidth="36.0" layoutX="351.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@images/redX.png" />
-                     </image>
-                  </ImageView>
-                  <Label fx:id="totaltCash" layoutX="264.0" layoutY="14.0" text="Totalt belopp: 245kr">
+                  <Label layoutX="305.0" layoutY="6.0" styleClass="font" text="Välj betalsätt:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <RadioButton fx:id="card" layoutX="225.0" layoutY="36.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" styleClass="font" text="Visa, Mastercard">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="klarna" layoutX="225.0" layoutY="66.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="274.0" style="-fx-background-color: #D3D3D3;" styleClass="font" text="Klarna">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <RadioButton fx:id="bill" layoutX="225.0" layoutY="96.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="276.0" style="-fx-background-color: #D3D3D3;" styleClass="font" text="Faktura">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </RadioButton>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="398.0" layoutY="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/visa.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="449.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/mastercard.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="403.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/klarna.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="403.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/faktura.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Button fx:id="payButton" layoutX="571.0" layoutY="451.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" text="Betala" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font>
-            </Button>
+            <Pane fx:id="klarnaPane" layoutX="10.0" layoutY="350.0" prefHeight="170.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" styleClass="font" text="Klarna faktura">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="397.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/klarna.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="billPane" layoutX="11.0" layoutY="350.0" prefHeight="170.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="270.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" styleClass="font" text="FAKTURA">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="30.0" fitWidth="40.0" layoutX="403.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/faktura.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="cardPane" layoutX="10.0" layoutY="350.0" prefHeight="170.0" prefWidth="727.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+               <children>
+                  <Label layoutX="152.0" layoutY="11.0" styleClass="font" text="Kortnummer:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="402.0" layoutY="11.0" styleClass="font" text="Utgångsdatum:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="152.0" layoutY="85.0" styleClass="font" text="Namn på korthållare:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="402.0" layoutY="85.0" styleClass="font" text="CVC:">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="paymentImg" fitHeight="23.0" fitWidth="40.0" layoutX="108.0" layoutY="42.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/visa.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="cardNumber" layoutX="152.0" layoutY="36.0" prefHeight="25.0" prefWidth="192.0" promptText="  **** **** **** ****" styleClass="font">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="month" layoutX="402.0" layoutY="36.0" prefHeight="37.0" prefWidth="48.0" promptText="mm" styleClass="font">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cardHolder" layoutX="152.0" layoutY="110.0" prefHeight="25.0" prefWidth="193.0" promptText="ex. hjördis helgesson" styleClass="font">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="cvc" layoutX="402.0" layoutY="110.0" prefHeight="37.0" prefWidth="51.0" promptText=" ***" styleClass="font">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="year" layoutX="462.0" layoutY="36.0" prefHeight="37.0" prefWidth="48.0" promptText="yy" styleClass="font">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+                  <ImageView fx:id="cardNumberDone" fitHeight="35.0" fitWidth="36.0" layoutX="349.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cardHolderDone" fitHeight="35.0" fitWidth="36.0" layoutX="350.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cvcDone" fitHeight="35.0" fitWidth="36.0" layoutX="458.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cardDateDone" fitHeight="35.0" fitWidth="36.0" layoutX="514.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/checkmark.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cardNumberError" fitHeight="35.0" fitWidth="36.0" layoutX="350.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cardDateError" fitHeight="35.0" fitWidth="36.0" layoutX="514.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cvcError" fitHeight="35.0" fitWidth="36.0" layoutX="458.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="cardHolderError" fitHeight="35.0" fitWidth="36.0" layoutX="351.0" layoutY="109.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/redX.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="payButton" layoutX="557.0" layoutY="102.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="149.0" styleClass="font" text="Betala" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
          </children>
       </Pane>
-      <Text layoutX="600.0" layoutY="33.373046875" strokeType="OUTSIDE" strokeWidth="0.0" text="Kassa" textAlignment="CENTER" wrappingWidth="223.63510458365454" AnchorPane.topAnchor="10.0">
+      <Text layoutX="600.0" layoutY="36.373046875" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Kassa" textAlignment="CENTER" wrappingWidth="223.63510458365454" AnchorPane.topAnchor="4.0">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
    </children>
+   <stylesheets>
+      <URL value="@kassaStyle.css" />
+      <URL value="@text.css" />
+   </stylesheets>
 </fx:root>

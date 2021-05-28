@@ -4,10 +4,8 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.chrono.ChronoLocalDate;
 import java.util.*;
 
@@ -62,11 +60,11 @@ public class BackendAdapter{
         meats.add(new Leaf(Category.FISH));
         meats.add(new Leaf(Category.DAIRIES));
         Branch home = new Branch(Category.HOME);
+        home.add(meats);
         home.add(fruitsAndVeg);
-        home.add(drink);
         home.add(pantry);
         home.add(breads);
-        home.add(meats);
+        home.add(drink);
     }
 
     public static BackendAdapter getInstance(){

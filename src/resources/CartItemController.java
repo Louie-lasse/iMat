@@ -46,6 +46,7 @@ public class CartItemController extends AnchorPane {
         ItemNameLabel.setText(product.getName());
         TotalPriceLabel.setText(Double.toString(product.getPrice()));
         PricePerPieceLabel.setText(Unit.get(product).toString());
+        amount.setText(Double.toString(db.getAmount(product)));
         format();
     }
 
