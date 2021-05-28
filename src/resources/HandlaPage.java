@@ -181,7 +181,7 @@ public class HandlaPage extends Page{
         if (parent.searchBarIsEmpty()) {
             selectedProducts = db.getProducts(activeCategory, sortingPriority, sortingOrder);
         } else {
-            selectedProducts = db.findProducts(parent.getSearchString());
+            selectedProducts = db.findProducts(parent.getSearchString(), sortingPriority, sortingOrder);
         }
         List<ShoppingGridItemController> selectedCards = new ArrayList<>();
         for (Product product: selectedProducts){

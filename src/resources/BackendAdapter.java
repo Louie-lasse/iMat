@@ -333,7 +333,10 @@ public class BackendAdapter{
         return Tree.get(c).getSearchPath();
     }
 
-    public List<Product> findProducts(String s) { return db.findProducts(s); }
+    public List<Product> findProducts(String s, SortingPriority priority, SortingOrder order) {
+        List<Product> products = db.findProducts(s);
+        return sort(products, priority, order);
+    }
 
     public void addProduct(Product p) {
         if (Unit.isStyckPris(p)){
