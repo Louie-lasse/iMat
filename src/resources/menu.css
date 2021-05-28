@@ -8,6 +8,7 @@
 
 .icon-closed:hover{
     -fx-background-color: #ededed;
+    -fx-font-size: 16;
 }
 .icon-open{
     -fx-background-color: #FFFFFF;
@@ -31,6 +32,8 @@
     -fx-border-width: 2;
     -fx-border-radius: 10px;
     -fx-border-insets: 2;
+    -fx-font-size: 16;
+
 }
 #backBtn{
     -fx-background-color: #d1d1d1;
@@ -39,10 +42,14 @@
     -fx-border-radius: 10px;
     -fx-border-insets: 2;
     -fx-border-width: 2;
+    -fx-font-size: 16;
+
 }
 #forwardBtn:hover{
     -fx-background-color: #f8d568;
+    -fx-font-size: 16;
 }
 #backBtn:hover{
     -fx-background-color: #dedede;
+    -fx-font-size: 16;
 }
