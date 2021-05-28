@@ -122,25 +122,24 @@ public class MenuController implements Initializable {
     }
     @FXML
     void moreInfo(){
-        headerLabel.setText("Mer information om oss:");
+        headerLabel.setText("Om iMat:");
         textArea.setText("Här på iMat vill vi göra det lättare för dig att handla. " +
-                "Slipp smittrisken i butiker, och obekvämligheterna med att åka fram och tillbaka. " +
-                "Många onlinebutiker kan vara svåra att lära sig använda. Vårat mål är att göra sidan så" +
-                "intuitiv och hjälpsam som möjligt, så att du kan fokusera på det som är viktigt för dig:" +
-                " Handlandet.\n" +
+                "Slipp smittrisken i butiker och obekvämligheterna med att åka fram och tillbaka. " +
+                "Vårt mål är att göra sidan så" +
+                "lätt att använda som möjligt så att du kan lägga tid på annat.\n" +
                 "\n" +
                 "Vi från iMat önskar dig ett härligt handlande!");
     }
     @FXML
     void guideInfo(){
         headerLabel.setText("En guide till att använda sidan:");
-        textArea.setText("1: Välj varor\n2: Kolla igenom varorna\n3: Du skriver in leveransinfo\n" +
-                "4: Du dubbel kollar leverans info och betalar\n5: Du får en bekräftelse" ); //TODO ÄNDRA TEXTEN
+        textArea.setText("1: Lägg varorna i varukorgen.\n2: Granska varukorgen så allt finns med.\n3: Ange leveransuppgifter.\n" +
+                "4: Dubbelkolla så att alla uppgifter stämmer och fullborda köpet.\n5: Luta dig tillbaka och invänta leverans." ); //TODO ÄNDRA TEXTEN
     }
     @FXML
     void customerService(){
         headerLabel.setText("Kontaktinformation till kundtjänst:");
-        textArea.setText("Hej!\nDu kan kontakta oss på telefon: 070 123 23 23\nSamt email: imat@info.se"); //TODO ÄNDRA TEXTEN
+        textArea.setText("Hej!\nVill du komma i kontakt med vår kundtjänst?\n Telefon: 070 123 23 23\nE-post: info@imat.se"); //TODO ÄNDRA TEXTEN
     }
     public String getSearchString(){
         return searchBar.getText();
