@@ -6,10 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -42,7 +39,7 @@ public class MenuController implements Initializable {
     @FXML StackPane PageView;
 
     @FXML private TextField searchBar;
-
+    @FXML TextArea textArea;
     @FXML
     ScrollPane normalView;
     @FXML AnchorPane progressBar;
@@ -68,6 +65,9 @@ public class MenuController implements Initializable {
     @FXML AnchorPane searchPane;
     @FXML AnchorPane varukorgPopupOption;
     @FXML AnchorPane profilPopupOption;
+    @FXML Button info;
+    @FXML Button guide;
+    @FXML Button service;
 
     //Progressbar indication
     @FXML Rectangle progressBar1;
@@ -86,7 +86,7 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox2;
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
-
+    @FXML Label headerLabel;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
@@ -111,7 +111,6 @@ public class MenuController implements Initializable {
         normalView.toFront();
         pages.get(currentPageIndex).toFront();
         pages.get(currentPageIndex).open();
-
         varukorgPopupTuple = new PopupTuple(varukorgPopup, varukorgPopupIcon);
 
         profilePagePopup = new ProfilePage();
@@ -121,7 +120,27 @@ public class MenuController implements Initializable {
 
         updateWizardButtons();
     }
-
+    @FXML
+    void moreInfo(){
+        headerLabel.setText("Mer information om oss:");
+        textArea.setText("Här på iMat vill vi göra det lättare för dig att handla. " +
+                "Slipp smittrisken i butiker, och obekvämligheterna med att åka fram och tillbaka. " +
+                "Många onlinebutiker kan vara svåra att lära sig använda. Vårat mål är att göra sidan så " +
+                "intuitiv och hjälpsam som möjligt, så att du kan fokusera på det som är viktigt för dig: " +
+                "handlandet.\n" +
+                "\n" +
+                "Vi från iMat önskar dig ett härligt handlande!");
+    }
+    @FXML
+    void guideInfo(){
+        headerLabel.setText("En guide till att använda sidan:");
+        textArea.setText("Du köper mat"); //TODO ÄNDRA TEXTEN
+    }
+    @FXML
+    void customerService(){
+        headerLabel.setText("Kontaktinformation till kundtjänst:");
+        textArea.setText("Telefonnummer: 070 123 23 23 \n email: imat@info.se"); //TODO ÄNDRA TEXTEN
+    }
     public String getSearchString(){
         return searchBar.getText();
     }
