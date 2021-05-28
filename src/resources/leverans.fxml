@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -11,21 +12,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="leveransPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #F0F0F0;" stylesheets="@leverans.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="leveransPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #F0F0F0;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="312.0" layoutY="56.0" prefHeight="522.0" prefWidth="816.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.leftAnchor="312.0" AnchorPane.rightAnchor="312.0" AnchorPane.topAnchor="56.0">
          <children>
-            <Label layoutX="433.0" layoutY="14.0" text="Efternamn:">
+            <Label layoutX="433.0" layoutY="14.0" styleClass="font" text="Efternamn:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="35.0" layoutY="17.0" text="Förnamn:">
+            <Label layoutX="35.0" layoutY="17.0" styleClass="font" text="Förnamn:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <TextField fx:id="name" layoutX="35.0" layoutY="47.0" onAction="#nameEnter" prefHeight="44.0" prefWidth="317.0" promptText="Förnamn">
+            <TextField fx:id="name" layoutX="35.0" layoutY="47.0" onAction="#nameEnter" prefHeight="44.0" prefWidth="317.0" promptText="Förnamn" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -33,7 +34,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="surname" layoutX="433.0" layoutY="47.0" onAction="#surnameEnter" prefHeight="44.0" prefWidth="296.0" promptText="Efternamn">
+            <TextField fx:id="surname" layoutX="433.0" layoutY="47.0" onAction="#surnameEnter" prefHeight="44.0" prefWidth="296.0" promptText="Efternamn" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -41,7 +42,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="phoneNumber" layoutX="141.0" layoutY="131.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0" promptText="ex 07XX XXX XX XX">
+            <TextField fx:id="phoneNumber" layoutX="141.0" layoutY="131.0" onAction="#phoneNumberEnter" prefHeight="44.0" prefWidth="500.0" promptText="ex 07XX XXX XX XX" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -49,7 +50,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="email" layoutX="141.0" layoutY="204.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0" promptText="exempel.epost@adress.se">
+            <TextField fx:id="email" layoutX="141.0" layoutY="204.0" onAction="#emailEnter" prefHeight="44.0" prefWidth="500.0" promptText="exempel.epost@adress.se" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -57,7 +58,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="address" layoutX="141.0" layoutY="288.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0" promptText="Gatunamn 7c">
+            <TextField fx:id="address" layoutX="141.0" layoutY="288.0" onAction="#addressEnter" prefHeight="44.0" prefWidth="500.0" promptText="Gatunamn 7c" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -65,7 +66,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="zipCode" layoutX="141.0" layoutY="367.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0" promptText="XXX XX">
+            <TextField fx:id="zipCode" layoutX="141.0" layoutY="367.0" onAction="#zipCodeEnter" prefHeight="44.0" prefWidth="149.0" promptText="XXX XX" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -73,7 +74,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="city" layoutX="373.0" layoutY="367.0" onAction="#cityEnter" prefHeight="44.0" prefWidth="260.0" promptText="ex Göteborg">
+            <TextField fx:id="city" layoutX="373.0" layoutY="367.0" onAction="#cityEnter" prefHeight="44.0" prefWidth="260.0" promptText="ex Göteborg" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -81,37 +82,37 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <Label layoutX="141.0" layoutY="178.0" text="E-mailaddress">
+            <Label layoutX="141.0" layoutY="178.0" styleClass="font" text="E-mailaddress">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="97.0" text="Telefonnummer:">
+            <Label layoutX="141.0" layoutY="97.0" styleClass="font" text="Telefonnummer:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="255.0" text="Leveransaddress:">
+            <Label layoutX="141.0" layoutY="255.0" styleClass="font" text="Leveransaddress:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="141.0" layoutY="337.0" text="Postnummer:">
+            <Label layoutX="141.0" layoutY="337.0" styleClass="font" text="Postnummer:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="373.0" layoutY="337.0" text="Postort:">
+            <Label layoutX="373.0" layoutY="337.0" styleClass="font" text="Postort:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="377.0" layoutY="420.0" text="Tid:">
+            <Label layoutX="377.0" layoutY="420.0" styleClass="font" text="Tid:">
                <font>
                   <Font size="20.0" />
                </font>
             </Label>
-            <Label layoutX="144.0" layoutY="420.0" text="Leveransdatum:">
+            <Label layoutX="144.0" layoutY="420.0" styleClass="font" text="Leveransdatum:">
                <font>
                   <Font size="20.0" />
                </font>
@@ -214,8 +215,8 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <DatePicker fx:id="datePicker" layoutX="141.0" layoutY="450.0" prefHeight="44.0" prefWidth="173.0" showWeekNumbers="true" />
-            <TextField fx:id="hour" layoutX="377.0" layoutY="450.0" prefHeight="44.0" prefWidth="55.0" promptText="hh">
+            <DatePicker fx:id="datePicker" layoutX="141.0" layoutY="450.0" prefHeight="44.0" prefWidth="173.0" showWeekNumbers="true" styleClass="font" />
+            <TextField fx:id="hour" layoutX="377.0" layoutY="450.0" prefHeight="44.0" prefWidth="55.0" promptText="hh" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -223,7 +224,7 @@
                   <Cursor fx:constant="TEXT" />
                </cursor>
             </TextField>
-            <TextField fx:id="min" layoutX="445.0" layoutY="450.0" prefHeight="44.0" prefWidth="68.0" promptText="mm">
+            <TextField fx:id="min" layoutX="445.0" layoutY="450.0" prefHeight="44.0" prefWidth="68.0" promptText="mm" styleClass="font">
                <font>
                   <Font size="20.0" />
                </font>
@@ -259,17 +260,21 @@
                   </ImageView>
                </children>
             </AnchorPane>
-            <Label layoutX="435.0" layoutY="447.0" prefHeight="51.0" prefWidth="28.0" text=":">
+            <Label layoutX="435.0" layoutY="447.0" prefHeight="51.0" prefWidth="28.0" styleClass="font" text=":">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
          </children>
       </Pane>
-      <Text layoutX="610.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Leveransuppgifter" textAlignment="CENTER" wrappingWidth="263.57614462271704" AnchorPane.topAnchor="10.0">
+      <Text layoutX="610.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Leveransuppgifter" textAlignment="CENTER" wrappingWidth="263.57614462271704" AnchorPane.topAnchor="10.0">
          <font>
             <Font size="30.0" />
          </font>
       </Text>
    </children>
+   <stylesheets>
+      <URL value="@leverans.css" />
+      <URL value="@text.css" />
+   </stylesheets>
 </fx:root>

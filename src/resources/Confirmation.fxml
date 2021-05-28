@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -8,13 +9,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" stylesheets="@ConfirmationPliancy.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="confirmationPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="323.5" layoutY="19.0" prefHeight="561.0" prefWidth="793.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #FFA14A; -fx-border-width: 2;" AnchorPane.leftAnchor="323.5" AnchorPane.rightAnchor="323.5" AnchorPane.topAnchor="19.0">
          <children>
             <AnchorPane layoutX="254.0" layoutY="18.0" prefHeight="535.0" prefWidth="317.0" stylesheets="@ConfirmationPliancy.css">
                <children>
-                  <Label layoutX="-18.0" layoutY="1.0" prefHeight="46.0" prefWidth="370.0" text="Tack för din beställning!" AnchorPane.leftAnchor="-18.0" AnchorPane.rightAnchor="-35.0" AnchorPane.topAnchor="1.0">
+                  <Label layoutX="-18.0" layoutY="1.0" prefHeight="46.0" prefWidth="370.0" styleClass="font" text="Tack för din beställning!" AnchorPane.leftAnchor="-18.0" AnchorPane.rightAnchor="-35.0" AnchorPane.topAnchor="1.0">
                      <font>
                         <Font name="System Bold" size="30.0" />
                      </font>
@@ -26,53 +27,53 @@
                   </ImageView>
                   <Pane layoutX="24.0" layoutY="118.0" prefHeight="134.0" prefWidth="266.0" style="-fx-background-color: #ededed; -fx-background-radius: 20px;" AnchorPane.leftAnchor="25.5" AnchorPane.rightAnchor="25.5">
                      <children>
-                        <Label layoutX="43.0" layoutY="17.0" text="Din order levereras:">
+                        <Label layoutX="43.0" layoutY="17.0" styleClass="font" text="Din order levereras:">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveDate" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="91.0" text="2021-05-21">
+                        <Label fx:id="arriveDate" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="91.0" styleClass="font" text="2021-05-21">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveTime" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="46.0" text="13:37">
+                        <Label fx:id="arriveTime" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="46.0" styleClass="font" text="13:37">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Label fx:id="deliveryName" alignment="CENTER" contentDisplay="TOP" layoutX="-3.0" layoutY="411.0" prefHeight="26.0" prefWidth="320.0" text="Leverans sker av: Pelle" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0">
+                  <Label fx:id="deliveryName" alignment="CENTER" contentDisplay="TOP" layoutX="-3.0" layoutY="411.0" prefHeight="26.0" prefWidth="320.0" styleClass="font" text="Leverans sker av: Pelle" AnchorPane.leftAnchor="-3.0" AnchorPane.rightAnchor="0.0">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
                   <Pane layoutX="24.0" layoutY="269.0" prefHeight="134.0" prefWidth="266.0" style="-fx-background-color: #ededed; -fx-background-radius: 20px;" AnchorPane.leftAnchor="25.5" AnchorPane.rightAnchor="25.5">
                      <children>
-                        <Label layoutX="55.0" layoutY="9.0" text="Den levereas till:">
+                        <Label layoutX="55.0" layoutY="9.0" styleClass="font" text="Den levereas till:">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arrivePost" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="95.0" prefHeight="30.0" prefWidth="232.0" text="413 32, Göteborg">
+                        <Label fx:id="arrivePost" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="95.0" prefHeight="30.0" prefWidth="232.0" styleClass="font" text="413 32, Göteborg">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveAddress" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="44.0" prefHeight="45.0" prefWidth="232.0" text="Hemvägen ">
+                        <Label fx:id="arriveAddress" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="44.0" prefHeight="45.0" prefWidth="232.0" styleClass="font" text="Hemvägen ">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Label>
                      </children>
                   </Pane>
-                  <Button fx:id="receiptButton" cacheShape="false" layoutX="1.0" layoutY="442.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="150.0" text="Visa kvitto" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="1.0">
+                  <Button fx:id="receiptButton" cacheShape="false" layoutX="1.0" layoutY="442.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="150.0" styleClass="font" text="Visa kvitto" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="1.0">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
                   </Button>
-                  <Button fx:id="homeButton" layoutX="167.0" layoutY="442.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="150.0" text="Tillbaka till startsidan" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="homeButton" layoutX="167.0" layoutY="442.0" mnemonicParsing="false" prefHeight="80.0" prefWidth="150.0" styleClass="font" text="Tillbaka till startsidan" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="System Bold" size="20.0" />
                      </font>
@@ -82,4 +83,8 @@
          </children>
       </Pane>
    </children>
+   <stylesheets>
+      <URL value="@ConfirmationPliancy.css" />
+      <URL value="@text.css" />
+   </stylesheets>
 </fx:root>
