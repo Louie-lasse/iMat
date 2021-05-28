@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<fx:root fx:id="kassaPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="kassaPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutX="350.0" layoutY="62.0" prefHeight="518.0" prefWidth="740.0" style="-fx-background-color: #ededed;" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0" AnchorPane.topAnchor="62.0">
          <children>
@@ -87,7 +87,7 @@
                         </Text>
                      </children>
                   </AnchorPane>
-                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 10px;" styleClass="font" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
+                  <Button mnemonicParsing="false" onAction="#changeInfo" prefHeight="39.0" prefWidth="86.0" styleClass="font" stylesheets="@Buttons.css" text="Ändra" AnchorPane.bottomAnchor="15.0" AnchorPane.rightAnchor="30.0">
                      <font>
                         <Font size="16.0" />
                      </font>
