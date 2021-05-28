@@ -118,6 +118,7 @@ public class HandlaPage extends Page{
                 text.setOnMouseClicked(this::handleCategoryItemClicked);
                 text.setCursor(Cursor.HAND);
                 text.getStyleClass().add("textrules");
+                text.getStyleClass().add("font");
                 controlTreeHashMap.put(text, child);
                 pane.getChildren().add(text);
                 subItems.getChildren().add(pane);
@@ -129,6 +130,7 @@ public class HandlaPage extends Page{
         TitledPane item = new TitledPane(tree.toString(), subItems);
         item.setExpanded(false);
         item.setOnMouseClicked(this::handleCategoryItemClicked);
+        item.getStyleClass().add("font");
         controlTreeHashMap.put(item, tree);
         treeTitledPaneHashMap.put(tree, item);
         return item;
