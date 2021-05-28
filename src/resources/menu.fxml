@@ -157,9 +157,9 @@
                         <Font size="20.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="671.4000000000001" layoutY="12.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="75.0" styleClass="icon-closed" text="Sök" AnchorPane.rightAnchor="4.599999999999909" AnchorPane.topAnchor="12.0">
+                  <Button layoutX="671.4000000000001" layoutY="12.0" mnemonicParsing="false" onAction="#search" prefHeight="30.0" prefWidth="75.0" style="-fx-text-fill: #ffa14a;" styleClass="icon-closed" text="Sök" AnchorPane.rightAnchor="4.599999999999909" AnchorPane.topAnchor="12.0">
                      <font>
-                        <Font size="16.0" />
+                        <Font name="System Bold" size="17.0" />
                      </font>
                   </Button>
                </children>
