@@ -31,12 +31,12 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveDate" alignment="CENTER" layoutX="77.0" layoutY="91.0" text="2021-05-21">
+                        <Label fx:id="arriveDate" alignment="CENTER" contentDisplay="CENTER" layoutX="77.0" layoutY="91.0" text="2021-05-21">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveTime" alignment="CENTER" layoutX="93.0" layoutY="46.0" text="13:37">
+                        <Label fx:id="arriveTime" alignment="CENTER" contentDisplay="CENTER" layoutX="93.0" layoutY="46.0" text="13:37">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -55,12 +55,12 @@
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arrivePost" alignment="CENTER" layoutX="53.0" layoutY="95.0" text="413 32, Göteborg">
+                        <Label fx:id="arrivePost" alignment="CENTER" contentDisplay="CENTER" layoutX="27.0" layoutY="95.0" prefHeight="30.0" prefWidth="232.0" text="413 32, Göteborg">
                            <font>
                               <Font name="System Bold" size="20.0" />
                            </font>
                         </Label>
-                        <Label fx:id="arriveAddress" alignment="CENTER" layoutX="22.0" layoutY="44.0" prefHeight="45.0" prefWidth="232.0" text="Hemvägen ">
+                        <Label fx:id="arriveAddress" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="44.0" prefHeight="45.0" prefWidth="232.0" text="Hemvägen ">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
