@@ -134,12 +134,12 @@ public class MenuController implements Initializable {
     void guideInfo(){
         headerLabel.setText("En guide till att använda sidan:");
         textArea.setText("1: Lägg varorna i varukorgen.\n2: Granska varukorgen så allt finns med.\n3: Ange leveransuppgifter.\n" +
-                "4: Dubbelkolla så att alla uppgifter stämmer och fullborda köpet.\n5: Luta dig tillbaka och invänta leverans." ); //TODO ÄNDRA TEXTEN
+                "4: Dubbelkolla så att alla uppgifter stämmer och fullborda köpet.\n5: Luta dig tillbaka och invänta leverans." );
     }
     @FXML
     void customerService(){
         headerLabel.setText("Kontaktinformation till kundtjänst:");
-        textArea.setText("Hej!\nVill du komma i kontakt med vår kundtjänst?\n Telefon: 070 123 23 23\nE-post: info@imat.se"); //TODO ÄNDRA TEXTEN
+        textArea.setText("Hej!\nVill du komma i kontakt med vår kundtjänst?\n Telefon: 070 123 23 23\nE-post: info@imat.se");
     }
     public String getSearchString(){
         return searchBar.getText();
