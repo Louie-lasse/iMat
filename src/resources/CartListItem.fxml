@@ -2,12 +2,14 @@
 
 <?import java.lang.String?>
 <?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <fx:root prefHeight="155.0" prefWidth="1094.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
@@ -35,7 +37,13 @@
          <styleClass>
             <String fx:value="px18-text" />
             <String fx:value="font" />
-         </styleClass></Button>
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font size="20.0" />
+         </font></Button>
       <ImageView fitHeight="30.0" fitWidth="29.0" layoutX="887.0" layoutY="62.0" onMouseClicked="#remove" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@images/trash.png" />
@@ -60,6 +68,9 @@
                   <String fx:value="font" />
                </styleClass></Label>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
       <AnchorPane layoutX="424.0" layoutY="54.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
          <children>
@@ -75,6 +86,9 @@
                   <String fx:value="font" />
                </styleClass></Label>
          </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </AnchorPane>
    </children>
    <stylesheets>

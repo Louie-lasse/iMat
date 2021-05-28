@@ -279,6 +279,9 @@
                      <font>
                         <Font size="20.0" />
                      </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <ImageView fx:id="backArrow" fitHeight="42.0" fitWidth="30.0" layoutX="7.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -300,6 +303,9 @@
                      </image>
                   </ImageView>
                </children>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </AnchorPane>
             <Pane layoutX="422.0" layoutY="3.0" prefHeight="100.0" prefWidth="750.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="351.0" AnchorPane.rightAnchor="351.0">
                <children>

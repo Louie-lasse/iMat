@@ -70,10 +70,12 @@ public class ShoppingGridItemController extends AnchorPane {
 
 
     private void initialize(){
+        this.getStylesheets().add("text.css");
         // Kan behövas för att synliggöra rundade hörn// scene.setFill(Color.TRANSPARENT); //Makes the back-background of the cards transparent
         // Kan behövas för att synliggöra rundade hörn// stage.initStyle(StageStyle.TRANSPARENT); //Makes the back-background of the cards transparent
         ecoIcon.setVisible(product.isEcological());
         nameLabel.setText(product.getName());
+        nameLabel.getStyleClass().add("font");
         unit = Unit.get(product);
         priceLabel.setText(Double.toString(product.getPrice())+" "+unit);
         productImage.setImage(db.getFXImage(product));
