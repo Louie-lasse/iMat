@@ -258,7 +258,7 @@ public class KassaPage extends Page {
         cvc.setText(getCVC());
         time.setText(db.getTime());
         date.setText(db.getDate());
-        //totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+        totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 
     private String getCVC(){
