@@ -255,10 +255,19 @@ public class KassaPage extends Page {
         cardHolder.setText(BackendAdapter.getCard().getHoldersName());
         month.setText(Integer.toString(BackendAdapter.getCard().getValidMonth()));
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
-        cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
+        cvc.setText(getCVC());
         time.setText(db.getTime());
         date.setText(db.getDate());
         //totaltCash.setText("Totalt belopp: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+    }
+
+    private String getCVC(){
+        StringBuilder sb = new StringBuilder(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
+        if (sb.length() >= 3) return sb.toString();
+        while (sb.length() < 3) {
+            sb.insert(0, 0);
+        }
+        return sb.toString();
     }
 
     @Override
