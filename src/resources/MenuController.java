@@ -1,5 +1,6 @@
 package resources;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -49,6 +50,7 @@ public class MenuController implements Initializable {
     @FXML AnchorPane helpPopup;
     @FXML AnchorPane helpPopupIcon;
     @FXML AnchorPane profilePopupIcon;
+    @FXML AnchorPane homeButtonIcon;
 
     @FXML
     private AnchorPane backButton;
@@ -117,7 +119,7 @@ public class MenuController implements Initializable {
         profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
         popup.getChildren().add(profilePagePopup);
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
-
+        openHomeIcon();
         updateWizardButtons();
     }
     @FXML
@@ -196,6 +198,7 @@ public class MenuController implements Initializable {
         varukorgPopupTuple.open();
         profilePopupTuple.close();
         helpPopupTuple.close();
+        closeHomeIcon();
         popup.toFront();
         updateCartPopup();
     }
@@ -206,6 +209,7 @@ public class MenuController implements Initializable {
         varukorgPopupTuple.close();
         profilePopupTuple.open();
         helpPopupTuple.close();
+        closeHomeIcon();
         popup.toFront();
     }
 
@@ -215,6 +219,7 @@ public class MenuController implements Initializable {
         varukorgPopupTuple.close();
         profilePopupTuple.close();
         helpPopupTuple.open();
+        closeHomeIcon();
         popup.toFront();
     }
     @FXML public void changeInfo(){
@@ -255,6 +260,7 @@ public class MenuController implements Initializable {
                 checkBox1.toBack();
                 break;
             case 1:
+                closeHomeIcon();
                 normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
                 normalView.setVvalue(0);
                 normalView.setVmax(0.2);
@@ -309,7 +315,23 @@ public class MenuController implements Initializable {
 
     public void returnHome(){
         setPageToFront(0);
+        openHomeIcon();
         hidePopup();
+    }
+
+    private void openHomeIcon(){
+        ObservableList<String> css = homeButtonIcon.getStyleClass();
+        css.clear();
+        css.add("icon-open");
+        AnchorPane.setBottomAnchor(homeButtonIcon, 0.0);
+    }
+
+    private void closeHomeIcon(){
+        ObservableList<String> css = homeButtonIcon.getStyleClass();
+        css.clear();
+        css.add("icon-open");
+        css.add("icon-closed");
+        AnchorPane.setBottomAnchor(homeButtonIcon, 13.0);
     }
 
     private void setPageToFront(int num){

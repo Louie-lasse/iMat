@@ -187,7 +187,7 @@
             </AnchorPane>
             <AnchorPane fx:id="varukorgPopupOption" layoutX="1157.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane fx:id="varukorgPopupIcon" layoutY="31.0" onMouseClicked="#openVarukorgPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <AnchorPane fx:id="varukorgPopupIcon" layoutY="31.0" onMouseClicked="#openVarukorgPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="45.0" layoutX="21.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -208,7 +208,7 @@
             </AnchorPane>
             <AnchorPane fx:id="profilPopupOption" layoutX="1250.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.rightAnchor="112.0">
                <children>
-                  <AnchorPane fx:id="profilePopupIcon" layoutY="31.0" onMouseClicked="#openProfilePopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <AnchorPane fx:id="profilePopupIcon" layoutY="31.0" onMouseClicked="#openProfilePopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="38.0" layoutX="23.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -229,7 +229,7 @@
             </AnchorPane>
             <AnchorPane layoutX="1343.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.rightAnchor="15.0">
                <children>
-                  <AnchorPane fx:id="helpPopupIcon" layoutY="31.0" onMouseClicked="#openHelpPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <AnchorPane fx:id="helpPopupIcon" layoutY="31.0" onMouseClicked="#openHelpPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <ImageView fitHeight="45.0" fitWidth="38.0" layoutX="22.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -250,7 +250,7 @@
             </AnchorPane>
             <AnchorPane fx:id="varukorgPopupOption1" layoutX="200.0" prefHeight="108.0" prefWidth="82.0">
                <children>
-                  <AnchorPane fx:id="varukorgPopupIcon1" layoutY="31.0" onMouseClicked="#returnHome" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                  <AnchorPane fx:id="homeButtonIcon" layoutY="31.0" onMouseClicked="#returnHome" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="45.0" layoutX="22.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>

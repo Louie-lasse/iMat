@@ -17,6 +17,7 @@ public class PopupTuple {
         ObservableList<String> css = icon.getStyleClass();
         css.clear();
         css.add("icon-open");
+        AnchorPane.setBottomAnchor(icon, 0.0);
     }
 
     public void close(){
@@ -28,5 +29,6 @@ public class PopupTuple {
         ObservableList<String> css = icon.getStyleClass();
         css.clear();
         css.add("icon-closed");
+        AnchorPane.setBottomAnchor(icon, 13.0);
     }
 }
