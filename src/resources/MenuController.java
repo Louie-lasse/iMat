@@ -193,6 +193,7 @@ public class MenuController implements Initializable {
         profilePopupTuple.closeIcon();
         helpPopupTuple.closeIcon();
         popup.toBack();
+        openHomeIcon();
     }
 
     @FXML
@@ -216,7 +217,7 @@ public class MenuController implements Initializable {
     }
 
     public void updatePrice(){
-        cartPrice.setText(Double.toString((double) Math.round(db.getTotalPrice()*100) / 100) + " kr");
+        cartPrice.setText((double) Math.round(db.getTotalPrice() * 100) / 100 + " kr");
     }
 
 
@@ -264,6 +265,7 @@ public class MenuController implements Initializable {
                 progressBar1.toBack();
                 progress2Label.toFront();
                 checkBox1.toBack();
+                openHomeIcon();
                 break;
             case 1:
                 closeHomeIcon();
@@ -317,6 +319,7 @@ public class MenuController implements Initializable {
 
     public void search(){
         handlaPage.search();
+        closePopup();
     }
 
     public void returnHome(){

@@ -7,10 +7,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import se.chalmers.cse.dat216.project.Product;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class ShoppingGridItemController extends AnchorPane {
@@ -26,12 +28,68 @@ public class ShoppingGridItemController extends AnchorPane {
     private Product product;
 
     private Unit unit;
-    @FXML Button subtract;
-    @FXML Button invalidSub;
-    @FXML Label subLabel;
     @FXML ImageView ecoIcon;
 
+    @FXML private ImageView minus;
+    @FXML private ImageView plus;
+
+    private static final Image grayMinusHover = getGrayMinusHoverImage();
+    private static final Image orangeMinusHover = getOrangeMinusHoverImage();
+    private static final Image grayMinus = getGrayMinusImage();
+    private static final Image orangeMinus = getOrangeMinusImage();
+    private static final Image orangePlus = getPlusImage();
+    private static final Image orangePlusHover = getPlusHoverImage();
+
+    private static Image getGrayMinusHoverImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/grayHoverMinus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    private static Image getGrayMinusImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/grayMinus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+    private static Image getOrangeMinusHoverImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/orangeHoverMinus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    private static Image getOrangeMinusImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/orangeMinus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    private static Image getPlusImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/orangePlus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
+    private static Image getPlusHoverImage(){
+        try {
+            return new Image(new FileInputStream("src/resources/images/Buttons/hoverPlus.png"));
+        } catch (Exception e){
+            throw new RuntimeException();
+        }
+    }
+
     private static final BackendAdapter db = BackendAdapter.getInstance();
+
+    private static HandlaPage parent;
 
     public ShoppingGridItemController(Product product){
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("ShoppingGridItem.fxml"));
@@ -43,15 +101,6 @@ public class ShoppingGridItemController extends AnchorPane {
             throw new RuntimeException(exception);
         }
 
-        amount.textProperty().addListener((observable, oldValue, newValue) -> {
-            if(Integer.parseInt(onlyNumbers(amount.getText())) > 0){
-                subtract.toFront();
-            }else{
-                invalidSub.toFront();
-            }
-            subLabel.toFront();
-        });
-
 
         //Anropa init
 
@@ -59,6 +108,10 @@ public class ShoppingGridItemController extends AnchorPane {
 
         initialize();
         update();
+    }
+
+    public static void setParent(HandlaPage page){
+        parent = page;
     }
 
     private String onlyNumbers(String input){
@@ -77,25 +130,55 @@ public class ShoppingGridItemController extends AnchorPane {
         unit = Unit.get(product);
         priceLabel.setText(Double.toString(product.getPrice())+" "+unit);
         productImage.setImage(db.getFXImage(product));
+        minusExited();
     }
 
     @FXML
     protected void add(){
         db.addProduct(this.product);
         update();
+        parent.itemAmountChanged();
+        minusExited();
     }
 
     @FXML
     protected void subtract(){
         db.subtractProduct(this.product);
         update();
+        parent.itemAmountChanged();
+        minusHover();
     }
 
+    @FXML
+    void minusHover(){
+        Image activeImage;
+        if (db.getAmount(product) > 0){
+            activeImage = orangeMinusHover;
+        } else {
+            activeImage = grayMinusHover;
+        }
+        minus.setImage(activeImage);
+    }
 
     @FXML
-    void remove(ActionEvent event) {
-        db.removeProduct(this.product);
-        update();
+    void minusExited(){
+        Image activeImage;
+        if (db.getAmount(product) > 0){
+            activeImage = orangeMinus;
+        } else {
+            activeImage = grayMinus;
+        }
+        minus.setImage(activeImage);
+    }
+
+    @FXML
+    void plusHover(){
+        plus.setImage(orangePlusHover);
+    }
+
+    @FXML
+    void plusExited(){
+        plus.setImage(orangePlus);
     }
 
     public void update(){

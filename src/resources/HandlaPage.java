@@ -64,6 +64,7 @@ public class HandlaPage extends Page{
 
     @Override
     protected void initialize(){
+        ShoppingGridItemController.setParent(this);
         ObservableList<SortingPriority> items = sortingPriorityComboBox.getItems();
         items.add(SortingPriority.NONE);
         items.add(SortingPriority.PRICE);
@@ -196,6 +197,10 @@ public class HandlaPage extends Page{
         for (ShoppingGridItemController controller: selectedProducts){
             controller.update();
         }
+    }
+
+    void itemAmountChanged(){
+        parent.varukorgUpdated();
     }
 
     private void updateCategoryMenu(){
