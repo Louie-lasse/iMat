@@ -20,7 +20,8 @@ public class iMat extends Application {
 
 
         //stage.setFullScreen(true);
-        stage.setMaximized(true);
+        //stage.setMaximized(true);
+        stage.setResizable(false);
         stage.setTitle(bundle.getString("application.name"));
         stage.setScene(scene);
         stage.getIcons().add(new Image("/resources/images/iMat_square_icon.png"));
