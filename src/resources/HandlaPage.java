@@ -152,6 +152,7 @@ public class HandlaPage extends Page{
 
     public void search(){
         activeCategory = Category.HOME;
+        sortingPriorityComboBox.getSelectionModel().select(SortingPriority.NONE);
         update();
     }
 
