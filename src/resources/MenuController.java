@@ -89,6 +89,7 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
     @FXML Label headerLabel;
+    @FXML Label cartPrice;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
 
@@ -119,6 +120,7 @@ public class MenuController implements Initializable {
         profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
         popup.getChildren().add(profilePagePopup);
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
+
         openHomeIcon();
         updateWizardButtons();
     }
@@ -211,6 +213,10 @@ public class MenuController implements Initializable {
         helpPopupTuple.close();
         closeHomeIcon();
         popup.toFront();
+    }
+
+    public void updatePrice(){
+        cartPrice.setText(Double.toString((double) Math.round(db.getTotalPrice()*100) / 100) + " kr");
     }
 
 
@@ -384,5 +390,6 @@ public class MenuController implements Initializable {
 
     void varukorgUpdated(){
         handlaPage.varukorgUpdated();
+        updatePrice();
     }
 }
