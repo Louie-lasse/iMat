@@ -136,7 +136,7 @@ public class ShoppingGridItemController extends AnchorPane {
     @FXML
     protected void add(){
         db.addProduct(this.product);
-        update();
+        internalUpdate();
         parent.itemAmountChanged();
         minusExited();
     }
@@ -144,7 +144,7 @@ public class ShoppingGridItemController extends AnchorPane {
     @FXML
     protected void subtract(){
         db.subtractProduct(this.product);
-        update();
+        internalUpdate();
         parent.itemAmountChanged();
         minusHover();
     }
@@ -181,9 +181,14 @@ public class ShoppingGridItemController extends AnchorPane {
         plus.setImage(orangePlus);
     }
 
-    public void update(){
+    private void internalUpdate(){
         amount.setText(db.getFormattedAmount(product));
         format();
+    }
+
+    public void update(){
+        internalUpdate();
+        minusExited();
     }
     private void format(){
         ObservableList<String> textStyle = amount.getStyleClass();
