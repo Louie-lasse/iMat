@@ -3,6 +3,7 @@
 <?import java.lang.String?>
 <?import java.net.URL?>
 <?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
@@ -46,11 +47,17 @@
                <image>
                   <Image url="@images/Buttons/grayMinus.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
             <ImageView fx:id="plus" fitHeight="54.0" fitWidth="54.0" layoutX="10.0" layoutY="4.0" onMouseClicked="#add" onMouseEntered="#plusHover" onMouseExited="#plusExited" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="0.0">
                <image>
                   <Image url="@images/Buttons/orangePlus.png" />
                </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </ImageView>
          </children>
       </AnchorPane>
