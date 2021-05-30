@@ -204,7 +204,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
-                  <AnchorPane layoutY="80.0" prefHeight="38.0" prefWidth="56.0" styleClass="icon-closed" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="64.0">
+                  <AnchorPane layoutY="80.0" onMouseClicked="#openVarukorgPopup" prefHeight="38.0" prefWidth="56.0" styleClass="icon-closed" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="64.0">
                      <children>
                         <Label fx:id="cartPrice" layoutX="13.0" layoutY="6.0" style="-fx-text-fill: #ffa14a;" text="3">
                            <font>
@@ -212,6 +212,9 @@
                            </font>
                         </Label>
                      </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </AnchorPane>
                </children>
             </AnchorPane>
