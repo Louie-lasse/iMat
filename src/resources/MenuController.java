@@ -120,7 +120,7 @@ public class MenuController implements Initializable {
         profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
         popup.getChildren().add(profilePagePopup);
         helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
-        //updatePrice();
+
         openHomeIcon();
         updateWizardButtons();
     }
@@ -366,7 +366,6 @@ public class MenuController implements Initializable {
         List<Node> flowPaneChildren = cartFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
-        updatePrice();
         totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
     }
 
@@ -391,5 +390,6 @@ public class MenuController implements Initializable {
 
     void varukorgUpdated(){
         handlaPage.varukorgUpdated();
+        updatePrice();
     }
 }
