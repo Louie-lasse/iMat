@@ -325,6 +325,7 @@ public class MenuController implements Initializable {
     public void returnHome(){
         setPageToFront(0);
         openHomeIcon();
+        updatePrice();
         hidePopup();
     }
 
