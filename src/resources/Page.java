@@ -28,4 +28,13 @@ public abstract class Page extends AnchorPane {
     public abstract void update();
     protected abstract void initialize();
     public abstract void open();
+    public boolean isDone(){
+        return true;
+    }
+    public void displayErrors(){}
+    @Override
+    public void toFront(){
+        super.toFront();
+        open();
+    }
 }

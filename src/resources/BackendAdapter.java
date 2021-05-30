@@ -4,15 +4,26 @@ import javafx.scene.image.Image;
 import se.chalmers.cse.dat216.project.*;
 
 import java.io.File;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.chrono.ChronoLocalDate;
 import java.util.*;
+
+import static resources.SortingOrder.REGULAR;
+import static resources.SortingOrder.REVERSE;
 
 public class BackendAdapter{
     private static final BackendAdapter adapterInstance = new BackendAdapter();
     private static final IMatDataHandler db = IMatDataHandler.getInstance();
     private static final ShoppingCart cart = db.getShoppingCart();
+    private static final CreditCard card = db.getCreditCard();
 
     private BackendAdapter(){
         init();
+    }
+
+    public static CreditCard getCard() {
+        return card;
     }
 
     private void initiateTree(){
@@ -49,11 +60,11 @@ public class BackendAdapter{
         meats.add(new Leaf(Category.FISH));
         meats.add(new Leaf(Category.DAIRIES));
         Branch home = new Branch(Category.HOME);
+        home.add(meats);
         home.add(fruitsAndVeg);
-        home.add(drink);
         home.add(pantry);
         home.add(breads);
-        home.add(meats);
+        home.add(drink);
     }
 
     public static BackendAdapter getInstance(){
@@ -74,19 +85,58 @@ public class BackendAdapter{
 
     public boolean isCustomerComplete() { return db.isCustomerComplete(); }
 
+    public boolean isValidTime(String hour, String min){
+        //LocalTime localTime = LocalTime.now();
+        /*
+        int hourNow = Integer.parseInt(localTime.toString().substring(0,2));
+        int minNow = Integer.parseInt(localTime.toString().substring(3,5));
+
+        int hourEntred = Integer.parseInt(hour);
+        int minEntred = Integer.parseInt(min);
+        if(hourEntred > hourNow){
+            return true;
+        }else if(hourEntred == hourNow && minEntred-minNow >= 0){
+            return true;
+        }
+        return false;
+
+         */
+        return true;
+    }
+    public boolean isValidDate(LocalDate date){
+        LocalDateTime now = LocalDateTime.now();
+        if(date.isAfter(ChronoLocalDate.from(now))){
+            return true;
+        }else{
+            return false;
+        }
+    }
     public boolean isValidName(String s){
         if (s.length()==0) return false;
         char[] chars = s.toCharArray();
         for (char c: chars){
-            if (Character.isDigit(c)) return false;
+            if (!(Character.isLetter(c) || c==' ' || c=='.' || c=='-')) return false;
         }
         return true;
     }
 
     public boolean isValidNumber(String s){
         s = removeRedundantCharsNumber(s);
-        if (!(s.length()==10) && !(s.length()==12)) return false;
-        return s.length() != 12 || s.charAt(0) == '+';
+        if (s.length() < 8) return false;
+        if (s.charAt(0) == '+'){
+            if (s.length()<10 || s.length() >12) return false;
+            char[] chars = s.toCharArray();
+            for (int i = 1; i < chars.length; i++){
+                if (!Character.isDigit(chars[i])) return false;
+            }
+        } else {
+            if (s.length() >10) return false;
+            char[] chars = s.toCharArray();
+            for (char c: chars){
+                if (!Character.isDigit(c)) return false;
+            }
+        }
+        return true;
     }
 
     private String removeRedundantCharsNumber(String s){
@@ -125,11 +175,13 @@ public class BackendAdapter{
     }
 
     public boolean isValidAddress(String s){
+        char[] chars = s.toCharArray();
         boolean containsNumber = false;
-        for (int i = 0; i < 10; i++){
-            if (s.contains(Integer.toString(i))){
-                containsNumber = true;
-                if (s.indexOf(i) < 2){
+        for (char c: chars){
+            if (!Character.isLetter(c)){
+                if (Character.isDigit(c)){
+                    containsNumber = true;
+                } else if (!(c==' ' || c=='.' || c==',' || (c=='-'))){
                     return false;
                 }
             }
@@ -148,12 +200,54 @@ public class BackendAdapter{
         }
         return true;
     }
+    private String date;
+    private String time;
 
+    public void setDate(String s){
+        this.date = s;
+    }
+
+    public void setTime(String s){
+        this.time = s;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void clearCart(){
+        cart.clear();
+    }
     public boolean isValidCity(String s){
         return isValidName(s);
     }
 
-    public void reset() { db.reset(); }
+    public void reset() {
+        db.reset();
+        clearOrders();
+        db.getCreditCard().setValidYear(0);
+        db.getCreditCard().setValidMonth(0);
+
+    }
+
+    private void clearOrders(){
+        File folder = new File(db.imatDirectory() + File.separatorChar + "orders");
+        File[] fList = folder.listFiles();
+// Searchs .lck
+        for (int i = 0; i < fList.length; i++) {
+            File pes = fList[i];
+            if (pes.getName().endsWith(".txt")) {
+                // and deletes
+                if (!pes.delete()){
+                    throw new IllegalArgumentException();
+                }
+            }
+        }
+    }
 
     public Customer getCustomer() {
         return db.getCustomer();
@@ -174,7 +268,9 @@ public class BackendAdapter{
     public Order placeOrder(boolean clearShoppingCart) { return db.placeOrder(clearShoppingCart); }
 
     public List<Order> getOrders() {
-        return db.getOrders();
+        List<Order> orders = db.getOrders();
+        orders.sort(new TimeComparator());
+        return orders;
     }
 
     public Product getProduct(int idNbr) { return db.getProduct(idNbr); }
@@ -188,12 +284,12 @@ public class BackendAdapter{
     }
 
     public List<Product> getAllProducts(SortingPriority sp) {
-        return getAllProducts(sp, false);
+        return getAllProducts(sp, REGULAR);
     }
 
-    public List<Product> getAllProducts(SortingPriority sp, boolean reverseOrder){
+    public List<Product> getAllProducts(SortingPriority sp, SortingOrder order){
         List<Product> products = getAllProducts();
-        return sort(products, sp, reverseOrder);
+        return sort(products, sp, order);
     }
 
     /**
@@ -206,18 +302,20 @@ public class BackendAdapter{
     }
 
     public List<Product> getProducts(Category category, SortingPriority sp){
-        return getProducts(category, sp, false);
+        return getProducts(category, sp, REGULAR);
     }
 
-    public List<Product> getProducts(Category category, SortingPriority sp, boolean reverseOrder) {
+    public List<Product> getProducts(Category category, SortingPriority sp, SortingOrder order) {
         List<Product> products = getProducts(category);
-        return sort(products, sp, reverseOrder);
+        return sort(products, sp, order);
     }
 
-    private List<Product> sort(List<Product> products, SortingPriority sp, boolean reverseOrder){
+    private List<Product> sort(List<Product> products, SortingPriority sp, SortingOrder order){
         Comparator<Product> comparator;
         switch(sp.ordinal()){
-            case(0): return products;
+            case(0):
+                comparator = new DefaultComparator();
+                break;
             case(1):
                 comparator = new PriceComparator();
                 break;
@@ -227,7 +325,7 @@ public class BackendAdapter{
             default: comparator = new AlphabeticalComparator();
         }
         products.sort(comparator);
-        if (reverseOrder) Collections.reverse(products);
+        if (order == REVERSE) Collections.reverse(products);
         return products;
     }
 
@@ -235,7 +333,10 @@ public class BackendAdapter{
         return Tree.get(c).getSearchPath();
     }
 
-    public List<Product> findProducts(String s) { return db.findProducts(s); }
+    public List<Product> findProducts(String s, SortingPriority priority, SortingOrder order) {
+        List<Product> products = db.findProducts(s);
+        return sort(products, priority, order);
+    }
 
     public void addProduct(Product p) {
         if (Unit.isStyckPris(p)){
@@ -254,15 +355,15 @@ public class BackendAdapter{
         }
     }
 
-    public void removeProduct(Product p) {
+    public void subtractProduct(Product p) {
         if (Unit.isStyckPris(p)){
-            removeProduct(p, 1);
+            subtractProduct(p, 1);
         } else{
-            removeProduct(p, 0.1);
+            subtractProduct(p, 0.1);
         }
     }
 
-    private void removeProduct(Product p, double amount){
+    private void subtractProduct(Product p, double amount){
         try{
             ShoppingItem item = getShoppingItem(p);
             double oldAmount = item.getAmount();
@@ -271,6 +372,14 @@ public class BackendAdapter{
             } else {
                 item.setAmount(oldAmount-amount);
             }
+        } catch (IllegalArgumentException ignored){
+
+        }
+    }
+
+    public void removeProduct(Product p){
+        try{
+            cart.removeItem(getShoppingItem(p));
         } catch (IllegalArgumentException ignored){
 
         }
@@ -296,6 +405,14 @@ public class BackendAdapter{
 
     public double getTotalPrice(){
         return cart.getTotal();
+    }
+
+    public double getPriceOrder(Order order){
+        double price = 0;
+        for (ShoppingItem item: order.getItems()){
+            price += item.getTotal();
+        }
+        return price;
     }
 
     public double getShoppingItemTotal(Product product){
@@ -336,6 +453,7 @@ public class BackendAdapter{
         return products;
     }
 
+
     public void addFavorite(Product p) { db.addFavorite(p); }
 
     public void addFavorite(int idNbr) { db.addFavorite(idNbr); }
@@ -374,6 +492,16 @@ public class BackendAdapter{
         return db.imatDirectory();
     }
 
+    private static class DefaultComparator implements Comparator<Product>{
+
+        @Override
+        public int compare(Product o1, Product o2) {
+            int id1 = o1.getProductId()%15;
+            int id2 = o2.getProductId()%15;
+            return Integer.compare(id1, id2);
+        }
+    }
+
     private static class PriceComparator implements Comparator<Product> {
 
         @Override
@@ -403,6 +531,16 @@ public class BackendAdapter{
             String name1 = o1.getName();
             String name2 = o2.getName();
             return name1.compareTo(name2);
+        }
+    }
+
+    private static class TimeComparator implements Comparator<Order>{
+
+        @Override
+        public int compare(Order o1, Order o2) {
+            Date d1 = o1.getDate();
+            Date d2 = o2.getDate();
+            return d2.compareTo(d1);
         }
     }
 }

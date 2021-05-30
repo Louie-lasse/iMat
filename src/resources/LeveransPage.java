@@ -2,14 +2,18 @@ package resources;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import se.chalmers.cse.dat216.project.Customer;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class LeveransPage extends Page{
 
@@ -87,6 +91,14 @@ public class LeveransPage extends Page{
     @FXML
     private ImageView cityX;
 
+    @FXML DatePicker datePicker;
+    @FXML ImageView dateCheck;
+    @FXML ImageView dateX;
+    @FXML ImageView timeCheck;
+    @FXML ImageView timeX;
+    @FXML TextField hour;
+    @FXML TextField min;
+
     @FXML
     protected void nameEnter(ActionEvent actionEvent){
         checkName(name.getText());
@@ -133,6 +145,12 @@ public class LeveransPage extends Page{
 
     @Override
     protected void initialize() {
+        timeCheck.setVisible(false);
+        timeX.setVisible(false);
+        dateCheck.setVisible(false);
+        dateX.setVisible(false);
+        datePicker.setStyle("-fx-font: 17px \"Arial\"");
+
         name.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
@@ -169,77 +187,213 @@ public class LeveransPage extends Page{
                 checkZipCode(zipCode.getText());
             }
         });
+        zipCode.textProperty().addListener((observable, oldValue, newValue) -> {
+            if(newValue.length() < oldValue.length()){
+                zipCode.setText(newValue);
+            }else {
+                if (zipCode.getText().length() == 3) {
+                    zipCode.appendText(" ");
+                }
+                if(zipCode.getText().length() >= 6){
+                    String temp = zipCode.getText().substring(0, 6);
+                    zipCode.setText(temp);
+                }
+            }
+        });
         city.focusedProperty().addListener(new ChangeListener<Boolean>() {
             @Override
             public void changed(ObservableValue<? extends Boolean> observableValue, Boolean aBoolean, Boolean t1) {
                 checkCity(city.getText());
             }
         });
+        datePicker.valueProperty().addListener((ov, oldValue, newValue) -> {
+            checkDate();
+        });
+        hour.textProperty().addListener((observable, oldValue, newValue) -> {
+            hour.setText(maxLength(hour.getText()));
+            hour.setText(onlyNumbers(hour.getText()));
+
+            if(hour.getText().length() == 2){
+                changeField(hour.getText(), 2, min);
+                checkTime();
+            }
+        });
+        min.textProperty().addListener((observable, oldValue, newValue) -> {
+            min.setText(maxLength(min.getText()));
+            min.setText(onlyNumbers(min.getText()));
+
+            if(min.getText().length() == 2){
+                checkTime();
+            }
+        });
+        datePicker.setValue(LocalDate.now().plusDays(1));
+        hour.setText("12");
+        min.setText("00");
+
         checkFields();
     }
+    public void checkDate() {
+        ObservableList<String> styles = datePicker.getStyleClass();
 
+        if(datePicker.getValue() != null){
+            if(db.isValidDate(datePicker.getValue())){
+                dateCheck.setVisible(true);
+                dateX.setVisible(false);
+                styles.remove("field-invalid");
+                styles.add("field-valid");
+            }else {
+                dateX.setVisible(true);
+                dateCheck.setVisible(false);
+                styles.remove("field-valid");
+                styles.add("field-invalid");
+
+            }
+        }
+    }
+    public void checkTime() {
+        ObservableList<String> stylesMin = min.getStyleClass();
+        ObservableList<String> stylesHour = hour.getStyleClass();
+        stylesHour.clear();
+        stylesMin.clear();
+        if(!hour.getText().isEmpty() && !min.getText().isEmpty()) {
+            if (Integer.parseInt(hour.getText()) >= 0 && Integer.parseInt(hour.getText()) < 24 &&
+                    Integer.parseInt(min.getText()) >= 0 && Integer.parseInt(min.getText()) < 60) {
+                if(db.isValidTime(hour.getText(), min.getText())){
+                    timeCheck.setVisible(true);
+                    timeX.setVisible(false);
+                    stylesMin.add("field-valid");
+                    stylesHour.add("field-valid");
+
+                } else {
+                    timeCheck.setVisible(false);
+                    timeX.setVisible(true);
+                    stylesMin.add("field-invalid");
+                    stylesHour.add("field-invalid");
+
+
+                }
+            }
+        }
+    }
+    private String onlyNumbers(String input){
+        if (!input.matches("\\d*")) {
+            return (input.replaceAll("[^\\d]", ""));
+        }
+        return input;
+    }
+    private void changeField(String input, int maxLength, TextField next){
+        if(input.length() == maxLength){
+            next.requestFocus();
+        }
+    }
+    private String maxLength(String input){
+        if(input.length() > 2){
+            return input.substring(0, 2);
+        }
+        return input;
+    }
     private void checkName(String s){
+        ObservableList<String> styles = name.getStyleClass();
+        styles.clear();
         boolean validName = db.isValidName(s);
         nameCheck.setVisible(validName);
         nameX.setVisible(!validName);
         if (validName){
             customer.setFirstName(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkSurname(String s){
+        ObservableList<String> styles = surname.getStyleClass();
+        styles.clear();
         boolean validName = db.isValidName(s);
         surnameCheck.setVisible(validName);
         surnameX.setVisible(!validName);
         if (validName){
             customer.setLastName(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkPhoneNumber(String s){
+        ObservableList<String> styles = phoneNumber.getStyleClass();
+        styles.clear();
         boolean validNumber = db.isValidNumber(s);
         phoneNumberCheck.setVisible(validNumber);
         phoneNumberX.setVisible(!validNumber);
         if (validNumber){
             customer.setPhoneNumber(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkEmail(String s){
+        ObservableList<String> styles = email.getStyleClass();
+        styles.clear();
         boolean validEmail = db.isValidEmail(s);
         emailCheck.setVisible(validEmail);
         emailX.setVisible(!validEmail);
         if (validEmail){
             customer.setEmail(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkAddress(String s){
+        ObservableList<String> styles = address.getStyleClass();
+        styles.clear();
         boolean validAddress = db.isValidAddress(s);
         addressCheck.setVisible(validAddress);
         addressX.setVisible(!validAddress);
         if (validAddress){
             customer.setAddress(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkZipCode(String s){
+        ObservableList<String> styles = zipCode.getStyleClass();
+        styles.clear();
         boolean validZip = db.isValidZip(s);
         zipCheck.setVisible(validZip);
         zipX.setVisible(!validZip);
         if (validZip){
-            String city = splitPostCode(customer.getPostCode())[1];
-            customer.setPostCode(zipCode.getText()+city);
+            customer.setPostCode(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
     private void checkCity(String s){
+        ObservableList<String> styles = city.getStyleClass();
+        styles.clear();
         boolean validCity = db.isValidCity(s);
         cityCheck.setVisible(validCity);
         cityX.setVisible(!validCity);
         if (validCity){
-            String zip = splitPostCode(customer.getPostCode())[0];
-            customer.setPostCode(zip+city.getText());
+            customer.setPostAddress(s);
+            styles.add("field-valid");
+            parent.update();
+        } else {
+            styles.add("field-invalid");
         }
     }
 
@@ -251,9 +405,9 @@ public class LeveransPage extends Page{
         phoneNumber.setText(customer.getPhoneNumber());
         email.setText(customer.getEmail());
         address.setText(customer.getAddress());
-        String[] postCode = splitPostCode(customer.getPostCode());
-        zipCode.setText(postCode[0]);
-        city.setText(postCode[1]);
+        zipCode.setText(customer.getPostCode());
+        city.setText(customer.getPostAddress());
+
         checkFields();
     }
 
@@ -263,16 +417,40 @@ public class LeveransPage extends Page{
         checkPhoneNumber(customer.getPhoneNumber());
         checkEmail(customer.getEmail());
         checkAddress(customer.getAddress());
-        String[] postCode = splitPostCode(customer.getPostCode());
-        checkZipCode(postCode[0]);
-        checkCity(postCode[1]);
+
+        checkZipCode(customer.getPostCode());
+        checkCity(customer.getPostAddress());
+        checkTime();
+        checkDate();
     }
 
     @Override
     public void open(){
         update();
     }
+    @Override
+    public boolean isDone(){
+        boolean everythingIsValid;
+        everythingIsValid = db.isValidName(name.getText());
+        everythingIsValid &= db.isValidName(surname.getText());
+        everythingIsValid &= db.isValidNumber(phoneNumber.getText());
+        everythingIsValid &= db.isValidEmail(email.getText());
+        everythingIsValid &= db.isValidAddress(address.getText());
+        everythingIsValid &= db.isValidCity(city.getText());
+        everythingIsValid &= db.isValidZip(zipCode.getText());
+        everythingIsValid &= db.isValidDate(datePicker.getValue());
+        everythingIsValid &= db.isValidTime(hour.getText(), min.getText());
 
+        if(datePicker.getValue() != null && hour.getText().length() > 0 && min.getText().length() > 0){
+            db.setDate(datePicker.getValue().toString().substring(0,10));
+            db.setTime(hour.getText() + ":" + min.getText());
+        }else{
+            return false;
+        }
+        return everythingIsValid;
+    }
+
+/*
     private String[] splitPostCode(String code){
         StringBuilder zip = new StringBuilder();
         StringBuilder city = new StringBuilder();
@@ -291,5 +469,6 @@ public class LeveransPage extends Page{
     }
 
 
+ */
 
 }

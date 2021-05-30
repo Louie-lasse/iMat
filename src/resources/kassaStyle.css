@@ -1,0 +1,9 @@
+#payButton{
+    -fx-background-color: #32C671;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+#payButton:hover{
+    -fx-background-color: #90ee90;
+}

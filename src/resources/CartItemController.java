@@ -1,8 +1,11 @@
 package resources;
 
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -19,6 +22,8 @@ public class CartItemController extends AnchorPane {
     @FXML private Label TotalPriceLabel;
     @FXML private Label PricePerPieceLabel;
     @FXML private TextField amount;
+    @FXML private Button minus;
+    @FXML private Button plus;
     private Product product;
     private static final BackendAdapter db = BackendAdapter.getInstance();
     private static Page parent;
@@ -34,7 +39,6 @@ public class CartItemController extends AnchorPane {
         }
         this.product = product;
         init();
-        update();
     }
 
     public void init(){
@@ -42,6 +46,8 @@ public class CartItemController extends AnchorPane {
         ItemNameLabel.setText(product.getName());
         TotalPriceLabel.setText(Double.toString(product.getPrice()));
         PricePerPieceLabel.setText(Unit.get(product).toString());
+        amount.setText(db.getFormattedAmount(product));
+        format();
     }
 
     @FXML
@@ -52,7 +58,14 @@ public class CartItemController extends AnchorPane {
 
     @FXML
     void subtract(MouseEvent event) {
+        db.subtractProduct(product);
+        update();
+    }
+
+    @FXML
+    void remove() {
         db.removeProduct(product);
+
         update();
     }
 
@@ -60,8 +73,24 @@ public class CartItemController extends AnchorPane {
         parent = page;
     }
 
+    private void format(){
+        ObservableList<String> textStyle = amount.getStyleClass();
+        ObservableList<String> buttonStyle = minus.getStyleClass();
+        textStyle.clear();
+        buttonStyle.clear();
+        if (db.getAmount(product) > 0){
+            textStyle.add("orange-text-field");
+            buttonStyle.add("orange-button");
+        } else {
+            textStyle.add("text-field-empty");
+            buttonStyle.add("gray-button");
+        }
+        buttonStyle.add("round-button");
+    }
+
     public void update(){
         amount.setText(db.getFormattedAmount(product));
+        format();
         parent.update();
     }
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root fx:id="PreviousBuy" prefHeight="60.0" prefWidth="450.0" style="-fx-background-color: #dedede;" stylesheets="@text.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="dateLabel" layoutX="22.0" layoutY="15.0" styleClass="font" text="2021-05-21">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceLabel" layoutX="163.0" layoutY="14.0" styleClass="font" text="245 kr">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="264.0" layoutY="15.0" prefHeight="30.0" prefWidth="151.0" styleClass="font" text="Visa köpdetaljer">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="showDetails" fitHeight="40.0" fitWidth="39.0" layoutX="404.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/blackArrow.png" />
+         </image>
+      </ImageView>
+   </children>
+</fx:root>

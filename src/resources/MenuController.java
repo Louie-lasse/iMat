@@ -1,12 +1,13 @@
 package resources;
 
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -30,22 +31,45 @@ public class MenuController implements Initializable {
 
     private int currentPageIndex = 0;
 
+    private PopupTuple varukorgPopupTuple;
+
+    private PopupTuple profilePopupTuple;
+
+    private PopupTuple helpPopupTuple;
+
     @FXML StackPane PageView;
 
+    @FXML private TextField searchBar;
+    @FXML TextArea textArea;
     @FXML
     ScrollPane normalView;
     @FXML AnchorPane progressBar;
     @FXML AnchorPane popup;
     @FXML AnchorPane varukorgPopup;
-    @FXML AnchorPane varukorgOpenIndicator;
+    @FXML AnchorPane varukorgPopupIcon;
     @FXML AnchorPane helpPopup;
-    @FXML AnchorPane helpOpenIndicator;
+    @FXML AnchorPane helpPopupIcon;
+    @FXML AnchorPane profilePopupIcon;
+    @FXML AnchorPane homeButtonIcon;
 
     @FXML
     private AnchorPane backButton;
 
     @FXML
     private AnchorPane forwardButton;
+
+    @FXML private Label pageNotComplete;
+
+    @FXML Label cartValue;
+
+    @FXML FlowPane cartFlowPane;
+
+    @FXML AnchorPane searchPane;
+    @FXML AnchorPane varukorgPopupOption;
+    @FXML AnchorPane profilPopupOption;
+    @FXML Button info;
+    @FXML Button guide;
+    @FXML Button service;
 
     //Progressbar indication
     @FXML Rectangle progressBar1;
@@ -64,44 +88,76 @@ public class MenuController implements Initializable {
     @FXML ImageView checkBox2;
     @FXML ImageView checkBox3;
     @FXML ImageView checkBox4;
-    @FXML Label cartValue;
-
-
-    private boolean popupUp = false;
-
+    @FXML Label headerLabel;
     //VARUKORG POPUP
     private final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
-    @FXML FlowPane cartFlowPane;
+
+    private HandlaPage handlaPage;
 
     @FXML
     private Label totalPrice;
+    private ProfilePage profilePagePopup;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        pages.add(new HandlaPage());
+        Page.setParent(this);
+        handlaPage = new HandlaPage();
+        pages.add(handlaPage);
         pages.add(new VarukorgPage());
         pages.add(new LeveransPage());
+        //TODO move init methods to respective page, removing need for page as attribute variable
         pages.add(new KassaPage());
         pages.add(new ConfirmationPage());
-        pages.add(new ProfilePage());
-        //test
         PageView.getChildren().clear();
         PageView.getChildren().addAll(pages);
-        PageView.toFront();
+        normalView.toFront();
         pages.get(currentPageIndex).toFront();
         pages.get(currentPageIndex).open();
-        Page.setParent(this);
+        varukorgPopupTuple = new PopupTuple(varukorgPopup, varukorgPopupIcon);
+
+        profilePagePopup = new ProfilePage();
+        profilePopupTuple = new PopupTuple(profilePagePopup, profilePopupIcon);
+        popup.getChildren().add(profilePagePopup);
+        helpPopupTuple = new PopupTuple(helpPopup, helpPopupIcon);
+        openHomeIcon();
         updateWizardButtons();
+    }
+    @FXML
+    void moreInfo(){
+        headerLabel.setText("Om iMat:");
+        textArea.setText("Här på iMat vill vi göra det lättare för dig att handla. " +
+                "Slipp smittrisken i butiker och obekvämligheterna med att åka fram och tillbaka. " +
+                "Vårt mål är att göra sidan så" +
+                "lätt att använda som möjligt så att du kan lägga tid på annat.\n" +
+                "\n" +
+                "Vi från iMat önskar dig ett härligt handlande!");
+    }
+    @FXML
+    void guideInfo(){
+        headerLabel.setText("En guide till att använda sidan:");
+        textArea.setText("1: Lägg varorna i varukorgen.\n2: Granska varukorgen så allt finns med.\n3: Ange leveransuppgifter.\n" +
+                "4: Dubbelkolla så att alla uppgifter stämmer och fullborda köpet.\n5: Luta dig tillbaka och invänta leverans." );
+    }
+    @FXML
+    void customerService(){
+        headerLabel.setText("Kontaktinformation till kundtjänst:");
+        textArea.setText("Hej!\nVill du komma i kontakt med vår kundtjänst?\n Telefon: 070 123 23 23\nE-post: info@imat.se");
+    }
+    public String getSearchString(){
+        return searchBar.getText();
+    }
 
-        List<Product> products = db.getCartProducts();
-        for (Product p: products){
-            controllerHashMap.put(p, new CartItemController(p));
-        }
+    public boolean searchBarIsEmpty(){
+        return searchBar.getText().equals("");
+    }
 
+    public void resetSearchBar(){
+        searchBar.setText("");
     }
 
     @FXML
     public void showPreviousWindow(){
+        closePopup();
         currentPageIndex -= 1;
         PageView.toFront();
         pages.get(currentPageIndex).toFront();
@@ -111,47 +167,79 @@ public class MenuController implements Initializable {
 
     @FXML
     public void showNextWindow(){
-        currentPageIndex += 1;
-        PageView.toFront();
-        pages.get(currentPageIndex).toFront();
-        pages.get(currentPageIndex).open();
-        updateWizardButtons();
+        closePopup();
+        Page currentPage = pages.get(currentPageIndex);
+        if (currentPage.isDone()) {
+            currentPageIndex += 1;
+            PageView.toFront();
+            pages.get(currentPageIndex).toFront();
+            pages.get(currentPageIndex).open();
+            updateWizardButtons();
+        } else {
+            currentPage.displayErrors();
+            pageNotComplete.setVisible(true);
+        }
     }
 
     @FXML
-    void closePopup(MouseEvent event) {
+    void closePopup() {
         hidePopup();
     }
 
-    private void hidePopup(){
-        helpOpenIndicator.toBack();
-        varukorgOpenIndicator.toBack();
+    public void hidePopup(){
+        varukorgPopupTuple.closeIcon();
+        profilePopupTuple.closeIcon();
+        helpPopupTuple.closeIcon();
         popup.toBack();
     }
 
     @FXML
-    void openHelpPopup(MouseEvent event) {
+    void openVarukorgPopup(MouseEvent event) {
+        varukorgPopupTuple.open();
+        profilePopupTuple.close();
+        helpPopupTuple.close();
+        closeHomeIcon();
         popup.toFront();
-        helpPopup.toFront();
-        helpPopup.setVisible(true);
-        varukorgPopup.setVisible(false);
-        helpOpenIndicator.toFront();
-        varukorgOpenIndicator.toBack();
+        updateCartPopup();
     }
 
     @FXML
-    void openVarukorgPopup(MouseEvent event) {
+    void openProfilePopup(){
+        profilePagePopup.open();
+        varukorgPopupTuple.close();
+        profilePopupTuple.open();
+        helpPopupTuple.close();
+        closeHomeIcon();
         popup.toFront();
-        varukorgPopup.toFront();
-        varukorgPopup.setVisible(true);
-        helpPopup.setVisible(false);
-        varukorgOpenIndicator.toFront();
-        helpOpenIndicator.toBack();
+    }
+
+
+    @FXML
+    void openHelpPopup(MouseEvent event) {
+        varukorgPopupTuple.close();
+        profilePopupTuple.close();
+        helpPopupTuple.open();
+        closeHomeIcon();
+        popup.toFront();
+    }
+    @FXML public void changeInfo(){
+        setPageToFront(2);
+    }
+
+    public Label getPageNotComplete() {
+        return pageNotComplete;
     }
 
     private void updateWizardButtons(){
+        pageNotComplete.setVisible(false);
         switch (currentPageIndex) {
             case 0:
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.ALWAYS);
+                normalView.setVmax(1);
+                normalView.setVvalue(0);
+                searchPane.setVisible(true);
+                varukorgPopupOption.setVisible(true);
+                profilPopupOption.setVisible(true);
                 backButton.setVisible(false);
                 forwardButton.setVisible(true);
                 unfinishedStep2.toFront();
@@ -172,8 +260,15 @@ public class MenuController implements Initializable {
                 checkBox1.toBack();
                 break;
             case 1:
+                closeHomeIcon();
+                normalView.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+                normalView.setVvalue(0);
+                normalView.setVmax(0.2);
                 backButton.setVisible(true);
-                    progressBar1.toFront();
+                searchPane.setVisible(false);
+                profilPopupOption.setVisible(true);
+                varukorgPopupOption.setVisible(false);
+                progressBar1.toFront();
                 progress2.toFront();
                 progress2Label.toFront();
                 checkBox1.toFront();
@@ -184,6 +279,9 @@ public class MenuController implements Initializable {
                 progress2Label.setStyle("-fx-text-fill: white");
                 break;
             case 2:
+                normalView.setVvalue(0);
+                normalView.setVmax(0.2);
+                profilPopupOption.setVisible(false);
                 progressBar2.toFront();
                 progress3.toFront();
                 checkBox2.toFront();
@@ -196,35 +294,51 @@ public class MenuController implements Initializable {
                 forwardButton.setVisible(true);
                 break;
             case 3:
+                normalView.setVmax(0.2);
+                normalView.setVvalue(0);
                 progressBar3.toFront();
                 progress4.toFront();
                 checkBox3.toFront();
                 progress4Label.toFront();
                 progress4Label.setStyle("-fx-text-fill: white");
-                //forwardButton.setVisible(false);
+                forwardButton.setVisible(false);
                 break;
             case 4:
                 checkBox4.toFront();
-                forwardButton.setVisible(false);
                 backButton.setVisible(false);
         }
     }
 
     public void search(){
-
+        handlaPage.search();
     }
+
     public void returnHome(){
         setPageToFront(0);
-        backButton.setVisible(false);
-        popupUp = false;
+        openHomeIcon();
         hidePopup();
+    }
 
+    private void openHomeIcon(){
+        ObservableList<String> css = homeButtonIcon.getStyleClass();
+        css.clear();
+        css.add("icon-open");
+        AnchorPane.setBottomAnchor(homeButtonIcon, 0.0);
+    }
+
+    private void closeHomeIcon(){
+        ObservableList<String> css = homeButtonIcon.getStyleClass();
+        css.clear();
+        css.add("icon-open");
+        css.add("icon-closed");
+        AnchorPane.setBottomAnchor(homeButtonIcon, 13.0);
     }
 
     private void setPageToFront(int num){
         this.currentPageIndex = num;
         pages.get(this.currentPageIndex).toFront();
-        pages.get(this.currentPageIndex).open();
+        normalView.setVvalue(0);
+        updateWizardButtons();
     }
 
 
@@ -232,17 +346,43 @@ public class MenuController implements Initializable {
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
+        boolean color = true;
         for (Product p : products) {
-            cartItemController = controllerHashMap.get(p);
-            if (cartItemController == null) {
-                cartItemController = new CartItemController(p);
-                controllerHashMap.put(p, cartItemController);
+            cartItemController = getCartItemController(p);
+            if(color){
+                cartItemController.setStyle("-fx-background-color: #ededed");
+            }else{
+                cartItemController.setStyle("-fx-background-color: white");
             }
+            color = !color;
             controllers.add(cartItemController);
         }
         List<Node> flowPaneChildren = cartFlowPane.getChildren();
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
-        totalPrice.setText("Totalt: " + db.getTotalPrice());
+        totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+    }
+
+    CartItemController getCartItemController(Product p){
+        CartItemController controller = controllerHashMap.get(p);
+        if (controller==null){
+            controller = new CartItemController(p);
+            controllerHashMap.put(p, controller);
+        } else {
+            controller.update();
+        }
+        return controller;
+    }
+
+    public void update(){
+        if (pages.get(currentPageIndex).isDone()){
+            pageNotComplete.setVisible(false);
+        } else {
+            pageNotComplete.setVisible(true);
+        }
+    }
+
+    void varukorgUpdated(){
+        handlaPage.varukorgUpdated();
     }
 }

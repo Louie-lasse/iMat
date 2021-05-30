@@ -16,8 +16,6 @@ import java.util.List;
 
 public class VarukorgPage extends Page{
 
-    private static final HashMap<Product, CartItemController> controllerHashMap = new HashMap<>();
-
     @FXML
     private FlowPane varorFlowPane;
 
@@ -35,15 +33,12 @@ public class VarukorgPage extends Page{
     @Override
     protected void initialize(){
         CartItemController.setParent(this);
-        List<Product> products = db.getCartProducts();
-        for (Product p: products){
-            controllerHashMap.put(p, new CartItemController(p));
-        }
     }
 
     @Override
     public void update() {
-        totalPrice.setText("Totalt: " + db.getTotalPrice());
+        totalPrice.setText("Totalt: " + (double) Math.round(db.getTotalPrice()*100) / 100 + " kr");
+        parent.varukorgUpdated();
     }
 
     @Override
@@ -51,12 +46,15 @@ public class VarukorgPage extends Page{
         List<Product> products = db.getCartProducts();
         CartItemController cartItemController;
         List<CartItemController> controllers = new ArrayList<>();
+        boolean color = true;
         for (Product p: products){
-            cartItemController = controllerHashMap.get(p);
-            if (cartItemController == null){
-                cartItemController = new CartItemController(p);
-                controllerHashMap.put(p, cartItemController);
+            cartItemController = parent.getCartItemController(p);
+            if(color){
+                cartItemController.setStyle("-fx-background-color: #ededed");
+            }else{
+                cartItemController.setStyle("-fx-background-color: white");
             }
+            color = !color;
             cartItemController.update();
             controllers.add(cartItemController);
         }
@@ -64,5 +62,15 @@ public class VarukorgPage extends Page{
         flowPaneChildren.clear();
         flowPaneChildren.addAll(controllers);
         update();
+    }
+
+    @Override
+    public boolean isDone(){
+        return db.getCartProducts().size() != 0;
+    }
+
+    @Override
+    public void displayErrors(){
+        totalPrice.setText("För att fortsätta måste du lägga till produkter i varukorgen");
     }
 }

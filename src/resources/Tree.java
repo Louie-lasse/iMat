@@ -1,6 +1,7 @@
 package resources;
 
 import se.chalmers.cse.dat216.project.IMatDataHandler;
+import se.chalmers.cse.dat216.project.Order;
 import se.chalmers.cse.dat216.project.Product;
 
 import java.util.ArrayList;
@@ -21,7 +22,6 @@ public abstract class Tree {
 
     private Tree parent = null;
     //The tree is mapped in the constructor
-
     protected Tree(Category category) {
         this.category = category;
         treeMap.put(category, this);
@@ -44,6 +44,7 @@ public abstract class Tree {
     public static Tree get(Category c){
         return treeMap.get(c);
     }
+
     @Override
     public String toString() { return category.toString(); }
 

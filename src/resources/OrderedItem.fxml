@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<fx:root prefHeight="130.0" prefWidth="720.0" style="-fx-border-color: #FFA14A; -fx-border-width: 2;" stylesheets="@text.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="image" fitHeight="100.0" fitWidth="152.0" layoutY="-18.0" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="15.0" AnchorPane.leftAnchor="15.0" AnchorPane.topAnchor="15.0">
+         <image>
+            <Image url="@images/product_139.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="name" layoutX="160.0" layoutY="35.0" prefHeight="59.0" prefWidth="220.0" styleClass="font" text="Mums goda bollar mmmm nom nom" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="unit" alignment="CENTER" layoutX="393.0" layoutY="35.0" prefHeight="59.0" prefWidth="118.0" styleClass="font" text="3 st" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="price" alignment="CENTER" layoutX="600.0" layoutY="35.0" prefHeight="59.0" prefWidth="94.0" styleClass="font" text="9 kr" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>

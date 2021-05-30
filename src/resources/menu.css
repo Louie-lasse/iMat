@@ -1,0 +1,55 @@
+.open-item{
+    -fx-background-color: #ededed;
+    -fx-background-radius: 3;
+    -fx-border-color:  #C47C39;
+    -fx-border-radius: 3;
+    -fx-border-width: 3px 3px 0px 3px;
+}
+
+.icon-closed:hover{
+    -fx-background-color: #ededed;
+    -fx-font-size: 16;
+}
+.icon-open{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 32px 32px 0px 0px;
+    -fx-border-color:  #C47C39;
+    -fx-border-radius: 30px 30px 0px 0px;
+    -fx-border-width: 3px 3px 0px 3px;
+}
+
+.icon-closed{
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 32px;
+    -fx-border-color:  #C47C39;
+    -fx-border-radius: 30px;
+    -fx-border-width: 3;
+}
+#forwardBtn{
+    -fx-background-color:  #FFA14A;
+    -fx-background-radius: 10px;
+    -fx-border-color: white;
+    -fx-border-width: 2;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 2;
+    -fx-font-size: 16;
+
+}
+#backBtn{
+    -fx-background-color: #d1d1d1;
+    -fx-background-radius: 10px;
+    -fx-border-color: white;
+    -fx-border-radius: 10px;
+    -fx-border-insets: 2;
+    -fx-border-width: 2;
+    -fx-font-size: 16;
+
+}
+#forwardBtn:hover{
+    -fx-background-color: #f8d568;
+    -fx-font-size: 16;
+}
+#backBtn:hover{
+    -fx-background-color: #dedede;
+    -fx-font-size: 16;
+}

@@ -11,34 +11,30 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<fx:root fx:id="varukorgPage" prefHeight="811.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root fx:id="varukorgPage" prefHeight="704.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" stylesheets="@text.css" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="186.0" layoutY="32.0" text="Varukorg">
-         <font>
-            <Font name="System Bold" size="30.0" />
-         </font>
-      </Label>
-      <Pane layoutX="179.0" layoutY="91.0" prefHeight="644.0" prefWidth="1091.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;">
+      <Pane layoutX="175.0" layoutY="51.0" prefHeight="481.0" prefWidth="1090.0" style="-fx-background-color: #ffffff; -fx-background-radius: 10px;" AnchorPane.leftAnchor="175.0" AnchorPane.rightAnchor="175.0" AnchorPane.topAnchor="50.0">
          <children>
-            <Label layoutX="225.0" layoutY="31.0" text="Vara:">
+            <Label layoutX="225.0" layoutY="31.0" styleClass="font" text="Vara:">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="473.0" layoutY="30.0" text="Antal:">
+            <Label layoutX="473.0" layoutY="30.0" styleClass="font" text="Antal:">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label layoutX="737.0" layoutY="32.0" text="Pris:">
+            <Label layoutX="737.0" layoutY="32.0" styleClass="font" text="Pris:">
                <font>
-                  <Font name="System Bold" size="30.0" />
+                  <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <ScrollPane layoutY="85.0">
+            <ScrollPane hbarPolicy="NEVER" layoutY="85.0" prefHeight="399.0" prefWidth="1089.0">
                <content>
-                  <FlowPane fx:id="varorFlowPane" prefHeight="537.0" prefWidth="1087.0">
+                  <FlowPane fx:id="varorFlowPane" prefHeight="471.0" prefWidth="1087.0">
                      <children>
                         <AnchorPane prefHeight="155.0" prefWidth="1087.0" stylesheets="@ShoppingGridItem.css">
                            <children>
@@ -169,10 +165,15 @@
             </ScrollPane>
          </children>
       </Pane>
-      <Label fx:id="totalPrice" alignment="TOP_RIGHT" layoutX="1074.0" layoutY="736.0" prefHeight="78.0" prefWidth="193.0" text="Total: 100kr">
+      <Label fx:id="totalPrice" alignment="TOP_RIGHT" layoutX="349.0000000000001" layoutY="536.0" prefHeight="78.0" prefWidth="902.0" styleClass="font" text="Total: 100kr" AnchorPane.rightAnchor="188.5999999999999">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
+      <Text layoutX="587.0" layoutY="52.373046875" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="font" text="Varukorg" textAlignment="CENTER" wrappingWidth="263.57614462271704" AnchorPane.leftAnchor="587.0" AnchorPane.rightAnchor="589.423855377283" AnchorPane.topAnchor="10.0">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Text>
    </children>
 </fx:root>
