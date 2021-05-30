@@ -54,42 +54,22 @@
             <String fx:value="orange-text-field" />
             <String fx:value="font" />
          </styleClass></TextField>
-      <AnchorPane layoutX="563.0" layoutY="53.0" onMouseClicked="#add" prefHeight="52.0" prefWidth="52.0">
-         <children>
-            <Button fx:id="plus" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0" style="-fx-border-insets: 0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <styleClass>
-                  <String fx:value="orange-button" />
-                  <String fx:value="round-button" />
-               </styleClass>
-            </Button>
-            <Label alignment="CENTER" layoutX="2.0" layoutY="-5.0" prefHeight="58.0" prefWidth="46.0" text="+">
-               <styleClass>
-                  <String fx:value="button-text" />
-                  <String fx:value="font" />
-               </styleClass></Label>
-         </children>
+      <ImageView fx:id="minus" fitHeight="54.0" fitWidth="54.0" layoutX="423.0" layoutY="52.0" onMouseClicked="#subtract" onMouseEntered="#minusHover" onMouseExited="#minusExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Buttons/grayMinus.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </AnchorPane>
-      <AnchorPane layoutX="424.0" layoutY="54.0" onMouseClicked="#subtract" prefHeight="52.0" prefWidth="54.0">
-         <children>
-            <Button fx:id="minus" mnemonicParsing="false" prefHeight="52.0" prefWidth="52.0">
-               <styleClass>
-                  <String fx:value="round-button" />
-                  <String fx:value="orange-button" />
-               </styleClass>
-            </Button>
-            <Label layoutX="2.0" layoutY="-6.0" prefHeight="58.0" prefWidth="46.0" text="-">
-               <styleClass>
-                  <String fx:value="button-text" />
-                  <String fx:value="font" />
-               </styleClass></Label>
-         </children>
+      </ImageView>
+      <ImageView fx:id="plus" fitHeight="54.0" fitWidth="54.0" layoutX="558.0" layoutY="52.0" onMouseClicked="#add" onMouseEntered="#plusHover" onMouseExited="#plusExited" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/Buttons/orangePlus.png" />
+         </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
-      </AnchorPane>
+      </ImageView>
    </children>
    <stylesheets>
       <URL value="@ShoppingGridItem.css" />
