@@ -175,7 +175,7 @@ public class ProfilePage extends Page{
         cardNumber.setText(BackendAdapter.getCard().getCardNumber());
         month.setText(Integer.toString(BackendAdapter.getCard().getValidMonth()));
         year.setText(Integer.toString(BackendAdapter.getCard().getValidYear()));
-        cvc.setText(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
+        cvc.setText(getCVC());
 
         updatePreviousPurchases();
     }
@@ -199,6 +199,14 @@ public class ProfilePage extends Page{
         customer.setPostCode(zip.getText());
         customer.setPostAddress(city.getText());
 
+    }
+    private String getCVC(){
+        StringBuilder sb = new StringBuilder(Integer.toString(BackendAdapter.getCard().getVerificationCode()));
+        if (sb.length() >= 3) return sb.toString();
+        while (sb.length() < 3) {
+            sb.insert(0, 0);
+        }
+        return sb.toString();
     }
     private void updatePreviousPurchases(){
         List<Order> orders = db.getOrders();
