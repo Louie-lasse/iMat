@@ -23,7 +23,7 @@
     -fx-border-width: 3px;
     -fx-border-color: #EDEDED;
     -fx-border-radius: 26 26 26 26;
-    -fx-background-radius: 26 26 26 26;
+    -fx-background-radius: 30;
     -fx-font-size: 23px;
     -fx-font-weight: bold;
     -fx-alignment: center;
@@ -34,7 +34,7 @@
     -fx-border-width: 3px;
     -fx-border-color: #FFFFFF;
     -fx-border-radius: 26 26 26 26;
-    -fx-background-radius: 26 26 26 26;
+    -fx-background-radius: 30;
     -fx-font-size: 23px;
     -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;

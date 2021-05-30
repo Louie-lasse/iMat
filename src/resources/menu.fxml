@@ -185,9 +185,9 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="varukorgPopupOption" layoutX="1157.0" prefHeight="108.0" prefWidth="82.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane fx:id="varukorgPopupOption" layoutX="1157.0" prefHeight="118.0" prefWidth="120.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="209.0" AnchorPane.topAnchor="0.0">
                <children>
-                  <AnchorPane fx:id="varukorgPopupIcon" layoutY="31.0" onMouseClicked="#openVarukorgPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
+                  <AnchorPane fx:id="varukorgPopupIcon" layoutX="38.0" layoutY="31.0" onMouseClicked="#openVarukorgPopup" prefHeight="82.0" prefWidth="82.0" styleClass="icon-closed" AnchorPane.bottomAnchor="13.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="13.0">
                      <children>
                         <ImageView fitHeight="38.0" fitWidth="45.0" layoutX="21.0" layoutY="36.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -199,6 +199,18 @@
                               <Font size="16.0" />
                            </font>
                         </Text>
+                     </children>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </AnchorPane>
+                  <AnchorPane layoutY="80.0" onMouseClicked="#openVarukorgPopup" prefHeight="38.0" prefWidth="56.0" styleClass="icon-closed" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="64.0">
+                     <children>
+                        <Label fx:id="cartPrice" layoutX="13.0" layoutY="6.0" style="-fx-text-fill: #ffa14a;" text="3">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
                      </children>
                      <cursor>
                         <Cursor fx:constant="HAND" />

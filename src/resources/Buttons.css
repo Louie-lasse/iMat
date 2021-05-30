@@ -58,7 +58,7 @@
     -fx-font-size: 20;
 }
 #clearButton:hover{
-    -fx-background-color: red;
+    -fx-background-color: BB7330;
     -fx-font-size: 20;
     font-weight: bold;
 }
