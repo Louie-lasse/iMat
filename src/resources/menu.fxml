@@ -18,7 +18,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" stylesheets="@text.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
+<AnchorPane minHeight="500.0" minWidth="500.0" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ededed;" stylesheets="@text.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="resources.MenuController">
    <children>
       <Rectangle fx:id="backgroundPrice" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="64.0" layoutX="1121.0" layoutY="97.0" stroke="#c47c39" strokeType="INSIDE" strokeWidth="3.0" width="134.0" AnchorPane.rightAnchor="185.0" AnchorPane.topAnchor="97.0" />
       <Label fx:id="cartValue" layoutX="1174.0" layoutY="117.0" text="0 kr" AnchorPane.rightAnchor="238.8" AnchorPane.topAnchor="117.0">
@@ -267,6 +267,15 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </AnchorPane>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="1112.0" layoutY="66.0" prefHeight="38.0" prefWidth="56.0" styleClass="icon-closed">
+               <children>
+                  <Label fx:id="cartPrice" layoutX="13.0" layoutY="6.0" style="-fx-text-fill: #ffa14a;" text="3">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children>
